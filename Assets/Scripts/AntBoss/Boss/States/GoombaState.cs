@@ -7,9 +7,6 @@ public class GoombaPhase : MonoBehaviour
 {
     [Header("Bug")]
     //[SerializeField] private GoombaBug Bug;
-
-   
-
     [Header("StateMachine")]
     private StateMachine StateMach;
     [SerializeField] private GameObject StateIndicator;
@@ -26,7 +23,6 @@ public class GoombaPhase : MonoBehaviour
         StateIndicator.GetComponent<SpriteRenderer>().color = Color.yellow;
         Spawn();
     }
-
     void FixedUpdate()
     {
         currentTime -= Time.deltaTime;
@@ -34,7 +30,6 @@ public class GoombaPhase : MonoBehaviour
            currentTime = SpawnTime; 
         }
     }
-
     private void Spawn(){
         Pool.Instance.RequestPrefab();
     }

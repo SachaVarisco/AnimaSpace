@@ -32,7 +32,7 @@ public class MeleeAttack : MonoBehaviour
                 //collision.transform.GetComponent<Orb>().Takedamage();
                 //onOrb?.Invoke();
 
-                Destroy(collision.gameObject);
+                collision.gameObject.SetActive(false);
             }
         }
     }
