@@ -9,15 +9,18 @@ public class BossController : MonoBehaviour
     [SerializeField] private GameObject[] States;
     private int Element;
     private GameObject ActualState;
-    [Header ("Observer")]
 
+    [Header ("OrbSpawns")]
+    [SerializeField] private GameObject Orb;
+    [SerializeField] private Transform[] Spawns;
+    [SerializeField] private int StateNoSpawn;
 
     [Header ("Components")]
     private Animator Animator;
     private void Awake() {
-        Element = 0;
-        States[0].SetActive(true);
+        States[Element].SetActive(true);
         ActualState = States[Element];
+        SpawnOrb();
     }
     void Start()
     {
@@ -27,12 +30,11 @@ public class BossController : MonoBehaviour
     private void ActiveSeqStates(){
         ActualState.SetActive(false);
         Element++;
-        ActualState = States[Element];
-        if (ActualState == null)
+        if (Element >= 6)
         {
             Element = 1;
-            ActualState = States[Element];
         }
+        ActualState = States[Element];
         ActualState.SetActive(true);
     }
     private void ActiveRandState(){
@@ -42,6 +44,13 @@ public class BossController : MonoBehaviour
         if (newState != ActualState)
         {
             States[index].SetActive(true);
+        }
+    }
+    private IEnumerator SpawnOrb(){
+        if (Element != StateNoSpawn)
+        {
+            yield return new WaitForSeconds(1f);
+            Orb.SetActive(true); 
         }
     }
 
