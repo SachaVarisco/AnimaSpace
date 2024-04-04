@@ -336,7 +336,8 @@ Transform:
   m_LocalPosition: {x: 0.28, y: 2.94, z: 0}
   m_LocalScale: {x: 0.4805619, y: 2.5111, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 575840680}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &439657753
@@ -396,14 +397,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c31a0c9bbcec944c95fa3949e74ae68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EndTrigger: 0
   SamePosX: 0
   SamePosY: 0
-  Restart: 0
+  WaitTime: 0
+  Restart: 1
   Yoyo: 0
+  ToMovePos: {fileID: 0}
   PosY: 0
   PosX: 0
-  Time: 0
-  Loops: 0
+  LoopTime: 1
+  Loops: 3
 --- !u!1 &470344116
 GameObject:
   m_ObjectHideFlags: 0
@@ -495,6 +499,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &575840679
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 575840680}
+  m_Layer: 0
+  m_Name: PSOITION
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &575840680
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 575840679}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 7.199905, y: -1.4973518, z: -0.022847563}
+  m_LocalScale: {x: 2.0808973, y: 0.39823186, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 439657752}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &677543103
 GameObject:

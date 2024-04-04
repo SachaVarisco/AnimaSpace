@@ -17,6 +17,10 @@ public class BarController : MonoBehaviour
     private float PJ_Scale = 2;
     private float Boss_Scale = 2;
     private float MidBar_Pos = 0.2f;
+
+    [Header("Conditions")]
+    private bool Die;
+    private bool Win;
     private void Start() {
         currentTime = timePerDown; 
         PJ_Bar =  transform.GetChild(3).gameObject.transform;
@@ -27,9 +31,19 @@ public class BarController : MonoBehaviour
     void FixedUpdate()
     {
         currentTime -= Time.deltaTime;
-        if(currentTime <= 0){
+        if(currentTime <= 0 && !Die && !Win){
             ConstantDown();
+            Check();
            currentTime = timePerDown; 
+        }else
+        {
+            if (Die)
+            {
+                Debug.Log("PJ is Dead");
+            }else if (Win)
+            {
+                Debug.Log("Boss is Dead");
+            }
         }
     }
     private void ConstantDown(){
@@ -39,5 +53,11 @@ public class BarController : MonoBehaviour
         PJ_Bar.transform.localScale = new Vector2 (PJ_Scale, 2);
         Boss_Bar.transform.localScale = new Vector2 (Boss_Scale, 2);
         Mid_Bar.position = new Vector2(MidBar_Pos ,-4);
+    }
+    private void Check(){
+        if (PJ_Scale <= 0)
+        {
+            Die = true;
+        }
     }
 }

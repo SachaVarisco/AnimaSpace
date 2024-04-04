@@ -5,6 +5,9 @@ using DG.Tweening;
 
 public class MoveObjects : MonoBehaviour
 {
+    [Header ("Trigger")]
+    [SerializeField] private bool EndTrigger;
+
     [Header ("Same Position?")]
     [SerializeField] private bool SamePosX;
     [SerializeField] private bool SamePosY;
@@ -16,14 +19,36 @@ public class MoveObjects : MonoBehaviour
     [SerializeField] private bool Restart;
     [SerializeField] private bool Yoyo;
 
-    [Header ("Position")]
+    [Header ("ToMovePosition")]
+    [SerializeField]  private Transform ToMovePos;
     [SerializeField] private float PosY;
     [SerializeField] private float PosX;
+    private Vector2  _ToMovePos;
 
     [Header ("Vars")]
     [SerializeField] private float LoopTime;
     [SerializeField] private int Loops;
+
+    [Header ("Advice")]
+    [SerializeField] private bool AlertTrig;
+    private GameObject Alert;
+
+    [Header ("ComeBack")]
+    private Vector2 PosInit;
+
+    private void Awake(){
+        PosInit = gameObject.transform.position;
+    }
     private void OnEnable() {
+        if (AlertTrig)
+        {
+            Alert = transform.GetChild(0).gameObject;
+            Alert.SetActive(true);
+        }
+        PosX = ToMovePos.position.x;
+        PosY = ToMovePos.position.y;
+        _ToMovePos = new Vector2 (PosX,PosY);
+        
         StartCoroutine("Wait");
     }
 
@@ -36,7 +61,6 @@ public class MoveObjects : MonoBehaviour
         {
             PosY = transform.position.y;
         }
-
         if (Restart && !Yoyo)
         {
             TypeRestart();
@@ -51,18 +75,27 @@ public class MoveObjects : MonoBehaviour
         }
     }
     private void TypeRestart(){
-        transform.DOMove(new Vector2 (PosX, PosY), LoopTime).SetLoops(Loops, LoopType.Restart);
+        transform.DOMove(new Vector2 (PosX, PosY), LoopTime).SetLoops(Loops, LoopType.Restart).OnComplete(() => PassState());
     }
     private void TypeYoyo(){
-        transform.DOMove(new Vector2 (PosX, PosY), LoopTime).SetLoops(Loops, LoopType.Yoyo);
+        transform.DOMove(new Vector2 (PosX, PosY), LoopTime).SetLoops(Loops, LoopType.Yoyo).OnComplete(() => PassState());
     }
 
     private IEnumerator Wait(){
         yield return new WaitForSeconds(WaitTime);
+       if (AlertTrig)
+        {
+            Alert.SetActive(false);
+        }
         Move();
-
     }
     private void PassState(){
-
+        gameObject.transform.position = PosInit;
+        if (EndTrigger)
+        {
+            Debug.Log("End Move");
+            //Cambiar estado
+        }
+        
     }
 }
