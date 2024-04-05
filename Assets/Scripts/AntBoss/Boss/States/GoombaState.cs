@@ -21,7 +21,7 @@ public class GoombaPhase : MonoBehaviour
     }
     private void OnEnable() {
         StateIndicator.GetComponent<SpriteRenderer>().color = Color.yellow;
-        Spawn();
+        //Spawn();
     }
     void FixedUpdate()
     {
