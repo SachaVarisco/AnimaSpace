@@ -44,6 +44,8 @@ public class BossController : MonoBehaviour
         if (newState != ActualState)
         {
             States[index].SetActive(true);
+        }else{
+            
         }
     }
     private IEnumerator SpawnOrb(){
