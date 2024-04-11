@@ -89,13 +89,19 @@ public class MoveObjects : MonoBehaviour
         }
         Move();
     }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        if (other.gameObject.CompareTag("Player")){
+            other.gameObject.GetComponent<PlayerLifeController>().Rebound(other.GetContact(0).normal);
+        }
+    }
     private void PassState(){
-        gameObject.transform.position = PosInit;
         if (EndTrigger)
         {
-            Debug.Log("End Move");
-            //Cambiar estado
+            transform.parent.gameObject.transform.parent.gameObject.GetComponent<StateMachine>().ActiveSeqState();
         }
-        
+    }
+    private void OnDisable() {
+        gameObject.transform.position = PosInit;
     }
 }

@@ -31,6 +31,7 @@ public class FloorAnt : MonoBehaviour
             Alert.SetActive(true);
             StartCoroutine("Wait");
         }else{
+            count = 0;
             PassState();
         }
     }
@@ -41,7 +42,7 @@ public class FloorAnt : MonoBehaviour
     }
 
     private void PassState(){
-        Debug.Log("Pass State");
+        transform.parent.gameObject.transform.parent.gameObject.GetComponent<StateMachine>().ActiveSeqState();
     }
 }
 
