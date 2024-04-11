@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Orb
   - Enemy
+  - Boss
+  - Canva
   layers:
   - Default
   - TransparentFX

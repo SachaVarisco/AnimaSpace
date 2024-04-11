@@ -13,8 +13,9 @@ public class RoofAnts : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void OnDisable()
     {
-        
+        float PosY2 = 1.12f;
+        gameObject.transform.DOMoveY(PosY2, 1);
     }
 }

@@ -7,28 +7,22 @@ public class ChopState : MonoBehaviour
     [Header("StateMachine")]
     [SerializeField] private GameObject StateIndicator;
 
-    [Header("Heads")]
-    [SerializeField] private GameObject[] Heads;
-    void Start()
-    {
-
-    }
+    [Header("State object")]
+    public GameObject StateObj;
+    //[Header("Heads")]
+    //[SerializeField] private GameObject[] Heads;
+    
+    
     private void OnEnable() {
         StateIndicator.GetComponent<SpriteRenderer>().color = Color.magenta;
+        gameObject.GetComponent<Animator>().SetTrigger("Chop");
+        StartCoroutine("Wait");
     }
-
-    private void HeadsControl(){
-
+    IEnumerator Wait(){
+        yield return new WaitForSeconds(2f);
+        StateObj.SetActive(true);
     }
-
-    /*private void ActiveSeqStates(){
-        ActualState.SetActive(false);
-        Element++;
-        if (Element >= 6)
-        {
-            Element = 1;
-        }
-        ActualState = States[Element];
-        ActualState.SetActive(true);
-    }*/
+    private void OnDisable() {
+        StateObj.SetActive(false);
+    }
 }

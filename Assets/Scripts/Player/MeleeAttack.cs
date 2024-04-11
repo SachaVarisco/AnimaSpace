@@ -29,9 +29,8 @@ public class MeleeAttack : MonoBehaviour
         {
             if (collision.CompareTag("Orb"))
             {
-                //collision.transform.GetComponent<Orb>().Takedamage();
-                //onOrb?.Invoke();
-
+                GameObject Boss = GameObject.FindGameObjectWithTag("Boss");
+                Boss.GetComponent<StateMachine>().ActiveStun();
                 collision.gameObject.SetActive(false);
             }
         }
