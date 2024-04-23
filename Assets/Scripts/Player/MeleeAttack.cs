@@ -31,6 +31,8 @@ public class MeleeAttack : MonoBehaviour
             {
                 GameObject Boss = GameObject.FindGameObjectWithTag("Boss");
                 Boss.GetComponent<StateMachine>().ActiveStun();
+                BarController Bar = GameObject.FindGameObjectWithTag("Canva").transform.GetChild(0).gameObject.transform.GetChild(1).gameObject.GetComponent<BarController>();
+                Bar.Orb();
                 collision.gameObject.SetActive(false);
             }
         }

@@ -369,19 +369,19 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 76602645}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47438e464a9eadd4daf47a93f859d9e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   stateArray:
-  - {fileID: 76602656}
   - {fileID: 76602655}
   - {fileID: 76602654}
   - {fileID: 76602653}
   - {fileID: 76602657}
   - {fileID: 76602652}
   - {fileID: 76602658}
+  StateIndicator: {fileID: 1273453646}
   Orb: {fileID: 33746055}
 --- !u!95 &76602650
 Animator:
@@ -411,7 +411,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 76602645}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3280f3563cc409646b9e71ae97326e85, type: 3}
   m_Name: 
@@ -3228,7 +3228,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7747732720839601109, guid: 1a3fe254055bd7240a22260d175b23d6, type: 3}
       propertyPath: LoopTime
-      value: 3
+      value: 3.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747732720839601109, guid: 1a3fe254055bd7240a22260d175b23d6, type: 3}
+      propertyPath: EndTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4464,7 +4468,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -4484,7 +4488,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1603314689}
   m_HandleRect: {fileID: 1603314688}
   m_Direction: 0

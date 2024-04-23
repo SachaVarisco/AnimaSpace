@@ -19,18 +19,13 @@ public class StunnedState : MonoBehaviour
     #endregion
     private void Awake() {
         StateMach = GetComponent<StateMachine>();
-        Bar = GameObject.FindGameObjectWithTag("Canva").transform.GetChild(0).gameObject.transform.GetChild(1).gameObject.GetComponent<BarController>();
     }
     private void OnEnable() {
-        Bar.Orb();
         StateIndicator.GetComponent<SpriteRenderer>().color = Color.gray;
         gameObject.GetComponent<Animator>().SetTrigger("Stunned");
         currentTime = timer;
     }
-    private void FixedUpdate() {
-        currentTime -= Time.deltaTime;
-        if (currentTime <= 0) {
-            GetComponent<StateMachine>().ActiveIdle();
-        }
+    public void ActiveIdleAgain() {
+        GetComponent<StateMachine>().StartCoroutine("WaitInIdle");
     }
 }

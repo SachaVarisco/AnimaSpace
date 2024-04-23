@@ -17,13 +17,7 @@ public class FloorAnt : MonoBehaviour
         count = 0;
         Repeat();
     }
-    private IEnumerator Wait(){
-        float PosY = -2.35f;
-        yield return new WaitForSeconds(1f);
-        Alert.SetActive(false);
-        gameObject.transform.DOMoveY(PosY, 0.5f).SetLoops(2, LoopType.Yoyo).OnComplete(() => Repeat());
-        count++;
-    }
+
     private void Repeat(){
         if (count <= 4)
         {
@@ -35,6 +29,14 @@ public class FloorAnt : MonoBehaviour
             PassState();
         }
     }
+
+    private IEnumerator Wait(){
+        float PosY = -2.35f;
+        yield return new WaitForSeconds(1f);
+        Alert.SetActive(false);
+        gameObject.transform.DOMoveY(PosY, 0.5f).SetLoops(2, LoopType.Yoyo).OnComplete(() => Repeat());
+        count++;
+    }
     private void OnCollisionEnter2D(Collision2D other) {
         if(other.gameObject.tag == "Player"){
             other.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, force));
@@ -43,6 +45,9 @@ public class FloorAnt : MonoBehaviour
 
     private void PassState(){
         transform.parent.gameObject.transform.parent.gameObject.GetComponent<StateMachine>().ActiveSeqState();
+    }
+    private void OnDisable(){
+        count = 0;
     }
 }
 

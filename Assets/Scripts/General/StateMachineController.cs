@@ -8,17 +8,16 @@ public class StateMachine : MonoBehaviour
     public MonoBehaviour[] stateArray;
     private MonoBehaviour ActualState;
     private MonoBehaviour NextState;
-    private MonoBehaviour IdleState;
     private int StateCount;
+    [SerializeField] private GameObject StateIndicator;
 
     [Header ("OrbSpawns")]
     [SerializeField] private GameObject Orb;
 
     private void Start()
     {
-        StateCount = 1;
-        IdleState = stateArray[0];
-        ActivateState(IdleState);
+        StateCount = 0;
+        StartCoroutine("WaitInIdle");
     }
     private void ActivateState(MonoBehaviour newState){
         if (ActualState != null)
@@ -33,7 +32,7 @@ public class StateMachine : MonoBehaviour
     public void ActiveNextState(){
         if (NextState == null)
         {
-            ActivateState(stateArray[1]);
+            ActivateState(stateArray[0]);
         }else{
             ActivateState(NextState);
         }
@@ -41,33 +40,43 @@ public class StateMachine : MonoBehaviour
     }
 
     public void ActiveSeqState(){ 
+        Debug.Log("SeqState");
         Orb.SetActive(false);
         StateCount++;
         NextState = stateArray[StateCount];
-        if (StateCount >= 6)
+        if (StateCount >= 5)
         {
-            StateCount = 1;
+            StateCount = 0;
             NextState = stateArray[StateCount];
-            ActivateState(IdleState);
+            StartCoroutine("WaitInIdle");
         }else {
-            ActivateState(IdleState);
+            StartCoroutine("WaitInIdle");
         }
     }
 
     public void ActiveStun(){
         ActualState.enabled = false; 
-        ActualState = stateArray[6];
-        StateCount++;
-        NextState = stateArray[StateCount];
+        ActualState = stateArray[5];
+        if (StateCount >= 5)
+        {
+            StateCount = 0;
+            NextState = stateArray[StateCount];
+        }else {
+            StateCount++;
+            NextState = stateArray[StateCount];
+        }
+        
         ActualState.enabled = true;
     }
-    public void ActiveIdle(){
-        ActivateState(IdleState);
+    public IEnumerator WaitInIdle(){
+        StateIndicator.GetComponent<SpriteRenderer>().color = Color.green;
+        yield return new WaitForSeconds(2);
+        ActiveNextState();
     }
 
     private IEnumerator SpawnOrb(){
         yield return new WaitForSeconds(3);
-        if (ActualState != stateArray[3])
+        if (ActualState != stateArray[2])
         {
             Orb.SetActive(true);
         }

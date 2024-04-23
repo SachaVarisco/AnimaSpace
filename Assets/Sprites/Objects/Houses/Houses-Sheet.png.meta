@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 13e7a290341cb9048a43a5bde1d9649f
+guid: d71449f561261604c8b7e3b26f3bc0db
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -37,9 +37,9 @@ TextureImporter:
     filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 40
+  spritePixelsToUnits: 50
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,232 +110,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Fox_SpriteSheet_0
+      name: Houses-Sheet_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 130
-        width: 25
-        height: 40
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 6
+        y: 0
+        width: 146
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bbe493034e6c3c44199019257fa1c206
-      internalID: -443817727
+      spriteID: 2a51e55b6deab63429110852249be6ba
+      internalID: -2020552236
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox_SpriteSheet_1
+      name: Houses-Sheet_1
       rect:
         serializedVersion: 2
-        x: 49
-        y: 130
-        width: 23
-        height: 39
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 166
+        y: 0
+        width: 146
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3fcdfdadcdf951a41af261d725e2c537
-      internalID: -499487100
+      spriteID: 19ef6960441d4d2458f57a5f8ac5246d
+      internalID: 660772968
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox_SpriteSheet_2
+      name: Houses-Sheet_2
       rect:
         serializedVersion: 2
-        x: 91
-        y: 130
-        width: 23
-        height: 39
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 326
+        y: 0
+        width: 146
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b691c503fa9cfda4db5e28b706bd4dcb
-      internalID: -1141551047
+      spriteID: 4965e948efecd264b96369eed5c5a636
+      internalID: -446084536
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox_SpriteSheet_3
+      name: Houses-Sheet_3
       rect:
         serializedVersion: 2
-        x: 8
-        y: 89
-        width: 25
-        height: 40
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 483
+        y: 0
+        width: 152
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 129c323421be80649af2993aa0260cb6
-      internalID: 1624162648
+      spriteID: fa4a2c1e37d679c4c8932a97d9ff283b
+      internalID: 1846961713
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox_SpriteSheet_4
+      name: Houses-Sheet_4
       rect:
         serializedVersion: 2
-        x: 44
-        y: 89
-        width: 33
-        height: 39
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 643
+        y: 0
+        width: 152
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 736e2e6992fcecd45a67bbbdf337963b
-      internalID: 1994499948
+      spriteID: 25a4c9cf872b5e543ac09fa728a075f4
+      internalID: 555838711
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox_SpriteSheet_5
+      name: Houses-Sheet_5
       rect:
         serializedVersion: 2
-        x: 86
-        y: 89
-        width: 33
-        height: 39
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 807
+        y: 0
+        width: 146
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e310d96595d04df42ad685dd218525fc
-      internalID: -2088637809
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fox_SpriteSheet_6
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 46
-        width: 38
-        height: 40
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 624d4772ae0925d4281e4632bb06ef83
-      internalID: 1649972101
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fox_SpriteSheet_7
-      rect:
-        serializedVersion: 2
-        x: 41
-        y: 46
-        width: 38
-        height: 39
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8bbba1daa97228444b4be603c60ffe79
-      internalID: -1597354502
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fox_SpriteSheet_8
-      rect:
-        serializedVersion: 2
-        x: 82
-        y: 46
-        width: 38
-        height: 39
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7cc20cae832e475438f564a6c75592e8
-      internalID: -273704184
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fox_SpriteSheet_9
-      rect:
-        serializedVersion: 2
-        x: 4
-        y: 4
-        width: 36
-        height: 40
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6c9bf91c81baf84418361d9369787f2a
-      internalID: -1837854971
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fox_SpriteSheet_10
-      rect:
-        serializedVersion: 2
-        x: 44
-        y: 4
-        width: 36
-        height: 39
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e4c6f3e48f9d4f5408427e0d3b945ef5
-      internalID: -1397404659
+      spriteID: cd6d8c89c3e2e4443a60e3501e3dc21a
+      internalID: 77762230
       vertices: []
       indices: 
       edges: []
@@ -351,17 +246,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Fox_SpriteSheet_0: -443817727
-      Fox_SpriteSheet_1: -499487100
-      Fox_SpriteSheet_10: -1397404659
-      Fox_SpriteSheet_2: -1141551047
-      Fox_SpriteSheet_3: 1624162648
-      Fox_SpriteSheet_4: 1994499948
-      Fox_SpriteSheet_5: -2088637809
-      Fox_SpriteSheet_6: 1649972101
-      Fox_SpriteSheet_7: -1597354502
-      Fox_SpriteSheet_8: -273704184
-      Fox_SpriteSheet_9: -1837854971
+      Houses-Sheet_0: -2020552236
+      Houses-Sheet_1: 660772968
+      Houses-Sheet_2: -446084536
+      Houses-Sheet_3: 1846961713
+      Houses-Sheet_4: 555838711
+      Houses-Sheet_5: 77762230
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
