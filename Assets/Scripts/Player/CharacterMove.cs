@@ -7,6 +7,7 @@ public class CharacterMove : MonoBehaviour
     [Header("PJ")]
     public bool isDeath = false;
     [Header("Move")]
+    public bool talking;
     public float speed;
     private float horizontalMove;
     
@@ -46,12 +47,12 @@ public class CharacterMove : MonoBehaviour
         jump = false; 
     }
     private void Move(bool jump){
-        if (Input.GetAxis("Horizontal")!= 0 /*&& !talking*/)
+        if (Input.GetAxis("Horizontal")!= 0 && !talking)
         {  
             transform.position += new Vector3(horizontalMove, 0);
             animator.SetFloat("MoveX",Mathf.Abs(horizontalMove));
         }
-        if(inGround && jump /*&& !talking*/)
+        if(inGround && jump && !talking)
         {
             inGround = false;
             rb2D.AddForce(new Vector2(0, force));

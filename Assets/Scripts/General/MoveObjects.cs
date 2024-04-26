@@ -98,7 +98,7 @@ public class MoveObjects : MonoBehaviour
     private void PassState(){
         if (EndTrigger)
         {
-            transform.parent.gameObject.transform.parent.gameObject.GetComponent<StateMachine>().ActiveSeqState();
+            transform.parent.gameObject.transform.parent.gameObject.GetComponent<StateMachine>().PassState();
         }
     }
     private void OnDisable() {

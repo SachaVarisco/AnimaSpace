@@ -12,6 +12,7 @@ public class StunnedState : MonoBehaviour
     #region Timer
     private  float timer = 2;
     private float currentTime;
+    private bool CanPass;
     #endregion
 
     #region Canva
@@ -24,8 +25,24 @@ public class StunnedState : MonoBehaviour
         StateIndicator.GetComponent<SpriteRenderer>().color = Color.gray;
         gameObject.GetComponent<Animator>().SetTrigger("Stunned");
         currentTime = timer;
+        CanPass = true;
+        //StartCoroutine("ActiveIdleAgain");
     }
-    public void ActiveIdleAgain() {
+    private void FixedUpdate() {
+        currentTime -= Time.deltaTime;
+        if (currentTime <= 0 && CanPass)
+        {
+            CanPass = false;
+            ActiveIdleAgain();
+        }
+    }
+    
+    /*private IEnumerator ActiveIdleAgain() {
+        yield return new WaitForSeconds(1);
+        GetComponent<StateMachine>().StartCoroutine("WaitInIdle");
+    }*/
+
+    private void ActiveIdleAgain(){
         GetComponent<StateMachine>().StartCoroutine("WaitInIdle");
     }
 }

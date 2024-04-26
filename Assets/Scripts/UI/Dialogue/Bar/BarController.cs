@@ -11,11 +11,15 @@ public class BarController : MonoBehaviour
     [SerializeField]  private float timePerDown;
 
     [Header("Values")]
+    public bool stopDamage;
     [SerializeField] private Image Bar;
     [SerializeField] private Scrollbar HandleValue;
     [SerializeField] private float ConstantDamage;
     [SerializeField] private float OrbDamage;
     [SerializeField] private float PlayerDamage;
+
+    [Header("Tutorial")]
+    [SerializeField] private bool Tutorial;
 
     #region Conditions
     private bool Die;
@@ -28,22 +32,22 @@ public class BarController : MonoBehaviour
     void FixedUpdate()
     {
         currentTime -= Time.deltaTime;
-        if(currentTime <= 0 && !Die && !Win){
+        if(currentTime <= 0 && !Die && !Win && !stopDamage){
             ConstantDown();
-            Check();
            currentTime = timePerDown; 
         }else
         {
-            if (Bar.fillAmount <= 0)
+            if (Bar.fillAmount <= 0 && !Tutorial)
             {
                 //Lose
                 Die = true;
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            }else if (Bar.fillAmount >= 1)
+            }else if (Bar.fillAmount >= 1 && !Tutorial)
             {
-                //Win
+                
                 Win = true;
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+   
             }
         }
     }
@@ -51,16 +55,18 @@ public class BarController : MonoBehaviour
         Bar.fillAmount += ConstantDamage;
         HandleValue.value -= ConstantDamage;
     }
-    private void Check(){
-        if (HandleValue.value == 0)
-        {
-            Die = true;
-        }
-    }
 
     public void Orb(){
-        Bar.fillAmount -= OrbDamage;
-        HandleValue.value += OrbDamage;
+        if (Tutorial){
+            GameObject boss = GameObject.FindGameObjectWithTag("Boss");
+            boss.GetComponent<TutoStateMachine>().PassState();
+            Bar.fillAmount -= OrbDamage;
+            HandleValue.value += OrbDamage;
+        }else{
+            Bar.fillAmount -= OrbDamage;
+            HandleValue.value += OrbDamage;
+        }
+        
     }
 
     public void PlayerDamaged(){

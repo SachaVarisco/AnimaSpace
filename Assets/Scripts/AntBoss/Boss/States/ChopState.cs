@@ -10,20 +10,10 @@ public class ChopState : MonoBehaviour
     [Header("State object")]
     public GameObject StateObj;
     
-    [Header("Timer")]
-    private  float timer = 2f;
-    private float currentTime;
     private void OnEnable() {
         StateIndicator.GetComponent<SpriteRenderer>().color = Color.magenta;
         gameObject.GetComponent<Animator>().SetTrigger("Chop");
-        //currentTime = timer;
     }
-    /*private void FixedUpdate() {
-        currentTime -= Time.deltaTime;
-        if (currentTime <= 0) {
-            Wait();
-        }
-    }*/
     public void ActiveStateObjChop(){
         StateObj.SetActive(true);
     }

@@ -19,7 +19,7 @@ public class FloorAnt : MonoBehaviour
     }
 
     private void Repeat(){
-        if (count <= 4)
+        if (count <= 2)
         {
             transform.position = new Vector2(Player.transform.position.x, transform.position.y);
             Alert.SetActive(true);
@@ -44,7 +44,7 @@ public class FloorAnt : MonoBehaviour
     }
 
     private void PassState(){
-        transform.parent.gameObject.transform.parent.gameObject.GetComponent<StateMachine>().ActiveSeqState();
+        transform.parent.gameObject.transform.parent.gameObject.GetComponent<StateMachine>().PassState();
     }
     private void OnDisable(){
         count = 0;

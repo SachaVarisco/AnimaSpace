@@ -11,9 +11,6 @@ public class AntHillState : MonoBehaviour
     private StateMachine StateMach;
     [SerializeField] private GameObject StateIndicator;
 
-    [Header("Timer")]
-    private  float timer = 2f;
-    private float currentTime;
     void Start()
     {
         StateMach = GetComponent<StateMachine>();
@@ -22,14 +19,7 @@ public class AntHillState : MonoBehaviour
     private void OnEnable() {
         StateIndicator.GetComponent<SpriteRenderer>().color = Color.red;
         gameObject.GetComponent<Animator>().SetTrigger("Anthill");
-        //currentTime = timer;
     }
-    /*private void FixedUpdate() {
-        currentTime -= Time.deltaTime;
-        if (currentTime <= 0) {
-            Wait();
-        }
-    }*/
     public void ActiveStateObjAntHill(){
         StateObj.SetActive(true);
     }

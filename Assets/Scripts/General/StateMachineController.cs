@@ -5,9 +5,11 @@ using UnityEngine;
 public class StateMachine : MonoBehaviour
 {
     [Header ("States")]
+    //private bool canPassState;
     public MonoBehaviour[] stateArray;
     private MonoBehaviour ActualState;
     private MonoBehaviour NextState;
+    [SerializeField] private MonoBehaviour StunnedState;
     private int StateCount;
     [SerializeField] private GameObject StateIndicator;
 
@@ -36,10 +38,31 @@ public class StateMachine : MonoBehaviour
         }else{
             ActivateState(NextState);
         }
-        StartCoroutine("SpawnOrb");
+        
     }
 
-    public void ActiveSeqState(){ 
+    private void ActiveSeqState(){
+        StateCount++;
+        int index = Random.Range(0,stateArray.Length);
+        if(StateCount <= 3){
+            //canPassState = false;
+            if (ActualState == stateArray[index])
+            {
+                index = Random.Range(0,stateArray.Length);
+                ActivateState(stateArray[index]);
+            }else {
+                ActivateState(stateArray[index]);
+            }
+        }else{ 
+            
+            StateCount = 0;
+            ActivateState(StunnedState);
+            StartCoroutine("SpawnOrb");
+        }
+        
+    }
+
+    /*public void ActiveSeqState(){ 
         Debug.Log("SeqState");
         Orb.SetActive(false);
         StateCount++;
@@ -52,9 +75,9 @@ public class StateMachine : MonoBehaviour
         }else {
             StartCoroutine("WaitInIdle");
         }
-    }
+    }*/
 
-    public void ActiveStun(){
+    /*public void ActiveStun(){
         ActualState.enabled = false; 
         ActualState = stateArray[5];
         if (StateCount >= 5)
@@ -67,18 +90,23 @@ public class StateMachine : MonoBehaviour
         }
         
         ActualState.enabled = true;
-    }
+    }*/
     public IEnumerator WaitInIdle(){
         StateIndicator.GetComponent<SpriteRenderer>().color = Color.green;
         yield return new WaitForSeconds(2);
-        ActiveNextState();
+        if (StateCount == 0)
+        {
+            ActiveSeqState();
+        }
     }
 
     private IEnumerator SpawnOrb(){
+        Orb.SetActive(true);
         yield return new WaitForSeconds(3);
-        if (ActualState != stateArray[2])
-        {
-            Orb.SetActive(true);
-        }
+        Orb.SetActive(false);
+    }
+
+    public void PassState(){
+        ActiveSeqState();
     }
 }

@@ -7,15 +7,15 @@ public class MeleeAttack : MonoBehaviour
     [Header ("Attack")]
     [SerializeField] private Transform AttackController;
     [SerializeField] private float AttackRadius;
-
     [Header ("Comoponents")]
     private Animator Animator;
     private void Start() {
         Animator = GetComponent<Animator>();
+
     }
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && !GetComponent<CharacterMove>().talking)
         {
             Animator.SetTrigger("Attack");
         }
@@ -29,8 +29,6 @@ public class MeleeAttack : MonoBehaviour
         {
             if (collision.CompareTag("Orb"))
             {
-                GameObject Boss = GameObject.FindGameObjectWithTag("Boss");
-                Boss.GetComponent<StateMachine>().ActiveStun();
                 BarController Bar = GameObject.FindGameObjectWithTag("Canva").transform.GetChild(0).gameObject.transform.GetChild(1).gameObject.GetComponent<BarController>();
                 Bar.Orb();
                 collision.gameObject.SetActive(false);

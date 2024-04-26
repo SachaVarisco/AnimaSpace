@@ -18,7 +18,7 @@ public class ChopControl : MonoBehaviour
             Chop.SetActive(true);
         }else{
             Child = 0;
-            transform.parent.gameObject.GetComponent<StateMachine>().ActiveSeqState();
+            transform.parent.gameObject.GetComponent<StateMachine>().PassState();
         }
     }
     public void NewHead(){

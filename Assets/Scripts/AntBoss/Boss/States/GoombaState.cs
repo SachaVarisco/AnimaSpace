@@ -11,10 +11,6 @@ public class GoombaPhase : MonoBehaviour
     [Header("StateMachine")]
     private StateMachine StateMach;
     [SerializeField] private GameObject StateIndicator;
-
-    [Header("Timer")]
-    private  float timer = 2f;
-    private float currentTime;
     void Start()
     {
         StateMach = GetComponent<StateMachine>();
@@ -22,14 +18,7 @@ public class GoombaPhase : MonoBehaviour
     private void OnEnable() {
         StateIndicator.GetComponent<SpriteRenderer>().color = Color.yellow;
         gameObject.GetComponent<Animator>().SetTrigger("Goomba");
-        currentTime = timer;
     }
-    /*private void FixedUpdate() {
-        currentTime -= Time.deltaTime;
-        if (currentTime <= 0) {
-            Wait();
-        }
-    }*/
     public void ActiveStateObjGoom(){
         StateObj.transform.GetChild(0).gameObject.SetActive(true);
         StateObj.transform.GetChild(1).gameObject.SetActive(true);
