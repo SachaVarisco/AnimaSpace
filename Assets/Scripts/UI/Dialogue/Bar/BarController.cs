@@ -32,17 +32,17 @@ public class BarController : MonoBehaviour
     void FixedUpdate()
     {
         currentTime -= Time.deltaTime;
-        if(currentTime <= 0 && !Die && !Win && !stopDamage){
+        if(currentTime <= 0 && !Die && !Win){
             ConstantDown();
            currentTime = timePerDown; 
         }else
         {
-            if (Bar.fillAmount <= 0 && !Tutorial)
+            if (Bar.fillAmount <= 0)
             {
                 //Lose
                 Die = true;
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            }else if (Bar.fillAmount >= 1 && !Tutorial)
+            }else if (Bar.fillAmount >= 1)
             {
                 
                 Win = true;

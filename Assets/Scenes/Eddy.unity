@@ -627,6 +627,7 @@ MonoBehaviour:
   Combat: 0
   Tutorial: 1
   EndTutorial: 0
+  Mark: 0
 --- !u!1 &363436121
 GameObject:
   m_ObjectHideFlags: 0
@@ -1571,6 +1572,7 @@ MonoBehaviour:
   Combat: 0
   Tutorial: 1
   EndTutorial: 0
+  Mark: 0
 --- !u!4 &1079736822 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 860927735819687831, guid: 750806cd56bd3044aa0e2e11bd3c76f2, type: 3}
@@ -1808,8 +1810,9 @@ MonoBehaviour:
   face: {fileID: -1104469189, guid: 40e0892a43cd8cf4ca5e5499d5037ded, type: 3}
   characName: Eddy
   Combat: 0
-  Tutorial: 0
+  Tutorial: 1
   EndTutorial: 1
+  Mark: 0
 --- !u!1 &1305918062
 GameObject:
   m_ObjectHideFlags: 0
@@ -2427,6 +2430,7 @@ MonoBehaviour:
   Combat: 0
   Tutorial: 1
   EndTutorial: 0
+  Mark: 0
 --- !u!1 &1758643081
 GameObject:
   m_ObjectHideFlags: 0
@@ -3231,6 +3235,7 @@ MonoBehaviour:
   Combat: 0
   Tutorial: 1
   EndTutorial: 0
+  Mark: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

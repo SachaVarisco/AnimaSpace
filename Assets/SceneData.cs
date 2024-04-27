@@ -10,7 +10,7 @@ public class SceneData : MonoBehaviour
     public bool tutorialPassed;
     public bool key;
 
-    private void awake()
+    private void Awake()
     {
         if (SceneData.Instance == null)
         {
@@ -20,8 +20,9 @@ public class SceneData : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (scene.name == "Menu")
         {
@@ -31,7 +32,7 @@ public class SceneData : MonoBehaviour
         
         if(scene.name == "World" && tutorialPassed){
             Transform Spawn = GameObject.FindGameObjectWithTag("Spawn").transform;
-            Transform player = GameObject.FindGameObjectWithTag("Spawn").transform;
+            Transform player = GameObject.FindGameObjectWithTag("Player").transform;
             player.position = new Vector2(Spawn.position.x, Spawn.position.y);
             GameObject.FindGameObjectWithTag("Eddy").transform.GetChild(0).gameObject.SetActive(false);
             GameObject.FindGameObjectWithTag("Eddy").transform.GetChild(1).gameObject.SetActive(true);
