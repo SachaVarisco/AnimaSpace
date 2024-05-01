@@ -11,10 +11,6 @@ public class SceneData : MonoBehaviour
     public bool tutorialPassed;
     public bool key;
 
-    private bool Lose;
-    private bool Win;
-    private GameObject Pause;
-
     private void Awake()
     {
         if (SceneData.Instance == null)
@@ -25,8 +21,9 @@ public class SceneData : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
-    public void OnSceneLoaded()
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (SceneManager.GetActiveScene().name == "Menu")
         {
@@ -34,32 +31,14 @@ public class SceneData : MonoBehaviour
             tutorialPassed = false;
         }
         
-        if(SceneManager.GetActiveScene().name == "World"){
-            if (tutorialPassed == true)
-            {
-                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerWorldControl>().CanMove = true;
-                GameObject.FindGameObjectWithTag("Eddy").transform.GetChild(0).gameObject.SetActive(false);
-                GameObject.FindGameObjectWithTag("Eddy").transform.GetChild(1).gameObject.SetActive(true);
-            }
-            if (Lose)
-            {
-                Lose = false;
-                Transform Spawn = GameObject.FindGameObjectWithTag("Spawn").transform;
-                Transform player = GameObject.FindGameObjectWithTag("Player").transform;
-                player.position = new Vector2(Spawn.position.x, Spawn.position.y);
-
-                Destroy(GameObject.FindGameObjectWithTag("RockWall"));
-            }    
+        if(scene.name == "World" && tutorialPassed){
+            Transform Spawn = GameObject.FindGameObjectWithTag("Spawn").transform;
+            Transform player = GameObject.FindGameObjectWithTag("Spawn").transform;
+            player.position = new Vector2(Spawn.position.x, Spawn.position.y);
+            GameObject.FindGameObjectWithTag("Eddy").transform.GetChild(0).gameObject.SetActive(false);
+            GameObject.FindGameObjectWithTag("Eddy").transform.GetChild(1).gameObject.SetActive(true);
         }
-
     }
-    /*private void Update() {
-        if (Input.GetButtonDown("Pause") && Pause != null)
-        {
-            Time.timeScale = 0f;
-            Pause.SetActive(true);
-        }
-    }*/
 
     public void Key(){
         key = true;

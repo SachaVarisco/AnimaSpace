@@ -143,7 +143,7 @@ public class DialogueControl : MonoBehaviour
                 player.GetComponent<CharacterMove>().talking = false;
                 Boss.SetBool("Talking", false);
             }
-            if (Tutorial)
+            if (Tutorial && !EndTutorial)
             {
                 StartCoroutine("PassTutorial");
             }
