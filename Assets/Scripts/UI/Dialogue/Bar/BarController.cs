@@ -39,12 +39,10 @@ public class BarController : MonoBehaviour
         {
             if (Bar.fillAmount <= 0)
             {
-
                 SceneData.Instance.Winner();
             }else if (Bar.fillAmount >= 1)
             {
                 SceneData.Instance.Loser();
-
             }
         }
     }

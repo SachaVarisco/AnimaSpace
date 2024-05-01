@@ -550,7 +550,7 @@ MonoBehaviour:
   m_text: Usa "espacio" para interactuar con el mundo.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 548c184c11a29774fb2c1a76a8eaffba, type: 2}
-  m_sharedMaterial: {fileID: -7178473584600642132, guid: 548c184c11a29774fb2c1a76a8eaffba, type: 2}
+  m_sharedMaterial: {fileID: -7858055989360777895, guid: 548c184c11a29774fb2c1a76a8eaffba, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -688,7 +688,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e73fa3497956a9e4980f521352e7509b, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1148,3 +1148,6 @@ SceneRoots:
   - {fileID: 187431082}
   - {fileID: 1396817048}
   - {fileID: 238278757}
+  - {fileID: 1234533792}
+  - {fileID: 1366588875}
+  - {fileID: 1817503356}

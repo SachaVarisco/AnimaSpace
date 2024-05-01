@@ -25,3 +25,4 @@ public class FoxyBroControl : MonoBehaviour
         transform.GetChild(0).gameObject.GetComponent<DialogueControl>().autoDialogue = true;
     }
 }
+ 

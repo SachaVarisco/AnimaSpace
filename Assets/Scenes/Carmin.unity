@@ -4674,7 +4674,7 @@ MonoBehaviour:
   HandleValue: {fileID: 2101849859}
   ConstantDamage: 0.005
   OrbDamage: 0.3
-  PlayerDamage: 0.5
+  PlayerDamage: 0.05
   Tutorial: 0
 --- !u!1 &2109350048
 GameObject:

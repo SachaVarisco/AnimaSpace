@@ -10,6 +10,7 @@ public class SceneData : MonoBehaviour
 
     public bool tutorialPassed;
     public bool key;
+    private bool Lose;
 
     private void Awake()
     {
@@ -21,9 +22,9 @@ public class SceneData : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        //SceneManager.sceneLoaded += OnSceneLoaded;
     }
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    public void OnSceneLoaded()
     {
         if (SceneManager.GetActiveScene().name == "Menu")
         {
@@ -31,12 +32,19 @@ public class SceneData : MonoBehaviour
             tutorialPassed = false;
         }
         
-        if(scene.name == "World" && tutorialPassed){
-            Transform Spawn = GameObject.FindGameObjectWithTag("Spawn").transform;
-            Transform player = GameObject.FindGameObjectWithTag("Spawn").transform;
-            player.position = new Vector2(Spawn.position.x, Spawn.position.y);
-            GameObject.FindGameObjectWithTag("Eddy").transform.GetChild(0).gameObject.SetActive(false);
-            GameObject.FindGameObjectWithTag("Eddy").transform.GetChild(1).gameObject.SetActive(true);
+        if(SceneManager.GetActiveScene().name == "World"){
+            if (tutorialPassed)
+            {
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerWorldControl>().CanMove = true;
+                GameObject.FindGameObjectWithTag("Eddy").transform.GetChild(0).gameObject.SetActive(false);
+                GameObject.FindGameObjectWithTag("Eddy").transform.GetChild(1).gameObject.SetActive(true);
+            }
+            if (Lose)
+            {
+                Transform Spawn = GameObject.FindGameObjectWithTag("Spawn").transform;
+                Transform player = GameObject.FindGameObjectWithTag("Player").transform;
+                player.position = new Vector2(Spawn.position.x, Spawn.position.y);
+            }
         }
     }
 
@@ -60,9 +68,5 @@ public class SceneData : MonoBehaviour
 
     public bool TutoPass(){
         return tutorialPassed;
-    }
-    public void ExitPause(){
-        Time.timeScale = 1f;
-        Pause.SetActive(false);
     }
 }
