@@ -22,10 +22,16 @@ public class CharacterMove : MonoBehaviour
     [Header("Components")]
     private Rigidbody2D rb2D;
     private Animator animator; 
+    private AudioSource audioSource;
+
+    [Header ("Player sounds")]
+    [SerializeField] private AudioClip Jump;
+    [SerializeField] private AudioClip WalkCombat;
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
     void Update()
     {
@@ -49,11 +55,13 @@ public class CharacterMove : MonoBehaviour
     private void Move(bool jump){
         if (Input.GetAxis("Horizontal")!= 0 && !talking)
         {  
+            //audioSource.Play();
             transform.position += new Vector3(horizontalMove, 0);
             animator.SetFloat("MoveX",Mathf.Abs(horizontalMove));
         }
         if(inGround && jump && !talking)
         {
+            audioSource.PlayOneShot(Jump);
             inGround = false;
             rb2D.AddForce(new Vector2(0, force));
         }

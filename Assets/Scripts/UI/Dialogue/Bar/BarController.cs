@@ -39,15 +39,12 @@ public class BarController : MonoBehaviour
         {
             if (Bar.fillAmount <= 0 && !Tutorial)
             {
-                //Lose
-                Die = true;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+                SceneData.Instance.Winner();
             }else if (Bar.fillAmount >= 1 && !Tutorial)
             {
-                
-                Win = true;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-   
+                SceneData.Instance.Loser();
+
             }
         }
     }

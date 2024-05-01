@@ -16,8 +16,14 @@ public class StateMachine : MonoBehaviour
     [Header ("OrbSpawns")]
     [SerializeField] private GameObject Orb;
 
+    [Header("Audio")]
+    private AudioSource audioSource;
+    [SerializeField] AudioClip Attack;
+    [SerializeField] AudioClip Damaged;
+
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         StateCount = 0;
         StartCoroutine("WaitInIdle");
     }
@@ -28,7 +34,7 @@ public class StateMachine : MonoBehaviour
         }
         ActualState = newState;
         ActualState.enabled = true;
-
+        audioSource.PlayOneShot(Attack);
     }
 
     public void ActiveNextState(){
@@ -54,9 +60,9 @@ public class StateMachine : MonoBehaviour
                 ActivateState(stateArray[index]);
             }
         }else{ 
-            
             StateCount = 0;
             ActivateState(StunnedState);
+            audioSource.PlayOneShot(Damaged);
             StartCoroutine("SpawnOrb");
         }
         

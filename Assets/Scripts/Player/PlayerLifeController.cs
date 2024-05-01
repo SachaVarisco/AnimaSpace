@@ -15,6 +15,10 @@ public class PlayerLifeController : MonoBehaviour
     private CharacterMove Move;
     private MeleeAttack Attack;
     private BarController Bar;
+
+    [Header ("Audio")]
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip Hurt;
     void Awake()
     {
         CanMove = true;
@@ -22,6 +26,7 @@ public class PlayerLifeController : MonoBehaviour
         animator = GetComponent<Animator>();
         Move = GetComponent<CharacterMove>();
         Attack = GetComponent<MeleeAttack>();
+        audioSource = GetComponent<AudioSource>();
         Bar = GameObject.FindGameObjectWithTag("Canva").transform.GetChild(0).gameObject.transform.GetChild(1).gameObject.GetComponent<BarController>();
     }
 
@@ -38,6 +43,8 @@ public class PlayerLifeController : MonoBehaviour
             return;
         }
         CanMove = false;
+        audioSource.volume = 0.6f;
+        audioSource.PlayOneShot(Hurt);
         Bar.PlayerDamaged();
         animator.SetTrigger("Damaged");
         rb2D.velocity = new Vector2(-ImpactVelocity.x * ImpactPoint.x, ImpactVelocity.y);

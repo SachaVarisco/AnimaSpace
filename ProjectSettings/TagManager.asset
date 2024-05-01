@@ -10,6 +10,8 @@ TagManager:
   - Canva
   - Eddy
   - Spawn
+  - RockWall
+  - Pause
   layers:
   - Default
   - TransparentFX

@@ -28,7 +28,7 @@ public class DialogueControl : MonoBehaviour
     [SerializeField] private string characName;
     
     [Header ("Audio")]
-    //[SerializeField] private AudioClip audio;
+    [SerializeField] private AudioClip audio;
     [Header ("Combat")]
     [SerializeField] private bool Combat;
 
@@ -51,10 +51,11 @@ public class DialogueControl : MonoBehaviour
         dialogueMark = gameObject.transform.GetChild(0).gameObject;
         SearchUI();
     }
-    void Update()
+    private void Update()
     {
         if (playerInRange && Input.GetButtonDown("Jump"))
         {
+
             if (!dialogueStarted)
             {
                 StartDialogue();
@@ -68,24 +69,21 @@ public class DialogueControl : MonoBehaviour
                 dialogueText.text = lines[lineIndex];
             }
         }
-          
         if (autoDialogue)
         {
             if (!dialogueStarted)
             {
                 StartDialogue();
             }else if (Input.GetButtonDown("Jump")){
-                if (dialogueText.text == lines[lineIndex])
-                {
+               if (dialogueText.text == lines[lineIndex])
+               {
                     NextDialogueLine();
-                }else
-                {
+                }else{
                     StopAllCoroutines(); 
                     dialogueText.text = lines[lineIndex];
-                    
                 }
-            }
-        }  
+            } 
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -110,7 +108,7 @@ public class DialogueControl : MonoBehaviour
     private void StartDialogue(){
         nameText.text = characName;
         faceImageUI.sprite = face;
-        //SceneControl.Instance.PlaySound(audio);
+        AudioControll.Instance.PlaySound(audio);
         dialogueStarted = true;
         panel.SetActive(true);
         dialogueMark.SetActive(false);
@@ -127,6 +125,7 @@ public class DialogueControl : MonoBehaviour
     }
     private void NextDialogueLine(){
         lineIndex++;
+        AudioControll.Instance.PlaySound(audio);
         if (lineIndex < lines.Length)
         {
             StartCoroutine(ShowLine());

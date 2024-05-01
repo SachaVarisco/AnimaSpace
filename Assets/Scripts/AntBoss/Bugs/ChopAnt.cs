@@ -29,8 +29,7 @@ public class ChopAnt : MonoBehaviour
         {
             if (collision.CompareTag("Player"))
             {
-                //collision.transform.GetComponent<PLayer>().Takedamage();
-                Debug.Log("Hit");
+                collision.transform.GetComponent<PlayerLifeController>().Rebound(new Vector2(collision.transform.position.x,collision.transform.position.y));
             }
         }
         ChangeHead();

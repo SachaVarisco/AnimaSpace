@@ -9,15 +9,22 @@ public class MeleeAttack : MonoBehaviour
     [SerializeField] private float AttackRadius;
     [Header ("Comoponents")]
     private Animator Animator;
+    
+
+    [Header ("Player sounds")]
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip Hit;
     private void Start() {
         Animator = GetComponent<Animator>();
-
+        audioSource = GetComponent<AudioSource>();
     }
     private void Update()
     {
         if (Input.GetButtonDown("Fire1") && !GetComponent<CharacterMove>().talking)
         {
             Animator.SetTrigger("Attack");
+            audioSource.volume = 0.7f;
+            audioSource.PlayOneShot(Hit);
         }
     }
 

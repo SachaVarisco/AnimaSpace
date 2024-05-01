@@ -624,9 +624,11 @@ MonoBehaviour:
   autoDialogue: 1
   face: {fileID: -1104469189, guid: 40e0892a43cd8cf4ca5e5499d5037ded, type: 3}
   characName: Eddy
+  audio: {fileID: 8300000, guid: e73fa3497956a9e4980f521352e7509b, type: 3}
   Combat: 0
   Tutorial: 1
   EndTutorial: 0
+  Mark: 0
 --- !u!1 &363436121
 GameObject:
   m_ObjectHideFlags: 0
@@ -1568,9 +1570,11 @@ MonoBehaviour:
   autoDialogue: 1
   face: {fileID: -1104469189, guid: 40e0892a43cd8cf4ca5e5499d5037ded, type: 3}
   characName: Eddy
+  audio: {fileID: 8300000, guid: e73fa3497956a9e4980f521352e7509b, type: 3}
   Combat: 0
   Tutorial: 1
   EndTutorial: 0
+  Mark: 0
 --- !u!4 &1079736822 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 860927735819687831, guid: 750806cd56bd3044aa0e2e11bd3c76f2, type: 3}
@@ -1655,46 +1659,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1102497995868206992, guid: af839a91d47816945a326d1d0f8cd0a2, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 2254306507058705242, guid: af839a91d47816945a326d1d0f8cd0a2, type: 3}
-      propertyPath: force
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 5495920165149304282, guid: af839a91d47816945a326d1d0f8cd0a2, type: 3}
-      propertyPath: AttackRadius
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5495920165149304282, guid: af839a91d47816945a326d1d0f8cd0a2, type: 3}
-      propertyPath: orb._changed.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5495920165149304282, guid: af839a91d47816945a326d1d0f8cd0a2, type: 3}
-      propertyPath: orb._changed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5495920165149304282, guid: af839a91d47816945a326d1d0f8cd0a2, type: 3}
-      propertyPath: orb._changed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5495920165149304282, guid: af839a91d47816945a326d1d0f8cd0a2, type: 3}
-      propertyPath: orb._changed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5495920165149304282, guid: af839a91d47816945a326d1d0f8cd0a2, type: 3}
-      propertyPath: orb._changed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Orbs
-      objectReference: {fileID: 0}
-    - target: {fileID: 5495920165149304282, guid: af839a91d47816945a326d1d0f8cd0a2, type: 3}
-      propertyPath: orb._changed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: BossController, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 5495920165149304282, guid: af839a91d47816945a326d1d0f8cd0a2, type: 3}
-      propertyPath: orb._changed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 6620164999889586039, guid: af839a91d47816945a326d1d0f8cd0a2, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1702,29 +1666,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6620164999889586039, guid: af839a91d47816945a326d1d0f8cd0a2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1206948546}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af839a91d47816945a326d1d0f8cd0a2, type: 3}
---- !u!1 &1206948545 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6620164999889586039, guid: af839a91d47816945a326d1d0f8cd0a2, type: 3}
-  m_PrefabInstance: {fileID: 1206948544}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1206948546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1206948545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d9efab64b31deb45b33e55a85ecde2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ImpactVelocity: {x: 3, y: 3}
 --- !u!1 &1250459044
 GameObject:
   m_ObjectHideFlags: 0
@@ -1807,9 +1750,11 @@ MonoBehaviour:
   autoDialogue: 1
   face: {fileID: -1104469189, guid: 40e0892a43cd8cf4ca5e5499d5037ded, type: 3}
   characName: Eddy
+  audio: {fileID: 8300000, guid: e73fa3497956a9e4980f521352e7509b, type: 3}
   Combat: 0
-  Tutorial: 0
+  Tutorial: 1
   EndTutorial: 1
+  Mark: 0
 --- !u!1 &1305918062
 GameObject:
   m_ObjectHideFlags: 0
@@ -2424,9 +2369,139 @@ MonoBehaviour:
   autoDialogue: 1
   face: {fileID: -1104469189, guid: 40e0892a43cd8cf4ca5e5499d5037ded, type: 3}
   characName: Eddy
+  audio: {fileID: 8300000, guid: e73fa3497956a9e4980f521352e7509b, type: 3}
   Combat: 0
   Tutorial: 1
   EndTutorial: 0
+  Mark: 0
+--- !u!1 &1733551543
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1733551545}
+  - component: {fileID: 1733551544}
+  m_Layer: 0
+  m_Name: Music
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1733551544
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1733551543}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 1b4d7bed650e87042a473353510b168c, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1733551545
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1733551543}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -17, y: -5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1758643081
 GameObject:
   m_ObjectHideFlags: 0
@@ -3228,9 +3303,11 @@ MonoBehaviour:
   autoDialogue: 1
   face: {fileID: -1104469189, guid: 40e0892a43cd8cf4ca5e5499d5037ded, type: 3}
   characName: Eddy
+  audio: {fileID: 8300000, guid: e73fa3497956a9e4980f521352e7509b, type: 3}
   Combat: 0
   Tutorial: 1
   EndTutorial: 0
+  Mark: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -3242,3 +3319,4 @@ SceneRoots:
   - {fileID: 1656513941}
   - {fileID: 1206948544}
   - {fileID: 2042924257}
+  - {fileID: 1733551545}

@@ -11,4 +11,8 @@ public class ButtonControl : MonoBehaviour
     public void Restart(){
         SceneManager.LoadScene("Menu");
     }
+
+    public void PauseExit(){
+        SceneData.Instance.ExitPause();
+    }
 }

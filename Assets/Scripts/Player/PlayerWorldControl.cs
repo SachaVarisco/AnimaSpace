@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerWorldControl : MonoBehaviour
 {
     [Header("Move")]
+    public bool CanMove = false;
     public float speed;
     private float horizontalMove;
     private float verticalMove;
@@ -22,10 +23,13 @@ public class PlayerWorldControl : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    private void FixedUpdate() {
-        horizontalMove = speed * Input.GetAxisRaw("Horizontal")  * Time.deltaTime;
-        verticalMove = speed * Input.GetAxisRaw("Vertical")  * Time.deltaTime;
-        Move();
+    private void Update() {
+        if (CanMove)
+        {
+            horizontalMove = speed * Input.GetAxisRaw("Horizontal")  * Time.deltaTime;
+            verticalMove = speed * Input.GetAxisRaw("Vertical")  * Time.deltaTime;
+            Move();
+        }
     }
 
     private void Move(){

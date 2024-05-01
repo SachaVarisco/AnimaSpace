@@ -71,7 +71,7 @@ public class MoveObjects : MonoBehaviour
         }
         if (!Yoyo && !Restart)
         {
-            transform.DOMove(new Vector2 (PosX, PosY), LoopTime);
+            transform.DOMove(new Vector2 (PosX, PosY), LoopTime).OnComplete(() => PassState());;
         }
     }
     private void TypeRestart(){
