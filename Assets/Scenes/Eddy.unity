@@ -624,7 +624,7 @@ MonoBehaviour:
   autoDialogue: 1
   face: {fileID: -1104469189, guid: 40e0892a43cd8cf4ca5e5499d5037ded, type: 3}
   characName: Eddy
-  audio: {fileID: 8300000, guid: e73fa3497956a9e4980f521352e7509b, type: 3}
+  audioDiag: {fileID: 8300000, guid: e73fa3497956a9e4980f521352e7509b, type: 3}
   Combat: 0
   Tutorial: 1
   EndTutorial: 0
@@ -1570,7 +1570,7 @@ MonoBehaviour:
   autoDialogue: 1
   face: {fileID: -1104469189, guid: 40e0892a43cd8cf4ca5e5499d5037ded, type: 3}
   characName: Eddy
-  audio: {fileID: 8300000, guid: e73fa3497956a9e4980f521352e7509b, type: 3}
+  audioDiag: {fileID: 8300000, guid: e73fa3497956a9e4980f521352e7509b, type: 3}
   Combat: 0
   Tutorial: 1
   EndTutorial: 0
@@ -1659,6 +1659,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5495920165149304282, guid: af839a91d47816945a326d1d0f8cd0a2, type: 3}
+      propertyPath: Orb
+      value: 
+      objectReference: {fileID: 8300000, guid: e73fa3497956a9e4980f521352e7509b, type: 3}
     - target: {fileID: 6620164999889586039, guid: af839a91d47816945a326d1d0f8cd0a2, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1750,7 +1754,7 @@ MonoBehaviour:
   autoDialogue: 1
   face: {fileID: -1104469189, guid: 40e0892a43cd8cf4ca5e5499d5037ded, type: 3}
   characName: Eddy
-  audio: {fileID: 8300000, guid: e73fa3497956a9e4980f521352e7509b, type: 3}
+  audioDiag: {fileID: 8300000, guid: e73fa3497956a9e4980f521352e7509b, type: 3}
   Combat: 0
   Tutorial: 1
   EndTutorial: 1
@@ -2369,7 +2373,7 @@ MonoBehaviour:
   autoDialogue: 1
   face: {fileID: -1104469189, guid: 40e0892a43cd8cf4ca5e5499d5037ded, type: 3}
   characName: Eddy
-  audio: {fileID: 8300000, guid: e73fa3497956a9e4980f521352e7509b, type: 3}
+  audioDiag: {fileID: 8300000, guid: e73fa3497956a9e4980f521352e7509b, type: 3}
   Combat: 0
   Tutorial: 1
   EndTutorial: 0
@@ -3303,7 +3307,7 @@ MonoBehaviour:
   autoDialogue: 1
   face: {fileID: -1104469189, guid: 40e0892a43cd8cf4ca5e5499d5037ded, type: 3}
   characName: Eddy
-  audio: {fileID: 8300000, guid: e73fa3497956a9e4980f521352e7509b, type: 3}
+  audioDiag: {fileID: 8300000, guid: e73fa3497956a9e4980f521352e7509b, type: 3}
   Combat: 0
   Tutorial: 1
   EndTutorial: 0

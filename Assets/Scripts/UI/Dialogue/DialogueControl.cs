@@ -28,7 +28,7 @@ public class DialogueControl : MonoBehaviour
     [SerializeField] private string characName;
     
     [Header ("Audio")]
-    [SerializeField] private AudioClip audio;
+    [SerializeField] private AudioClip audioDiag;
     [Header ("Combat")]
     [SerializeField] private bool Combat;
 
@@ -108,7 +108,7 @@ public class DialogueControl : MonoBehaviour
     private void StartDialogue(){
         nameText.text = characName;
         faceImageUI.sprite = face;
-        AudioControll.Instance.PlaySound(audio);
+        AudioControll.Instance.PlaySound(audioDiag);
         dialogueStarted = true;
         panel.SetActive(true);
         dialogueMark.SetActive(false);
@@ -125,7 +125,7 @@ public class DialogueControl : MonoBehaviour
     }
     private void NextDialogueLine(){
         lineIndex++;
-        AudioControll.Instance.PlaySound(audio);
+        AudioControll.Instance.PlaySound(audioDiag);
         if (lineIndex < lines.Length)
         {
             StartCoroutine(ShowLine());

@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 2942867527517615122}
   - component: {fileID: 7239488105139710543}
   - component: {fileID: 1437576260207750851}
+  - component: {fileID: 8176713193587444187}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -210,8 +211,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackController: {fileID: 1102497995868206992}
-  AttackRadius: 0.3
+  AttackRadius: 0.45
   Hit: {fileID: 8300000, guid: bde31111eb1595749a8dc97429e0b593, type: 3}
+  Orb: {fileID: 0}
 --- !u!114 &2254306507058705242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -380,6 +382,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8176713193587444187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6620164999889586039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d9efab64b31deb45b33e55a85ecde2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ImpactVelocity: {x: 3, y: 3}
+  Hurt: {fileID: 0}
 --- !u!1 &8621173548756279302
 GameObject:
   m_ObjectHideFlags: 0

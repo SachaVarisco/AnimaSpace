@@ -14,6 +14,7 @@ public class MeleeAttack : MonoBehaviour
     [Header ("Player sounds")]
     private AudioSource audioSource;
     [SerializeField] private AudioClip Hit;
+    [SerializeField] private AudioClip Orb;
     private void Start() {
         Animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
@@ -23,7 +24,7 @@ public class MeleeAttack : MonoBehaviour
         if (Input.GetButtonDown("Fire1") && !GetComponent<CharacterMove>().talking)
         {
             Animator.SetTrigger("Attack");
-            audioSource.volume = 0.7f;
+            audioSource.volume = 0.5f;
             audioSource.PlayOneShot(Hit);
         }
     }
@@ -36,6 +37,8 @@ public class MeleeAttack : MonoBehaviour
         {
             if (collision.CompareTag("Orb"))
             {
+                audioSource.volume = 0.4f;
+                audioSource.PlayOneShot(Orb);
                 BarController Bar = GameObject.FindGameObjectWithTag("Canva").transform.GetChild(0).gameObject.transform.GetChild(1).gameObject.GetComponent<BarController>();
                 Bar.Orb();
                 collision.gameObject.SetActive(false);

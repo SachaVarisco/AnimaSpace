@@ -10,7 +10,7 @@ public class StunnedState : MonoBehaviour
     private StateMachine StateMach;
 
     #region Timer
-    private  float timer = 2;
+    private  float timer = 3;
     private float currentTime;
     private bool CanPass;
     #endregion

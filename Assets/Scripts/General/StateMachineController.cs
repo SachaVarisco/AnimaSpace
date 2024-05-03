@@ -108,7 +108,7 @@ public class StateMachine : MonoBehaviour
 
     private IEnumerator SpawnOrb(){
         Orb.SetActive(true);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(4);
         Orb.SetActive(false);
     }
 

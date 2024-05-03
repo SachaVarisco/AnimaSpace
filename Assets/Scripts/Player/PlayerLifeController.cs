@@ -43,7 +43,7 @@ public class PlayerLifeController : MonoBehaviour
             return;
         }
         CanMove = false;
-        audioSource.volume = 0.6f;
+        audioSource.volume = 0.4f;
         audioSource.PlayOneShot(Hurt);
         Bar.PlayerDamaged();
         animator.SetTrigger("Damaged");
