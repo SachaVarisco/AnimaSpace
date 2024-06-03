@@ -8,12 +8,9 @@ public class PillarAntState : MonoBehaviour
     [SerializeField] GameObject StateObj;
 
     [Header("StateMachine")]
-    private StateMachine StateMach;
+
     [SerializeField] private GameObject StateIndicator;
 
-    private void Awake() {
-        StateMach = GetComponent<StateMachine>();
-    }
     private void OnEnable() {
         StateIndicator.GetComponent<SpriteRenderer>().color = Color.cyan;
         gameObject.GetComponent<Animator>().SetTrigger("Pillar");

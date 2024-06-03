@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,6 +37,8 @@ public class MoveObjects : MonoBehaviour
     [Header ("ComeBack")]
     private Vector2 PosInit;
 
+ 
+
     private void Awake(){
         PosInit = gameObject.transform.position;
     }
@@ -69,9 +72,8 @@ public class MoveObjects : MonoBehaviour
         {
             TypeYoyo();
         }
-        if (!Yoyo && !Restart)
-        {
-            transform.DOMove(new Vector2 (PosX, PosY), LoopTime).OnComplete(() => PassState());;
+        if (!Yoyo && !Restart) {
+            transform.DOMove(new Vector2 (PosX, PosY), LoopTime).OnComplete(() => PassState());
         }
     }
     private void TypeRestart(){
@@ -79,6 +81,7 @@ public class MoveObjects : MonoBehaviour
     }
     private void TypeYoyo(){
         transform.DOMove(new Vector2 (PosX, PosY), LoopTime).SetLoops(Loops, LoopType.Yoyo).OnComplete(() => PassState());
+      
     }
 
     private IEnumerator Wait(){
