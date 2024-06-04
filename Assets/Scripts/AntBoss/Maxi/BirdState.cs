@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class BirdState : MonoBehaviour
 {
     [Header("State object")]
@@ -13,16 +12,15 @@ public class BirdState : MonoBehaviour
 
     private void OnEnable() {
         StateIndicator.GetComponent<SpriteRenderer>().color = Color.yellow;
-        gameObject.GetComponent<Animator>().SetTrigger("Goomba");
+        //gameObject.GetComponent<Animator>().SetTrigger("Goomba");
+        ActiveStateObjGoom();
     }
+
     public void ActiveStateObjGoom(){
-        //StateObj.gameObject.SetActive(true);
-        //StateObj.transform.GetChild(1).gameObject.SetActive(true);
         StateObj.SetActive(true);
     }
+
     private void OnDisable() {
-        //StateObj.gameObject.SetActive(false);
-        //StateObj.transform.GetChild(1).gameObject.SetActive(false);
         StateObj.SetActive(false);
     }
 }

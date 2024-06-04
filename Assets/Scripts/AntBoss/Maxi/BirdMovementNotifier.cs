@@ -1,7 +1,7 @@
 using UnityEngine;
 using System;
 
-public class FeatherMovementNotifier : MonoBehaviour
+public class BirdMovementNotifier : MonoBehaviour
 {
     public event Action OnMovementComplete; // Evento que se activa cuando la pluma completa su movimiento
 

@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class StateMachine2 : MonoBehaviour
@@ -22,21 +23,32 @@ public class StateMachine2 : MonoBehaviour
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        Debug.LogWarning("maquina de estado");
         ActivateNextState();
-        Debug.LogWarning("a");
     }
 
     public void ActivateNextState()
     {
-        // Si hay un estado en progreso, no hacemos nada y esperamos a que termine
         if (stateInProgress)
         {
+            Debug.LogWarning("Estado en progreso. No se puede activar otro estado.");
             return;
+        }
+
+        // Verifica que no hay estados activos
+        foreach (var state in stateArray)
+        {
+            if (state.enabled)
+            {
+                Debug.LogWarning($"{state.GetType().Name} todavía está activo. Desactivándolo.");
+                state.enabled = false; // Desactiva cualquier otro estado que esté activo
+            }
         }
 
         // Desactiva el estado anterior si existe
         if (actualState != null)
         {
+            Debug.LogWarning($"Desactivando estado anterior: {actualState.GetType().Name}");
             actualState.enabled = false;
         }
 
@@ -47,29 +59,30 @@ public class StateMachine2 : MonoBehaviour
             nextStateIndex = Random.Range(0, stateArray.Length);
         }
 
-        // Obtiene y activa el nuevo estado
         actualState = stateArray[nextStateIndex];
+        Debug.LogWarning($"Activando nuevo estado: {actualState.GetType().Name}");
         actualState.enabled = true;
 
-        // Marca que hay un estado en progreso
         stateInProgress = true;
+        Debug.LogWarning($"Estado en progreso: {actualState.GetType().Name}");
     }
 
     public void FinishState()
     {
-        // Marca que el estado ha terminado
+        Debug.LogWarning($"Terminando estado: {actualState.GetType().Name}");
         stateInProgress = false;
     }
 
     public void PassState()
     {
-        // Desactiva el estado actual (si está activo)
         if (actualState != null)
         {
+            Debug.LogWarning($"Pasando estado: Desactivando {actualState.GetType().Name}");
             actualState.enabled = false;
         }
 
-        // Activa el siguiente estado
+        stateInProgress = false; // Aseguramos que se puede pasar al siguiente estado
         ActivateNextState();
+        Debug.LogWarning("Activa el siguiente estado");
     }
 }

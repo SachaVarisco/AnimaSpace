@@ -1,46 +1,44 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
 
 public class FeatherControl : MonoBehaviour
 {
-    private int Child;
-    private GameObject Feather;
-    //private MoveObjects currentMoveObject;
+    private int currentFeatherIndex = 0;
 
-    private void OnEnable() {
-        Child = 0; // Inicializar el índice de la pluma
-        ActivateNextFeather();
+    private void OnEnable()
+    {
+        StartCoroutine(ActivateFeathersOneByOne());
     }
 
-    private void ActivateNextFeather() {
-        if (Child < transform.childCount) {
-            Feather = transform.GetChild(Child).gameObject;
-            Feather.SetActive(true);
+    private IEnumerator ActivateFeathersOneByOne()
+    {
+        while (currentFeatherIndex < transform.childCount)
+        {
+            GameObject feather = transform.GetChild(currentFeatherIndex).gameObject;
+            FeatherMovementNotifier notifier = feather.GetComponent<FeatherMovementNotifier>();
 
-            // Obtener el componente MoveObjects y asignar el callback OnComplete
-            // currentMoveObject = Feather.GetComponent<MoveObjects>();
-            // currentMoveObject.OnComplete += HandleFeatherReachedDestination;
+            // Espera a que la pluma anterior haya completado su movimiento antes de activar la siguiente
+            if (currentFeatherIndex > 0)
+            {
+                GameObject previousFeather = transform.GetChild(currentFeatherIndex - 1).gameObject;
+                FeatherMovementNotifier previousNotifier = previousFeather.GetComponent<FeatherMovementNotifier>();
+                yield return new WaitUntil(() => previousNotifier.IsMovementComplete);
+            }
+
+            // Activa la pluma actual y espera a que complete su movimiento
+            feather.SetActive(true);
+            notifier.StartMovement();
+
+            yield return new WaitUntil(() => notifier.IsMovementComplete);
+
+            // Desactiva la pluma una vez que ha completado su movimiento
+            feather.SetActive(false);
+
+            currentFeatherIndex++;
         }
-        else {
-            Debug.LogWarning("a2");
-            Child = 0;
-            transform.parent.gameObject.GetComponent<StateMachine>().PassState();
-        }
+
+        // Cuando todas las plumas han completado su movimiento, reinicia el índice para futuros usos
+        currentFeatherIndex = 0;
     }
-
-    private void HandleFeatherReachedDestination() {
-        // Desactivar la pluma actual
-        Feather.SetActive(false);
-
-        // Activar la siguiente pluma
-        Child++;
-        ActivateNextFeather();
-    }
-
-    // private void OnDisable() {
-    //     if (currentMoveObject != null) {
-    //         currentMoveObject.OnComplete -= HandleFeatherReachedDestination;
-    //     }
-    // }
 }

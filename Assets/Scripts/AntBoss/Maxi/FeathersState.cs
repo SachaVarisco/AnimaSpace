@@ -2,31 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class FeathersState : MonoBehaviour
 {
     [Header("State object")]
     [SerializeField] private GameObject StateObj;
 
     [Header("StateMachine")]
-    //private StateMachine StateMach;
     [SerializeField] private GameObject StateIndicator;
-    // void Start()
-    // {
-    //     StateMach = GetComponent<StateMachine>();
-    // }
+
     private void OnEnable() {
+        Debug.LogWarning("FeathersState OnEnable");
         StateIndicator.GetComponent<SpriteRenderer>().color = Color.yellow;
-        gameObject.GetComponent<Animator>().SetTrigger("Goomba");
+        //gameObject.GetComponent<Animator>().SetTrigger("Goomba");
+        ActiveStateObjGoom();
     }
+
     public void ActiveStateObjGoom(){
-        //StateObj.gameObject.SetActive(true);
-        //StateObj.transform.GetChild(1).gameObject.SetActive(true);
+        Debug.LogWarning("Activando FeathersState Obj");
         StateObj.SetActive(true);
     }
+
     private void OnDisable() {
-        //StateObj.gameObject.SetActive(false);
-        //StateObj.transform.GetChild(1).gameObject.SetActive(false);
+        Debug.LogWarning("Desactivando FeathersState Obj");
         StateObj.SetActive(false);
     }
 }
