@@ -1,5 +1,5 @@
-using UnityEngine;
 using System;
+using UnityEngine;
 
 public class FeatherMovementNotifier : MonoBehaviour
 {
@@ -15,6 +15,11 @@ public class FeatherMovementNotifier : MonoBehaviour
         {
             Debug.LogError("MoveObjects2 component is missing on the feather object.");
         }
+    }
+
+    private void OnEnable()
+    {
+        StartMovement();
     }
 
     public void StartMovement()

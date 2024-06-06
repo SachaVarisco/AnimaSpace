@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 
-
 public class FeatherControl : MonoBehaviour
 {
     private int currentFeatherIndex = 0;
@@ -13,6 +12,12 @@ public class FeatherControl : MonoBehaviour
 
     private IEnumerator ActivateFeathersOneByOne()
     {
+        // Activa todas las plumas al principio
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(true);
+        }
+
         while (currentFeatherIndex < transform.childCount)
         {
             GameObject feather = transform.GetChild(currentFeatherIndex).gameObject;
@@ -27,7 +32,6 @@ public class FeatherControl : MonoBehaviour
             }
 
             // Activa la pluma actual y espera a que complete su movimiento
-            feather.SetActive(true);
             notifier.StartMovement();
 
             yield return new WaitUntil(() => notifier.IsMovementComplete);

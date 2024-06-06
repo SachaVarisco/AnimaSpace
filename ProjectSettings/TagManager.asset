@@ -12,6 +12,7 @@ TagManager:
   - Spawn
   - RockWall
   - Pause
+  - Feather
   layers:
   - Default
   - TransparentFX

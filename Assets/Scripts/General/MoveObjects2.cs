@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
@@ -39,10 +38,16 @@ public class MoveObjects2 : MonoBehaviour
 
     public Action OnComplete;
 
+    private bool isMovementComplete = false;
+
     private void Awake()
     {
         PosInit = gameObject.transform.position;
+
+        // Desactiva el script al principio para evitar que las plumas se muevan automáticamente
+        enabled = false;
     }
+
     private void OnEnable()
     {
         if (AlertTrig)
@@ -57,10 +62,11 @@ public class MoveObjects2 : MonoBehaviour
         StartCoroutine("Wait");
     }
 
-    
-
     private void Move()
     {
+        float distanceToTarget = Vector2.Distance(transform.position, new Vector2(PosX, PosY));
+        float moveDuration = LoopTime * (distanceToTarget / 10f); // Ajustar el divisor para cambiar la velocidad
+
         if (SamePosX)
         {
             PosX = transform.position.x;
@@ -71,11 +77,17 @@ public class MoveObjects2 : MonoBehaviour
         }
         if (Restart && !Yoyo)
         {
-            TypeRestart();
+            TypeRestart(moveDuration);
         }
+
+        if (Yoyo && !Restart)
+        {
+            TypeYoyo(moveDuration);
+        }
+
         if (!Yoyo && !Restart)
         {
-            transform.DOMove(new Vector2(PosX, PosY), LoopTime).OnComplete(() =>
+            transform.DOMove(new Vector2(PosX, PosY), moveDuration).OnComplete(() =>
             {
                 OnComplete?.Invoke(); // Llamar al evento OnComplete
                 PassState();
@@ -83,18 +95,18 @@ public class MoveObjects2 : MonoBehaviour
         }
     }
 
-    private void TypeRestart()
+    private void TypeRestart(float duration)
     {
-        transform.DOMove(new Vector2(PosX, PosY), LoopTime).SetLoops(Loops, LoopType.Restart).OnComplete(() =>
+        transform.DOMove(new Vector2(PosX, PosY), duration).SetLoops(Loops, LoopType.Restart).OnComplete(() =>
         {
             OnComplete?.Invoke(); // Llamar al evento OnComplete
             PassState();
         });
     }
 
-    private void TypeYoyo()
+    private void TypeYoyo(float duration)
     {
-        transform.DOMove(new Vector2(PosX, PosY), LoopTime).SetLoops(Loops, LoopType.Yoyo).OnComplete(() =>
+        transform.DOMove(new Vector2(PosX, PosY), duration).SetLoops(Loops, LoopType.Yoyo).OnComplete(() =>
         {
             OnComplete?.Invoke(); // Llamar al evento OnComplete
             PassState();
@@ -108,6 +120,10 @@ public class MoveObjects2 : MonoBehaviour
         {
             Alert.SetActive(false);
         }
+        // Activa el script solo cuando se inicie el movimiento de la pluma
+        enabled = true;
+
+        // Comienza el movimiento de la pluma
         Move();
     }
 
@@ -118,13 +134,25 @@ public class MoveObjects2 : MonoBehaviour
             other.gameObject.GetComponent<PlayerLifeController>().Rebound(other.GetContact(0).normal);
         }
     }
+
     private void PassState()
     {
         if (EndTrigger)
         {
-            transform.parent.gameObject.transform.parent.gameObject.GetComponent<StateMachine>().PassState();
+            SceneData.Instance.Pigeon();
         }
     }
+
+    private void OnMovementCompleteInternal()
+    {
+        OnComplete?.Invoke(); // Llamar al evento OnComplete
+
+        // Desactiva el script después de que la pluma ha completado su movimiento
+        enabled = false;
+
+        PassState();
+    }
+
     private void OnDisable()
     {
         gameObject.transform.position = PosInit;

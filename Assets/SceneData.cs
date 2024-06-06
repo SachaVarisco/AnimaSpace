@@ -57,6 +57,12 @@ public class SceneData : MonoBehaviour
         return key;
     }
 
+    public void Pigeon(){
+
+        //escena que vuelve al mundo desp del ataque de la paloma
+        SceneManager.LoadScene("Menu");
+    }
+
     public void Loser(){
         Lose = true;
         SceneManager.LoadScene("World");
