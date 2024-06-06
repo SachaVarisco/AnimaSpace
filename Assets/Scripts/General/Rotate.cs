@@ -6,29 +6,29 @@ public class Rotate : MonoBehaviour
 {
     public bool LookLeft = false;
     private float VelocityX;
+    private float VelocityY;
     private Vector3 PrevPosition;
     private void FixedUpdate() 
     {
         CalcSpeed();
-        if (VelocityX > 0 && LookLeft) 
+        if (VelocityX > 0 && LookLeft /*&& VelocityY == 0*/) 
         {
             RotateX();
         }
-        if (VelocityX < 0 && !LookLeft)
+        if (VelocityX < 0 && !LookLeft /*&& VelocityY == 0*/)
         {
             RotateX();
         }
     }
-    private float CalcSpeed()
+    private void CalcSpeed()
     {
         Vector3 currentPosition = transform.position;
         float deltaTime = Time.deltaTime;
 
         VelocityX = (currentPosition.x - PrevPosition.x) / deltaTime;
+        //VelocityY = (currentPosition.y - PrevPosition.y) / deltaTime;
 
         PrevPosition = currentPosition;
-
-        return VelocityX;
     }
     public void RotateX()
     {

@@ -3333,6 +3333,10 @@ PrefabInstance:
       value: 3.1
       objectReference: {fileID: 0}
     - target: {fileID: 7747732720839601109, guid: 1a3fe254055bd7240a22260d175b23d6, type: 3}
+      propertyPath: SamePosY
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747732720839601109, guid: 1a3fe254055bd7240a22260d175b23d6, type: 3}
       propertyPath: EndTrigger
       value: 1
       objectReference: {fileID: 0}
