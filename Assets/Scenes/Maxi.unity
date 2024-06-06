@@ -3909,7 +3909,7 @@ MonoBehaviour:
   WaitTime: 0
   Restart: 1
   Yoyo: 0
-  ToMovePos: {fileID: 0}
+  ToMovePos: {fileID: 1473102123}
   PosY: 0
   PosX: 0
   LoopTime: 3
@@ -8911,7 +8911,7 @@ MonoBehaviour:
   WaitTime: 0
   Restart: 1
   Yoyo: 0
-  ToMovePos: {fileID: 0}
+  ToMovePos: {fileID: 339544989}
   PosY: 0
   PosX: 0
   LoopTime: 3
@@ -10326,7 +10326,7 @@ MonoBehaviour:
   WaitTime: 0
   Restart: 1
   Yoyo: 0
-  ToMovePos: {fileID: 0}
+  ToMovePos: {fileID: 52083689}
   PosY: 0
   PosX: 0
   LoopTime: 3
