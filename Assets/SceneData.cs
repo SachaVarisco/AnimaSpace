@@ -33,6 +33,9 @@ public class SceneData : MonoBehaviour
         }
         
         if(SceneManager.GetActiveScene().name == "World"){
+
+            Debug.Log("InTown evento");
+
             if (tutorialPassed)
             {
                 GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerWorldControl>().CanMove = true;
@@ -50,6 +53,7 @@ public class SceneData : MonoBehaviour
 
     public void Key(){
         key = true;
+        Debug.Log("HaveKey evento");
         GameObject.FindGameObjectWithTag("Orb").transform.GetChild(0).gameObject.SetActive(false);
         GameObject.FindGameObjectWithTag("Orb").transform.GetChild(1).gameObject.SetActive(true);
     }
@@ -59,6 +63,7 @@ public class SceneData : MonoBehaviour
 
     public void Pigeon(){
 
+        Debug.Log("EnemyBeat evento");
         //escena que vuelve al mundo desp del ataque de la paloma
         SceneManager.LoadScene("Menu");
     }

@@ -131,6 +131,7 @@ public class DialogueControl : MonoBehaviour
             StartCoroutine(ShowLine());
         }else
         {
+            Debug.Log("Talk evento");
             dialogueStarted = false;
             autoDialogue = false;
             panel.SetActive(false);
@@ -171,10 +172,15 @@ public class DialogueControl : MonoBehaviour
     private void ChangeScene(){    
         if (EndTutorial){
             SceneData.Instance.tutorialPassed = true;
+            Debug.Log("TutoComplete evento");
             SceneManager.LoadScene("World"); 
         }
         if (Combat)
         {
+            if (characName == "Carmin")
+            {
+                Debug.Log("CombatBoss evento");
+            }       
             SceneManager.LoadScene(characName); 
         }
         if (Mark)
