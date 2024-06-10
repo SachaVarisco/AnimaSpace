@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerLifeController : MonoBehaviour
 {
@@ -16,6 +17,12 @@ public class PlayerLifeController : MonoBehaviour
     private MeleeAttack Attack;
     private BarController Bar;
 
+    [Header ("Crypt")]
+    [SerializeField] private bool Crypt;
+    [SerializeField] private int ActualLife;
+    [SerializeField] private int MaxLife;
+    public UnityEvent<int> changeLife;
+
     [Header ("Audio")]
     private AudioSource audioSource;
     [SerializeField] private AudioClip Hurt;
@@ -27,7 +34,13 @@ public class PlayerLifeController : MonoBehaviour
         Move = GetComponent<CharacterMove>();
         Attack = GetComponent<MeleeAttack>();
         audioSource = GetComponent<AudioSource>();
-        Bar = GameObject.FindGameObjectWithTag("Canva").transform.GetChild(0).gameObject.transform.GetChild(1).gameObject.GetComponent<BarController>();
+        if (Crypt)
+        {
+            ActualLife = MaxLife;
+            changeLife.Invoke(ActualLife);
+        }else{
+            Bar = GameObject.FindGameObjectWithTag("Canva").transform.GetChild(0).gameObject.transform.GetChild(1).gameObject.GetComponent<BarController>();
+        }
     }
 
     private void Update() {
@@ -35,9 +48,18 @@ public class PlayerLifeController : MonoBehaviour
             Move.enabled = false;
             Attack.enabled = false;
         }
+        if (Input.GetButtonDown("Fire1"))
+        {
+            CryptDamage();
+        }
+        if (Input.GetButtonDown("Fire3"))
+        {
+            CryptHeal();
+        }
+
     }
 
-    public void Rebound(Vector2 ImpactPoint){
+    public void Rebound(Vector2 ImpactPoint){ //TakeDamage
         if (!CanMove)
         {
             return;
@@ -54,6 +76,35 @@ public class PlayerLifeController : MonoBehaviour
         CanMove = true;
         Move.enabled = true;
         Attack.enabled = true;
+    }
+
+    private void CryptDamage(){
+        
+        int Life = ActualLife - 1;
+        if (Life < 0)
+        {
+            ActualLife = 0; 
+        }else{
+            ActualLife = Life;
+        }
+        changeLife.Invoke(ActualLife);
+        if (ActualLife <= 0)
+        {
+            Debug.Log("Death");
+        }
+    }
+
+    private void CryptHeal(){
+        
+        int Life = ActualLife + 1;
+        if (Life > MaxLife)
+        {
+            ActualLife = MaxLife;
+        }else{
+            ActualLife = Life;
+        }
+        changeLife.Invoke(ActualLife);
+
     }
 
 }
