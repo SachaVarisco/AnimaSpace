@@ -65,7 +65,21 @@ public class SceneData : MonoBehaviour
 
         Debug.Log("EnemyBeat evento");
         //escena que vuelve al mundo desp del ataque de la paloma
-        SceneManager.LoadScene("Menu");
+
+        DataPlayer.Instance.IsBack = true;
+        SceneManager.LoadScene("Cripta");
+        
+    }
+
+       public void Encounters(){
+
+        Debug.Log("EnemyBeat evento");
+        //escena que vuelve al mundo desp del ataque de la paloma
+        //SceneManager.LoadScene("Menu");
+        DataPlayer.Instance.SaveWorldPosition();
+        Debug.Log("guarda");
+        SceneManager.LoadScene("Maxi");
+
     }
 
     public void Loser(){

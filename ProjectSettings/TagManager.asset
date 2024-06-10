@@ -12,7 +12,6 @@ TagManager:
   - Spawn
   - RockWall
   - Pause
-  - Feather
   layers:
   - Default
   - TransparentFX
@@ -21,7 +20,7 @@ TagManager:
   - Water
   - UI
   - Ants
-  - 
+  - WildAppear
   - 
   - 
   - 

@@ -7,18 +7,18 @@ using UnityEngine.UI;
 
 public class DialogueControl : MonoBehaviour
 {
-    [Header ("UI")]
+    [Header("UI")]
     private GameObject panel;
     private TMP_Text dialogueText;
     private Image faceImageUI;
     private TMP_Text nameText;
-    
-    [Header ("Line")]
+
+    [Header("Line")]
     private int lineIndex;
     private float typingTime = 0.05f;
-    [SerializeField, TextArea(4,6)] private string[] lines;
-       
-    [Header ("Dialogue")]
+    [SerializeField, TextArea(4, 6)] private string[] lines;
+
+    [Header("Dialogue")]
     private GameObject dialogueMark;
     public bool autoDialogue;
     private bool dialogueStarted;
@@ -26,10 +26,10 @@ public class DialogueControl : MonoBehaviour
     [SerializeField] private Sprite face;
 
     [SerializeField] private string characName;
-    
-    [Header ("Audio")]
+
+    [Header("Audio")]
     [SerializeField] private AudioClip audioDiag;
-    [Header ("Combat")]
+    [Header("Combat")]
     [SerializeField] private bool Combat;
 
     [Header("Tutorial")]
@@ -39,10 +39,11 @@ public class DialogueControl : MonoBehaviour
     private Animator Boss;
 
 
-    [Header ("PLayer")]
+    [Header("PLayer")]
     private bool playerInRange;
     private GameObject cloud;
-    private void Awake() {
+    private void Awake()
+    {
         player = GameObject.FindGameObjectWithTag("Player");
         if (Tutorial)
         {
@@ -63,9 +64,10 @@ public class DialogueControl : MonoBehaviour
             else if (dialogueText.text == lines[lineIndex])
             {
                 NextDialogueLine();
-            }else
+            }
+            else
             {
-                StopAllCoroutines(); 
+                StopAllCoroutines();
                 dialogueText.text = lines[lineIndex];
             }
         }
@@ -74,15 +76,19 @@ public class DialogueControl : MonoBehaviour
             if (!dialogueStarted)
             {
                 StartDialogue();
-            }else if (Input.GetButtonDown("Jump")){
-               if (dialogueText.text == lines[lineIndex])
-               {
+            }
+            else if (Input.GetButtonDown("Jump"))
+            {
+                if (dialogueText.text == lines[lineIndex])
+                {
                     NextDialogueLine();
-                }else{
-                    StopAllCoroutines(); 
+                }
+                else
+                {
+                    StopAllCoroutines();
                     dialogueText.text = lines[lineIndex];
                 }
-            } 
+            }
         }
     }
 
@@ -93,19 +99,20 @@ public class DialogueControl : MonoBehaviour
             playerInRange = true;
             dialogueMark.SetActive(true);
         }
-        
+
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player" )
+        if (other.gameObject.tag == "Player")
         {
             playerInRange = false;
             dialogueMark.SetActive(false);
         }
-        
+
     }
-    private void StartDialogue(){
+    private void StartDialogue()
+    {
         nameText.text = characName;
         faceImageUI.sprite = face;
         AudioControll.Instance.PlaySound(audioDiag);
@@ -113,7 +120,8 @@ public class DialogueControl : MonoBehaviour
         panel.SetActive(true);
         dialogueMark.SetActive(false);
         lineIndex = 0;
-        if(player.name == "WorldPlayer"){
+        if (player.name == "WorldPlayer")
+        {
             player.GetComponent<PlayerWorldControl>().talking = true;
         }
         if (player.name == "Player")
@@ -123,20 +131,23 @@ public class DialogueControl : MonoBehaviour
         }
         StartCoroutine(ShowLine());
     }
-    private void NextDialogueLine(){
+    private void NextDialogueLine()
+    {
         lineIndex++;
         AudioControll.Instance.PlaySound(audioDiag);
         if (lineIndex < lines.Length)
         {
             StartCoroutine(ShowLine());
-        }else
+        }
+        else
         {
             Debug.Log("Talk evento");
             dialogueStarted = false;
             autoDialogue = false;
             panel.SetActive(false);
             dialogueMark.SetActive(true);
-            if(player.name == "WorldPlayer"){
+            if (player.name == "WorldPlayer")
+            {
                 player.GetComponent<PlayerWorldControl>().talking = false;
             }
             if (player.name == "Player")
@@ -152,7 +163,8 @@ public class DialogueControl : MonoBehaviour
         }
     }
 
-    private IEnumerator ShowLine(){
+    private IEnumerator ShowLine()
+    {
         dialogueText.text = string.Empty;
         foreach (char ch in lines[lineIndex])
         {
@@ -161,7 +173,8 @@ public class DialogueControl : MonoBehaviour
         }
     }
 
-    private void SearchUI(){
+    private void SearchUI()
+    {
         cloud = GameObject.FindGameObjectWithTag("Canva");
         panel = cloud.transform.GetChild(1).gameObject;
         dialogueText = panel.transform.GetChild(0).gameObject.GetComponent<TMP_Text>();
@@ -169,19 +182,21 @@ public class DialogueControl : MonoBehaviour
         faceImageUI = panel.transform.GetChild(1).gameObject.GetComponent<Image>();
     }
 
-    private void ChangeScene(){    
-        if (EndTutorial){
+    private void ChangeScene()
+    {
+        if (EndTutorial)
+        {
             SceneData.Instance.tutorialPassed = true;
             Debug.Log("TutoComplete evento");
-            SceneManager.LoadScene("World"); 
+            SceneManager.LoadScene("World");
         }
         if (Combat)
         {
             if (characName == "Carmin")
             {
                 Debug.Log("CombatBoss evento");
-            }       
-            SceneManager.LoadScene(characName); 
+            }
+            SceneManager.LoadScene(characName);
         }
         if (Mark)
         {
@@ -189,7 +204,8 @@ public class DialogueControl : MonoBehaviour
         }
     }
 
-    private IEnumerator PassTutorial(){
+    private IEnumerator PassTutorial()
+    {
         yield return new WaitForSeconds(4);
         transform.parent.gameObject.GetComponent<TutoStateMachine>().PassState();
     }

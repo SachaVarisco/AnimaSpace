@@ -40,6 +40,7 @@ public class BarController : MonoBehaviour
             if (Bar.fillAmount <= 0)
             {
                 SceneData.Instance.Winner();
+                Debug.Log("EnemyBeat evento");
             }else if (Bar.fillAmount >= 1)
             {
                 SceneData.Instance.Loser();
