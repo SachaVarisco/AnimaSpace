@@ -14,10 +14,14 @@ public class DataPlayer : MonoBehaviour
     public bool IsBack = false;
 
     [Header("Life")]
+    private LivesUI LiveCanva;
     [SerializeField] private int ActualLife;
     [SerializeField] private int MaxLife;
     public UnityEvent<int> changeLife;
 
+    [Header("Crypt")]
+    private int PigeonCount;
+    public bool Ready;
 
     private void Awake()
     {
@@ -33,9 +37,13 @@ public class DataPlayer : MonoBehaviour
 
         SceneManager.sceneLoaded += OnSceneLoaded;
 
-        ActualLife = MaxLife;
-        changeLife.Invoke(ActualLife);
-
+        if (SceneManager.GetActiveScene().name == "BirdCrypt")
+        {
+            LiveCanva = GameObject.FindGameObjectWithTag("Canva").transform.GetChild(3).gameObject.GetComponent<LivesUI>();
+            ActualLife = MaxLife;
+            LiveCanva.ChangeSouls(ActualLife);
+            //changeLife.Invoke(ActualLife);
+        }
     }
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
@@ -48,6 +56,13 @@ public class DataPlayer : MonoBehaviour
         
     }
 
+    private void Update() {
+        if (PigeonCount >= 3)
+        {
+            PigeonCount = 0;
+            Ready = true;
+        }
+    }
     public void SaveWorldPosition()
     {
         Debug.Log("Save");
@@ -71,7 +86,8 @@ public class DataPlayer : MonoBehaviour
         }else{
             ActualLife = Life;
         }
-        changeLife.Invoke(ActualLife);
+        LiveCanva.ChangeSouls(ActualLife);
+        //changeLife.Invoke(ActualLife);
         if (ActualLife <= 0)
         {
             Debug.Log("Death");
@@ -87,7 +103,8 @@ public class DataPlayer : MonoBehaviour
         }else{
             ActualLife = Life;
         }
-        changeLife.Invoke(ActualLife);
+        LiveCanva.ChangeSouls(ActualLife);
+        //changeLife.Invoke(ActualLife);
 
     }
 }

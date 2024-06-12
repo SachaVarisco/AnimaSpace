@@ -33,8 +33,7 @@ public class PlayerLifeController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         if (Crypt)
         {
-            //ActualLife = MaxLife;
-            //changeLife.Invoke(ActualLife);
+            
         }else{
             Bar = GameObject.FindGameObjectWithTag("Canva").transform.GetChild(0).gameObject.transform.GetChild(1).gameObject.GetComponent<BarController>();
         }
@@ -67,6 +66,10 @@ public class PlayerLifeController : MonoBehaviour
         Bar.PlayerDamaged();
         animator.SetTrigger("Damaged");
         rb2D.velocity = new Vector2(-ImpactVelocity.x * ImpactPoint.x, ImpactVelocity.y);
+        if (Crypt)
+        {
+            DataPlayer.Instance.CryptDamage();
+        }
     }
 
     private void CanMoveAgain(){

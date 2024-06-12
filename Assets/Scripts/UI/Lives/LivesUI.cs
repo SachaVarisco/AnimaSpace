@@ -16,9 +16,9 @@ public class LivesUI : MonoBehaviour
 
     private void Start() {
         DataPlayer.Instance.changeLife.AddListener(ChangeSouls);
-        Debug.Log("ChangeSolus");
+        
     }
-    private void ChangeSouls(int ActualLife){
+    public void ChangeSouls(int ActualLife){
         if (!LivesList.Any())
         {
             CreateSouls(ActualLife);
