@@ -5,10 +5,27 @@ using UnityEngine.SceneManagement;
 
 public class ButtonControl : MonoBehaviour
 {
-    public void Play(){
+    public void Play()
+    {
+        if (DataPlayer.Instance.pigeonLost == true)
+        {
+            DataPlayer.Instance.pigeonLost = false;
+            SceneManager.LoadScene("BirdCrypt");
+
+        }else
+        {
+            SceneManager.LoadScene("World");
+        }
+
+        
+    }
+
+    public void StartGame(){
+
         SceneManager.LoadScene("World");
     }
-    public void Restart(){
+    public void Restart()
+    {
         SceneManager.LoadScene("Menu");
     }
 }

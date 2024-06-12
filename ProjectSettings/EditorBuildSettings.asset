@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Spirits/Birds/Maxi.unity
     guid: 3dbf21c8f3605a24ab037f0506d72798
+  - enabled: 1
+    path: Assets/Scenes/Default/GameOver.unity
+    guid: abe564eb50c58e2469bc37542d86eff6
   m_configObjects: {}

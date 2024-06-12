@@ -12,6 +12,9 @@ TagManager:
   - Spawn
   - RockWall
   - Pause
+  - CanvaLifes
+  - Floor
+  - Ant
   layers:
   - Default
   - TransparentFX

@@ -13,7 +13,7 @@ public class FeathersState : MonoBehaviour
     private void OnEnable() {
         Debug.LogWarning("FeathersState OnEnable");
         StateIndicator.GetComponent<SpriteRenderer>().color = Color.yellow;
-        //gameObject.GetComponent<Animator>().SetTrigger("Goomba");
+        gameObject.GetComponent<Animator>().SetTrigger("Attack2");
         ActiveStateObjGoom();
     }
 

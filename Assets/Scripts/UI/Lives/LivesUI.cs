@@ -15,8 +15,8 @@ public class LivesUI : MonoBehaviour
 
 
     private void Start() {
-        DataPlayer.Instance.changeLife.AddListener(ChangeSouls);
-        
+        //DataPlayer.Instance.changeLife.AddListener(ChangeSouls);
+
     }
     public void ChangeSouls(int ActualLife){
         if (!LivesList.Any())
@@ -41,7 +41,7 @@ public class LivesUI : MonoBehaviour
         {
             QuitSoul(ActualLife);
         }else{
-            AddSoul(ActualLife);
+            //AddSoul(ActualLife);
         }
     }
 

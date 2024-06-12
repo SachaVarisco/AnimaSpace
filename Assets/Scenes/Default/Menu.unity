@@ -337,7 +337,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1396817049}
         m_TargetAssemblyTypeName: ButtonControl, Assembly-CSharp
-        m_MethodName: Play
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1910,6 +1910,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorialPassed: 0
   key: 0
+  win: 0
 --- !u!4 &1817503356
 Transform:
   m_ObjectHideFlags: 0

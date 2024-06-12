@@ -28,6 +28,15 @@ public class SceneData : MonoBehaviour
         }
         //SceneManager.sceneLoaded += OnSceneLoaded;
     }
+
+    private void Update()
+    {
+
+        if (SceneManager.GetActiveScene().name == "Victory")
+        {
+            Destroy(gameObject);
+        }
+    }
     public void OnSceneLoaded()
     {
         if (SceneManager.GetActiveScene().name == "Menu")
@@ -58,10 +67,13 @@ public class SceneData : MonoBehaviour
             {
                 LastDialogueMark = true;
                 Transform Mark = GameObject.FindGameObjectWithTag("Orb").transform;
+                GameObject Ant = GameObject.FindGameObjectWithTag("Ant");
 
                 //orb es el tag de las activaciones de los dialogos
                 Mark.GetChild(0).gameObject.SetActive(false);
                 Mark.GetChild(2).gameObject.SetActive(true);
+
+                Ant.GetComponent<DialogueControl>().enabled = false;
 
                 Transform Spawn = GameObject.FindGameObjectWithTag("Spawn").transform;
                 Mark.position = new Vector2(Spawn.position.x, Spawn.position.y);
@@ -74,7 +86,7 @@ public class SceneData : MonoBehaviour
         if (!win)
         {
             GameObject.FindGameObjectWithTag("Orb").transform.GetChild(0).gameObject.SetActive(false);
-            GameObject.FindGameObjectWithTag("Orb").transform.GetChild(+1).gameObject.SetActive(true);
+            GameObject.FindGameObjectWithTag("Orb").transform.GetChild(1).gameObject.SetActive(true);
         }
 
         if (LastDialogueMark)
@@ -123,12 +135,24 @@ public class SceneData : MonoBehaviour
 
     public void Loser()
     {
+        if (SceneManager.GetActiveScene().name == "Carmin")
+        {
+            DataPlayer.Instance.IsBack = true;
+        }
+
+        if (SceneManager.GetActiveScene().name == "Maxi")
+        {
+            DataPlayer.Instance.Reset();
+        }
+
         Lose = true;
-        SceneManager.LoadScene("World");
+        SceneManager.LoadScene("GameOver");
     }
+
 
     public void Winner()
     {
+
         DataPlayer.Instance.IsBack = true;
 
         win = true;

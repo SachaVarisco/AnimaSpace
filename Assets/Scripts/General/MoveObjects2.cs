@@ -38,7 +38,7 @@ public class MoveObjects2 : MonoBehaviour
 
     public Action OnComplete;
 
-    private bool isMovementComplete = false;
+    //private bool isMovementComplete = false;
 
     private void Awake()
     {
@@ -60,6 +60,14 @@ public class MoveObjects2 : MonoBehaviour
         _ToMovePos = new Vector2(PosX, PosY);
 
         StartCoroutine("Wait");
+    }
+
+    private void Update(){
+
+        if (ToMovePos == null)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Move()
@@ -139,6 +147,7 @@ public class MoveObjects2 : MonoBehaviour
     {
         if (EndTrigger)
         {
+            DataPlayer.Instance.PigeonCount++;
             SceneData.Instance.Pigeon();
         }
     }

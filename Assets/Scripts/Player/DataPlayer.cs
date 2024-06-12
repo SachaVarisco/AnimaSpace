@@ -20,8 +20,11 @@ public class DataPlayer : MonoBehaviour
     public UnityEvent<int> changeLife;
 
     [Header("Crypt")]
-    private int PigeonCount;
+    public int PigeonCount;
     public bool Ready;
+    public bool floorWild;
+
+    public bool pigeonLost;
 
     private void Awake()
     {
@@ -37,31 +40,55 @@ public class DataPlayer : MonoBehaviour
 
         SceneManager.sceneLoaded += OnSceneLoaded;
 
-        if (SceneManager.GetActiveScene().name == "BirdCrypt")
-        {
-            LiveCanva = GameObject.FindGameObjectWithTag("Canva").transform.GetChild(3).gameObject.GetComponent<LivesUI>();
-            ActualLife = MaxLife;
-            LiveCanva.ChangeSouls(ActualLife);
-            //changeLife.Invoke(ActualLife);
-        }
+        ActualLife = MaxLife;
+
     }
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         Debug.Log("scene loaded");
-        
-        if (scene.name == "BirdCrypt" || scene.name == "World" )
+
+        if (scene.name == "BirdCrypt" || scene.name == "World")
         {
             Player = GameObject.FindGameObjectWithTag("Player");
         }
-        
+
+        if (SceneManager.GetActiveScene().name == "BirdCrypt")
+        {
+
+            LiveCanva = GameObject.FindGameObjectWithTag("CanvaLifes").transform.GetChild(0).gameObject.GetComponent<LivesUI>();
+            LiveCanva.ChangeSouls(ActualLife);
+            //changeLife.Invoke(ActualLife);
+
+            pigeonLost = true;
+        }
+
     }
 
-    private void Update() {
-        if (PigeonCount >= 3)
+    private void Update()
+    {
+        if (PigeonCount == 3)
         {
             PigeonCount = 0;
             Ready = true;
         }
+
+        if (ActualLife <= 0)
+        {
+            ActualLife = 1;
+            SceneData.Instance.Loser();
+        }
+
+        if (floorWild && SceneManager.GetActiveScene().name == "BirdCrypt")
+        {
+            GameObject floorWild = GameObject.FindGameObjectWithTag("Floor");
+            floorWild.layer = 7;
+        }
+
+        if (SceneManager.GetActiveScene().name == "Victory")
+        {
+            Destroy(gameObject);
+        }
+
     }
     public void SaveWorldPosition()
     {
@@ -77,13 +104,16 @@ public class DataPlayer : MonoBehaviour
         IsBack = false;
     }
 
-    public void CryptDamage(){
-        
+    public void CryptDamage()
+    {
+
         int Life = ActualLife - 1;
         if (Life < 0)
         {
-            ActualLife = 0; 
-        }else{
+            ActualLife = 0;
+        }
+        else
+        {
             ActualLife = Life;
         }
         LiveCanva.ChangeSouls(ActualLife);
@@ -94,17 +124,27 @@ public class DataPlayer : MonoBehaviour
         }
     }
 
-    public void CryptHeal(){
-        
+    public void CryptHeal()
+    {
+
         int Life = ActualLife + 1;
         if (Life > MaxLife)
         {
             ActualLife = MaxLife;
-        }else{
+        }
+        else
+        {
             ActualLife = Life;
         }
         LiveCanva.ChangeSouls(ActualLife);
         //changeLife.Invoke(ActualLife);
 
+    }
+
+    public void Reset(){
+
+        ActualLife = MaxLife;
+        PigeonCount = 0;
+        floorWild = false;        
     }
 }

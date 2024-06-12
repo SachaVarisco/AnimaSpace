@@ -5,22 +5,22 @@ using UnityEngine;
 
 public class PlayerLifeController : MonoBehaviour
 {
-    [Header ("Move")]
+    [Header("Move")]
     private bool CanMove;
-    [Header ("Impact")]
+    [Header("Impact")]
     [SerializeField] private Vector2 ImpactVelocity;
-    
+
     [Header("Components")]
     private Rigidbody2D rb2D;
-    private Animator animator; 
+    private Animator animator;
     private CharacterMove Move;
     private MeleeAttack Attack;
     private BarController Bar;
 
-    [Header ("Crypt")]
+    [Header("Crypt")]
     [SerializeField] private bool Crypt;
 
-    [Header ("Audio")]
+    [Header("Audio")]
     private AudioSource audioSource;
     [SerializeField] private AudioClip Hurt;
     void Awake()
@@ -31,16 +31,19 @@ public class PlayerLifeController : MonoBehaviour
         Move = GetComponent<CharacterMove>();
         Attack = GetComponent<MeleeAttack>();
         audioSource = GetComponent<AudioSource>();
-        if (Crypt)
+
+        if (!Crypt)
         {
-            
-        }else{
             Bar = GameObject.FindGameObjectWithTag("Canva").transform.GetChild(0).gameObject.transform.GetChild(1).gameObject.GetComponent<BarController>();
         }
+
+
     }
 
-    private void Update() {
-        if (!CanMove){
+    private void Update()
+    {
+        if (!CanMove)
+        {
             Move.enabled = false;
             Attack.enabled = false;
         }
@@ -55,7 +58,8 @@ public class PlayerLifeController : MonoBehaviour
 
     }
 
-    public void Rebound(Vector2 ImpactPoint){ //TakeDamage
+    public void Rebound(Vector2 ImpactPoint)
+    { //TakeDamage
         if (!CanMove)
         {
             return;
@@ -63,16 +67,20 @@ public class PlayerLifeController : MonoBehaviour
         CanMove = false;
         audioSource.volume = 0.4f;
         audioSource.PlayOneShot(Hurt);
-        Bar.PlayerDamaged();
+        
         animator.SetTrigger("Damaged");
         rb2D.velocity = new Vector2(-ImpactVelocity.x * ImpactPoint.x, ImpactVelocity.y);
         if (Crypt)
         {
             DataPlayer.Instance.CryptDamage();
+        }else
+        {
+            Bar.PlayerDamaged();
         }
     }
 
-    private void CanMoveAgain(){
+    private void CanMoveAgain()
+    {
         CanMove = true;
         Move.enabled = true;
         Attack.enabled = true;

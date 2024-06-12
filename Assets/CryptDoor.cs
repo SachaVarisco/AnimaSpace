@@ -5,7 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class CryptDoor : MonoBehaviour
 {
-    // Update is called once per frame
+    [SerializeField] private AudioClip doorSound;
+    private AudioSource audioSource;
+
+    void OnEnable()
+    {
+        audioSource = GetComponent<AudioSource>();
+
+        if (gameObject.name == "Puerta-Cripta2")
+        {
+            audioSource.PlayOneShot(doorSound);
+        }
+
+    }
     void Update()
     {
         if (DataPlayer.Instance.Ready == true)
@@ -16,8 +28,10 @@ public class CryptDoor : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        if(other.gameObject.tag == "Player"){
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
             SceneManager.LoadScene("Victory");
         }
     }

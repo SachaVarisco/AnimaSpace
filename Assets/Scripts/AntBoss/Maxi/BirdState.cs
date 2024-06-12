@@ -12,7 +12,7 @@ public class BirdState : MonoBehaviour
 
     private void OnEnable() {
         StateIndicator.GetComponent<SpriteRenderer>().color = Color.yellow;
-        //gameObject.GetComponent<Animator>().SetTrigger("Goomba");
+        gameObject.GetComponent<Animator>().SetTrigger("Attack1");
         ActiveStateObjGoom();
     }
 
