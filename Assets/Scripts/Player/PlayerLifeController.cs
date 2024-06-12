@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
+
 
 public class PlayerLifeController : MonoBehaviour
 {
@@ -19,9 +19,6 @@ public class PlayerLifeController : MonoBehaviour
 
     [Header ("Crypt")]
     [SerializeField] private bool Crypt;
-    [SerializeField] private int ActualLife;
-    [SerializeField] private int MaxLife;
-    public UnityEvent<int> changeLife;
 
     [Header ("Audio")]
     private AudioSource audioSource;
@@ -36,8 +33,8 @@ public class PlayerLifeController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         if (Crypt)
         {
-            ActualLife = MaxLife;
-            changeLife.Invoke(ActualLife);
+            //ActualLife = MaxLife;
+            //changeLife.Invoke(ActualLife);
         }else{
             Bar = GameObject.FindGameObjectWithTag("Canva").transform.GetChild(0).gameObject.transform.GetChild(1).gameObject.GetComponent<BarController>();
         }
@@ -50,11 +47,11 @@ public class PlayerLifeController : MonoBehaviour
         }
         if (Input.GetButtonDown("Fire1"))
         {
-            CryptDamage();
+            DataPlayer.Instance.CryptDamage();
         }
         if (Input.GetButtonDown("Fire3"))
         {
-            CryptHeal();
+            DataPlayer.Instance.CryptHeal();
         }
 
     }
@@ -78,33 +75,5 @@ public class PlayerLifeController : MonoBehaviour
         Attack.enabled = true;
     }
 
-    private void CryptDamage(){
-        
-        int Life = ActualLife - 1;
-        if (Life < 0)
-        {
-            ActualLife = 0; 
-        }else{
-            ActualLife = Life;
-        }
-        changeLife.Invoke(ActualLife);
-        if (ActualLife <= 0)
-        {
-            Debug.Log("Death");
-        }
-    }
-
-    private void CryptHeal(){
-        
-        int Life = ActualLife + 1;
-        if (Life > MaxLife)
-        {
-            ActualLife = MaxLife;
-        }else{
-            ActualLife = Life;
-        }
-        changeLife.Invoke(ActualLife);
-
-    }
 
 }

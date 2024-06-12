@@ -41,13 +41,16 @@ public class PlayerWorldControl : MonoBehaviour
             CheckForEncounters();
 
         }
-
-        if (DataPlayer.Instance.IsBack == true)
+        if (DataPlayer.Instance != null)
         {
-            Debug.Log("carga");
-            //transform.position = DataPlayer.Instance.SpawnReturn;
-            DataPlayer.Instance.LoadWorldPosition();
+            if (DataPlayer.Instance.IsBack == true)
+            {
+                Debug.Log("carga");
+                //transform.position = DataPlayer.Instance.SpawnReturn;
+                DataPlayer.Instance.LoadWorldPosition();
+            }
         }
+        
     }
 
     private void Move()

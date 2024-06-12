@@ -6,20 +6,19 @@ using System.Linq;
 
 public class LivesUI : MonoBehaviour
 {
-    [SerializeField] private List<Image> LivesList;
+    [SerializeField] private List<Animator> LivesList;
     [SerializeField] private GameObject LivePrefab;
     [SerializeField] private int ActualLives;
-    //[SerializeField] private Sprite[] SoulsArray;
+
     [SerializeField] private Sprite SoulGood;
     [SerializeField] private Sprite SoulBad;
-    public PlayerLifeController playerLife;
 
-    private void Awake() {
-        playerLife.changeLife.AddListener(ChangeSouls);
+
+    private void Start() {
+        DataPlayer.Instance.changeLife.AddListener(ChangeSouls);
+        Debug.Log("ChangeSolus");
     }
-
     private void ChangeSouls(int ActualLife){
-        
         if (!LivesList.Any())
         {
             CreateSouls(ActualLife);
@@ -32,7 +31,7 @@ public class LivesUI : MonoBehaviour
         for (int i = 0; i < MaxLifeCount; i++)
         {
             GameObject Soul = Instantiate(LivePrefab, transform);
-            LivesList.Add(Soul.GetComponent<Image>());
+            LivesList.Add(Soul.GetComponent<Animator>());
         }
         ActualLives = MaxLifeCount - 1;
     }
@@ -52,16 +51,16 @@ public class LivesUI : MonoBehaviour
         {
            
             ActualLives = i;
-            Debug.Log("Quit "+ ActualLives);
-            LivesList[i].sprite = SoulBad;
+            LivesList[i].SetBool("Damage", true);
+            LivesList[i].SetBool("Heal", false);
         }
     }
     private void AddSoul(int ActualLife){
         for (int i = ActualLives; i < ActualLife; i++)
         {
-            Debug.Log("Add "+ ActualLives);
             ActualLives = i;
-            LivesList[i].sprite = SoulGood;
+            LivesList[i].SetBool("Damage", false);
+            LivesList[i].SetBool("Heal", true);
         }
     }
 }

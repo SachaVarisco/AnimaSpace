@@ -35,7 +35,8 @@ public class DialogueControl : MonoBehaviour
     [Header("Tutorial")]
     [SerializeField] private bool Tutorial;
     [SerializeField] private bool EndTutorial;
-    [SerializeField] private bool Mark;
+    [SerializeField] private bool DoubleDiag;
+    [SerializeField] private bool Key;
     private Animator Boss;
 
 
@@ -54,7 +55,7 @@ public class DialogueControl : MonoBehaviour
     }
     private void Update()
     {
-        if (playerInRange && Input.GetButtonDown("Jump"))
+        if (playerInRange && Input.GetButtonDown("Fire1"))
         {
 
             if (!dialogueStarted)
@@ -65,7 +66,7 @@ public class DialogueControl : MonoBehaviour
             {
                 NextDialogueLine();
             }
-            else
+            else //if (Input.GetButtonDown("Fire2"))
             {
                 StopAllCoroutines();
                 dialogueText.text = lines[lineIndex];
@@ -77,13 +78,13 @@ public class DialogueControl : MonoBehaviour
             {
                 StartDialogue();
             }
-            else if (Input.GetButtonDown("Jump"))
+            else if (Input.GetButtonDown("Fire1"))
             {
                 if (dialogueText.text == lines[lineIndex])
                 {
                     NextDialogueLine();
                 }
-                else
+                else //if (Input.GetButtonDown("Fire2"))
                 {
                     StopAllCoroutines();
                     dialogueText.text = lines[lineIndex];
@@ -176,7 +177,7 @@ public class DialogueControl : MonoBehaviour
     private void SearchUI()
     {
         cloud = GameObject.FindGameObjectWithTag("Canva");
-        panel = cloud.transform.GetChild(1).gameObject;
+        panel = cloud.transform.GetChild(2).gameObject;
         dialogueText = panel.transform.GetChild(0).gameObject.GetComponent<TMP_Text>();
         nameText = panel.transform.GetChild(2).gameObject.GetComponent<TMP_Text>();
         faceImageUI = panel.transform.GetChild(1).gameObject.GetComponent<Image>();
@@ -198,9 +199,9 @@ public class DialogueControl : MonoBehaviour
             }
             SceneManager.LoadScene(characName);
         }
-        if (Mark)
+        if (DoubleDiag)
         {
-            SceneData.Instance.Key();
+            SceneData.Instance.Key(Key);
         }
     }
 

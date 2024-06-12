@@ -51,8 +51,12 @@ public class SceneData : MonoBehaviour
         }
     }
 
-    public void Key(){
-        key = true;
+    public void Key(bool Key){
+        key = Key;
+        if (key == true)
+        {
+            Debug.Log("HaveKey evento");
+        }
         Debug.Log("HaveKey evento");
         GameObject.FindGameObjectWithTag("Orb").transform.GetChild(0).gameObject.SetActive(false);
         GameObject.FindGameObjectWithTag("Orb").transform.GetChild(1).gameObject.SetActive(true);
