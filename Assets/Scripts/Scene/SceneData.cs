@@ -11,6 +11,9 @@ public class SceneData : MonoBehaviour
     public bool tutorialPassed;
     public bool key;
     private bool Lose;
+    public bool win;
+    private bool LastDialogueMark;
+
 
     private void Awake()
     {
@@ -18,7 +21,8 @@ public class SceneData : MonoBehaviour
         {
             SceneData.Instance = this;
             DontDestroyOnLoad(this.gameObject);
-        }  else
+        }
+        else
         {
             Destroy(gameObject);
         }
@@ -31,8 +35,9 @@ public class SceneData : MonoBehaviour
             key = false;
             tutorialPassed = false;
         }
-        
-        if(SceneManager.GetActiveScene().name == "World"){
+
+        if (SceneManager.GetActiveScene().name == "World")
+        {
 
             Debug.Log("InTown evento");
 
@@ -44,38 +49,68 @@ public class SceneData : MonoBehaviour
             }
             if (Lose)
             {
+                // Transform Spawn = GameObject.FindGameObjectWithTag("Spawn").transform;
+                // Transform player = GameObject.FindGameObjectWithTag("Player").transform;
+                // player.position = new Vector2(Spawn.position.x, Spawn.position.y);
+            }
+
+            if (win)
+            {
+                LastDialogueMark = true;
+                Transform Mark = GameObject.FindGameObjectWithTag("Orb").transform;
+
+                //orb es el tag de las activaciones de los dialogos
+                Mark.GetChild(0).gameObject.SetActive(false);
+                Mark.GetChild(2).gameObject.SetActive(true);
+
                 Transform Spawn = GameObject.FindGameObjectWithTag("Spawn").transform;
-                Transform player = GameObject.FindGameObjectWithTag("Player").transform;
-                player.position = new Vector2(Spawn.position.x, Spawn.position.y);
+                Mark.position = new Vector2(Spawn.position.x, Spawn.position.y);
             }
         }
     }
 
-    public void Key(bool Key){
-        key = Key;
-        if (key == true)
+    public void Key(bool Key)
+    {
+        if (!win)
         {
+            GameObject.FindGameObjectWithTag("Orb").transform.GetChild(0).gameObject.SetActive(false);
+            GameObject.FindGameObjectWithTag("Orb").transform.GetChild(+1).gameObject.SetActive(true);
+        }
+
+        if (LastDialogueMark)
+        {
+            GameObject.FindGameObjectWithTag("Orb").transform.GetChild(2).gameObject.SetActive(false);
+            GameObject.FindGameObjectWithTag("Orb").transform.GetChild(3).gameObject.SetActive(true);
+            win = false;
+            LastDialogueMark = false;
+        }
+
+        if (Key == true)
+        {
+            key = Key;
+            win = false;
             Debug.Log("HaveKey evento");
         }
-        Debug.Log("HaveKey evento");
-        GameObject.FindGameObjectWithTag("Orb").transform.GetChild(0).gameObject.SetActive(false);
-        GameObject.FindGameObjectWithTag("Orb").transform.GetChild(1).gameObject.SetActive(true);
+
     }
-    public bool HaveKey(){
+    public bool HaveKey()
+    {
         return key;
     }
 
-    public void Pigeon(){
+    public void Pigeon()
+    {
 
         Debug.Log("EnemyBeat evento");
         //escena que vuelve al mundo desp del ataque de la paloma
 
         DataPlayer.Instance.IsBack = true;
-        SceneManager.LoadScene("Cripta");
-        
+        SceneManager.LoadScene("BirdCrypt");
+
     }
 
-       public void Encounters(){
+    public void Encounters()
+    {
 
         Debug.Log("EnemyBeat evento");
         //escena que vuelve al mundo desp del ataque de la paloma
@@ -86,16 +121,22 @@ public class SceneData : MonoBehaviour
 
     }
 
-    public void Loser(){
+    public void Loser()
+    {
         Lose = true;
         SceneManager.LoadScene("World");
     }
 
-    public void Winner(){
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    public void Winner()
+    {
+        DataPlayer.Instance.IsBack = true;
+
+        win = true;
+        SceneManager.LoadScene("World");
     }
 
-    public bool TutoPass(){
+    public bool TutoPass()
+    {
         return tutorialPassed;
     }
 }

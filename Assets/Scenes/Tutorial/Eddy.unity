@@ -715,7 +715,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &237311608
 RectTransform:
   m_ObjectHideFlags: 0
@@ -896,15 +896,16 @@ MonoBehaviour:
   - "Bueno, eso es facil, al realizar ataques, mi esp\xEDritu se debilita."
   - "Y en algun momento aparecer\xE1 un orbe que te permitir\xE1 hacerme da\xF1o."
   - Solo debes atacarlo cuando lo veas.
-  - (Usa "Espacio" para atacar)
+  - (Usa "Z" para atacar)
   autoDialogue: 1
-  face: {fileID: -1104469189, guid: 40e0892a43cd8cf4ca5e5499d5037ded, type: 3}
+  face: {fileID: -673756468, guid: cb12d57261a25194db69a3677a50414a, type: 3}
   characName: Eddy
   audioDiag: {fileID: 8300000, guid: e73fa3497956a9e4980f521352e7509b, type: 3}
   Combat: 0
   Tutorial: 1
   EndTutorial: 0
-  Mark: 0
+  DoubleDiag: 0
+  Key: 0
 --- !u!1 &363436121
 GameObject:
   m_ObjectHideFlags: 0
@@ -1460,6 +1461,41 @@ Transform:
   m_Children: []
   m_Father: {fileID: 795056356}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &764580629
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 764580630}
+  m_Layer: 5
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &764580630
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764580629}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1840450418}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &773251722
 GameObject:
   m_ObjectHideFlags: 0
@@ -1494,7 +1530,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 837, y: -394}
+  m_AnchoredPosition: {x: 756, y: -394}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &773251724
@@ -1517,7 +1553,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -296446244, guid: cd1b6241e1ecc64458a5e20671425eda, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 99f2a2eccabed894184a9fda964baffb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1569,7 +1605,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -827, y: -394}
+  m_AnchoredPosition: {x: -755.5, y: -394}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &789021233
@@ -1592,7 +1628,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1051408865, guid: cd1b6241e1ecc64458a5e20671425eda, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f7746bc5f924e7f41bf766ba6d8d20e6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1978,13 +2014,14 @@ MonoBehaviour:
     mucho."
   - "Estate preparado que te lanzar\xE9 uno muy basico."
   autoDialogue: 1
-  face: {fileID: -1104469189, guid: 40e0892a43cd8cf4ca5e5499d5037ded, type: 3}
+  face: {fileID: -673756468, guid: cb12d57261a25194db69a3677a50414a, type: 3}
   characName: Eddy
   audioDiag: {fileID: 8300000, guid: e73fa3497956a9e4980f521352e7509b, type: 3}
   Combat: 0
   Tutorial: 1
   EndTutorial: 0
-  Mark: 0
+  DoubleDiag: 0
+  Key: 0
 --- !u!4 &1079736822 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 860927735819687831, guid: 750806cd56bd3044aa0e2e11bd3c76f2, type: 3}
@@ -2162,13 +2199,14 @@ MonoBehaviour:
   - Oh, buen golpe. Bueno, eso es lo basico.
   - "Lo dem\xE1s ya depender\xE1 de ti."
   autoDialogue: 1
-  face: {fileID: -1104469189, guid: 40e0892a43cd8cf4ca5e5499d5037ded, type: 3}
+  face: {fileID: -673756468, guid: cb12d57261a25194db69a3677a50414a, type: 3}
   characName: Eddy
   audioDiag: {fileID: 8300000, guid: e73fa3497956a9e4980f521352e7509b, type: 3}
   Combat: 0
   Tutorial: 1
   EndTutorial: 1
-  Mark: 0
+  DoubleDiag: 0
+  Key: 0
 --- !u!1 &1305918062
 GameObject:
   m_ObjectHideFlags: 0
@@ -2810,15 +2848,16 @@ MonoBehaviour:
   - Como tu entras aqui, vas a estar en desventaja.
   - Aqui eres una version inferior de ti mismo y tus acciones son limitadas.
   - Solo vas a poder moverte, saltar y atacar.
-  - (Usa "A" y "D" para moverte y "W" para saltar).
+  - (Usa la flecha "Izquierda" y "Derecha" para moverte y "Arriba" para saltar).
   autoDialogue: 1
-  face: {fileID: -1104469189, guid: 40e0892a43cd8cf4ca5e5499d5037ded, type: 3}
+  face: {fileID: -673756468, guid: cb12d57261a25194db69a3677a50414a, type: 3}
   characName: Eddy
   audioDiag: {fileID: 8300000, guid: e73fa3497956a9e4980f521352e7509b, type: 3}
   Combat: 0
   Tutorial: 1
   EndTutorial: 0
-  Mark: 0
+  DoubleDiag: 0
+  Key: 0
 --- !u!1 &1758643081
 GameObject:
   m_ObjectHideFlags: 0
@@ -2851,8 +2890,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 491736455}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -3, y: -19.875}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0, y: 0}
@@ -3171,6 +3210,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 237311608}
+  - {fileID: 764580630}
   - {fileID: 363436122}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3329,11 +3369,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 860927735819687831, guid: 750806cd56bd3044aa0e2e11bd3c76f2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.5295852
+      value: -0.29
       objectReference: {fileID: 0}
     - target: {fileID: 860927735819687831, guid: 750806cd56bd3044aa0e2e11bd3c76f2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.9690747
+      value: 0.93
       objectReference: {fileID: 0}
     - target: {fileID: 860927735819687831, guid: 750806cd56bd3044aa0e2e11bd3c76f2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3374,6 +3414,10 @@ PrefabInstance:
     - target: {fileID: 4513689504401785526, guid: 750806cd56bd3044aa0e2e11bd3c76f2, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9085575354867555683, guid: 750806cd56bd3044aa0e2e11bd3c76f2, type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3861,13 +3905,14 @@ MonoBehaviour:
   - "Si te golpea alguno de mis ataques recibiras aun m\xE1s da\xF1o."
   - "Y si la barra llega a tocarte, perder\xE1s el combate."
   autoDialogue: 1
-  face: {fileID: -1104469189, guid: 40e0892a43cd8cf4ca5e5499d5037ded, type: 3}
+  face: {fileID: -673756468, guid: cb12d57261a25194db69a3677a50414a, type: 3}
   characName: Eddy
   audioDiag: {fileID: 8300000, guid: e73fa3497956a9e4980f521352e7509b, type: 3}
   Combat: 0
   Tutorial: 1
   EndTutorial: 0
-  Mark: 0
+  DoubleDiag: 0
+  Key: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

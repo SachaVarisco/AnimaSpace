@@ -41,7 +41,7 @@ public class DataPlayer : MonoBehaviour
     {
         Debug.Log("scene loaded");
         
-        if (scene.name == "Cripta")
+        if (scene.name == "BirdCrypt" || scene.name == "World" )
         {
             Player = GameObject.FindGameObjectWithTag("Player");
         }

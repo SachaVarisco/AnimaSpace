@@ -45,14 +45,14 @@ public class PlayerLifeController : MonoBehaviour
             Move.enabled = false;
             Attack.enabled = false;
         }
-        if (Input.GetButtonDown("Fire1"))
-        {
-            DataPlayer.Instance.CryptDamage();
-        }
-        if (Input.GetButtonDown("Fire3"))
-        {
-            DataPlayer.Instance.CryptHeal();
-        }
+        // if (Input.GetButtonDown("Fire1"))
+        // {
+        //     DataPlayer.Instance.CryptDamage();
+        // }
+        // if (Input.GetButtonDown("Fire3"))
+        // {
+        //     DataPlayer.Instance.CryptHeal();
+        // }
 
     }
 

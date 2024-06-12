@@ -195,11 +195,14 @@ public class DialogueControl : MonoBehaviour
         {
             if (characName == "Carmin")
             {
+                
                 Debug.Log("CombatBoss evento");
             }
+
+            DataPlayer.Instance.SaveWorldPosition();
             SceneManager.LoadScene(characName);
         }
-        if (DoubleDiag)
+        if (DoubleDiag || SceneData.Instance.win)
         {
             SceneData.Instance.Key(Key);
         }
