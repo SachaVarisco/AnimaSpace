@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Services.Analytics;
+using System.Threading;
 
 
 public class PlayerLifeController : MonoBehaviour
@@ -16,6 +18,7 @@ public class PlayerLifeController : MonoBehaviour
     private CharacterMove Move;
     private MeleeAttack Attack;
     private BarController Bar;
+
 
     [Header("Crypt")]
     [SerializeField] private bool Crypt;
@@ -64,18 +67,21 @@ public class PlayerLifeController : MonoBehaviour
         {
             return;
         }
+
+        DataPlayer.Instance.hitCount++;
         CanMove = false;
         audioSource.volume = 0.4f;
         audioSource.PlayOneShot(Hurt);
-        
+
         animator.SetTrigger("Damaged");
         rb2D.velocity = new Vector2(-ImpactVelocity.x * ImpactPoint.x, ImpactVelocity.y);
         if (Crypt)
         {
             DataPlayer.Instance.CryptDamage();
-        }else
+        }
+        else
         {
-            Debug.Log("getHit evento");
+
             Bar.PlayerDamaged();
         }
     }

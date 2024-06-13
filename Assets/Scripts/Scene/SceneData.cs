@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Unity.Services.Analytics;
 
 public class SceneData : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class SceneData : MonoBehaviour
     private bool Lose;
     public bool win;
     private bool LastDialogueMark;
+    private bool IsFirst = true;
 
 
     private void Awake()
@@ -47,8 +49,21 @@ public class SceneData : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "World")
         {
+            if (IsFirst)
+            {
+                CustomEvent InTown = new CustomEvent("InTown")
+                {
+                    { "townName", "Vulpes"}
+                };
 
-            Debug.Log("InTown evento");
+                AnalyticsService.Instance.RecordEvent(InTown);
+                AnalyticsService.Instance.Flush();
+
+                Debug.Log("InTown evento");
+
+                IsFirst = false;
+            }
+
 
             if (tutorialPassed)
             {
@@ -101,6 +116,14 @@ public class SceneData : MonoBehaviour
         {
             key = Key;
             win = false;
+
+            CustomEvent HaveKey = new CustomEvent("HaveKey")
+                {
+                    { "keyID", "Grave Key"}
+                };
+
+            AnalyticsService.Instance.RecordEvent(HaveKey);
+            AnalyticsService.Instance.Flush();
             Debug.Log("HaveKey evento");
         }
 
@@ -112,6 +135,16 @@ public class SceneData : MonoBehaviour
 
     public void Pigeon()
     {
+        CustomEvent EnemyBeat = new CustomEvent("EnemyBeat")
+        {
+            { "orbCount", 0f},
+            { "enemyName", "Pigeon" },
+            { "enemyCount", DataPlayer.Instance.PigeonCount}
+        };
+
+        AnalyticsService.Instance.RecordEvent(EnemyBeat);
+        AnalyticsService.Instance.Flush();
+
 
         Debug.Log("EnemyBeat evento");
         //escena que vuelve al mundo desp del ataque de la paloma
@@ -124,7 +157,6 @@ public class SceneData : MonoBehaviour
     public void Encounters()
     {
 
-        //Debug.Log("EnemyBeat evento");
         //escena que vuelve al mundo desp del ataque de la paloma
         //SceneManager.LoadScene("Menu");
         DataPlayer.Instance.SaveWorldPosition();
@@ -135,17 +167,39 @@ public class SceneData : MonoBehaviour
 
     public void Loser()
     {
+        string enemyName = "";
+        int levelIndex = 0;
+
         if (SceneManager.GetActiveScene().name == "Carmin")
         {
+            enemyName = "Carmin";
+            levelIndex  = 1;
             DataPlayer.Instance.IsBack = true;
         }
 
         if (SceneManager.GetActiveScene().name == "Maxi")
         {
+            enemyName = "Pigeon";
+            levelIndex = 2;
             DataPlayer.Instance.Reset();
         }
 
         Lose = true;
+
+        Debug.Log(enemyName);
+
+        CustomEvent GameOver = new CustomEvent("GameOver")
+                {
+                    { "levelIndex", levelIndex},
+                    { "enemyName", enemyName},
+                    { "hitCount", DataPlayer.Instance.hitCount}
+                };
+
+        AnalyticsService.Instance.RecordEvent(GameOver);
+        AnalyticsService.Instance.Flush();
+
+        DataPlayer.Instance.hitCount = 0;
+
         SceneManager.LoadScene("GameOver");
     }
 
@@ -156,6 +210,8 @@ public class SceneData : MonoBehaviour
         DataPlayer.Instance.IsBack = true;
 
         win = true;
+
+        DataPlayer.Instance.hitCount = 0;
         SceneManager.LoadScene("World");
     }
 

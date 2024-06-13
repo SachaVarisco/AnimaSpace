@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Unity.Services.Analytics;
 
 public class CryptDoor : MonoBehaviour
 {
@@ -32,6 +33,22 @@ public class CryptDoor : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            CustomEvent EndCrypt = new CustomEvent("EndCrypt")
+                {
+                    { "cryptName", "BirdCrypt"}
+                };
+
+            AnalyticsService.Instance.RecordEvent(EndCrypt);
+            AnalyticsService.Instance.Flush();
+
+            CustomEvent LevelComplete = new CustomEvent("LevelComplete")
+                {
+                    { "levelIndex", 2f}
+                };
+
+            AnalyticsService.Instance.RecordEvent(LevelComplete);
+            AnalyticsService.Instance.Flush();
+
             Debug.Log("EndCrypt evento");
             SceneManager.LoadScene("Victory");
         }

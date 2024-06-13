@@ -23,8 +23,11 @@ public class DataPlayer : MonoBehaviour
     public int PigeonCount;
     public bool Ready;
     public bool floorWild;
-
     public bool pigeonLost;
+
+     [Header("Orb")]
+     public int orbCount;
+     public int hitCount;
 
     private void Awake()
     {
@@ -68,7 +71,7 @@ public class DataPlayer : MonoBehaviour
     {
         if (PigeonCount == 3)
         {
-            PigeonCount = 0;
+            PigeonCount = 4;
             Ready = true;
         }
 
@@ -82,6 +85,14 @@ public class DataPlayer : MonoBehaviour
         {
             GameObject floorWild = GameObject.FindGameObjectWithTag("Floor");
             floorWild.layer = 7;
+        }
+        else
+        {
+            if (!floorWild && SceneManager.GetActiveScene().name == "BirdCrypt")
+            {
+                GameObject floorWild = GameObject.FindGameObjectWithTag("Floor");
+                floorWild.layer = 0;
+            }
         }
 
         if (SceneManager.GetActiveScene().name == "Victory")
@@ -106,8 +117,7 @@ public class DataPlayer : MonoBehaviour
 
     public void CryptDamage()
     {
-        Debug.Log("getHit");
-        
+
         int Life = ActualLife - 1;
         if (Life < 0)
         {
@@ -142,10 +152,11 @@ public class DataPlayer : MonoBehaviour
 
     }
 
-    public void Reset(){
+    public void Reset()
+    {
 
         ActualLife = MaxLife;
         PigeonCount = 0;
-        floorWild = false;        
+        floorWild = false;
     }
 }

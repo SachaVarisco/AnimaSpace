@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Unity.Services.Analytics;
 
 public class BarController : MonoBehaviour
 {
     [Header("Timer")]
     private float currentTime;
-    [SerializeField]  private float timePerDown;
+    [SerializeField] private float timePerDown;
 
     [Header("Values")]
     public bool stopDamage;
@@ -25,47 +26,70 @@ public class BarController : MonoBehaviour
     private bool Die;
     private bool Win;
     #endregion
-    private void Start() {
+    private void Start()
+    {
         HandleValue = GetComponent<Scrollbar>();
     }
 
     void FixedUpdate()
     {
         currentTime -= Time.deltaTime;
-        if(currentTime <= 0 && !Die && !Win){
+        if (currentTime <= 0 && !Die && !Win)
+        {
             ConstantDown();
-           currentTime = timePerDown; 
-        }else
+            currentTime = timePerDown;
+        }
+        else
         {
             if (Bar.fillAmount <= 0)
             {
+                CustomEvent EnemyBeat = new CustomEvent("EnemyBeat")
+                {
+                    { "orbCount", DataPlayer.Instance.orbCount},
+                    { "enemyName", "Ant" },
+                    { "enemyCount", 1f}
+                };
+
+                AnalyticsService.Instance.RecordEvent(EnemyBeat);
+                AnalyticsService.Instance.Flush();
+
                 SceneData.Instance.Winner();
                 Debug.Log("EnemyBeat evento");
-            }else if (Bar.fillAmount >= 1)
+
+
+
+            }
+            else if (Bar.fillAmount >= 1)
             {
                 SceneData.Instance.Loser();
             }
         }
     }
-    private void ConstantDown(){
+    private void ConstantDown()
+    {
         Bar.fillAmount += ConstantDamage;
         HandleValue.value -= ConstantDamage;
     }
 
-    public void Orb(){
-        if (Tutorial){
+    public void Orb()
+    {
+        if (Tutorial)
+        {
             GameObject boss = GameObject.FindGameObjectWithTag("Boss");
             boss.GetComponent<TutoStateMachine>().PassState();
             Bar.fillAmount -= OrbDamage;
             HandleValue.value += OrbDamage;
-        }else{
+        }
+        else
+        {
             Bar.fillAmount -= OrbDamage;
             HandleValue.value += OrbDamage;
         }
-        
+
     }
 
-    public void PlayerDamaged(){
+    public void PlayerDamaged()
+    {
         Bar.fillAmount += PlayerDamage;
         HandleValue.value -= PlayerDamage;
     }

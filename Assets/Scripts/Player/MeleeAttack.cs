@@ -7,6 +7,7 @@ public class MeleeAttack : MonoBehaviour
     [Header ("Attack")]
     [SerializeField] private Transform AttackController;
     [SerializeField] private float AttackRadius;
+
     [Header ("Comoponents")]
     private Animator Animator;
     
@@ -37,6 +38,7 @@ public class MeleeAttack : MonoBehaviour
         {
             if (collision.CompareTag("Orb"))
             {
+                DataPlayer.Instance.orbCount++;
                 audioSource.volume = 0.4f;
                 audioSource.PlayOneShot(Orb);
                 BarController Bar = GameObject.FindGameObjectWithTag("Canva").transform.GetChild(0).gameObject.transform.GetChild(1).gameObject.GetComponent<BarController>();

@@ -25,6 +25,7 @@ public class DialogueControl : MonoBehaviour
     private bool dialogueStarted;
     private GameObject player;
     [SerializeField] private Sprite face;
+    [SerializeField] private int CountObjTalk;
 
     [SerializeField] private string characName;
 
@@ -143,7 +144,19 @@ public class DialogueControl : MonoBehaviour
         }
         else
         {
+            CountObjTalk++;
+
+            CustomEvent Talk = new CustomEvent("Talk")
+            {
+                { "tagObj", characName},
+                { "countObj", CountObjTalk},
+            };
+
+            AnalyticsService.Instance.RecordEvent(Talk);
+            AnalyticsService.Instance.Flush();
+
             Debug.Log("Talk evento");
+
             dialogueStarted = false;
             autoDialogue = false;
             panel.SetActive(false);
@@ -203,12 +216,47 @@ public class DialogueControl : MonoBehaviour
         {
             if (characName == "Carmin")
             {
+                CustomEvent CombatBoss = new CustomEvent("CombatBoss")
+                {
+                    { "nameBoss", "Carmin"},
+
+                };
+
+                AnalyticsService.Instance.RecordEvent(CombatBoss);
+                AnalyticsService.Instance.Flush();
 
                 Debug.Log("CombatBoss evento");
             }
 
             if (characName == "BirdCrypt")
             {
+
+                CustomEvent Crypt = new CustomEvent("Crypt")
+                {
+                    { "cryptName", "BirdCrypt"}
+                };
+
+                AnalyticsService.Instance.RecordEvent(Crypt);
+                AnalyticsService.Instance.Flush();
+
+                CustomEvent LevelComplete = new CustomEvent("LevelComplete")
+                {
+                    { "levelIndex", 1f}
+                };
+
+                AnalyticsService.Instance.RecordEvent(LevelComplete);
+                AnalyticsService.Instance.Flush();
+
+                CustomEvent LevelStart = new CustomEvent("LevelStart")
+                {
+                    { "levelIndex", 2},
+                    { "levelType", "Crypt"},
+
+                };
+
+                AnalyticsService.Instance.RecordEvent(LevelStart);
+                AnalyticsService.Instance.Flush();
+
 
                 Debug.Log("Crypt evento");
             }
