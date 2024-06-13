@@ -32,6 +32,7 @@ public class CryptDoor : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            Debug.Log("EndCrypt evento");
             SceneManager.LoadScene("Victory");
         }
     }

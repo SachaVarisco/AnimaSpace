@@ -75,6 +75,7 @@ public class PlayerLifeController : MonoBehaviour
             DataPlayer.Instance.CryptDamage();
         }else
         {
+            Debug.Log("getHit evento");
             Bar.PlayerDamaged();
         }
     }

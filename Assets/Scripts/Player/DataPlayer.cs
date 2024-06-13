@@ -106,7 +106,8 @@ public class DataPlayer : MonoBehaviour
 
     public void CryptDamage()
     {
-
+        Debug.Log("getHit");
+        
         int Life = ActualLife - 1;
         if (Life < 0)
         {

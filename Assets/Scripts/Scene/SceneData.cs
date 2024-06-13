@@ -124,7 +124,7 @@ public class SceneData : MonoBehaviour
     public void Encounters()
     {
 
-        Debug.Log("EnemyBeat evento");
+        //Debug.Log("EnemyBeat evento");
         //escena que vuelve al mundo desp del ataque de la paloma
         //SceneManager.LoadScene("Menu");
         DataPlayer.Instance.SaveWorldPosition();

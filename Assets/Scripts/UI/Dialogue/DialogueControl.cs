@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Unity.Services.Analytics;
 
 public class DialogueControl : MonoBehaviour
 {
@@ -188,15 +189,28 @@ public class DialogueControl : MonoBehaviour
         if (EndTutorial)
         {
             SceneData.Instance.tutorialPassed = true;
+
+            //evento tutorial
+            AnalyticsService.Instance.RecordEvent("TutoComplete");
+            AnalyticsService.Instance.Flush();
+
             Debug.Log("TutoComplete evento");
+
+
             SceneManager.LoadScene("World");
         }
         if (Combat)
         {
             if (characName == "Carmin")
             {
-                
+
                 Debug.Log("CombatBoss evento");
+            }
+
+            if (characName == "BirdCrypt")
+            {
+
+                Debug.Log("Crypt evento");
             }
 
             DataPlayer.Instance.SaveWorldPosition();
