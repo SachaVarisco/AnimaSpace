@@ -33,14 +33,6 @@ public class CryptDoor : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            CustomEvent EndCrypt = new CustomEvent("EndCrypt")
-                {
-                    { "cryptName", "BirdCrypt"}
-                };
-
-            AnalyticsService.Instance.RecordEvent(EndCrypt);
-            AnalyticsService.Instance.Flush();
-
             CustomEvent LevelComplete = new CustomEvent("LevelComplete")
                 {
                     { "levelIndex", 2f}
@@ -49,7 +41,18 @@ public class CryptDoor : MonoBehaviour
             AnalyticsService.Instance.RecordEvent(LevelComplete);
             AnalyticsService.Instance.Flush();
 
-            Debug.Log("EndCrypt evento");
+            CustomEvent EndCrypt = new CustomEvent("EndCrypt")
+                {
+                    { "cryptName", "BirdCrypt"}
+                };
+
+            AnalyticsService.Instance.RecordEvent(EndCrypt);
+            AnalyticsService.Instance.Flush();
+
+            //Debug.Log("EndCrypt evento");
+
+
+
             SceneManager.LoadScene("Victory");
         }
     }

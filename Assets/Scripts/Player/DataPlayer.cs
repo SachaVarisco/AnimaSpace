@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
+using Unity.Services.Analytics;
 
 public class DataPlayer : MonoBehaviour
 {
@@ -25,15 +26,15 @@ public class DataPlayer : MonoBehaviour
     public bool floorWild;
     public bool pigeonLost;
 
-     [Header("Orb")]
-     public int orbCount;
-     public int hitCount;
+    [Header("Orb")]
+    public int orbCount;
+    public int hitCount;
 
     private void Awake()
     {
         if (DataPlayer.Instance == null)
         {
-            DataPlayer.Instance = this;
+            DataPlayer.Instance = this; 
             DontDestroyOnLoad(this.gameObject);
         }
         else
@@ -64,6 +65,17 @@ public class DataPlayer : MonoBehaviour
 
             pigeonLost = true;
         }
+
+        // if (scene.name == "Victory")
+        // {
+        //     CustomEvent LevelComplete = new CustomEvent("LevelComplete")
+        //         {
+        //             { "levelIndex", 2f}
+        //         };
+
+        //     AnalyticsService.Instance.RecordEvent(LevelComplete);
+        //     AnalyticsService.Instance.Flush();
+        // }
 
     }
 
