@@ -183,7 +183,7 @@ MonoBehaviour:
   m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 548c184c11a29774fb2c1a76a8eaffba, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: -7858055989360777895, guid: 548c184c11a29774fb2c1a76a8eaffba, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -762,7 +762,7 @@ MonoBehaviour:
   lines:
   - Si encuentras una salida por ahi avisa, por favor.
   autoDialogue: 0
-  face: {fileID: -1141379560, guid: c2c29db4b3e5b9a46ba5e7e41511f42a, type: 3}
+  face: {fileID: 1127848377, guid: f16a8694df2acff4a807d5f80abf710d, type: 3}
   CountObjTalk: 0
   characName: Chris
   audioDiag: {fileID: 8300000, guid: e73fa3497956a9e4980f521352e7509b, type: 3}
@@ -8520,7 +8520,7 @@ MonoBehaviour:
   m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 548c184c11a29774fb2c1a76a8eaffba, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: -7858055989360777895, guid: 548c184c11a29774fb2c1a76a8eaffba, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -15061,7 +15061,7 @@ MonoBehaviour:
   - El problema es que si te golpea un par de veces, debes volver a empezar.
   - Por cierto, me llamo Chris.
   autoDialogue: 0
-  face: {fileID: -1141379560, guid: c2c29db4b3e5b9a46ba5e7e41511f42a, type: 3}
+  face: {fileID: 1127848377, guid: f16a8694df2acff4a807d5f80abf710d, type: 3}
   CountObjTalk: 0
   characName: ???
   audioDiag: {fileID: 8300000, guid: e73fa3497956a9e4980f521352e7509b, type: 3}
@@ -15504,7 +15504,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1506019557
 RectTransform:
   m_ObjectHideFlags: 0
