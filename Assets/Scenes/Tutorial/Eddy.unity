@@ -898,7 +898,8 @@ MonoBehaviour:
   - Solo debes atacarlo cuando lo veas.
   - (Usa "Z" para atacar)
   autoDialogue: 1
-  face: {fileID: -673756468, guid: cb12d57261a25194db69a3677a50414a, type: 3}
+  face: {fileID: 1348135866, guid: d774360b14017a14e9c9fa220fa60da8, type: 3}
+  CountObjTalk: 0
   characName: Eddy
   audioDiag: {fileID: 8300000, guid: e73fa3497956a9e4980f521352e7509b, type: 3}
   Combat: 0
@@ -1553,7 +1554,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 99f2a2eccabed894184a9fda964baffb, type: 3}
+  m_Sprite: {fileID: -2028034660, guid: 044cd199621c55a409810f38f314e2c6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1628,7 +1629,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f7746bc5f924e7f41bf766ba6d8d20e6, type: 3}
+  m_Sprite: {fileID: 1988252440, guid: 24b0e5a076573ed409b6cee06f179b85, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2014,7 +2015,8 @@ MonoBehaviour:
     mucho."
   - "Estate preparado que te lanzar\xE9 uno muy basico."
   autoDialogue: 1
-  face: {fileID: -673756468, guid: cb12d57261a25194db69a3677a50414a, type: 3}
+  face: {fileID: 1348135866, guid: d774360b14017a14e9c9fa220fa60da8, type: 3}
+  CountObjTalk: 0
   characName: Eddy
   audioDiag: {fileID: 8300000, guid: e73fa3497956a9e4980f521352e7509b, type: 3}
   Combat: 0
@@ -2199,7 +2201,8 @@ MonoBehaviour:
   - Oh, buen golpe. Bueno, eso es lo basico.
   - "Lo dem\xE1s ya depender\xE1 de ti."
   autoDialogue: 1
-  face: {fileID: -673756468, guid: cb12d57261a25194db69a3677a50414a, type: 3}
+  face: {fileID: 1348135866, guid: d774360b14017a14e9c9fa220fa60da8, type: 3}
+  CountObjTalk: 0
   characName: Eddy
   audioDiag: {fileID: 8300000, guid: e73fa3497956a9e4980f521352e7509b, type: 3}
   Combat: 0
@@ -2850,7 +2853,8 @@ MonoBehaviour:
   - Solo vas a poder moverte, saltar y atacar.
   - (Usa la flecha "Izquierda" y "Derecha" para moverte y "Arriba" para saltar).
   autoDialogue: 1
-  face: {fileID: -673756468, guid: cb12d57261a25194db69a3677a50414a, type: 3}
+  face: {fileID: 1348135866, guid: d774360b14017a14e9c9fa220fa60da8, type: 3}
+  CountObjTalk: 0
   characName: Eddy
   audioDiag: {fileID: 8300000, guid: e73fa3497956a9e4980f521352e7509b, type: 3}
   Combat: 0
@@ -3905,7 +3909,8 @@ MonoBehaviour:
   - "Si te golpea alguno de mis ataques recibiras aun m\xE1s da\xF1o."
   - "Y si la barra llega a tocarte, perder\xE1s el combate."
   autoDialogue: 1
-  face: {fileID: -673756468, guid: cb12d57261a25194db69a3677a50414a, type: 3}
+  face: {fileID: 1348135866, guid: d774360b14017a14e9c9fa220fa60da8, type: 3}
+  CountObjTalk: 0
   characName: Eddy
   audioDiag: {fileID: 8300000, guid: e73fa3497956a9e4980f521352e7509b, type: 3}
   Combat: 0
