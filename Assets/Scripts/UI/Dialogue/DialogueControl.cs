@@ -126,11 +126,19 @@ public class DialogueControl : MonoBehaviour
         if (player.name == "WorldPlayer")
         {
             player.GetComponent<PlayerWorldControl>().talking = true;
+
+            // Detener las animaciones de caminar
+            player.GetComponent<Animator>().SetFloat("MoveX", 0);
+            player.GetComponent<Animator>().SetFloat("MoveY", 0);
         }
         if (player.name == "Player")
         {
             player.GetComponent<CharacterMove>().talking = true;
             Boss.SetBool("Talking", true);
+
+            // Detener las animaciones de caminar
+            player.GetComponent<Animator>().SetFloat("MoveX", 0);
+            player.GetComponent<Animator>().SetFloat("MoveY", 0);
         }
         StartCoroutine(ShowLine());
     }

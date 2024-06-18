@@ -605,7 +605,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 5
   m_Sprite: {fileID: 1060282508, guid: c2c29db4b3e5b9a46ba5e7e41511f42a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -15170,6 +15170,7 @@ MonoBehaviour:
   floorWild: 0
   pigeonLost: 0
   orbCount: 0
+  hitCount: 0
 --- !u!1 &1272001384
 GameObject:
   m_ObjectHideFlags: 0
@@ -15328,7 +15329,7 @@ Transform:
   m_GameObject: {fileID: 1328931500}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.99, y: -0.37999964, z: -10}
+  m_LocalPosition: {x: -9.87, y: -0.71999955, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16777,7 +16778,7 @@ Transform:
   m_GameObject: {fileID: 1644539189}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.990314, y: 0.1522212, z: -10}
+  m_LocalPosition: {x: -9.870509, y: 0.15229058, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17508,13 +17509,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3092730191031810413, guid: 93622cea78ee43743b7cc5242f01d294, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3541784395678168999, guid: 93622cea78ee43743b7cc5242f01d294, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.99
+      value: -9.87
       objectReference: {fileID: 0}
     - target: {fileID: 3541784395678168999, guid: 93622cea78ee43743b7cc5242f01d294, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.78
+      value: -3.12
       objectReference: {fileID: 0}
     - target: {fileID: 3541784395678168999, guid: 93622cea78ee43743b7cc5242f01d294, type: 3}
       propertyPath: m_LocalPosition.z

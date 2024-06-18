@@ -66,17 +66,6 @@ public class DataPlayer : MonoBehaviour
             pigeonLost = true;
         }
 
-        // if (scene.name == "Victory")
-        // {
-        //     CustomEvent LevelComplete = new CustomEvent("LevelComplete")
-        //         {
-        //             { "levelIndex", 2f}
-        //         };
-
-        //     AnalyticsService.Instance.RecordEvent(LevelComplete);
-        //     AnalyticsService.Instance.Flush();
-        // }
-
     }
 
     private void Update()
@@ -84,6 +73,7 @@ public class DataPlayer : MonoBehaviour
         if (PigeonCount == 3)
         {
             PigeonCount = 4;
+            floorWild = false;
             Ready = true;
         }
 

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class PlayerWorldControl : MonoBehaviour
@@ -35,12 +36,22 @@ public class PlayerWorldControl : MonoBehaviour
             Move();
         }
 
+        else
+        {
+            horizontalMove = 0;
+            verticalMove = 0;
+            animator.SetFloat("MoveX", 0);
+            animator.SetFloat("MoveY", 0);
+        }
+
         if (horizontalMove != 0 || verticalMove != 0)
         {
 
             CheckForEncounters();
 
         }
+
+
         if (DataPlayer.Instance != null)
         {
             if (DataPlayer.Instance.IsBack == true)
@@ -50,7 +61,7 @@ public class PlayerWorldControl : MonoBehaviour
                 DataPlayer.Instance.LoadWorldPosition();
             }
         }
-        
+
     }
 
     private void Move()
@@ -76,7 +87,7 @@ public class PlayerWorldControl : MonoBehaviour
         if (Physics2D.OverlapCircle(transform.position, 0.2f, wildAppear) != null)
         {
 
-            if (Random.Range(1, 1001) <= 1)
+            if (Random.Range(1, 801) <= 1)
             {
 
                 SceneData.Instance.Encounters();

@@ -6,7 +6,7 @@ public class Rotate : MonoBehaviour
 {
     public bool LookLeft = false;
     private float VelocityX;
-    private float VelocityY;
+    //private float VelocityY;
     private Vector3 PrevPosition;
     private void FixedUpdate() 
     {
@@ -33,6 +33,14 @@ public class Rotate : MonoBehaviour
     public void RotateX()
     {
         LookLeft = !LookLeft;
-        transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
+
+        Vector3 spriteScale = this.gameObject.transform.localScale;
+        spriteScale.x *= -1;  // Invertir la escala en X
+        this.gameObject.transform.localScale = spriteScale;
+
+
+
+
+        //transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
     }
 }
