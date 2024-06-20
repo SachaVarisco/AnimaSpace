@@ -10,6 +10,7 @@ public class PlayerWorldControl : MonoBehaviour
     public float speed;
     private float horizontalMove;
     private float verticalMove;
+    private Vector2 moveInput;
 
     [Header("Wild Appears")]
     [SerializeField] private LayerMask wildAppear;
@@ -31,8 +32,10 @@ public class PlayerWorldControl : MonoBehaviour
     {
         if (CanMove)
         {
-            horizontalMove = speed * Input.GetAxisRaw("Horizontal") * Time.deltaTime;
-            verticalMove = speed * Input.GetAxisRaw("Vertical") * Time.deltaTime;
+            horizontalMove = Input.GetAxisRaw("Horizontal");
+            verticalMove = Input.GetAxisRaw("Vertical");
+            moveInput = new Vector2(horizontalMove, verticalMove).normalized;
+
             Move();
         }
 
@@ -64,17 +67,22 @@ public class PlayerWorldControl : MonoBehaviour
 
     }
 
+    private void FixedUpdate(){
+
+        rb2D.MovePosition(rb2D.position + moveInput * speed * Time.fixedDeltaTime);
+    }
+
     private void Move()
     {
         if (Input.GetAxis("Horizontal") != 0 && !talking)
         {
-            transform.position += new Vector3(horizontalMove, 0);
+            //transform.position += new Vector3(horizontalMove, 0);
             animator.SetFloat("MoveX", Mathf.Abs(horizontalMove));
 
         }
         if (Input.GetAxis("Vertical") != 0 && !talking)
         {
-            transform.position += new Vector3(0, verticalMove);
+            //transform.position += new Vector3(0, verticalMove);
             animator.SetFloat("MoveY", verticalMove);
         }
 

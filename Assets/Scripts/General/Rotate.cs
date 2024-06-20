@@ -5,13 +5,14 @@ using UnityEngine;
 public class Rotate : MonoBehaviour
 {
     public bool LookLeft = false;
-    private float VelocityX;
+    [SerializeField] private float VelocityX;
     //private float VelocityY;
     private Vector3 PrevPosition;
-    private void FixedUpdate() 
+
+    private void FixedUpdate()
     {
         CalcSpeed();
-        if (VelocityX > 0 && LookLeft /*&& VelocityY == 0*/) 
+        if (VelocityX > 0 && LookLeft /*&& VelocityY == 0*/)
         {
             RotateX();
         }
@@ -23,9 +24,8 @@ public class Rotate : MonoBehaviour
     private void CalcSpeed()
     {
         Vector3 currentPosition = transform.position;
-        float deltaTime = Time.deltaTime;
 
-        VelocityX = (currentPosition.x - PrevPosition.x) / deltaTime;
+        VelocityX = (currentPosition.x - PrevPosition.x) / Time.deltaTime;
         //VelocityY = (currentPosition.y - PrevPosition.y) / deltaTime;
 
         PrevPosition = currentPosition;
@@ -34,12 +34,11 @@ public class Rotate : MonoBehaviour
     {
         LookLeft = !LookLeft;
 
-        Vector3 spriteScale = this.gameObject.transform.localScale;
-        spriteScale.x *= -1;  // Invertir la escala en X
-        this.gameObject.transform.localScale = spriteScale;
+        gameObject.GetComponent<SpriteRenderer>().flipX = LookLeft;
 
-
-
+        //Vector3 spriteScale = this.gameObject.transform.localScale;
+        //spriteScale.x *= -1;  // Invertir la escala en X
+        //this.gameObject.transform.localScale = spriteScale;
 
         //transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
     }
