@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 2254306507058705242}
   - component: {fileID: 8598999261331558513}
   - component: {fileID: 2942867527517615122}
+  - component: {fileID: 7322177079217686442}
   - component: {fileID: 7239488105139710543}
   - component: {fileID: 1437576260207750851}
   m_Layer: 0
@@ -265,12 +266,27 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6620164999889586039}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb03be586c036124ba8fd32873b96da8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   LookLeft: 0
+  VelocityX: 0
+--- !u!114 &7322177079217686442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6620164999889586039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c5b0c67da8144b4c990f4973f19ece5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LookLeft: 0
+  VelocityX: 0
 --- !u!114 &7239488105139710543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,6 +300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ImpactVelocity: {x: 3, y: 3}
+  Crypt: 0
   Hurt: {fileID: 8300000, guid: 456a965896af7ed458496087515baf76, type: 3}
 --- !u!82 &1437576260207750851
 AudioSource:

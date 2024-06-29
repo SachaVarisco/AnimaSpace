@@ -126,6 +126,7 @@ public class DialogueControl : MonoBehaviour
         if (player.name == "WorldPlayer")
         {
             player.GetComponent<PlayerWorldControl>().talking = true;
+            player.GetComponent<PlayerWorldControl>().CanMove = false;
 
             // Detener las animaciones de caminar
             player.GetComponent<Animator>().SetFloat("MoveX", 0);
@@ -172,6 +173,7 @@ public class DialogueControl : MonoBehaviour
             if (player.name == "WorldPlayer")
             {
                 player.GetComponent<PlayerWorldControl>().talking = false;
+                player.GetComponent<PlayerWorldControl>().CanMove = true;
             }
             if (player.name == "Player")
             {

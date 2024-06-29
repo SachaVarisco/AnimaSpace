@@ -41,6 +41,7 @@ public class PlayerWorldControl : MonoBehaviour
 
         else
         {
+
             horizontalMove = 0;
             verticalMove = 0;
             animator.SetFloat("MoveX", 0);
@@ -67,9 +68,14 @@ public class PlayerWorldControl : MonoBehaviour
 
     }
 
-    private void FixedUpdate(){
+    private void FixedUpdate()
+    {
 
-        rb2D.MovePosition(rb2D.position + moveInput * speed * Time.fixedDeltaTime);
+        if (CanMove)
+        {
+            rb2D.MovePosition(rb2D.position + moveInput * speed * Time.fixedDeltaTime);
+
+        }
     }
 
     private void Move()
