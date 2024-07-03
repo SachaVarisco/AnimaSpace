@@ -68,35 +68,6 @@ public class StateMachine : MonoBehaviour
         
     }
 
-    /*public void ActiveSeqState(){ 
-        Debug.Log("SeqState");
-        Orb.SetActive(false);
-        StateCount++;
-        NextState = stateArray[StateCount];
-        if (StateCount >= 5)
-        {
-            StateCount = 0;
-            NextState = stateArray[StateCount];
-            StartCoroutine("WaitInIdle");
-        }else {
-            StartCoroutine("WaitInIdle");
-        }
-    }*/
-
-    /*public void ActiveStun(){
-        ActualState.enabled = false; 
-        ActualState = stateArray[5];
-        if (StateCount >= 5)
-        {
-            StateCount = 0;
-            NextState = stateArray[StateCount];
-        }else {
-            StateCount++;
-            NextState = stateArray[StateCount];
-        }
-        
-        ActualState.enabled = true;
-    }*/
     public IEnumerator WaitInIdle(){
         StateIndicator.GetComponent<SpriteRenderer>().color = Color.green;
         yield return new WaitForSeconds(2);

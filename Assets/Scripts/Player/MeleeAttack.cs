@@ -4,19 +4,23 @@ using UnityEngine;
 
 public class MeleeAttack : MonoBehaviour
 {
-    [Header ("Attack")]
+    [Header("Attack")]
     [SerializeField] private Transform AttackController;
     [SerializeField] private float AttackRadius;
 
-    [Header ("Comoponents")]
+    [Header("Comoponents")]
     private Animator Animator;
-    
 
-    [Header ("Player sounds")]
+    [Header("Type")]
+
+    [SerializeField] private bool Crow;
+
+    [Header("Player sounds")]
     private AudioSource audioSource;
     [SerializeField] private AudioClip Hit;
     [SerializeField] private AudioClip Orb;
-    private void Start() {
+    private void Start()
+    {
         Animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
     }
@@ -38,17 +42,28 @@ public class MeleeAttack : MonoBehaviour
         {
             if (collision.CompareTag("Orb"))
             {
-                DataPlayer.Instance.orbCount++;
+                //DataPlayer.Instance.orbCount++;
                 audioSource.volume = 0.4f;
                 audioSource.PlayOneShot(Orb);
-                BarController Bar = GameObject.FindGameObjectWithTag("Canva").transform.GetChild(0).gameObject.transform.GetChild(1).gameObject.GetComponent<BarController>();
-                Bar.Orb();
+                if (Crow)
+                {
+                    LifeBar Bar = GameObject.FindGameObjectWithTag("Canva").transform.GetChild(0).gameObject.GetComponent<LifeBar>();
+                    Bar.SubstractLife(1f);
+                }
+                else
+                {
+                    BarController Bar = GameObject.FindGameObjectWithTag("Canva").transform.GetChild(0).gameObject.transform.GetChild(1).gameObject.GetComponent<BarController>();
+                    Bar.Orb();
+                    
+                }
                 collision.gameObject.SetActive(false);
+
             }
         }
     }
 
-    private void OnDrawGizmos() {
+    private void OnDrawGizmos()
+    {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(AttackController.position, AttackRadius);
     }

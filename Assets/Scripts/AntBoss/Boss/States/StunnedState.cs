@@ -26,7 +26,6 @@ public class StunnedState : MonoBehaviour
         gameObject.GetComponent<Animator>().SetTrigger("Stunned");
         currentTime = timer;
         CanPass = true;
-        //StartCoroutine("ActiveIdleAgain");
     }
     private void FixedUpdate() {
         currentTime -= Time.deltaTime;
@@ -37,10 +36,6 @@ public class StunnedState : MonoBehaviour
         }
     }
     
-    /*private IEnumerator ActiveIdleAgain() {
-        yield return new WaitForSeconds(1);
-        GetComponent<StateMachine>().StartCoroutine("WaitInIdle");
-    }*/
 
     private void ActiveIdleAgain(){
         GetComponent<StateMachine>().StartCoroutine("WaitInIdle");
