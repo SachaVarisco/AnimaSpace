@@ -760,7 +760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lines:
-  - Si encuentras una salida por ahi avisa, por favor.
+  - "Si encuentras una salida por ah\xED avisa, por favor."
   autoDialogue: 0
   face: {fileID: 1127848377, guid: f16a8694df2acff4a807d5f80abf710d, type: 3}
   CountObjTalk: 0
@@ -15055,9 +15055,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines:
   - "Hola peque\xF1o aventurero."
-  - Veo que tu tambien quedaste atrapado aqui.
-  - Hasta ahora no encontre una salida, la unica puerta esta cerrada.
-  - "Parece que es necesario sobrevivir al peque\xF1o guardian de este area."
+  - "Veo que t\xFA tambi\xE9n quedaste atrapado aqui."
+  - "Hasta ahora no encontr\xE9 una salida, la \xFAnica puerta est\xE1 cerrada."
+  - "Parece que es necesario sobrevivir al peque\xF1o guardi\xE1n de esta \xE1rea."
   - El problema es que si te golpea un par de veces, debes volver a empezar.
   - Por cierto, me llamo Chris.
   autoDialogue: 0
@@ -15463,7 +15463,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &1336906153
 RectTransform:

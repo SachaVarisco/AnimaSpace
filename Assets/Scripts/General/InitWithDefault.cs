@@ -4,7 +4,7 @@ using Unity.Services.Analytics;
 
 public class InitWithDefault : MonoBehaviour
 {
-    async void Start()
+    async void Awake()
     { 
         Debug.Log("hace el init data");  
 		await UnityServices.InitializeAsync();

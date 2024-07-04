@@ -74,6 +74,7 @@ public class PlayerLifeController : MonoBehaviour
         audioSource.PlayOneShot(Hurt);
 
         animator.SetTrigger("Damaged");
+        animator.SetFloat("MoveX", 0f);
         rb2D.velocity = new Vector2(-ImpactVelocity.x * ImpactPoint.x, ImpactVelocity.y);
         if (Crypt)
         {

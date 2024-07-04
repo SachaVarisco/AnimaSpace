@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 9812359026181605}
   - component: {fileID: 2925657250311276907}
   - component: {fileID: 2706606051842914212}
-  - component: {fileID: 6001155516924279542}
   - component: {fileID: 8588185872369335578}
   m_Layer: 0
   m_Name: WorldPlayer
@@ -155,19 +154,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   talking: 0
---- !u!114 &6001155516924279542
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4490792431419116900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb03be586c036124ba8fd32873b96da8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LookLeft: 0
 --- !u!61 &8588185872369335578
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -83,7 +83,7 @@ public class PlayerWorldControl : MonoBehaviour
         if (Input.GetAxis("Horizontal") != 0 && !talking)
         {
             //transform.position += new Vector3(horizontalMove, 0);
-            animator.SetFloat("MoveX", Mathf.Abs(horizontalMove));
+            animator.SetFloat("MoveX", horizontalMove);
 
         }
         if (Input.GetAxis("Vertical") != 0 && !talking)

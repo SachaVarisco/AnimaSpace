@@ -26,7 +26,7 @@ public class CharacterMove : MonoBehaviour
 
     [Header ("Player sounds")]
     [SerializeField] private AudioClip Jump;
-    [SerializeField] private AudioClip WalkCombat;
+    //[SerializeField] private AudioClip WalkCombat;
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
@@ -35,7 +35,7 @@ public class CharacterMove : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetButtonDown("Vertical"))
+        if (Input.GetButtonDown("Jump"))
         {
             jump = true;
         }

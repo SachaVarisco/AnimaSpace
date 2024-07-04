@@ -892,9 +892,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lines:
-  - "Finalmente, te preguntar\xE1s como es que tu me haces da\xF1o."
-  - "Bueno, eso es facil, al realizar ataques, mi esp\xEDritu se debilita."
-  - "Y en algun momento aparecer\xE1 un orbe que te permitir\xE1 hacerme da\xF1o."
+  - "Finalmente, te preguntar\xE1s como es que t\xFA me haces da\xF1o."
+  - "Bueno, eso es f\xE1cil, al realizar ataques, mi esp\xEDritu se debilita."
+  - "Y, en alg\xFAn momento, aparecer\xE1 un orbe que te permitir\xE1 hacerme da\xF1o."
   - Solo debes atacarlo cuando lo veas.
   - (Usa "Z" para atacar)
   autoDialogue: 1
@@ -2010,10 +2010,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines:
   - Debes moverte para esquivar los ataque que te lancen.
-  - "Como estas en mi mundo, puedo crear ataques que te har\xE1n da\xF1o."
+  - "Como est\xE1s en mi mundo, puedo crear ataques que te har\xE1n da\xF1o."
   - "Debilitar\xE1n tu esp\xEDritu y har\xE1n que pierdas la pelea si te golpean
     mucho."
-  - "Estate preparado que te lanzar\xE9 uno muy basico."
+  - "Estate preparado que te lanzar\xE9 uno muy b\xE1sico."
   autoDialogue: 1
   face: {fileID: 1348135866, guid: d774360b14017a14e9c9fa220fa60da8, type: 3}
   CountObjTalk: 0
@@ -2198,7 +2198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lines:
-  - Oh, buen golpe. Bueno, eso es lo basico.
+  - "Oh, buen golpe. Bueno, eso es lo b\xE1sico."
   - "Lo dem\xE1s ya depender\xE1 de ti."
   autoDialogue: 1
   face: {fileID: 1348135866, guid: d774360b14017a14e9c9fa220fa60da8, type: 3}
@@ -2845,11 +2845,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lines:
-  - "Bueno, como deberias recordar, este es el mundo esp\xEDritual."
-  - "Recuerda que cuando desafias a un esp\xEDritu, tu vas a entrar a su mundo."
-  - Este mundo es como una extension del alma de tu contrincante.
-  - Como tu entras aqui, vas a estar en desventaja.
-  - Aqui eres una version inferior de ti mismo y tus acciones son limitadas.
+  - "Bueno, como deber\xEDas recordar, este es el mundo esp\xEDritual."
+  - "Recuerda que cuando desafias a un esp\xEDritu, t\xFA vas a entrar a su mundo."
+  - "Este mundo es como una extensi\xF3n del alma de tu contrincante."
+  - "Como t\xFA entras aqu\xED, vas a estar en desventaja."
+  - "Aqu\xED eres una versi\xF3n inferior de ti mismo y tus acciones son limitadas."
   - Solo vas a poder moverte, saltar y atacar.
   - (Usa la flecha "Izquierda" y "Derecha" para moverte y "Arriba" para saltar).
   autoDialogue: 1
@@ -3902,9 +3902,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lines:
-  - Aqui abajo esta la barra de competencia.
+  - "Aqu\xED abajo est\xE1 la barra de competencia."
   - "Te mostrar\xE1 el avance de la lucha."
-  - "Como estas en mi mundo, recibiras da\xF1o constante y la barra se acercar\xE1
+  - "Como est\xE1s en mi mundo, recibiras da\xF1o constante y la barra se acercar\xE1
     a tu cara."
   - "Si te golpea alguno de mis ataques recibiras aun m\xE1s da\xF1o."
   - "Y si la barra llega a tocarte, perder\xE1s el combate."
