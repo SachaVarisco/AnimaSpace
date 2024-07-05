@@ -37,14 +37,18 @@ public class MoveObjects : MonoBehaviour
     [Header ("ComeBack")]
     private Vector2 PosInit;
 
+    private SpriteRenderer spriteRenderer;
+
  
 
     private void Awake(){
         PosInit = gameObject.transform.position;
+        spriteRenderer = GetComponent<SpriteRenderer> ();
     }
     private void OnEnable() {
         if (AlertTrig)
         {
+            spriteRenderer.enabled = false;
             Alert = transform.GetChild(0).gameObject;
             Alert.SetActive(true);
         }
@@ -89,6 +93,7 @@ public class MoveObjects : MonoBehaviour
        if (AlertTrig)
         {
             Alert.SetActive(false);
+            spriteRenderer.enabled = true;
         }
         Move();
     }

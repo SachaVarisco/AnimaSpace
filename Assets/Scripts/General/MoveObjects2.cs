@@ -37,8 +37,7 @@ public class MoveObjects2 : MonoBehaviour
     private Vector2 PosInit;
 
     public Action OnComplete;
-
-    //private bool isMovementComplete = false;
+    public Action OnFirstLoopComplete; // Nuevo evento para el primer ciclo de movimiento
 
     private void Awake()
     {
@@ -62,8 +61,8 @@ public class MoveObjects2 : MonoBehaviour
         StartCoroutine("Wait");
     }
 
-    private void Update(){
-
+    private void Update()
+    {
         if (ToMovePos == null)
         {
             Destroy(gameObject);
@@ -105,7 +104,10 @@ public class MoveObjects2 : MonoBehaviour
 
     private void TypeRestart(float duration)
     {
-        transform.DOMove(new Vector2(PosX, PosY), duration).SetLoops(Loops, LoopType.Restart).OnComplete(() =>
+        transform.DOMove(new Vector2(PosX, PosY), duration).SetLoops(Loops, LoopType.Restart).OnStepComplete(() =>
+        {
+            OnFirstLoopComplete?.Invoke(); // Llamar al evento OnFirstLoopComplete después del primer ciclo
+        }).OnComplete(() =>
         {
             OnComplete?.Invoke(); // Llamar al evento OnComplete
             PassState();
@@ -114,7 +116,10 @@ public class MoveObjects2 : MonoBehaviour
 
     private void TypeYoyo(float duration)
     {
-        transform.DOMove(new Vector2(PosX, PosY), duration).SetLoops(Loops, LoopType.Yoyo).OnComplete(() =>
+        transform.DOMove(new Vector2(PosX, PosY), duration).SetLoops(Loops, LoopType.Yoyo).OnStepComplete(() =>
+        {
+            OnFirstLoopComplete?.Invoke(); // Llamar al evento OnFirstLoopComplete después del primer ciclo
+        }).OnComplete(() =>
         {
             OnComplete?.Invoke(); // Llamar al evento OnComplete
             PassState();

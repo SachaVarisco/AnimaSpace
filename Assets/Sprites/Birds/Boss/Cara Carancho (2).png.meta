@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 14d6dbf5f3915264b9de10065c0f74c3
+guid: c32464bc7fee4db4f8e9ac4292fc7497
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 50
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,43 +110,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Feet_0
+      name: Cara Carancho (2)_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 120
-        height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 60
+        height: 60
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d0d0a64dfab13f4dbf33c9afc6e6e70
-      internalID: -1023294328
+      spriteID: 44ffdb7b87253ab44a4a06ba5766a906
+      internalID: 1279472813
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Feet_1
+      name: Cara Carancho (2)_1
       rect:
         serializedVersion: 2
-        x: 120
+        x: 60
         y: 0
-        width: 120
-        height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 60
+        height: 60
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf070fcf210859b4ba83062a968c78ef
-      internalID: 1060488595
+      spriteID: f1c9cea59abd8a7408dafdaa25cfe054
+      internalID: -1602131688
       vertices: []
       indices: 
       edges: []
@@ -162,8 +162,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Feet_0: -1023294328
-      Feet_1: 1060488595
+      Cara Carancho (2)_0: 1279472813
+      Cara Carancho (2)_1: -1602131688
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

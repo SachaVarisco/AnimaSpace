@@ -7,10 +7,13 @@ public class CrawnMovementNotifier : MonoBehaviour
 
     private MoveObjects2 moveObjects;
     private bool isMovementComplete = false;
+    private Animator animator; // Referencia al componente Animator
+    private bool CrawnClose = false;
 
     private void Awake()
     {
         moveObjects = GetComponent<MoveObjects2>();
+        animator = GetComponent<Animator>(); // Obtener la referencia al componente Animator
         if (moveObjects == null)
         {
             Debug.LogError("MoveObjects2 component is missing on the feather object.");
@@ -21,9 +24,20 @@ public class CrawnMovementNotifier : MonoBehaviour
     {
         if (moveObjects != null)
         {
+            moveObjects.OnFirstLoopComplete += OnFirstLoopCompleteHandler;
             moveObjects.OnComplete += OnMovementCompleteInternal;
             moveObjects.enabled = true;
         }
+    }
+
+    private void Update(){
+
+        animator.SetBool("CrawnClose", CrawnClose);
+    }
+
+    private void OnFirstLoopCompleteHandler()
+    {
+        CrawnClose = true;
     }
 
     private void OnMovementCompleteInternal()
@@ -34,10 +48,23 @@ public class CrawnMovementNotifier : MonoBehaviour
 
     public bool IsMovementComplete => isMovementComplete; // Propiedad para acceder al estado de movimiento
 
+    private void PlayAnimation()
+    {
+        if (animator != null)
+        {
+            animator.SetTrigger("PlayAnimationTrigger"); // Asume que tienes un trigger en tu Animator llamado "PlayAnimationTrigger"
+        }
+        else
+        {
+            Debug.LogError("Animator component is missing on the feather object.");
+        }
+    }
+
     private void OnDisable()
     {
         if (moveObjects != null)
         {
+            moveObjects.OnFirstLoopComplete -= OnFirstLoopCompleteHandler;
             moveObjects.OnComplete -= OnMovementCompleteInternal;
         }
     }
