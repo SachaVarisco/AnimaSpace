@@ -36,7 +36,6 @@ public class StunnedState : MonoBehaviour
         }
     }
     
-
     private void ActiveIdleAgain(){
         GetComponent<StateMachine>().StartCoroutine("WaitInIdle");
     }

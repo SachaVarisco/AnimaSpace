@@ -14,7 +14,7 @@ public class OrbController : MonoBehaviour
     [SerializeField] private float minDistance;
     private int pathCount;
     private Vector3 pathObj;
-    // Start is called before the first frame update
+
     void OnEnable()
     {
         SpawnOrb();

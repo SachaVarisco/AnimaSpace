@@ -7,6 +7,7 @@ public class BirdMovementNotifier : MonoBehaviour
 
     private MoveObjects2 moveObjects;
     private bool isMovementComplete = false;
+    //private Vector3 initialPosition; // Variable para almacenar la posición inicial
 
     private void Awake()
     {
@@ -15,6 +16,14 @@ public class BirdMovementNotifier : MonoBehaviour
         {
             Debug.LogError("MoveObjects2 component is missing on the feather object.");
         }
+
+        //initialPosition = transform.position; // Guardar la posición inicial
+    }
+
+    private void OnEnable()
+    {
+        isMovementComplete = false; // Resetear el estado de movimiento
+        //transform.position = initialPosition; // Volver a la posición inicial
     }
 
     public void StartMovement()
@@ -28,8 +37,9 @@ public class BirdMovementNotifier : MonoBehaviour
 
     private void OnMovementCompleteInternal()
     {
-        isMovementComplete = true; // Actualiza el estado de IsMovementComplete
+        isMovementComplete = true; // Actualiza el estado de isMovementComplete
         OnMovementComplete?.Invoke(); // Activa el evento OnMovementComplete
+        moveObjects.enabled = false; // Desactivar el script después del movimiento
     }
 
     public bool IsMovementComplete => isMovementComplete; // Propiedad para acceder al estado de movimiento

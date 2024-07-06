@@ -271,6 +271,20 @@ public class DialogueControl : MonoBehaviour
                 Debug.Log("Crypt evento");
             }
 
+            if (characName == "Crow")
+            {
+                CustomEvent CombatBoss = new CustomEvent("CombatBoss")
+                {
+                    { "nameBoss", "Karasuno"},
+
+                };
+
+                AnalyticsService.Instance.RecordEvent(CombatBoss);
+                AnalyticsService.Instance.Flush();
+
+                Debug.Log("CombatBoss evento");
+            }
+
             DataPlayer.Instance.SaveWorldPosition();
             SceneManager.LoadScene(characName);
         }

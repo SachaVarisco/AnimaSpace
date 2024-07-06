@@ -53,7 +53,7 @@ public class CryptDoor : MonoBehaviour
 
 
 
-            SceneManager.LoadScene("Victory");
+            SceneManager.LoadScene("CrowCrypt");
         }
     }
 }

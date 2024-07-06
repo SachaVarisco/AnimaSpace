@@ -6,7 +6,9 @@ using DG.Tweening;
 public class MoveObjects2 : MonoBehaviour
 {
     [Header("Trigger")]
-    [SerializeField] private bool EndTrigger;
+    [SerializeField] private bool EndTriggerPigeon;
+    [SerializeField] private bool EndTriggerCarancho;
+    [SerializeField] private bool EndTriggerCaranchoCrawn;
 
     [Header("Same Position?")]
     [SerializeField] private bool SamePosX;
@@ -39,8 +41,11 @@ public class MoveObjects2 : MonoBehaviour
     public Action OnComplete;
     public Action OnFirstLoopComplete; // Nuevo evento para el primer ciclo de movimiento
 
+    private SpriteRenderer spriteRenderer;
+
     private void Awake()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         PosInit = gameObject.transform.position;
 
         // Desactiva el script al principio para evitar que las plumas se muevan automáticamente
@@ -51,6 +56,7 @@ public class MoveObjects2 : MonoBehaviour
     {
         if (AlertTrig)
         {
+            spriteRenderer.enabled = false;
             Alert = transform.GetChild(0).gameObject;
             Alert.SetActive(true);
         }
@@ -132,6 +138,7 @@ public class MoveObjects2 : MonoBehaviour
         if (AlertTrig)
         {
             Alert.SetActive(false);
+            spriteRenderer.enabled = true;
         }
         // Activa el script solo cuando se inicie el movimiento de la pluma
         enabled = true;
@@ -150,25 +157,26 @@ public class MoveObjects2 : MonoBehaviour
 
     private void PassState()
     {
-        if (EndTrigger)
+        if (EndTriggerPigeon)
         {
             DataPlayer.Instance.PigeonCount++;
             SceneData.Instance.Pigeon();
         }
-    }
 
-    private void OnMovementCompleteInternal()
-    {
-        OnComplete?.Invoke(); // Llamar al evento OnComplete
+        if (EndTriggerCarancho)
+        {
+            transform.parent.gameObject.transform.parent.gameObject.GetComponent<StateMachine>().PassState();
+        }
 
-        // Desactiva el script después de que la pluma ha completado su movimiento
-        enabled = false;
-
-        PassState();
+        if (EndTriggerCaranchoCrawn)
+        {
+            transform.parent.gameObject.transform.parent.gameObject.transform.parent.gameObject.GetComponent<StateMachine>().PassState();
+        }
     }
 
     private void OnDisable()
     {
-        gameObject.transform.position = PosInit;
+        gameObject.transform.position = PosInit; // Vuelve a la posición inicial
+        enabled = false; // Asegura que el script esté desactivado
     }
 }

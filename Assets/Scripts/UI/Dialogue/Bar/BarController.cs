@@ -41,7 +41,7 @@ public class BarController : MonoBehaviour
         }
         else
         {
-            if (Bar.fillAmount <= 0)
+            if (Bar.fillAmount <= 0 && SceneManager.GetActiveScene().name == "Carmin")
             {
                 CustomEvent EnemyBeat = new CustomEvent("EnemyBeat")
                 {
@@ -56,7 +56,22 @@ public class BarController : MonoBehaviour
                 SceneData.Instance.Winner();
                 Debug.Log("EnemyBeat evento");
 
+            }
 
+            if (Bar.fillAmount <= 0 && SceneManager.GetActiveScene().name == "Carancho")
+            {
+                // CustomEvent EnemyBeat = new CustomEvent("EnemyBeat")
+                // {
+                //     { "orbCount", DataPlayer.Instance.orbCount},
+                //     { "enemyName", "Carancho" },
+                //     { "enemyCount", 6f}
+                // };
+
+                // AnalyticsService.Instance.RecordEvent(EnemyBeat);
+                // AnalyticsService.Instance.Flush();
+
+                SceneManager.LoadScene("Victory");
+                Debug.Log("EnemyBeat evento");
 
             }
             else if (Bar.fillAmount >= 1)

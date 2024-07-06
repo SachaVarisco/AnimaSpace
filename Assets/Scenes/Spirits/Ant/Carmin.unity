@@ -261,6 +261,9 @@ MonoBehaviour:
   - {fileID: 2130234137}
   - {fileID: 788870119}
   - {fileID: 7246643}
+  Path: 0
+  speed: 0
+  minDistance: 0
 --- !u!1 &66927882
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,7 +428,7 @@ Animator:
   m_GameObject: {fileID: 76602645}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: cb44be2a70accbb42816bd4bc7ad81a9, type: 2}
+  m_Controller: {fileID: 9100000, guid: c28f5c10bf128614fb037b6e959d446a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
