@@ -40,8 +40,14 @@ public class LivesUI : MonoBehaviour
         if (ActualLife <= ActualLives)
         {
             QuitSoul(ActualLife);
-        }else{
-            //AddSoul(ActualLife);
+        }
+        else{
+            if(DataPlayer.Instance.isHeal == true){
+
+                AddSoul(ActualLife);
+                DataPlayer.Instance.isHeal = false;
+            }
+            
         }
     }
 

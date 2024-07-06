@@ -261,6 +261,9 @@ MonoBehaviour:
   - {fileID: 2130234137}
   - {fileID: 788870119}
   - {fileID: 7246643}
+  Path: 0
+  speed: 0
+  minDistance: 0
 --- !u!4 &38439178 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6846739341696241778, guid: 1a3fe254055bd7240a22260d175b23d6, type: 3}
@@ -4139,7 +4142,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df06bd90f594f6449835204c93bc3afd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EndTrigger: 0
+  EndTriggerPigeon: 0
+  EndTriggerCarancho: 0
+  EndTriggerCaranchoCrawn: 0
   SamePosX: 0
   SamePosY: 0
   WaitTime: 0
@@ -5370,7 +5375,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df06bd90f594f6449835204c93bc3afd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EndTrigger: 0
+  EndTriggerPigeon: 0
+  EndTriggerCarancho: 0
+  EndTriggerCaranchoCrawn: 0
   SamePosX: 0
   SamePosY: 0
   WaitTime: 0
@@ -6591,7 +6598,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df06bd90f594f6449835204c93bc3afd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EndTrigger: 0
+  EndTriggerPigeon: 0
+  EndTriggerCarancho: 0
+  EndTriggerCaranchoCrawn: 0
   SamePosX: 0
   SamePosY: 0
   WaitTime: 0
@@ -7557,7 +7566,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df06bd90f594f6449835204c93bc3afd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EndTrigger: 0
+  EndTriggerPigeon: 0
+  EndTriggerCarancho: 0
+  EndTriggerCaranchoCrawn: 0
   SamePosX: 0
   SamePosY: 0
   WaitTime: 0
@@ -8140,7 +8151,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df06bd90f594f6449835204c93bc3afd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EndTrigger: 0
+  EndTriggerPigeon: 0
+  EndTriggerCarancho: 0
+  EndTriggerCaranchoCrawn: 0
   SamePosX: 0
   SamePosY: 0
   WaitTime: 0
@@ -8730,7 +8743,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df06bd90f594f6449835204c93bc3afd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EndTrigger: 1
+  EndTriggerPigeon: 1
+  EndTriggerCarancho: 0
+  EndTriggerCaranchoCrawn: 0
   SamePosX: 0
   SamePosY: 0
   WaitTime: 0
@@ -9175,7 +9190,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df06bd90f594f6449835204c93bc3afd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EndTrigger: 1
+  EndTriggerPigeon: 1
+  EndTriggerCarancho: 0
+  EndTriggerCaranchoCrawn: 0
   SamePosX: 0
   SamePosY: 0
   WaitTime: 0
@@ -10293,7 +10310,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df06bd90f594f6449835204c93bc3afd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EndTrigger: 0
+  EndTriggerPigeon: 0
+  EndTriggerCarancho: 0
+  EndTriggerCaranchoCrawn: 0
   SamePosX: 0
   SamePosY: 0
   WaitTime: 0

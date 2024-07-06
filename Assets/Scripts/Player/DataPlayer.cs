@@ -16,7 +16,7 @@ public class DataPlayer : MonoBehaviour
 
     [Header("Life")]
     private LivesUI LiveCanva;
-    [SerializeField] private int ActualLife;
+    [SerializeField] public int ActualLife;
     [SerializeField] private int MaxLife;
     public UnityEvent<int> changeLife;
 
@@ -25,6 +25,7 @@ public class DataPlayer : MonoBehaviour
     public bool Ready;
     public bool floorWild;
     public bool pigeonLost;
+    public bool isHeal;
 
     [Header("Orb")]
     public int orbCount;
@@ -51,7 +52,7 @@ public class DataPlayer : MonoBehaviour
     {
         Debug.Log("scene loaded");
 
-        if (scene.name == "BirdCrypt" || scene.name == "World" || scene.name == "CrowCrypt")
+        if (scene.name == "BirdCrypt" || scene.name == "World" || scene.name == "CrowCrypt" || scene.name == "CaranchoCrypt")
         {
             Player = GameObject.FindGameObjectWithTag("Player");
         }
@@ -139,7 +140,7 @@ public class DataPlayer : MonoBehaviour
 
     public void CryptHeal()
     {
-
+        isHeal = true;
         int Life = ActualLife + 1;
         if (Life > MaxLife)
         {

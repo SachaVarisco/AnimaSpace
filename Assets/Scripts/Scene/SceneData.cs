@@ -154,6 +154,48 @@ public class SceneData : MonoBehaviour
 
     }
 
+    public void Crow()
+    {
+        // CustomEvent EnemyBeat = new CustomEvent("EnemyBeat")
+        // {
+        //     { "orbCount", 0f},
+        //     { "enemyName", "Pigeon" },
+        //     { "enemyCount", DataPlayer.Instance.PigeonCount}
+        // };
+
+        // AnalyticsService.Instance.RecordEvent(EnemyBeat);
+        // AnalyticsService.Instance.Flush();
+
+
+        // Debug.Log("EnemyBeat evento");
+        // //escena que vuelve al mundo desp del ataque de la paloma
+
+        DataPlayer.Instance.IsBack = true;
+        SceneManager.LoadScene("BirdCrypt");
+
+    }
+
+    public void Carancho()
+    {
+        // CustomEvent EnemyBeat = new CustomEvent("EnemyBeat")
+        // {
+        //     { "orbCount", 0f},
+        //     { "enemyName", "Pigeon" },
+        //     { "enemyCount", DataPlayer.Instance.PigeonCount}
+        // };
+
+        // AnalyticsService.Instance.RecordEvent(EnemyBeat);
+        // AnalyticsService.Instance.Flush();
+
+
+        // Debug.Log("EnemyBeat evento");
+        // //escena que vuelve al mundo desp del ataque de la paloma
+
+        DataPlayer.Instance.IsBack = true;
+        SceneManager.LoadScene("CaranchoCrypt");
+
+    }
+
     public void Encounters()
     {
 
@@ -173,7 +215,7 @@ public class SceneData : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Carmin")
         {
             enemyName = "Carmin";
-            levelIndex  = 1;
+            levelIndex = 1;
             DataPlayer.Instance.IsBack = true;
         }
 

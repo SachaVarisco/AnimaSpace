@@ -274,7 +274,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &30546809
 RectTransform:
   m_ObjectHideFlags: 0
@@ -308,7 +308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LivesList: []
   LivePrefab: {fileID: 3709792181877357700, guid: e2a81c65171f0b644b2149010948c140, type: 3}
-  ActualLives: 3
+  ActualLives: 2
   SoulGood: {fileID: -765389898, guid: 70db436f5a6e7534393f79c61b6ff744, type: 3}
   SoulBad: {fileID: -264072073, guid: 70db436f5a6e7534393f79c61b6ff744, type: 3}
 --- !u!114 &30546811
@@ -551,7 +551,6 @@ GameObject:
   - component: {fileID: 365505705}
   - component: {fileID: 365505704}
   - component: {fileID: 365505706}
-  - component: {fileID: 365505708}
   - component: {fileID: 365505707}
   m_Layer: 0
   m_Name: BoxLife
@@ -682,66 +681,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 365505703}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 820a0e393fae8e24bb3f75fc4d729a35, type: 3}
+  m_Script: {fileID: 11500000, guid: c11885eb1116bdd4f9ce4d5274d0c8f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lines:
-  - "Parece ser un botiqu\xEDn."
-  autoDialogue: 0
-  face: {fileID: -1396044602, guid: d774360b14017a14e9c9fa220fa60da8, type: 3}
-  CountObjTalk: 0
-  characName: You
-  audioDiag: {fileID: 8300000, guid: e73fa3497956a9e4980f521352e7509b, type: 3}
-  Combat: 0
-  Tutorial: 0
-  EndTutorial: 0
-  DoubleDiag: 0
-  Key: 0
---- !u!61 &365505708
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 365505703}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.053590775, y: -0.8217182}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5, y: 5}
-    newSize: {x: 5, y: 5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 5.1071815, y: 4.2854614}
-  m_EdgeRadius: 0
 --- !u!1 &493794274
 GameObject:
   m_ObjectHideFlags: 0
@@ -8215,6 +8157,7 @@ MonoBehaviour:
   EndTutorial: 0
   DoubleDiag: 0
   Key: 0
+  isHeal: 0
 --- !u!61 &1439903458
 BoxCollider2D:
   m_ObjectHideFlags: 0

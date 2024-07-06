@@ -41,6 +41,8 @@ public class DialogueControl : MonoBehaviour
     [SerializeField] private bool Key;
     private Animator Boss;
 
+    public bool isHeal;
+
 
     [Header("PLayer")]
     private bool playerInRange;
@@ -184,6 +186,8 @@ public class DialogueControl : MonoBehaviour
             {
                 StartCoroutine("PassTutorial");
             }
+
+
             ChangeScene();
         }
     }
@@ -291,6 +295,11 @@ public class DialogueControl : MonoBehaviour
         if (DoubleDiag || SceneData.Instance.win)
         {
             SceneData.Instance.Key(Key);
+        }
+
+        if(isHeal){
+
+            DataPlayer.Instance.CryptHeal();
         }
     }
 
