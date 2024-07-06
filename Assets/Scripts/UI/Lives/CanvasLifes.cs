@@ -33,6 +33,12 @@ public class CanvasLifes : MonoBehaviour
             Destroy(gameObject);
         }
 
+        int index = 1;
+        if (SceneManager.GetActiveScene().name == "CrowCrypt" && index < transform.childCount)
+        {
+            Destroy(transform.GetChild(index).gameObject);
+        }
+
         if (DataPlayer.Instance.PigeonCount > 3)
         {
             CountPigeonHead.text = "3";
