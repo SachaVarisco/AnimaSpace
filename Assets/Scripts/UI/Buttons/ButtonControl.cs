@@ -19,6 +19,18 @@ public class ButtonControl : MonoBehaviour
             SceneManager.LoadScene("World");
         }
 
+        if (DataPlayer.Instance.crowLost == true)
+        {
+            DataPlayer.Instance.crowLost = false;
+            SceneManager.LoadScene("CrowCrypt");
+        }
+
+        if (DataPlayer.Instance.caranchoLost == true)
+        {
+            DataPlayer.Instance.caranchoLost = false;
+            SceneManager.LoadScene("CaranchoCrypt");
+        }
+
 
     }
 

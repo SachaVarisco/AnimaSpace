@@ -83,12 +83,15 @@ public class SceneData : MonoBehaviour
                 LastDialogueMark = true;
                 Transform Mark = GameObject.FindGameObjectWithTag("Orb").transform;
                 GameObject Ant = GameObject.FindGameObjectWithTag("Ant");
+                GameObject Totem = GameObject.FindGameObjectWithTag("Totem");
+
 
                 //orb es el tag de las activaciones de los dialogos
                 Mark.GetChild(0).gameObject.SetActive(false);
                 Mark.GetChild(2).gameObject.SetActive(true);
 
                 Ant.GetComponent<DialogueControl>().enabled = false;
+                Destroy(Totem);
 
                 Transform Spawn = GameObject.FindGameObjectWithTag("Spawn").transform;
                 Mark.position = new Vector2(Spawn.position.x, Spawn.position.y);
@@ -226,6 +229,20 @@ public class SceneData : MonoBehaviour
             DataPlayer.Instance.Reset();
         }
 
+        if (SceneManager.GetActiveScene().name == "Crow")
+        {
+            enemyName = "Crow";
+            levelIndex = 3;
+            DataPlayer.Instance.Reset();
+        }
+
+        if (SceneManager.GetActiveScene().name == "Carancho")
+        {
+            enemyName = "Carancho";
+            levelIndex = 4;
+
+        }
+
         Lose = true;
 
         Debug.Log(enemyName);
@@ -254,7 +271,22 @@ public class SceneData : MonoBehaviour
         win = true;
 
         DataPlayer.Instance.hitCount = 0;
-        SceneManager.LoadScene("World");
+
+        if (SceneManager.GetActiveScene().name == "Carmin")
+        {
+            SceneManager.LoadScene("World");
+        }
+
+        if (SceneManager.GetActiveScene().name == "Crow")
+        {
+            SceneManager.LoadScene("CrowCrypt");
+        }
+
+        if (SceneManager.GetActiveScene().name == "Carancho")
+        {
+            SceneManager.LoadScene("CaranchoCrypt");
+        }
+
     }
 
     public bool TutoPass()

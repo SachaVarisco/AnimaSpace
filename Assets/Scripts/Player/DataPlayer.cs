@@ -25,6 +25,8 @@ public class DataPlayer : MonoBehaviour
     public bool Ready;
     public bool floorWild;
     public bool pigeonLost;
+    public bool crowLost;
+    public bool caranchoLost;
     public bool isHeal;
 
     [Header("Orb")]
@@ -35,7 +37,7 @@ public class DataPlayer : MonoBehaviour
     {
         if (DataPlayer.Instance == null)
         {
-            DataPlayer.Instance = this; 
+            DataPlayer.Instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
         else
@@ -65,6 +67,22 @@ public class DataPlayer : MonoBehaviour
             //changeLife.Invoke(ActualLife);
 
             pigeonLost = true;
+        }
+
+        if (SceneManager.GetActiveScene().name == "CrowCrypt")
+        {
+
+            LiveCanva = GameObject.FindGameObjectWithTag("CanvaLifes").transform.GetChild(0).gameObject.GetComponent<LivesUI>();
+            LiveCanva.ChangeSouls(ActualLife);
+            //changeLife.Invoke(ActualLife);
+
+            crowLost = true;
+        }
+
+        if (SceneManager.GetActiveScene().name == "CaranchoCrypt")
+        {
+
+            caranchoLost = true;
         }
 
     }

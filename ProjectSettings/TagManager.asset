@@ -16,6 +16,7 @@ TagManager:
   - Floor
   - Ant
   - Walls
+  - Totem
   layers:
   - Default
   - TransparentFX

@@ -39,21 +39,27 @@ public class CanvasLifes : MonoBehaviour
             Destroy(transform.GetChild(index).gameObject);
         }
 
+        if (SceneManager.GetActiveScene().name == "CaranchoCrypt" && index < transform.childCount)
+        {
+            Destroy(transform.GetChild(index).gameObject);
+        }
+
         if (DataPlayer.Instance.PigeonCount > 3)
         {
             CountPigeonHead.text = "3";
 
-        }else
+        }
+        else
+        {
+
+            if (DataPlayer.Instance.PigeonCount != CountBattle)
             {
 
-                if (DataPlayer.Instance.PigeonCount != CountBattle)
-                {
+                CountBattle = DataPlayer.Instance.PigeonCount;
+                CountPigeonHead.text = CountBattle.ToString();
 
-                    CountBattle = DataPlayer.Instance.PigeonCount;
-                    CountPigeonHead.text = CountBattle.ToString();
-
-                }
             }
+        }
 
     }
 

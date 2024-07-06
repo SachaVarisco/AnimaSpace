@@ -7681,6 +7681,7 @@ MonoBehaviour:
   Ready: 0
   floorWild: 0
   pigeonLost: 0
+  isHeal: 0
   orbCount: 0
   hitCount: 0
 --- !u!1 &1272001384
@@ -8014,7 +8015,7 @@ GameObject:
   - component: {fileID: 1439903457}
   m_Layer: 0
   m_Name: Crow
-  m_TagString: Ant
+  m_TagString: Totem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
