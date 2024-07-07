@@ -84,6 +84,7 @@ public class DataPlayer : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "CaranchoCrypt")
         {
+            GameObject.FindGameObjectWithTag("CanvaLifes").transform.GetChild(0).gameObject.SetActive(false);
 
             caranchoLost = true;
         }

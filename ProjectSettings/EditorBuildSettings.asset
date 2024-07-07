@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Spirits/Birds/Maxi.unity
     guid: 3dbf21c8f3605a24ab037f0506d72798
   - enabled: 1
+    path: Assets/Scenes/Crypts/BirdCrypt/BirdCrypt.unity
+    guid: 458e6cfabff9a22489f48d1bec993f91
+  - enabled: 1
     path: Assets/Scenes/Crypts/BirdCrypt/CrowCrypt.unity
     guid: 54331cffe0e057742a24372c31df4042
   - enabled: 1
