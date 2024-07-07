@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerWorldControl : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class PlayerWorldControl : MonoBehaviour
     {
         rb2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+
     }
 
     private void Update()
@@ -41,7 +43,6 @@ public class PlayerWorldControl : MonoBehaviour
 
         else
         {
-
             horizontalMove = 0;
             verticalMove = 0;
             animator.SetFloat("MoveX", 0);

@@ -31,7 +31,7 @@ public class CryptDoor : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && SceneManager.GetActiveScene().name == "BirdCrypt")
         {
             CustomEvent LevelComplete = new CustomEvent("LevelComplete")
                 {
@@ -52,8 +52,31 @@ public class CryptDoor : MonoBehaviour
             //Debug.Log("EndCrypt evento");
 
 
-
             SceneManager.LoadScene("CrowCrypt");
+        }
+
+        if (other.gameObject.tag == "Player" && SceneManager.GetActiveScene().name == "CrowCrypt")
+        {
+            CustomEvent LevelComplete = new CustomEvent("LevelComplete")
+                {
+                    { "levelIndex", 3f}
+                };
+
+            AnalyticsService.Instance.RecordEvent(LevelComplete);
+            AnalyticsService.Instance.Flush();
+
+            CustomEvent EndCrypt = new CustomEvent("EndCrypt")
+                {
+                    { "cryptName", "CrowCrypt"}
+                };
+
+            AnalyticsService.Instance.RecordEvent(EndCrypt);
+            AnalyticsService.Instance.Flush();
+
+            //Debug.Log("EndCrypt evento");
+
+
+            SceneManager.LoadScene("CaranchoCrypt");
         }
     }
 }

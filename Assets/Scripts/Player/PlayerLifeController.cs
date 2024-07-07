@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Services.Analytics;
 using System.Threading;
+using System;
 
 
 public class PlayerLifeController : MonoBehaviour
@@ -94,5 +95,8 @@ public class PlayerLifeController : MonoBehaviour
         Attack.enabled = true;
     }
 
-
+    internal void Rebound(object normal)
+    {
+        throw new NotImplementedException();
+    }
 }

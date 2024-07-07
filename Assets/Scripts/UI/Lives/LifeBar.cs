@@ -16,7 +16,8 @@ public class LifeBar : MonoBehaviour
     private void Update() {
         if (slider.value <= 0)
         {
-            SceneManager.LoadScene("Victory");
+            DataPlayer.Instance.Ready = true;
+            SceneData.Instance.Winner();
         }
     }
 
@@ -34,4 +35,5 @@ public class LifeBar : MonoBehaviour
     {
         slider.value += add;
     }
+
 }

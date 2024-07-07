@@ -50,16 +50,20 @@ public class EggControll : MonoBehaviour
             GetComponent<CircleCollider2D>().enabled = true;
         }
         if (other.gameObject.tag == "Player"){
+            
+            other.gameObject.GetComponent<PlayerLifeController>().Rebound((transform.position - other.transform.position).normalized);
             Debug.Log("Damage");
         }
     }
     private void OnCollisionEnter2D(Collision2D other) {
         if(other.gameObject.tag == "Player"){
             other.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, force));
+            other.gameObject.GetComponent<PlayerLifeController>().Rebound(other.GetContact(0).normal);
         }
     }
     private IEnumerator Return(){
         yield return new WaitForSeconds(1);
         transform.parent.gameObject.GetComponent<EggPool>().ReturnEgg(gameObject);
     }
+
 }

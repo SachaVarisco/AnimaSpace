@@ -74,6 +74,9 @@ public class DataPlayer : MonoBehaviour
 
             LiveCanva = GameObject.FindGameObjectWithTag("CanvaLifes").transform.GetChild(0).gameObject.GetComponent<LivesUI>();
             LiveCanva.ChangeSouls(ActualLife);
+
+            GameObject.FindGameObjectWithTag("CanvaLifes").transform.GetChild(0).gameObject.SetActive(true);
+
             //changeLife.Invoke(ActualLife);
 
             crowLost = true;
@@ -175,7 +178,6 @@ public class DataPlayer : MonoBehaviour
 
     public void Reset()
     {
-
         ActualLife = MaxLife;
         PigeonCount = 0;
         floorWild = false;

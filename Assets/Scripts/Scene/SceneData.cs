@@ -83,7 +83,6 @@ public class SceneData : MonoBehaviour
                 LastDialogueMark = true;
                 Transform Mark = GameObject.FindGameObjectWithTag("Orb").transform;
                 GameObject Ant = GameObject.FindGameObjectWithTag("Ant");
-                GameObject Totem = GameObject.FindGameObjectWithTag("Totem");
 
 
                 //orb es el tag de las activaciones de los dialogos
@@ -91,10 +90,20 @@ public class SceneData : MonoBehaviour
                 Mark.GetChild(2).gameObject.SetActive(true);
 
                 Ant.GetComponent<DialogueControl>().enabled = false;
-                Destroy(Totem);
+
 
                 Transform Spawn = GameObject.FindGameObjectWithTag("Spawn").transform;
                 Mark.position = new Vector2(Spawn.position.x, Spawn.position.y);
+            }
+        }
+
+        if (SceneManager.GetActiveScene().name == "CrowCrypt")
+        {
+            if (win)
+            {
+                Debug.Log("hola");
+                GameObject Totem = GameObject.FindGameObjectWithTag("Totem");
+                Destroy(Totem);
             }
         }
     }
@@ -174,7 +183,7 @@ public class SceneData : MonoBehaviour
         // //escena que vuelve al mundo desp del ataque de la paloma
 
         DataPlayer.Instance.IsBack = true;
-        SceneManager.LoadScene("BirdCrypt");
+        SceneManager.LoadScene("CrowCrypt");
 
     }
 

@@ -28,6 +28,7 @@ public class BallBounce : MonoBehaviour
         var speed = lastVel.magnitude;
         if(other.gameObject.tag == "Player"){
             other.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, force));
+            other.gameObject.GetComponent<PlayerLifeController>().Rebound(other.GetContact(0).normal);
         }
         var direction = Vector3.Reflect(lastVel.normalized, other.contacts[0].normal);
         rb2D.velocity = direction * Mathf.Max(speed, 1f);     
