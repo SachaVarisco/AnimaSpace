@@ -26,6 +26,7 @@ public class DialogueControl : MonoBehaviour
     private GameObject player;
     [SerializeField] private Sprite face;
     [SerializeField] private int CountObjTalk;
+    [SerializeField] private Color nameColor;
 
     [SerializeField] private string characName;
 
@@ -119,6 +120,7 @@ public class DialogueControl : MonoBehaviour
     private void StartDialogue()
     {
         nameText.text = characName;
+        nameText.color = nameColor;
         faceImageUI.sprite = face;
         AudioControll.Instance.PlaySound(audioDiag);
         dialogueStarted = true;
