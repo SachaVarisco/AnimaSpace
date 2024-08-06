@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Towns/Lotor.unity
-    guid: 392187912f7889f4cb41a69f08c38f4e
-  - enabled: 1
     path: Assets/Scenes/Default/Menu.unity
     guid: 06c6f5e84b70d034b820709e4b33dcb0
   - enabled: 1
