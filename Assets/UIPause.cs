@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using EasyTransition;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -19,6 +20,10 @@ public class UIPause : MonoBehaviour
     [Header ("PopUps")]
     [SerializeField] private GameObject pauseScreen;
     [SerializeField] private GameObject sureExitScreen;
+
+    [Header ("Transitions")]
+    [SerializeField] private TransitionSettings transition;
+    [SerializeField] private float loadDelay;
 
     private void Awake() {
         optionsBt = optionsGO.GetComponent<Button>();
@@ -80,6 +85,9 @@ public class UIPause : MonoBehaviour
 
     private void OnSelectedSureYes(){
         Debug.Log("Sure Exit");
+        Time.timeScale = 1;
+
+        TransitionManager.Instance().Transition("Menu",transition, loadDelay);
     }
 
     private void OnSelectedSureNo(){
