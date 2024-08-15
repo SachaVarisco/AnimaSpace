@@ -11,7 +11,7 @@ public class SceneData : MonoBehaviour
 
     public bool tutorialPassed;
     public bool key;
-    private bool Lose;
+    //private bool Lose;
     public bool win;
     private bool LastDialogueMark;
     private bool IsFirst = true;
@@ -28,7 +28,7 @@ public class SceneData : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        //SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void Update()
@@ -39,73 +39,74 @@ public class SceneData : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public void OnSceneLoaded()
+    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (SceneManager.GetActiveScene().name == "Menu")
+        switch (scene.name)
         {
-            key = false;
-            tutorialPassed = false;
-        }
+            case "Menu":
 
-        if (SceneManager.GetActiveScene().name == "World")
-        {
-            if (IsFirst)
-            {
-                CustomEvent InTown = new CustomEvent("InTown")
+                key = false;
+                tutorialPassed = false;
+
+                break;
+
+            case "World":
+
+                if (IsFirst)
+                {
+                    CustomEvent InTown = new CustomEvent("InTown")
                 {
                     { "townName", "Vulpes"}
                 };
 
-                AnalyticsService.Instance.RecordEvent(InTown);
-                AnalyticsService.Instance.Flush();
+                    AnalyticsService.Instance.RecordEvent(InTown);
+                    AnalyticsService.Instance.Flush();
 
-                Debug.Log("InTown evento");
+                    Debug.Log("InTown evento");
 
-                IsFirst = false;
-            }
-
-
-            if (tutorialPassed)
-            {
-                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerWorldControl>().CanMove = true;
-                GameObject.FindGameObjectWithTag("Eddy").transform.GetChild(0).gameObject.SetActive(false);
-                GameObject.FindGameObjectWithTag("Eddy").transform.GetChild(1).gameObject.SetActive(true);
-            }
-            if (Lose)
-            {
-                // Transform Spawn = GameObject.FindGameObjectWithTag("Spawn").transform;
-                // Transform player = GameObject.FindGameObjectWithTag("Player").transform;
-                // player.position = new Vector2(Spawn.position.x, Spawn.position.y);
-            }
-
-            if (win)
-            {
-                LastDialogueMark = true;
-                Transform Mark = GameObject.FindGameObjectWithTag("Orb").transform;
-                GameObject Ant = GameObject.FindGameObjectWithTag("Ant");
+                    IsFirst = false;
+                }
 
 
-                //orb es el tag de las activaciones de los dialogos
-                Mark.GetChild(0).gameObject.SetActive(false);
-                Mark.GetChild(2).gameObject.SetActive(true);
+                if (tutorialPassed)
+                {
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerWorldControl>().CanMove = true;
+                    GameObject.FindGameObjectWithTag("Eddy").transform.GetChild(0).gameObject.SetActive(false);
+                    GameObject.FindGameObjectWithTag("Eddy").transform.GetChild(1).gameObject.SetActive(true);
+                }
 
-                Ant.GetComponent<DialogueControl>().enabled = false;
+                if (win)
+                {
+                    LastDialogueMark = true;
+                    Transform Mark = GameObject.FindGameObjectWithTag("Orb").transform;
+                    GameObject Ant = GameObject.FindGameObjectWithTag("Ant");
 
 
-                Transform Spawn = GameObject.FindGameObjectWithTag("Spawn").transform;
-                Mark.position = new Vector2(Spawn.position.x, Spawn.position.y);
-            }
+                    //orb es el tag de las activaciones de los dialogos
+                    Mark.GetChild(0).gameObject.SetActive(false);
+                    Mark.GetChild(2).gameObject.SetActive(true);
+
+                    Ant.GetComponent<DialogueControl>().enabled = false;
+
+
+                    Transform Spawn = GameObject.FindGameObjectWithTag("Spawn").transform;
+                    Mark.position = new Vector2(Spawn.position.x, Spawn.position.y);
+                }
+
+                break;
+
+            case "CrowCrypt":
+
+                if (win)
+                {
+                    Debug.Log("hola");
+                    GameObject Totem = GameObject.FindGameObjectWithTag("Totem");
+                    Destroy(Totem);
+                }
+
+                break;
         }
 
-        if (SceneManager.GetActiveScene().name == "CrowCrypt")
-        {
-            if (win)
-            {
-                Debug.Log("hola");
-                GameObject Totem = GameObject.FindGameObjectWithTag("Totem");
-                Destroy(Totem);
-            }
-        }
     }
 
     public void Key(bool Key)
@@ -224,35 +225,42 @@ public class SceneData : MonoBehaviour
         string enemyName = "";
         int levelIndex = 0;
 
-        if (SceneManager.GetActiveScene().name == "Carmin")
+        switch (SceneManager.GetActiveScene().name)
         {
-            enemyName = "Carmin";
-            levelIndex = 1;
-            DataPlayer.Instance.IsBack = true;
+
+            case "Carmin":
+
+                enemyName = "Carmin";
+                levelIndex = 1;
+                DataPlayer.Instance.IsBack = true;
+
+                break;
+
+            case "Maxi":
+
+                enemyName = "Pigeon";
+                levelIndex = 2;
+                DataPlayer.Instance.Reset();
+
+                break;
+
+            case "Crow":
+
+                enemyName = "Crow";
+                levelIndex = 3;
+                DataPlayer.Instance.Reset();
+
+                break;
+
+            case "Carancho":
+
+                enemyName = "Carancho";
+                levelIndex = 4;
+
+                break;
         }
 
-        if (SceneManager.GetActiveScene().name == "Maxi")
-        {
-            enemyName = "Pigeon";
-            levelIndex = 2;
-            DataPlayer.Instance.Reset();
-        }
-
-        if (SceneManager.GetActiveScene().name == "Crow")
-        {
-            enemyName = "Crow";
-            levelIndex = 3;
-            DataPlayer.Instance.Reset();
-        }
-
-        if (SceneManager.GetActiveScene().name == "Carancho")
-        {
-            enemyName = "Carancho";
-            levelIndex = 4;
-
-        }
-
-        Lose = true;
+        //Lose = true;
 
         Debug.Log(enemyName);
 
@@ -281,19 +289,27 @@ public class SceneData : MonoBehaviour
 
         DataPlayer.Instance.hitCount = 0;
 
-        if (SceneManager.GetActiveScene().name == "Carmin")
-        {
-            SceneManager.LoadScene("World");
-        }
 
-        if (SceneManager.GetActiveScene().name == "Crow")
+        switch (SceneManager.GetActiveScene().name)
         {
-            SceneManager.LoadScene("CrowCrypt");
-        }
 
-        if (SceneManager.GetActiveScene().name == "Carancho")
-        {
-            SceneManager.LoadScene("CaranchoCrypt");
+            case "Carmin":
+
+                SceneManager.LoadScene("World");
+
+                break;
+
+            case "Crow":
+
+                SceneManager.LoadScene("CrowCrypt");
+
+                break;
+
+            case "Carancho":
+
+                SceneManager.LoadScene("CaranchoCrypt");
+
+                break;
         }
 
     }
