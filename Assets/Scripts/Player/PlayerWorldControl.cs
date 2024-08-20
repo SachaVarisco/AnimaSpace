@@ -69,6 +69,16 @@ public class PlayerWorldControl : MonoBehaviour
 
     }
 
+    public void StopMovement(){
+
+        CanMove = false;
+    }
+
+    public void ResumeMovement(){
+
+        CanMove = true;
+    }
+
     private void FixedUpdate()
     {
 

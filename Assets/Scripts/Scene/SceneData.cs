@@ -77,16 +77,16 @@ public class SceneData : MonoBehaviour
 
                 if (win)
                 {
-                    LastDialogueMark = true;
+                    //LastDialogueMark = true;
                     Transform Mark = GameObject.FindGameObjectWithTag("Orb").transform;
-                    GameObject Ant = GameObject.FindGameObjectWithTag("Ant");
+                    Transform Ant = GameObject.FindGameObjectWithTag("Ant").transform;
 
 
                     //orb es el tag de las activaciones de los dialogos
                     Mark.GetChild(0).gameObject.SetActive(false);
                     Mark.GetChild(2).gameObject.SetActive(true);
 
-                    Ant.GetComponent<DialogueControl>().enabled = false;
+                    Ant.GetChild(0).gameObject.SetActive(false);
 
 
                     Transform Spawn = GameObject.FindGameObjectWithTag("Spawn").transform;
@@ -109,38 +109,68 @@ public class SceneData : MonoBehaviour
 
     }
 
-    public void Key(bool Key)
+    // public void MarkDialogue()
+    // {
+
+    //     // Transform Mark = GameObject.FindGameObjectWithTag("Orb").transform;
+    //     // Mark.GetChild(0).gameObject.SetActive(false);
+    //     // Mark.GetChild(2).gameObject.SetActive(true);
+
+    //     // Transform Spawn = GameObject.FindGameObjectWithTag("Spawn").transform;
+    //     // Mark.position = new Vector2(Spawn.position.x, Spawn.position.y);
+
+    //     // Transform Ant = GameObject.FindGameObjectWithTag("Ant").transform;
+    //     // Ant.GetChild(0).gameObject.SetActive(false);
+    // }
+
+    // public void Key(bool Key)
+    // {
+    //     if (!win)
+    //     {
+    //         GameObject.FindGameObjectWithTag("Orb").transform.GetChild(0).gameObject.SetActive(false);
+    //         GameObject.FindGameObjectWithTag("Orb").transform.GetChild(1).gameObject.SetActive(true);
+    //     }
+
+    //     if (LastDialogueMark)
+    //     {
+    //         GameObject.FindGameObjectWithTag("Orb").transform.GetChild(2).gameObject.SetActive(false);
+    //         GameObject.FindGameObjectWithTag("Orb").transform.GetChild(3).gameObject.SetActive(true);
+    //         win = false;
+    //         LastDialogueMark = false;
+    //     }
+
+    //     if (Key == true)
+    //     {
+    //         key = Key;
+    //         win = false;
+
+    //         CustomEvent HaveKey = new CustomEvent("HaveKey")
+    //             {
+    //                 { "keyID", "Grave Key"}
+    //             };
+
+    //         AnalyticsService.Instance.RecordEvent(HaveKey);
+    //         AnalyticsService.Instance.Flush();
+    //         Debug.Log("HaveKey evento");
+    //     }
+
+    // }
+
+    public void Key()
     {
-        if (!win)
-        {
-            GameObject.FindGameObjectWithTag("Orb").transform.GetChild(0).gameObject.SetActive(false);
-            GameObject.FindGameObjectWithTag("Orb").transform.GetChild(1).gameObject.SetActive(true);
-        }
 
-        if (LastDialogueMark)
-        {
-            GameObject.FindGameObjectWithTag("Orb").transform.GetChild(2).gameObject.SetActive(false);
-            GameObject.FindGameObjectWithTag("Orb").transform.GetChild(3).gameObject.SetActive(true);
-            win = false;
-            LastDialogueMark = false;
-        }
+        key = true;
 
-        if (Key == true)
-        {
-            key = Key;
-            win = false;
+        CustomEvent HaveKey = new CustomEvent("HaveKey")
+            {
+                { "keyID", "Grave Key"}
+            };
 
-            CustomEvent HaveKey = new CustomEvent("HaveKey")
-                {
-                    { "keyID", "Grave Key"}
-                };
-
-            AnalyticsService.Instance.RecordEvent(HaveKey);
-            AnalyticsService.Instance.Flush();
-            Debug.Log("HaveKey evento");
-        }
-
+        AnalyticsService.Instance.RecordEvent(HaveKey);
+        AnalyticsService.Instance.Flush();
+        Debug.Log("HaveKey evento");
     }
+    
     public bool HaveKey()
     {
         return key;

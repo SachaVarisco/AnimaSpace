@@ -22,7 +22,7 @@ public class FoxyBroControl : MonoBehaviour
     // Update is called once per frame
     private void Talk(){
         GetComponent<Animator>().SetBool("Move", false);
-        transform.GetChild(0).gameObject.GetComponent<DialogueControl>().autoDialogue = true;
+        //transform.GetChild(0).gameObject.GetComponent<DialogueControl>().autoDialogue = true;
     }
 }
  

@@ -37,7 +37,7 @@ public class DialogueControl : MonoBehaviour
 
     [Header("Tutorial")]
     [SerializeField] private bool Tutorial;
-    [SerializeField] private bool EndTutorial;
+    //[SerializeField] private bool EndTutorial;
     [SerializeField] private bool DoubleDiag;
     [SerializeField] private bool Key;
     private Animator Boss;
@@ -184,10 +184,10 @@ public class DialogueControl : MonoBehaviour
                 player.GetComponent<CharacterMove>().talking = false;
                 Boss.SetBool("Talking", false);
             }
-            if (Tutorial && !EndTutorial)
-            {
-                StartCoroutine("PassTutorial");
-            }
+            // if (Tutorial && !EndTutorial)
+            // {
+            //     StartCoroutine("PassTutorial");
+            // }
 
 
             ChangeScene();
@@ -215,23 +215,120 @@ public class DialogueControl : MonoBehaviour
 
     private void ChangeScene()
     {
-        if (EndTutorial)
+        // if (EndTutorial)
+        // {
+        //     SceneData.Instance.tutorialPassed = true;
+
+        //     //evento tutorial
+        //     AnalyticsService.Instance.RecordEvent("TutoComplete");
+        //     AnalyticsService.Instance.Flush();
+
+        //     Debug.Log("TutoComplete evento");
+
+
+        //     SceneManager.LoadScene("World");
+        // }
+        // if (Combat)
+        // {
+        //     if (characName == "Carmin")
+        //     {
+        //         CustomEvent CombatBoss = new CustomEvent("CombatBoss")
+        //         {
+        //             { "nameBoss", "Carmin"},
+
+        //         };
+
+        //         AnalyticsService.Instance.RecordEvent(CombatBoss);
+        //         AnalyticsService.Instance.Flush();
+
+        //         Debug.Log("CombatBoss evento");
+        //     }
+
+        //     if (characName == "BirdCrypt")
+        //     {
+
+        //         CustomEvent Crypt = new CustomEvent("Crypt")
+        //         {
+        //             { "cryptName", "BirdCrypt"}
+        //         };
+
+        //         AnalyticsService.Instance.RecordEvent(Crypt);
+        //         AnalyticsService.Instance.Flush();
+
+        //         CustomEvent LevelComplete = new CustomEvent("LevelComplete")
+        //         {
+        //             { "levelIndex", 1f}
+        //         };
+
+        //         AnalyticsService.Instance.RecordEvent(LevelComplete);
+        //         AnalyticsService.Instance.Flush();
+
+        //         CustomEvent LevelStart = new CustomEvent("LevelStart")
+        //         {
+        //             { "levelIndex", 2},
+        //             { "levelType", "Crypt"},
+
+        //         };
+
+        //         AnalyticsService.Instance.RecordEvent(LevelStart);
+        //         AnalyticsService.Instance.Flush();
+
+
+        //         Debug.Log("Crypt evento");
+        //     }
+
+        //     if (characName == "Crow")
+        //     {
+        //         CustomEvent CombatBoss = new CustomEvent("CombatBoss")
+        //         {
+        //             { "nameBoss", "Karasuno"},
+
+        //         };
+
+        //         AnalyticsService.Instance.RecordEvent(CombatBoss);
+        //         AnalyticsService.Instance.Flush();
+
+        //         Debug.Log("CombatBoss evento");
+        //     }
+
+        //     DataPlayer.Instance.SaveWorldPosition();
+        //     SceneManager.LoadScene(characName);
+        // }
+        if (DoubleDiag || SceneData.Instance.win)
         {
-            SceneData.Instance.tutorialPassed = true;
-
-            //evento tutorial
-            AnalyticsService.Instance.RecordEvent("TutoComplete");
-            AnalyticsService.Instance.Flush();
-
-            Debug.Log("TutoComplete evento");
-
-
-            SceneManager.LoadScene("World");
+            //SceneData.Instance.Key(Key);
         }
-        if (Combat)
+
+        if (isHeal)
         {
-            if (characName == "Carmin")
-            {
+
+            DataPlayer.Instance.CryptHeal();
+        }
+    }
+
+    public void EndTutorial()
+    {
+
+        SceneData.Instance.tutorialPassed = true;
+
+        //evento tutorial
+        AnalyticsService.Instance.RecordEvent("TutoComplete");
+        AnalyticsService.Instance.Flush();
+
+        Debug.Log("TutoComplete evento");
+
+
+        SceneManager.LoadScene("World");
+    }
+
+    public void CombatChangeScene()
+    {
+
+        switch (characName)
+        {
+
+            case "Carmin":
+
                 CustomEvent CombatBoss = new CustomEvent("CombatBoss")
                 {
                     { "nameBoss", "Carmin"},
@@ -242,10 +339,10 @@ public class DialogueControl : MonoBehaviour
                 AnalyticsService.Instance.Flush();
 
                 Debug.Log("CombatBoss evento");
-            }
 
-            if (characName == "BirdCrypt")
-            {
+                break;
+
+            case "BirdCrypt":
 
                 CustomEvent Crypt = new CustomEvent("Crypt")
                 {
@@ -275,34 +372,28 @@ public class DialogueControl : MonoBehaviour
 
 
                 Debug.Log("Crypt evento");
-            }
 
-            if (characName == "Crow")
-            {
-                CustomEvent CombatBoss = new CustomEvent("CombatBoss")
-                {
-                    { "nameBoss", "Karasuno"},
+                break;
 
-                };
+            case "Crow":
 
-                AnalyticsService.Instance.RecordEvent(CombatBoss);
-                AnalyticsService.Instance.Flush();
+                // CustomEvent CombatBoss = new CustomEvent("CombatBoss")
+                // {
+                //     { "nameBoss", "Karasuno"},
+
+                // };
+
+                // AnalyticsService.Instance.RecordEvent(CombatBoss);
+                // AnalyticsService.Instance.Flush();
 
                 Debug.Log("CombatBoss evento");
-            }
 
-            DataPlayer.Instance.SaveWorldPosition();
-            SceneManager.LoadScene(characName);
-        }
-        if (DoubleDiag || SceneData.Instance.win)
-        {
-            SceneData.Instance.Key(Key);
-        }
+                break;
 
-        if(isHeal){
 
-            DataPlayer.Instance.CryptHeal();
         }
+        DataPlayer.Instance.SaveWorldPosition();
+        SceneManager.LoadScene(characName);
     }
 
     private IEnumerator PassTutorial()
