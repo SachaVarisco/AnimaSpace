@@ -5,37 +5,25 @@ using UnityEngine;
 
 public class GoombaPhase : MonoBehaviour
 {
-    [Header("Bug")]
-    //[SerializeField] private GoombaBug Bug;
-
-   
+    [Header("State object")]
+    [SerializeField] private GameObject StateObj;
 
     [Header("StateMachine")]
-    private StateMachine StateMach;
+
     [SerializeField] private GameObject StateIndicator;
 
-    [Header("Timer")]
-    private float currentTime;
-    [SerializeField] private float SpawnTime;
-    void Start()
-    {
-        currentTime = SpawnTime;
-        StateMach = GetComponent<StateMachine>();
-    }
     private void OnEnable() {
         StateIndicator.GetComponent<SpriteRenderer>().color = Color.yellow;
-        Spawn();
+        gameObject.GetComponent<Animator>().SetTrigger("Goomba");
     }
-
-    void FixedUpdate()
-    {
-        currentTime -= Time.deltaTime;
-        if(currentTime <= 0){
-           currentTime = SpawnTime; 
-        }
+    public void ActiveStateObjGoom(){
+        StateObj.transform.GetChild(0).gameObject.SetActive(true);
+        StateObj.transform.GetChild(1).gameObject.SetActive(true);
+        StateObj.SetActive(true);
     }
-
-    private void Spawn(){
-        Pool.Instance.RequestPrefab();
+    private void OnDisable() {
+        StateObj.transform.GetChild(0).gameObject.SetActive(false);
+        StateObj.transform.GetChild(1).gameObject.SetActive(false);
+        StateObj.SetActive(false);
     }
 }

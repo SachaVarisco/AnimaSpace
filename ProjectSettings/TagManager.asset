@@ -5,6 +5,18 @@ TagManager:
   serializedVersion: 2
   tags:
   - Orb
+  - Enemy
+  - Boss
+  - Canva
+  - Eddy
+  - Spawn
+  - RockWall
+  - Pause
+  - CanvaLifes
+  - Floor
+  - Ant
+  - Walls
+  - Totem
   layers:
   - Default
   - TransparentFX
@@ -13,10 +25,10 @@ TagManager:
   - Water
   - UI
   - Ants
-  - 
-  - 
-  - 
-  - 
+  - WildAppear
+  - Ball
+  - Player
+  - FloorBird
   - 
   - 
   - 

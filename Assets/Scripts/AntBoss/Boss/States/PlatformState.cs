@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class PlatformState : MonoBehaviour
 {
+    [Header("State object")]
+    [SerializeField] GameObject StateObj;
+
     [Header("StateMachine")]
-    private StateMachine StateMach;
     [SerializeField] private GameObject StateIndicator;
-    void Start()
-    {
-        StateMach = GetComponent<StateMachine>();
-    }
+
     private void OnEnable() {
         StateIndicator.GetComponent<SpriteRenderer>().color = Color.blue;
+        gameObject.GetComponent<Animator>().SetTrigger("Platform");
+    }
+    public void ActiveStateObjPlat(){
+        StateObj.SetActive(true);
+    }
+    private void OnDisable() {
+        StateObj.SetActive(false);
     }
 }

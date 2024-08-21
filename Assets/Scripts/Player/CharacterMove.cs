@@ -7,6 +7,7 @@ public class CharacterMove : MonoBehaviour
     [Header("PJ")]
     public bool isDeath = false;
     [Header("Move")]
+    public bool talking;
     public float speed;
     private float horizontalMove;
     
@@ -21,14 +22,20 @@ public class CharacterMove : MonoBehaviour
     [Header("Components")]
     private Rigidbody2D rb2D;
     private Animator animator; 
+    private AudioSource audioSource;
+
+    [Header ("Player sounds")]
+    [SerializeField] private AudioClip Jump;
+    //[SerializeField] private AudioClip WalkCombat;
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
     void Update()
     {
-        if (Input.GetButtonDown("Vertical"))
+        if (Input.GetButtonDown("Jump"))
         {
             jump = true;
         }
@@ -46,13 +53,15 @@ public class CharacterMove : MonoBehaviour
         jump = false; 
     }
     private void Move(bool jump){
-        if (Input.GetAxis("Horizontal")!= 0 /*&& !talking*/)
+        if (Input.GetAxis("Horizontal")!= 0 && !talking)
         {  
+            //audioSource.Play();
             transform.position += new Vector3(horizontalMove, 0);
             animator.SetFloat("MoveX",Mathf.Abs(horizontalMove));
         }
-        if(inGround && jump /*&& !talking*/)
+        if(inGround && jump && !talking)
         {
+            audioSource.PlayOneShot(Jump);
             inGround = false;
             rb2D.AddForce(new Vector2(0, force));
         }

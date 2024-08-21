@@ -4,20 +4,33 @@ using UnityEngine;
 
 public class MeleeAttack : MonoBehaviour
 {
-    [Header ("Attack")]
+    [Header("Attack")]
     [SerializeField] private Transform AttackController;
     [SerializeField] private float AttackRadius;
 
-    [Header ("Comoponents")]
+    [Header("Comoponents")]
     private Animator Animator;
-    private void Start() {
+
+    [Header("Type")]
+
+    [SerializeField] private bool Crow;
+
+    [Header("Player sounds")]
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip Hit;
+    [SerializeField] private AudioClip Orb;
+    private void Start()
+    {
         Animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && !GetComponent<CharacterMove>().talking)
         {
             Animator.SetTrigger("Attack");
+            audioSource.volume = 0.5f;
+            audioSource.PlayOneShot(Hit);
         }
     }
 
@@ -29,15 +42,28 @@ public class MeleeAttack : MonoBehaviour
         {
             if (collision.CompareTag("Orb"))
             {
-                //collision.transform.GetComponent<Orb>().Takedamage();
-                //onOrb?.Invoke();
+                //DataPlayer.Instance.orbCount++;
+                audioSource.volume = 0.4f;
+                audioSource.PlayOneShot(Orb);
+                if (Crow)
+                {
+                    LifeBar Bar = GameObject.FindGameObjectWithTag("Canva").transform.GetChild(0).gameObject.GetComponent<LifeBar>();
+                    Bar.SubstractLife(1f);
+                }
+                else
+                {
+                    BarController Bar = GameObject.FindGameObjectWithTag("Canva").transform.GetChild(0).gameObject.transform.GetChild(1).gameObject.GetComponent<BarController>();
+                    Bar.Orb();
+                    
+                }
+                collision.gameObject.SetActive(false);
 
-                Destroy(collision.gameObject);
             }
         }
     }
 
-    private void OnDrawGizmos() {
+    private void OnDrawGizmos()
+    {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(AttackController.position, AttackRadius);
     }

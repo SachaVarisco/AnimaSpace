@@ -5,13 +5,19 @@ using UnityEngine;
 public class ChopState : MonoBehaviour
 {
     [Header("StateMachine")]
-    private StateMachine StateMach;
     [SerializeField] private GameObject StateIndicator;
-    void Start()
-    {
-        StateMach = GetComponent<StateMachine>();
-    }
+
+    [Header("State object")]
+    public GameObject StateObj;
+    
     private void OnEnable() {
         StateIndicator.GetComponent<SpriteRenderer>().color = Color.magenta;
+        gameObject.GetComponent<Animator>().SetTrigger("Chop");
+    }
+    public void ActiveStateObjChop(){
+        StateObj.SetActive(true);
+    }
+    private void OnDisable() {
+        StateObj.SetActive(false);
     }
 }

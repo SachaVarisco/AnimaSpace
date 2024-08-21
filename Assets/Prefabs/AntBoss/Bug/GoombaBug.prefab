@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3681468486555209386
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1180179438678821160}
+  m_Layer: 0
+  m_Name: TOmo
+  m_TagString: Untagged
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1180179438678821160
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3681468486555209386}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 16.83, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6846739341696241778}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4343595722297455207
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,10 +41,11 @@ GameObject:
   m_Component:
   - component: {fileID: 6846739341696241778}
   - component: {fileID: 6580589751687512964}
-  - component: {fileID: 8799935984356611222}
   - component: {fileID: -8636161600498781983}
   - component: {fileID: 7056665317325950173}
+  - component: {fileID: 6299826405854213913}
   - component: {fileID: 3753679025508610789}
+  - component: {fileID: 7747732720839601109}
   m_Layer: 0
   m_Name: GoombaBug
   m_TagString: Untagged
@@ -31,9 +63,10 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.45, y: -2.3308196, z: 0.074059}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.12877, y: 0.12877, z: 0.25754}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1180179438678821160}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6580589751687512964
@@ -88,18 +121,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8799935984356611222
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4343595722297455207}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0132a784292eed547aea813943415bb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &-8636161600498781983
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -152,12 +173,27 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4343595722297455207}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb03be586c036124ba8fd32873b96da8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LookLeft: 1
+  VelocityX: 0
+--- !u!114 &6299826405854213913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4343595722297455207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c5b0c67da8144b4c990f4973f19ece5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   LookLeft: 0
+  VelocityX: 0
 --- !u!95 &3753679025508610789
 Animator:
   serializedVersion: 5
@@ -179,3 +215,27 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7747732720839601109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4343595722297455207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c31a0c9bbcec944c95fa3949e74ae68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EndTrigger: 0
+  SamePosX: 0
+  SamePosY: 1
+  WaitTime: 0
+  Restart: 1
+  Yoyo: 0
+  ToMovePos: {fileID: 1180179438678821160}
+  PosY: 0
+  PosX: 0
+  LoopTime: 2.5
+  Loops: 4
+  AlertTrig: 0
