@@ -17,6 +17,7 @@ TagManager:
   - Ant
   - Walls
   - Totem
+  - Box
   layers:
   - Default
   - TransparentFX
@@ -29,7 +30,7 @@ TagManager:
   - Ball
   - Player
   - FloorBird
-  - 
+  - PuzzleLimits
   - 
   - 
   - 
