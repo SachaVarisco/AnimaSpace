@@ -9,7 +9,7 @@ public class EggState : MonoBehaviour
     private void OnEnable() {
         gameObject.GetComponent<Animator>().SetTrigger("Egg");
         GetComponent<CrowControl>().StateCount++;
-        ActiveStateEgg();
+        //ActiveStateEgg();
     }
     public void ActiveStateEgg(){
         StateObj.SetActive(true);

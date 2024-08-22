@@ -20,7 +20,7 @@ public class PlataformState : MonoBehaviour
     {
         StateIndicator.GetComponent<SpriteRenderer>().color = Color.red;
         gameObject.GetComponent<Animator>().SetTrigger("Attack4");
-        ActiveStateObjPlataform();
+        //ActiveStateObjPlataform();
     }
     public void ActiveStateObjPlataform()
     {

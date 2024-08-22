@@ -20,7 +20,7 @@ public class CrawnState : MonoBehaviour
     {
         StateIndicator.GetComponent<SpriteRenderer>().color = Color.red;
         gameObject.GetComponent<Animator>().SetTrigger("Attack3");
-        ActiveStateObjCrawn();
+        //ActiveStateObjCrawn();
     }
     public void ActiveStateObjCrawn()
     {
