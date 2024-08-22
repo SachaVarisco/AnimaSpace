@@ -20,7 +20,8 @@ namespace HeneGames.DialogueSystem
 
         [Header("References")]
         [SerializeField] private AudioSource audioSource;
-
+        [SerializeField] private GameObject interactionUI;
+ 
         [Header("Events")]
         public UnityEvent startDialogueEvent;
         public UnityEvent nextSentenceDialogueEvent;
@@ -33,7 +34,7 @@ namespace HeneGames.DialogueSystem
         private void Update()
         {
             //Timer
-            if(coolDownTimer > 0f)
+            if (coolDownTimer > 0f)
             {
                 coolDownTimer -= Time.deltaTime;
             }
@@ -53,10 +54,16 @@ namespace HeneGames.DialogueSystem
                 DialogueUI.instance.StartDialogue(this);
 
                 //Hide interaction UI
-                DialogueUI.instance.ShowInteractionUI(false);
+                ShowInteractionUI(false);
 
                 dialogueIsOn = true;
             }
+
+        }
+
+        public void ShowInteractionUI(bool _value)
+        {
+            interactionUI.SetActive(_value);
         }
 
         //Start dialogue by trigger
@@ -114,7 +121,7 @@ namespace HeneGames.DialogueSystem
                 if (other.gameObject.TryGetComponent<DialogueTrigger>(out DialogueTrigger _trigger))
                 {
                     //Show interaction UI
-                    DialogueUI.instance.ShowInteractionUI(true);
+                    ShowInteractionUI(true);
 
                     //Store refenrece
                     dialogueTrigger = _trigger;
@@ -133,7 +140,7 @@ namespace HeneGames.DialogueSystem
                 if (collision.gameObject.TryGetComponent<DialogueTrigger>(out DialogueTrigger _trigger))
                 {
                     //Show interaction UI
-                    DialogueUI.instance.ShowInteractionUI(true);
+                    ShowInteractionUI(true);
 
                     //Store refenrece
                     dialogueTrigger = _trigger;
@@ -147,7 +154,7 @@ namespace HeneGames.DialogueSystem
             if (other.gameObject.TryGetComponent<DialogueTrigger>(out DialogueTrigger _trigger))
             {
                 //Hide interaction UI
-                DialogueUI.instance.ShowInteractionUI(false);
+                ShowInteractionUI(false);
 
                 //Stop dialogue
                 StopDialogue();
@@ -160,7 +167,7 @@ namespace HeneGames.DialogueSystem
             if (collision.gameObject.TryGetComponent<DialogueTrigger>(out DialogueTrigger _trigger))
             {
                 //Hide interaction UI
-                DialogueUI.instance.ShowInteractionUI(false);
+                ShowInteractionUI(false);
 
                 //Stop dialogue
                 StopDialogue();
@@ -170,7 +177,7 @@ namespace HeneGames.DialogueSystem
         public void StartDialogue()
         {
             //Start event
-            if(dialogueTrigger != null)
+            if (dialogueTrigger != null)
             {
                 dialogueTrigger.startDialogueEvent.Invoke();
             }
@@ -186,6 +193,7 @@ namespace HeneGames.DialogueSystem
 
             //Cooldown timer
             coolDownTimer = sentences[currentSentence].skipDelayTime;
+
         }
 
         public void NextSentence(out bool lastSentence)
@@ -245,7 +253,7 @@ namespace HeneGames.DialogueSystem
             DialogueUI.instance.ClearText();
 
             //Stop audiosource so that the speaker's voice does not play in the background
-            if(audioSource != null)
+            if (audioSource != null)
             {
                 audioSource.Stop();
             }
@@ -293,7 +301,7 @@ namespace HeneGames.DialogueSystem
 
         public int CurrentSentenceLenght()
         {
-            if(sentences.Count <= 0)
+            if (sentences.Count <= 0)
                 return 0;
 
             return sentences[currentSentence].sentence.Length;

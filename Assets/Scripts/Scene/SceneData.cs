@@ -13,7 +13,8 @@ public class SceneData : MonoBehaviour
     public bool key;
     //private bool Lose;
     public bool win;
-    private bool LastDialogueMark;
+    public bool chrisDialogue;
+    //private bool LastDialogueMark;
     private bool IsFirst = true;
 
 
@@ -54,13 +55,13 @@ public class SceneData : MonoBehaviour
 
                 if (IsFirst)
                 {
-                    CustomEvent InTown = new CustomEvent("InTown")
-                {
-                    { "townName", "Vulpes"}
-                };
+                    //     CustomEvent InTown = new CustomEvent("InTown")
+                    // {
+                    //     { "townName", "Vulpes"}
+                    // };
 
-                    AnalyticsService.Instance.RecordEvent(InTown);
-                    AnalyticsService.Instance.Flush();
+                    //     AnalyticsService.Instance.RecordEvent(InTown);
+                    //     AnalyticsService.Instance.Flush();
 
                     Debug.Log("InTown evento");
 
@@ -95,6 +96,17 @@ public class SceneData : MonoBehaviour
 
                 break;
 
+            case "BirdCrypt":
+
+                if (chrisDialogue)
+                {
+                    Transform Chris = GameObject.FindGameObjectWithTag("Orb").transform;
+                    Chris.GetChild(0).gameObject.SetActive(false);
+                    Chris.GetChild(1).gameObject.SetActive(true);
+                }
+
+                break;
+
             case "CrowCrypt":
 
                 if (win)
@@ -108,6 +120,21 @@ public class SceneData : MonoBehaviour
         }
 
     }
+
+    // public void EndTutorial()
+    // {
+
+    //     tutorialPassed = true;
+
+    //     //evento tutorial
+    //     // AnalyticsService.Instance.RecordEvent("TutoComplete");
+    //     // AnalyticsService.Instance.Flush();
+
+    //     Debug.Log("TutoComplete evento");
+
+
+    //     SceneManager.LoadScene("World");
+    // }
 
     // public void MarkDialogue()
     // {
@@ -156,21 +183,21 @@ public class SceneData : MonoBehaviour
 
     // }
 
-    public void Key()
-    {
+    // public void Key()
+    // {
 
-        key = true;
+    //     key = true;
 
-        CustomEvent HaveKey = new CustomEvent("HaveKey")
-            {
-                { "keyID", "Grave Key"}
-            };
+    //     // CustomEvent HaveKey = new CustomEvent("HaveKey")
+    //     //     {
+    //     //         { "keyID", "Grave Key"}
+    //     //     };
 
-        AnalyticsService.Instance.RecordEvent(HaveKey);
-        AnalyticsService.Instance.Flush();
-        Debug.Log("HaveKey evento");
-    }
-    
+    //     // AnalyticsService.Instance.RecordEvent(HaveKey);
+    //     // AnalyticsService.Instance.Flush();
+    //     Debug.Log("HaveKey evento");
+    // }
+
     public bool HaveKey()
     {
         return key;
@@ -178,15 +205,15 @@ public class SceneData : MonoBehaviour
 
     public void Pigeon()
     {
-        CustomEvent EnemyBeat = new CustomEvent("EnemyBeat")
-        {
-            { "orbCount", 0f},
-            { "enemyName", "Pigeon" },
-            { "enemyCount", DataPlayer.Instance.PigeonCount}
-        };
+        // CustomEvent EnemyBeat = new CustomEvent("EnemyBeat")
+        // {
+        //     { "orbCount", 0f},
+        //     { "enemyName", "Pigeon" },
+        //     { "enemyCount", DataPlayer.Instance.PigeonCount}
+        // };
 
-        AnalyticsService.Instance.RecordEvent(EnemyBeat);
-        AnalyticsService.Instance.Flush();
+        // AnalyticsService.Instance.RecordEvent(EnemyBeat);
+        // AnalyticsService.Instance.Flush();
 
 
         Debug.Log("EnemyBeat evento");
@@ -199,6 +226,7 @@ public class SceneData : MonoBehaviour
 
     public void Crow()
     {
+        chrisDialogue = false;
         // CustomEvent EnemyBeat = new CustomEvent("EnemyBeat")
         // {
         //     { "orbCount", 0f},
@@ -270,6 +298,7 @@ public class SceneData : MonoBehaviour
 
                 enemyName = "Pigeon";
                 levelIndex = 2;
+                chrisDialogue = false;
                 DataPlayer.Instance.Reset();
 
                 break;
@@ -294,15 +323,15 @@ public class SceneData : MonoBehaviour
 
         Debug.Log(enemyName);
 
-        CustomEvent GameOver = new CustomEvent("GameOver")
-                {
-                    { "levelIndex", levelIndex},
-                    { "enemyName", enemyName},
-                    { "hitCount", DataPlayer.Instance.hitCount}
-                };
+        // CustomEvent GameOver = new CustomEvent("GameOver")
+        //         {
+        //             { "levelIndex", levelIndex},
+        //             { "enemyName", enemyName},
+        //             { "hitCount", DataPlayer.Instance.hitCount}
+        //         };
 
-        AnalyticsService.Instance.RecordEvent(GameOver);
-        AnalyticsService.Instance.Flush();
+        // AnalyticsService.Instance.RecordEvent(GameOver);
+        // AnalyticsService.Instance.Flush();
 
         DataPlayer.Instance.hitCount = 0;
 

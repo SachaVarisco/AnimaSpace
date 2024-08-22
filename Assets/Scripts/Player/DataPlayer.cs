@@ -126,6 +126,11 @@ public class DataPlayer : MonoBehaviour
         }
 
     }
+
+    public void FloorWildActive(){
+
+        floorWild = true;
+    }
     public void SaveWorldPosition()
     {
         Debug.Log("Save");

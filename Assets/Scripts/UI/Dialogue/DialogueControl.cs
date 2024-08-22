@@ -39,7 +39,7 @@ public class DialogueControl : MonoBehaviour
     [SerializeField] private bool Tutorial;
     //[SerializeField] private bool EndTutorial;
     [SerializeField] private bool DoubleDiag;
-    [SerializeField] private bool Key;
+    [SerializeField] private bool key;
     private Animator Boss;
 
     public bool isHeal;
@@ -306,20 +306,20 @@ public class DialogueControl : MonoBehaviour
         }
     }
 
-    public void EndTutorial()
-    {
+    // public void EndTutorial()
+    // {
 
-        SceneData.Instance.tutorialPassed = true;
+    //     SceneData.Instance.tutorialPassed = true;
 
-        //evento tutorial
-        AnalyticsService.Instance.RecordEvent("TutoComplete");
-        AnalyticsService.Instance.Flush();
+    //     //evento tutorial
+    //     AnalyticsService.Instance.RecordEvent("TutoComplete");
+    //     AnalyticsService.Instance.Flush();
 
-        Debug.Log("TutoComplete evento");
+    //     Debug.Log("TutoComplete evento");
 
 
-        SceneManager.LoadScene("World");
-    }
+    //     SceneManager.LoadScene("World");
+    // }
 
     public void CombatChangeScene()
     {
@@ -396,10 +396,32 @@ public class DialogueControl : MonoBehaviour
         SceneManager.LoadScene(characName);
     }
 
-    private IEnumerator PassTutorial()
-    {
-        yield return new WaitForSeconds(4);
-        transform.parent.gameObject.GetComponent<TutoStateMachine>().PassState();
+    public void Key(){
+
+        
+        SceneData.Instance.key = true;
+
+        // CustomEvent HaveKey = new CustomEvent("HaveKey")
+        //     {
+        //         { "keyID", "Grave Key"}
+        //     };
+
+        // AnalyticsService.Instance.RecordEvent(HaveKey);
+        // AnalyticsService.Instance.Flush();
+        Debug.Log("HaveKey evento");
     }
+
+    public void ChrisDialogue(){
+
+        SceneData.Instance.chrisDialogue = true;
+    }
+
+
+
+    // private IEnumerator PassTutorial()
+    // {
+    //     yield return new WaitForSeconds(4);
+    //     transform.parent.gameObject.GetComponent<TutoStateMachine>().PassState();
+    // }
 }
 
