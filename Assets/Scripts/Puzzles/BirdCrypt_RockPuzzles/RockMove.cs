@@ -35,7 +35,7 @@ public class RockMove : MonoBehaviour
 
     private void Awake()
     {
-        CanMove = true;
+        CanMove = false;
         pos = transform.position;
     }
 
@@ -46,14 +46,10 @@ public class RockMove : MonoBehaviour
             if (Up.IsTouching(player))
             {
                 RayBox(Down_.position, Vector2.down);
-                //Disparar raycast para detectar objectos y si no hay ninguno, que permita moverse
-                //Conviene almacenar en donde estas parado 
-
             }
             if (Down.IsTouching(player))
             {
                 RayBox(Up_.position, Vector2.up);
-
             }
             if (Right.IsTouching(player))
             {
@@ -64,6 +60,11 @@ public class RockMove : MonoBehaviour
                 RayBox(Right_.position, Vector2.right);
             }
         }
+        if (CanMove)
+        {
+            transform.position = Vector2.Lerp(transform.position, rCHit2D.collider.gameObject.transform.position, 0.1f);
+        }
+        
     }
 
     private void RayBox(Vector2 shooter, Vector2 direction)
@@ -71,12 +72,7 @@ public class RockMove : MonoBehaviour
         rCHit2D = Physics2D.Raycast(shooter, direction, distance);
         if (rCHit2D.collider.gameObject.tag == "Box")
         {
-            transform.position = Vector2.Lerp(transform.position, rCHit2D.collider.gameObject.transform.position, 1);
-        }
-        if (rCHit2D.collider == null)
-        {
-            Debug.Log("NONO");
-
+            CanMove = true;
         }
     }
 }
