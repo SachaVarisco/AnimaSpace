@@ -804,7 +804,6 @@ MonoBehaviour:
   audioDiag: {fileID: 8300000, guid: e73fa3497956a9e4980f521352e7509b, type: 3}
   Combat: 0
   Tutorial: 0
-  EndTutorial: 0
   DoubleDiag: 0
   Key: 0
   isHeal: 0
@@ -15735,7 +15734,6 @@ MonoBehaviour:
   audioDiag: {fileID: 8300000, guid: e73fa3497956a9e4980f521352e7509b, type: 3}
   Combat: 0
   Tutorial: 0
-  EndTutorial: 0
   DoubleDiag: 1
   Key: 0
   isHeal: 0
