@@ -20,7 +20,7 @@ public class WindState : MonoBehaviour
     {
         StateIndicator.GetComponent<SpriteRenderer>().color = Color.red;
         gameObject.GetComponent<Animator>().SetTrigger("Attack2");
-        ActiveStateObjWind();
+        //ActiveStateObjWind();
     }
     public void ActiveStateObjWind()
     {

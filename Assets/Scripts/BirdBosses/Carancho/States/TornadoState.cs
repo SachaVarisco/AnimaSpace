@@ -20,7 +20,7 @@ public class TornadoState : MonoBehaviour
     {
         StateIndicator.GetComponent<SpriteRenderer>().color = Color.red;
         gameObject.GetComponent<Animator>().SetTrigger("Attack2");
-        ActiveStateObjTornado();
+        //ActiveStateObjTornado();
     }
     public void ActiveStateObjTornado()
     {

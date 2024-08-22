@@ -11,7 +11,7 @@ public class LifeBar : MonoBehaviour
     private void Start()
     {
         slider = GetComponent<Slider>();
-        SetLife(5);
+        SetLife(4);
     }
     private void Update() {
         if (slider.value <= 0)
