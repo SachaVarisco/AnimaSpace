@@ -21,7 +21,7 @@ namespace HeneGames.DialogueSystem
         [Header("References")]
         [SerializeField] private AudioSource audioSource;
         [SerializeField] private GameObject interactionUI;
- 
+
         [Header("Events")]
         public UnityEvent startDialogueEvent;
         public UnityEvent nextSentenceDialogueEvent;
@@ -170,7 +170,9 @@ namespace HeneGames.DialogueSystem
                 ShowInteractionUI(false);
 
                 //Stop dialogue
-                StopDialogue();
+                //StopDialogue();
+                dialogueIsOn = false;
+                dialogueTrigger = null;
             }
         }
 

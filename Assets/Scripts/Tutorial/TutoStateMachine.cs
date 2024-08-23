@@ -36,7 +36,7 @@ public class TutoStateMachine : MonoBehaviour
     // Update is called once per frame
     public void PassState()
     {
-        //transform.GetChild(StateCount).gameObject.SetActive(false);
+        transform.GetChild(StateCount).gameObject.SetActive(false);
         StateCount++;
         if (StateCount == 3)
         {

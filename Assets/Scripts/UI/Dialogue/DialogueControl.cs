@@ -48,16 +48,16 @@ public class DialogueControl : MonoBehaviour
     [Header("PLayer")]
     private bool playerInRange;
     private GameObject cloud;
-    private void Awake()
-    {
-        player = GameObject.FindGameObjectWithTag("Player");
-        if (Tutorial)
-        {
-            Boss = GameObject.FindGameObjectWithTag("Boss").GetComponent<Animator>();
-        }
-        dialogueMark = gameObject.transform.GetChild(0).gameObject;
-        SearchUI();
-    }
+    // private void Awake()
+    // {
+    //     player = GameObject.FindGameObjectWithTag("Player");
+    //     if (Tutorial)
+    //     {
+    //         Boss = GameObject.FindGameObjectWithTag("Boss").GetComponent<Animator>();
+    //     }
+    //     dialogueMark = gameObject.transform.GetChild(0).gameObject;
+    //     //SearchUI();
+    // }
     private void Update()
     {
         if (playerInRange && Input.GetButtonDown("Fire1"))
@@ -204,14 +204,14 @@ public class DialogueControl : MonoBehaviour
         }
     }
 
-    private void SearchUI()
-    {
-        cloud = GameObject.FindGameObjectWithTag("Canva");
-        panel = cloud.transform.GetChild(2).gameObject;
-        dialogueText = panel.transform.GetChild(0).gameObject.GetComponent<TMP_Text>();
-        nameText = panel.transform.GetChild(2).gameObject.GetComponent<TMP_Text>();
-        faceImageUI = panel.transform.GetChild(1).gameObject.GetComponent<Image>();
-    }
+    // private void SearchUI()
+    // {
+    //     cloud = GameObject.FindGameObjectWithTag("Canva");
+    //     panel = cloud.transform.GetChild(2).gameObject;
+    //     dialogueText = panel.transform.GetChild(0).gameObject.GetComponent<TMP_Text>();
+    //     nameText = panel.transform.GetChild(2).gameObject.GetComponent<TMP_Text>();
+    //     faceImageUI = panel.transform.GetChild(1).gameObject.GetComponent<Image>();
+    // }
 
     private void ChangeScene()
     {

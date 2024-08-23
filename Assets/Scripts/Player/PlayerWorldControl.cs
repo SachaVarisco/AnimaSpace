@@ -15,6 +15,8 @@ public class PlayerWorldControl : MonoBehaviour
 
     [Header("Wild Appears")]
     [SerializeField] private LayerMask wildAppear;
+    [SerializeField] private GameObject wildAlert;
+    [SerializeField] private AudioClip wildEncounterSound;
 
     [Header("Components")]
     private Rigidbody2D rb2D;
@@ -69,12 +71,14 @@ public class PlayerWorldControl : MonoBehaviour
 
     }
 
-    public void StopMovement(){
+    public void StopMovement()
+    {
 
         CanMove = false;
     }
 
-    public void ResumeMovement(){
+    public void ResumeMovement()
+    {
 
         CanMove = true;
     }
@@ -114,12 +118,21 @@ public class PlayerWorldControl : MonoBehaviour
 
             if (Random.Range(1, 500) <= 1)
             {
-
-                SceneData.Instance.Encounters();
-                //Debug.Log("Encounter");
+                StartCoroutine("WildEncounters");
             }
 
         }
+    }
+
+    private IEnumerator WildEncounters()
+    {
+        AudioControll.Instance.PlaySound(wildEncounterSound);       
+        StopMovement();
+        wildAlert.SetActive(true);
+        
+        yield return new WaitForSeconds(1f);
+        
+        SceneData.Instance.Encounters();
     }
 
 }
