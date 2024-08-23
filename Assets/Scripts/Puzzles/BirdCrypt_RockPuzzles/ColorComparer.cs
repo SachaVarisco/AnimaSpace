@@ -13,22 +13,37 @@ public class ColorComparer : MonoBehaviour
 
     [SerializeField] private Transform slot1;
     [SerializeField] private Transform slot2;
+    public static float ColorCount;
+    private bool CanCount;
 
 
     private void Awake()
     {
         SR = GetComponent<SpriteRenderer>();
+        CanCount = true;
 
     }
     private void Update()
     {
-
-        if (new Vector2(rock1.position.x, rock1.position.y)  == new Vector2(slot1.position.x, slot1.position.y) && new Vector2(rock2.position.x, rock2.position.y)  == new Vector2(slot2.position.x, slot2.position.y))
+        if (CanCount)
         {
-            SR.color = new Color(15f / 255f, 144f / 255f, 8f / 255f, 1f);
-            
-            rock1.gameObject.GetComponent<RockMove>().enabled = false;
-            rock2.gameObject.GetComponent<RockMove>().enabled = false;
+            if (new Vector2(rock1.position.x, rock1.position.y) == new Vector2(slot1.position.x, slot1.position.y) && new Vector2(rock2.position.x, rock2.position.y) == new Vector2(slot2.position.x, slot2.position.y))
+            {
+                CanCount = false;
+                ColorCount++;
+                Debug.Log(ColorCount);
+                SR.color = new Color(15f / 255f, 144f / 255f, 8f / 255f, 1f);
+
+                rock1.gameObject.GetComponent<RockMove>().enabled = false;
+                rock2.gameObject.GetComponent<RockMove>().enabled = false;
+            }
         }
+
+        if (ColorCount == 3)
+        {
+            //desactivar la puerta
+        }
+
     }
+
 }
