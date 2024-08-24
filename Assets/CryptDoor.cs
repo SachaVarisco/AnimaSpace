@@ -7,15 +7,14 @@ using Unity.Services.Analytics;
 public class CryptDoor : MonoBehaviour
 {
     [SerializeField] private AudioClip doorSound;
-    private AudioSource audioSource;
+    //private AudioSource audioSource;
 
     void OnEnable()
     {
-        audioSource = GetComponent<AudioSource>();
 
         if (gameObject.name == "Puerta-Cripta2")
         {
-            audioSource.PlayOneShot(doorSound);
+            AudioControll.Instance.PlaySound(doorSound);
         }
 
     }
@@ -31,23 +30,47 @@ public class CryptDoor : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player" && SceneManager.GetActiveScene().name == "BirdCrypt")
+        if (other.gameObject.tag == "Player" && SceneManager.GetActiveScene().name == "Puzzle1_Solved")
         {
-            CustomEvent LevelComplete = new CustomEvent("LevelComplete")
-                {
-                    { "levelIndex", 2f}
-                };
+            // CustomEvent LevelComplete = new CustomEvent("LevelComplete")
+            //     {
+            //         { "levelIndex", 2f}
+            //     };
 
-            AnalyticsService.Instance.RecordEvent(LevelComplete);
-            AnalyticsService.Instance.Flush();
+            // AnalyticsService.Instance.RecordEvent(LevelComplete);
+            // AnalyticsService.Instance.Flush();
 
-            CustomEvent EndCrypt = new CustomEvent("EndCrypt")
-                {
-                    { "cryptName", "BirdCrypt"}
-                };
+            // CustomEvent EndCrypt = new CustomEvent("EndCrypt")
+            //     {
+            //         { "cryptName", "BirdCrypt"}
+            //     };
 
-            AnalyticsService.Instance.RecordEvent(EndCrypt);
-            AnalyticsService.Instance.Flush();
+            // AnalyticsService.Instance.RecordEvent(EndCrypt);
+            // AnalyticsService.Instance.Flush();
+
+            //Debug.Log("EndCrypt evento");
+
+
+            SceneManager.LoadScene("BirdCrypt");
+        }
+
+        if (other.gameObject.tag == "Player" && SceneManager.GetActiveScene().name == "Puzzle2")
+        {
+            // CustomEvent LevelComplete = new CustomEvent("LevelComplete")
+            //     {
+            //         { "levelIndex", 2f}
+            //     };
+
+            // AnalyticsService.Instance.RecordEvent(LevelComplete);
+            // AnalyticsService.Instance.Flush();
+
+            // CustomEvent EndCrypt = new CustomEvent("EndCrypt")
+            //     {
+            //         { "cryptName", "BirdCrypt"}
+            //     };
+
+            // AnalyticsService.Instance.RecordEvent(EndCrypt);
+            // AnalyticsService.Instance.Flush();
 
             //Debug.Log("EndCrypt evento");
 
@@ -55,28 +78,76 @@ public class CryptDoor : MonoBehaviour
             SceneManager.LoadScene("CrowCrypt");
         }
 
-        if (other.gameObject.tag == "Player" && SceneManager.GetActiveScene().name == "CrowCrypt")
+        if (other.gameObject.tag == "Player" && SceneManager.GetActiveScene().name == "Puzzle3")
         {
-            CustomEvent LevelComplete = new CustomEvent("LevelComplete")
-                {
-                    { "levelIndex", 3f}
-                };
+            // CustomEvent LevelComplete = new CustomEvent("LevelComplete")
+            //     {
+            //         { "levelIndex", 2f}
+            //     };
 
-            AnalyticsService.Instance.RecordEvent(LevelComplete);
-            AnalyticsService.Instance.Flush();
+            // AnalyticsService.Instance.RecordEvent(LevelComplete);
+            // AnalyticsService.Instance.Flush();
 
-            CustomEvent EndCrypt = new CustomEvent("EndCrypt")
-                {
-                    { "cryptName", "CrowCrypt"}
-                };
+            // CustomEvent EndCrypt = new CustomEvent("EndCrypt")
+            //     {
+            //         { "cryptName", "BirdCrypt"}
+            //     };
 
-            AnalyticsService.Instance.RecordEvent(EndCrypt);
-            AnalyticsService.Instance.Flush();
+            // AnalyticsService.Instance.RecordEvent(EndCrypt);
+            // AnalyticsService.Instance.Flush();
 
             //Debug.Log("EndCrypt evento");
 
 
             SceneManager.LoadScene("CaranchoCrypt");
+        }
+
+        if (other.gameObject.tag == "Player" && SceneManager.GetActiveScene().name == "BirdCrypt")
+        {
+            // CustomEvent LevelComplete = new CustomEvent("LevelComplete")
+            //     {
+            //         { "levelIndex", 2f}
+            //     };
+
+            // AnalyticsService.Instance.RecordEvent(LevelComplete);
+            // AnalyticsService.Instance.Flush();
+
+            // CustomEvent EndCrypt = new CustomEvent("EndCrypt")
+            //     {
+            //         { "cryptName", "BirdCrypt"}
+            //     };
+
+            // AnalyticsService.Instance.RecordEvent(EndCrypt);
+            // AnalyticsService.Instance.Flush();
+
+            //Debug.Log("EndCrypt evento");
+
+
+            SceneManager.LoadScene("Puzzle2");
+        }
+
+        if (other.gameObject.tag == "Player" && SceneManager.GetActiveScene().name == "CrowCrypt")
+        {
+            // CustomEvent LevelComplete = new CustomEvent("LevelComplete")
+            //     {
+            //         { "levelIndex", 3f}
+            //     };
+
+            // AnalyticsService.Instance.RecordEvent(LevelComplete);
+            // AnalyticsService.Instance.Flush();
+
+            // CustomEvent EndCrypt = new CustomEvent("EndCrypt")
+            //     {
+            //         { "cryptName", "CrowCrypt"}
+            //     };
+
+            // AnalyticsService.Instance.RecordEvent(EndCrypt);
+            // AnalyticsService.Instance.Flush();
+
+            //Debug.Log("EndCrypt evento");
+
+
+            SceneManager.LoadScene("Puzzle3");
         }
     }
 }

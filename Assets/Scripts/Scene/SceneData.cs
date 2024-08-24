@@ -267,6 +267,48 @@ public class SceneData : MonoBehaviour
 
     }
 
+    public void Puzzle2()
+    {
+        // CustomEvent EnemyBeat = new CustomEvent("EnemyBeat")
+        // {
+        //     { "orbCount", 0f},
+        //     { "enemyName", "Pigeon" },
+        //     { "enemyCount", DataPlayer.Instance.PigeonCount}
+        // };
+
+        // AnalyticsService.Instance.RecordEvent(EnemyBeat);
+        // AnalyticsService.Instance.Flush();
+
+
+        // Debug.Log("EnemyBeat evento");
+        // //escena que vuelve al mundo desp del ataque de la paloma
+
+        //DataPlayer.Instance.IsBack = true;
+        SceneManager.LoadScene("Puzzle2");
+
+    }
+
+    public void Puzzle3()
+    {
+        // CustomEvent EnemyBeat = new CustomEvent("EnemyBeat")
+        // {
+        //     { "orbCount", 0f},
+        //     { "enemyName", "Pigeon" },
+        //     { "enemyCount", DataPlayer.Instance.PigeonCount}
+        // };
+
+        // AnalyticsService.Instance.RecordEvent(EnemyBeat);
+        // AnalyticsService.Instance.Flush();
+
+
+        // Debug.Log("EnemyBeat evento");
+        // //escena que vuelve al mundo desp del ataque de la paloma
+
+        //DataPlayer.Instance.IsBack = true;
+        SceneManager.LoadScene("Puzzle3");
+
+    }
+
     public void Encounters()
     {
 

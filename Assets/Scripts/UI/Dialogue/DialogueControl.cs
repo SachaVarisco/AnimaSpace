@@ -396,9 +396,10 @@ public class DialogueControl : MonoBehaviour
         SceneManager.LoadScene(characName);
     }
 
-    public void Key(){
+    public void Key()
+    {
 
-        
+
         SceneData.Instance.key = true;
 
         // CustomEvent HaveKey = new CustomEvent("HaveKey")
@@ -411,9 +412,16 @@ public class DialogueControl : MonoBehaviour
         Debug.Log("HaveKey evento");
     }
 
-    public void ChrisDialogue(){
+    public void ChrisDialogue()
+    {
 
         SceneData.Instance.chrisDialogue = true;
+    }
+
+    public void FloorWildActive()
+    {
+
+        DataPlayer.Instance.floorWild = true;
     }
 
 

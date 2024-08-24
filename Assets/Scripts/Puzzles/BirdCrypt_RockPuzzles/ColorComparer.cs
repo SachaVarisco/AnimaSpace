@@ -16,6 +16,10 @@ public class ColorComparer : MonoBehaviour
     public static float ColorCount;
     private bool CanCount;
 
+    [Header("Doors")]
+    [SerializeField] private GameObject door1;
+    [SerializeField] private GameObject door2;
+
 
     private void Awake()
     {
@@ -42,6 +46,8 @@ public class ColorComparer : MonoBehaviour
         if (ColorCount == 3)
         {
             //desactivar la puerta
+            door1.SetActive(false);
+            door2.SetActive(true);
         }
 
     }
