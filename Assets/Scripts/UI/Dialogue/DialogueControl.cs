@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Unity.Services.Analytics;
+using EasyTransition;
 
 public class DialogueControl : MonoBehaviour
 {
@@ -48,6 +49,11 @@ public class DialogueControl : MonoBehaviour
     [Header("PLayer")]
     private bool playerInRange;
     private GameObject cloud;
+
+
+    [Header("Transitions")]
+    [SerializeField] private TransitionSettings transition;
+    [SerializeField] private float loadDelay;
     // private void Awake()
     // {
     //     player = GameObject.FindGameObjectWithTag("Player");
@@ -393,7 +399,8 @@ public class DialogueControl : MonoBehaviour
 
         }
         DataPlayer.Instance.SaveWorldPosition();
-        SceneManager.LoadScene(characName);
+        //SceneManager.LoadScene(characName);
+        TransitionManager.Instance().Transition("World", transition, loadDelay);
     }
 
     public void Key()

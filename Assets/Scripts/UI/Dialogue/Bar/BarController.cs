@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Unity.Services.Analytics;
-
+using EasyTransition;
 public class BarController : MonoBehaviour
 {
     [Header("Timer")]
@@ -26,6 +26,10 @@ public class BarController : MonoBehaviour
     private bool Die;
     private bool Win;
     #endregion
+
+    [Header("Transitions")]
+    [SerializeField] private TransitionSettings transition;
+    [SerializeField] private float loadDelay;
     private void Start()
     {
         HandleValue = GetComponent<Scrollbar>();
@@ -70,7 +74,8 @@ public class BarController : MonoBehaviour
                 // AnalyticsService.Instance.RecordEvent(EnemyBeat);
                 // AnalyticsService.Instance.Flush();
 
-                SceneManager.LoadScene("Victory");
+                //SceneManager.LoadScene("Victory");
+                TransitionManager.Instance().Transition("Victory", transition, loadDelay);
                 Debug.Log("EnemyBeat evento");
 
             }

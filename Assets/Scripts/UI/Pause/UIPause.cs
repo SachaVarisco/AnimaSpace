@@ -1,105 +1,90 @@
 using System.Collections;
 using System.Collections.Generic;
-using EasyTransition;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class UIPause : MonoBehaviour
 {
-    [Header ("PauseButtons")]
-    [SerializeField] private GameObject optionsGO;
+    [Header("PauseButtons")]
+    [SerializeField] private GameObject ResumeGO;
+    private Button ResumeBt;
+    [SerializeField] private Button optionsBt;
     [SerializeField] private Button exitButton;
-    private Button optionsBt;
 
-    [Header ("SureButtons")]
-    [SerializeField] private Button yesButton;
-    [SerializeField] private GameObject noGO;
-    private Button noBt;
-
-    [Header ("PopUps")]
+    [Header("Screens")]
     [SerializeField] private GameObject pauseScreen;
     [SerializeField] private GameObject sureExitScreen;
 
-    [Header ("Transitions")]
-    [SerializeField] private TransitionSettings transition;
-    [SerializeField] private float loadDelay;
-
-    private void Awake() {
-        optionsBt = optionsGO.GetComponent<Button>();
+    private void Awake()
+    {
+        ResumeBt = ResumeGO.GetComponent<Button>();
+        ResumeBt.onClick.AddListener(OnSelectedResume);
         optionsBt.onClick.AddListener(OnSelectedOptions);
         exitButton.onClick.AddListener(OnSelectedExit);
 
-        noBt = noGO.GetComponent<Button>();
-        noBt.onClick.AddListener(OnSelectedSureNo);
-        yesButton.onClick.AddListener(OnSelectedSureYes);
     }
-    private void Update() {
+    private void Update()
+    {
         if (Input.GetKeyDown(KeyCode.C))
         {
             if (pauseScreen.activeSelf)
             {
                 ClosePause();
-            }else{
+            }
+            else
+            {
                 OpenPause();
             }
         }
     }
-    private void OnDestroy() {
+    private void OnDestroy()
+    {
+        ResumeBt.onClick.RemoveAllListeners();
         exitButton.onClick.RemoveAllListeners();
         optionsBt.onClick.RemoveAllListeners();
     }
 
-#region Canvas Pause PopUp
-    private void OpenPause(){
+    #region Canvas Pause PopUp
+    private void OpenPause()
+    {
         Time.timeScale = 0;
         pauseScreen.SetActive(true);
 
-        EventSystem.current.SetSelectedGameObject(optionsGO);
+        EventSystem.current.SetSelectedGameObject(ResumeGO);
     }
-    private void ClosePause(){
+    private void ClosePause()
+    {
         Time.timeScale = 1;
         CloseAllMenus();
     }
-    private void OnSelectedOptions(){
-        Debug.Log("Options");
+    private void OnSelectedResume()
+    {
+        pauseScreen.SetActive(false);
     }
-    private void OnSelectedExit(){
+    private void OnSelectedOptions()
+    {
+        //TODO Abrir Opciones
+    }
+    private void OnSelectedExit()
+    {
         OpenSureExit();
-        Debug.Log("Exit");
     }
-#endregion
+    #endregion
 
-#region Canvas SureExit PoUp
-    private void OpenSureExit(){
+    #region Canvas SureExit PoUp
+    private void OpenSureExit()
+    {
         pauseScreen.SetActive(false);
         sureExitScreen.SetActive(true);
-
-        EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(noGO);
     }
-    private void CloseSureExit(){
-        sureExitScreen.SetActive(false);
-        OpenPause();
-    }
+    #endregion
 
-    private void OnSelectedSureYes(){
-        Debug.Log("Sure Exit");
-        Time.timeScale = 1;
-
-        TransitionManager.Instance().Transition("Menu",transition, loadDelay);
-    }
-
-    private void OnSelectedSureNo(){
-        CloseSureExit();
-    }
-#endregion
-
-#region Canvas AllMenus
-    private void CloseAllMenus(){
+    #region Canvas AllMenus
+    private void CloseAllMenus()
+    {
         pauseScreen.SetActive(false);
-
         EventSystem.current.SetSelectedGameObject(null);
     }
-#endregion
+    #endregion
 }
