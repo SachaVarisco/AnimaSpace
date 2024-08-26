@@ -16,8 +16,7 @@ public class LifeBar : MonoBehaviour
     private void Update() {
         if (slider.value <= 0)
         {
-            DataPlayer.Instance.Ready = true;
-            SceneData.Instance.Winner();
+            StartCoroutine(DeadAnim());
         }
     }
 
@@ -35,5 +34,11 @@ public class LifeBar : MonoBehaviour
     {
         slider.value += add;
     }
-
+    private IEnumerator DeadAnim(){
+        Animator bossAnim = GameObject.FindGameObjectWithTag("Boss").GetComponent<Animator>();
+        bossAnim.Play("Crow_Dead");
+        yield return new WaitForSeconds(1.5f);
+        DataPlayer.Instance.Ready = true;
+        SceneData.Instance.Winner();
+    }
 }

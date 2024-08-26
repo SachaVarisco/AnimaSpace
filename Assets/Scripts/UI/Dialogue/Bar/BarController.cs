@@ -47,6 +47,7 @@ public class BarController : MonoBehaviour
         {
             if (Bar.fillAmount <= 0 && SceneManager.GetActiveScene().name == "Carmin")
             {
+                
                 CustomEvent EnemyBeat = new CustomEvent("EnemyBeat")
                 {
                     { "orbCount", DataPlayer.Instance.orbCount},
@@ -57,8 +58,8 @@ public class BarController : MonoBehaviour
                 AnalyticsService.Instance.RecordEvent(EnemyBeat);
                 AnalyticsService.Instance.Flush();
 
-                SceneData.Instance.Winner();
-                Debug.Log("EnemyBeat evento");
+                //SceneData.Instance.Winner();
+                StartCoroutine(DeadAnimAnt());
 
             }
 
@@ -75,8 +76,8 @@ public class BarController : MonoBehaviour
                 // AnalyticsService.Instance.Flush();
 
                 //SceneManager.LoadScene("Victory");
-                TransitionManager.Instance().Transition("Victory", transition, loadDelay);
-                Debug.Log("EnemyBeat evento");
+                StartCoroutine(DeadAnimCarancho());
+                
 
             }
             else if (Bar.fillAmount >= 1)
@@ -113,4 +114,24 @@ public class BarController : MonoBehaviour
         Bar.fillAmount += PlayerDamage;
         HandleValue.value -= PlayerDamage;
     }
+
+
+    #region DeadAnim Ant
+    private IEnumerator DeadAnimAnt(){
+        Animator bossAnim = GameObject.FindGameObjectWithTag("Boss").GetComponent<Animator>();
+        bossAnim.Play("Dead_AntBoss");
+        yield return new WaitForSeconds(1f);
+        SceneData.Instance.Winner();
+    }
+    #endregion
+
+    #region DeadAnim Ant
+    private IEnumerator DeadAnimCarancho(){
+        Animator bossAnim = GameObject.FindGameObjectWithTag("Boss").GetComponent<Animator>();
+        bossAnim.Play("Dead_CaranchoBoss");
+        yield return new WaitForSeconds(1f);
+        TransitionManager.Instance().Transition("Victory", transition, loadDelay);
+        Debug.Log("EnemyBeat evento");
+    }
+    #endregion
 }
