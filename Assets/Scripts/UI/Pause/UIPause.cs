@@ -14,6 +14,7 @@ public class UIPause : MonoBehaviour
 
     [Header("Screens")]
     [SerializeField] private GameObject pauseScreen;
+    [SerializeField] private GameObject optionsScreen;
     [SerializeField] private GameObject sureExitScreen;
 
     private void Awake()
@@ -53,18 +54,21 @@ public class UIPause : MonoBehaviour
 
         EventSystem.current.SetSelectedGameObject(ResumeGO);
     }
+    private void OnSelectedResume()
+    {
+        ClosePause();
+    }
     private void ClosePause()
     {
         Time.timeScale = 1;
-        CloseAllMenus();
-    }
-    private void OnSelectedResume()
-    {
         pauseScreen.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(null);
     }
     private void OnSelectedOptions()
     {
         //TODO Abrir Opciones
+        optionsScreen.SetActive(true);
+        pauseScreen.SetActive(false);
     }
     private void OnSelectedExit()
     {
@@ -77,14 +81,6 @@ public class UIPause : MonoBehaviour
     {
         pauseScreen.SetActive(false);
         sureExitScreen.SetActive(true);
-    }
-    #endregion
-
-    #region Canvas AllMenus
-    private void CloseAllMenus()
-    {
-        pauseScreen.SetActive(false);
-        EventSystem.current.SetSelectedGameObject(null);
     }
     #endregion
 }

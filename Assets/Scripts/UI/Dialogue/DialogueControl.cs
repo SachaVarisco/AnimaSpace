@@ -400,7 +400,7 @@ public class DialogueControl : MonoBehaviour
         }
         DataPlayer.Instance.SaveWorldPosition();
         //SceneManager.LoadScene(characName);
-        TransitionManager.Instance().Transition("World", transition, loadDelay);
+        TransitionManager.Instance().Transition(characName, transition, loadDelay);
     }
 
     public void Key()

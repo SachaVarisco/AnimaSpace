@@ -31,9 +31,10 @@ public class UISureExit : MonoBehaviour
         noButton.onClick.AddListener(OnSelectedSureNo);
         yesButton.onClick.AddListener(OnSelectedSureYes);
     }
-    private void OnDestroy() {
+    private void OnDestroy()
+    {
         yesButton.onClick.RemoveAllListeners();
-       noButton.onClick.RemoveAllListeners();
+        noButton.onClick.RemoveAllListeners();
     }
 
     private void OnSelectedSureYes()
