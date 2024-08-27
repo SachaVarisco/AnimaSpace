@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Unity.Services.Analytics;
+using EasyTransition;
 
 public class SceneData : MonoBehaviour
 {
@@ -16,6 +17,10 @@ public class SceneData : MonoBehaviour
     public bool chrisDialogue;
     //private bool LastDialogueMark;
     private bool IsFirst = true;
+
+    [Header("Transitions")]
+    [SerializeField] public TransitionSettings transition;
+    [SerializeField] private float loadDelay;
 
 
     private void Awake()
@@ -46,12 +51,17 @@ public class SceneData : MonoBehaviour
         {
             case "Menu":
 
+                MusicControll.Instance.PlayWorld();
+
                 key = false;
                 tutorialPassed = false;
 
                 break;
 
             case "World":
+
+                //MusicControll.Instance.StopMusic();
+                MusicControll.Instance.PlayWorld();
 
                 if (IsFirst)
                 {
@@ -92,11 +102,14 @@ public class SceneData : MonoBehaviour
 
                     Transform Spawn = GameObject.FindGameObjectWithTag("Spawn").transform;
                     Mark.position = new Vector2(Spawn.position.x, Spawn.position.y);
+                    win = false;
                 }
 
                 break;
 
             case "BirdCrypt":
+
+                MusicControll.Instance.PlayCrypt();
 
                 if (chrisDialogue)
                 {
@@ -109,12 +122,20 @@ public class SceneData : MonoBehaviour
 
             case "CrowCrypt":
 
+                MusicControll.Instance.PlayCrypt();
+
                 if (win)
                 {
-                    Debug.Log("hola");
                     GameObject Totem = GameObject.FindGameObjectWithTag("Totem");
                     Destroy(Totem);
+                    win = false;
                 }
+
+                break;
+
+            case "Puzzle1_Solved":
+
+                MusicControll.Instance.PlayCrypt();
 
                 break;
         }
@@ -220,94 +241,99 @@ public class SceneData : MonoBehaviour
         //escena que vuelve al mundo desp del ataque de la paloma
 
         DataPlayer.Instance.IsBack = true;
-        SceneManager.LoadScene("BirdCrypt");
+        //SceneManager.LoadScene("BirdCrypt");
+        TransitionManager.Instance().Transition("BirdCrypt", transition, loadDelay);
 
     }
 
-    public void Crow()
-    {
-        chrisDialogue = false;
-        // CustomEvent EnemyBeat = new CustomEvent("EnemyBeat")
-        // {
-        //     { "orbCount", 0f},
-        //     { "enemyName", "Pigeon" },
-        //     { "enemyCount", DataPlayer.Instance.PigeonCount}
-        // };
+    // public void Crow()
+    // {
+    //     chrisDialogue = false;
+    //     // CustomEvent EnemyBeat = new CustomEvent("EnemyBeat")
+    //     // {
+    //     //     { "orbCount", 0f},
+    //     //     { "enemyName", "Pigeon" },
+    //     //     { "enemyCount", DataPlayer.Instance.PigeonCount}
+    //     // };
 
-        // AnalyticsService.Instance.RecordEvent(EnemyBeat);
-        // AnalyticsService.Instance.Flush();
-
-
-        // Debug.Log("EnemyBeat evento");
-        // //escena que vuelve al mundo desp del ataque de la paloma
-
-        DataPlayer.Instance.IsBack = true;
-        SceneManager.LoadScene("CrowCrypt");
-
-    }
-
-    public void Carancho()
-    {
-        // CustomEvent EnemyBeat = new CustomEvent("EnemyBeat")
-        // {
-        //     { "orbCount", 0f},
-        //     { "enemyName", "Pigeon" },
-        //     { "enemyCount", DataPlayer.Instance.PigeonCount}
-        // };
-
-        // AnalyticsService.Instance.RecordEvent(EnemyBeat);
-        // AnalyticsService.Instance.Flush();
+    //     // AnalyticsService.Instance.RecordEvent(EnemyBeat);
+    //     // AnalyticsService.Instance.Flush();
 
 
-        // Debug.Log("EnemyBeat evento");
-        // //escena que vuelve al mundo desp del ataque de la paloma
+    //     // Debug.Log("EnemyBeat evento");
+    //     // //escena que vuelve al mundo desp del ataque de la paloma
 
-        DataPlayer.Instance.IsBack = true;
-        SceneManager.LoadScene("CaranchoCrypt");
+    //     DataPlayer.Instance.IsBack = true;
+    //     //SceneManager.LoadScene("CrowCrypt");
+    //     TransitionManager.Instance().Transition("CrowCrypt", transition, loadDelay);
 
-    }
+    // }
 
-    public void Puzzle2()
-    {
-        // CustomEvent EnemyBeat = new CustomEvent("EnemyBeat")
-        // {
-        //     { "orbCount", 0f},
-        //     { "enemyName", "Pigeon" },
-        //     { "enemyCount", DataPlayer.Instance.PigeonCount}
-        // };
+    // public void Carancho()
+    // {
+    //     // CustomEvent EnemyBeat = new CustomEvent("EnemyBeat")
+    //     // {
+    //     //     { "orbCount", 0f},
+    //     //     { "enemyName", "Pigeon" },
+    //     //     { "enemyCount", DataPlayer.Instance.PigeonCount}
+    //     // };
 
-        // AnalyticsService.Instance.RecordEvent(EnemyBeat);
-        // AnalyticsService.Instance.Flush();
-
-
-        // Debug.Log("EnemyBeat evento");
-        // //escena que vuelve al mundo desp del ataque de la paloma
-
-        //DataPlayer.Instance.IsBack = true;
-        SceneManager.LoadScene("Puzzle2");
-
-    }
-
-    public void Puzzle3()
-    {
-        // CustomEvent EnemyBeat = new CustomEvent("EnemyBeat")
-        // {
-        //     { "orbCount", 0f},
-        //     { "enemyName", "Pigeon" },
-        //     { "enemyCount", DataPlayer.Instance.PigeonCount}
-        // };
-
-        // AnalyticsService.Instance.RecordEvent(EnemyBeat);
-        // AnalyticsService.Instance.Flush();
+    //     // AnalyticsService.Instance.RecordEvent(EnemyBeat);
+    //     // AnalyticsService.Instance.Flush();
 
 
-        // Debug.Log("EnemyBeat evento");
-        // //escena que vuelve al mundo desp del ataque de la paloma
+    //     // Debug.Log("EnemyBeat evento");
+    //     // //escena que vuelve al mundo desp del ataque de la paloma
 
-        //DataPlayer.Instance.IsBack = true;
-        SceneManager.LoadScene("Puzzle3");
+    //     DataPlayer.Instance.IsBack = true;
+    //     //SceneManager.LoadScene("CaranchoCrypt");
+    //     TransitionManager.Instance().Transition("CaranchoCrypt", transition, loadDelay);
 
-    }
+    // }
+
+    // public void Puzzle2()
+    // {
+    //     // CustomEvent EnemyBeat = new CustomEvent("EnemyBeat")
+    //     // {
+    //     //     { "orbCount", 0f},
+    //     //     { "enemyName", "Pigeon" },
+    //     //     { "enemyCount", DataPlayer.Instance.PigeonCount}
+    //     // };
+
+    //     // AnalyticsService.Instance.RecordEvent(EnemyBeat);
+    //     // AnalyticsService.Instance.Flush();
+
+
+    //     // Debug.Log("EnemyBeat evento");
+    //     // //escena que vuelve al mundo desp del ataque de la paloma
+
+    //     //DataPlayer.Instance.IsBack = true;
+    //     //SceneManager.LoadScene("Puzzle2");
+    //     TransitionManager.Instance().Transition("Puzzle2", transition, loadDelay);
+
+    // }
+
+    // public void Puzzle3()
+    // {
+    //     // CustomEvent EnemyBeat = new CustomEvent("EnemyBeat")
+    //     // {
+    //     //     { "orbCount", 0f},
+    //     //     { "enemyName", "Pigeon" },
+    //     //     { "enemyCount", DataPlayer.Instance.PigeonCount}
+    //     // };
+
+    //     // AnalyticsService.Instance.RecordEvent(EnemyBeat);
+    //     // AnalyticsService.Instance.Flush();
+
+
+    //     // Debug.Log("EnemyBeat evento");
+    //     // //escena que vuelve al mundo desp del ataque de la paloma
+
+    //     //DataPlayer.Instance.IsBack = true;
+    //     //SceneManager.LoadScene("Puzzle3");
+    //     TransitionManager.Instance().Transition("Puzzle3", transition, loadDelay);
+
+    // }
 
     public void Encounters()
     {
@@ -316,7 +342,9 @@ public class SceneData : MonoBehaviour
         //SceneManager.LoadScene("Menu");
         DataPlayer.Instance.SaveWorldPosition();
         Debug.Log("guarda");
-        SceneManager.LoadScene("Maxi");
+        //SceneManager.LoadScene("Maxi");
+        TransitionManager.Instance().Transition("Maxi", transition, loadDelay);
+        MusicControll.Instance.PlayBoss();
 
     }
 
@@ -377,12 +405,15 @@ public class SceneData : MonoBehaviour
 
         DataPlayer.Instance.hitCount = 0;
 
-        SceneManager.LoadScene("GameOver");
+        //SceneManager.LoadScene("GameOver");
+        MusicControll.Instance.StopMusic();
+        TransitionManager.Instance().Transition("GameOver", transition, loadDelay);
     }
 
 
     public void Winner()
     {
+        TransitionSettings newTransition = transition;
 
         DataPlayer.Instance.IsBack = true;
 
@@ -396,19 +427,22 @@ public class SceneData : MonoBehaviour
 
             case "Carmin":
 
-                SceneManager.LoadScene("World");
+                //SceneManager.LoadScene("World");
+                TransitionManager.Instance().Transition("World", newTransition, loadDelay);
 
                 break;
 
             case "Crow":
 
-                SceneManager.LoadScene("CrowCrypt");
+                //SceneManager.LoadScene("CrowCrypt");
+                TransitionManager.Instance().Transition("CrowCrypt", transition, loadDelay);
 
                 break;
 
             case "Carancho":
 
-                SceneManager.LoadScene("CaranchoCrypt");
+                //SceneManager.LoadScene("CaranchoCrypt");
+                TransitionManager.Instance().Transition("CaranchoCrypt", transition, loadDelay);
 
                 break;
         }

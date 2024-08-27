@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
+using System.Drawing;
 
 namespace EasyTransition
 {
 
     public class TransitionManager : MonoBehaviour
-    {        
+    {   
+        private TransitionRun transitionRun;    
         [SerializeField] private GameObject transitionTemplate;
 
         private bool runningTransition;
@@ -19,9 +21,11 @@ namespace EasyTransition
 
         private static TransitionManager instance;
 
+
         private void Awake()
         {
             instance = this;
+            transitionRun = GetComponent<TransitionRun>();
         }
 
         public static TransitionManager Instance()
@@ -59,10 +63,12 @@ namespace EasyTransition
         {
             if (transition == null || runningTransition)
             {
+                //transition = SceneData.Instance.transition; 
                 Debug.LogError("You have to assing a transition.");
                 return;
             }
 
+            AudioControll.Instance.PlaySound(transitionRun.transitionSound);
             runningTransition = true;
             StartCoroutine(Timer(sceneName, startDelay, transition));
         }

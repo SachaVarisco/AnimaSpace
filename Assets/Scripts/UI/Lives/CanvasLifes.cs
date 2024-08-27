@@ -34,7 +34,7 @@ public class CanvasLifes : MonoBehaviour
         }
 
         int index = 1;
-        if (SceneManager.GetActiveScene().name == "CrowCrypt" && index < transform.childCount)
+        if (SceneManager.GetActiveScene().name == "Puzzle2" && index < transform.childCount)
         {
             Destroy(transform.GetChild(index).gameObject);
         }

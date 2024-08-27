@@ -66,7 +66,7 @@ namespace HeneGames.DialogueSystem
         public virtual void InputUpdate()
         {
             //Next dialogue input
-            if (Input.GetKeyDown(actionInput))
+            if (Input.GetKeyDown(actionInput) && Time.timeScale == 1f)
             {
                 NextSentenceSoft();
             }

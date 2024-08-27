@@ -75,7 +75,7 @@ public class CryptDoor : MonoBehaviour
             //Debug.Log("EndCrypt evento");
 
 
-            TransitionManager.Instance().Transition("World", transition, loadDelay);
+            TransitionManager.Instance().Transition(NextScene, transition, loadDelay);
         }
 
         //if (other.gameObject.tag == "Player" && SceneManager.GetActiveScene().name == "Puzzle2")

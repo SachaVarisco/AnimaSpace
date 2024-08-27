@@ -33,6 +33,7 @@ namespace HeneGames.DialogueSystem
 
         private void Update()
         {
+    
             //Timer
             if (coolDownTimer > 0f)
             {
@@ -63,6 +64,10 @@ namespace HeneGames.DialogueSystem
 
         public void ShowInteractionUI(bool _value)
         {
+            if (interactionUI == null)
+            {
+                return;
+            }
             interactionUI.SetActive(_value);
         }
 
@@ -232,6 +237,7 @@ namespace HeneGames.DialogueSystem
             lastSentence = false;
 
             //Play dialogue sound
+
             PlaySound(sentences[currentSentence].sentenceSound);
 
             //Show next sentence in dialogue UI
@@ -275,7 +281,7 @@ namespace HeneGames.DialogueSystem
             audioSource.Stop();
 
             //Play sentence sound
-            audioSource.PlayOneShot(_audioClip);
+            AudioControll.Instance.PlaySound(_audioClip);
         }
 
         private void ShowCurrentSentence()

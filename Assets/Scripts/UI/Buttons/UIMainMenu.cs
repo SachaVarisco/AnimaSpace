@@ -30,16 +30,17 @@ public class UIMainMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playButton.onClick.RemoveAllListeners();
+        
     }
     private void OnDestroy()
     {
-
+        playButton.onClick.RemoveAllListeners();
     }
 
     #region Canvas buttons functions
     private void OnSelectedPlay()
     {
+        
         TransitionManager.Instance().Transition("World", transition, loadDelay);
 
     }
