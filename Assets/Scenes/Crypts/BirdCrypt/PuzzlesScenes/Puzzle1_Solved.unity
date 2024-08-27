@@ -10660,6 +10660,8 @@ MonoBehaviour:
   key: 0
   win: 0
   chrisDialogue: 0
+  transition: {fileID: 11400000, guid: 9710edcf009d00943af961dd2a7ca7d3, type: 2}
+  loadDelay: 0
 --- !u!4 &19852184
 Transform:
   m_ObjectHideFlags: 0

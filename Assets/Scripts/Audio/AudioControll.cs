@@ -5,7 +5,7 @@ using UnityEngine;
 public class AudioControll : MonoBehaviour
 {
     public static AudioControll Instance;
-    private AudioSource audioSource;
+    public AudioSource audioSource;
 
     [Header ("Player sounds")]
     [SerializeField] private AudioClip Hurt;

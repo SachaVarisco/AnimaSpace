@@ -51,6 +51,8 @@ public class UIPause : MonoBehaviour
     {
         Time.timeScale = 0;
         pauseScreen.SetActive(true);
+        optionsScreen.SetActive(false);
+        sureExitScreen.SetActive(false);
 
         EventSystem.current.SetSelectedGameObject(ResumeGO);
     }

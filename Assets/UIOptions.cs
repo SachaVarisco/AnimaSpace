@@ -22,6 +22,9 @@ public class UIOptions : MonoBehaviour
     {
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(musicGO);
+
+        musicSlider.value = MusicControll.Instance.audioSource.volume;
+        soundSlider.value = AudioControll.Instance.audioSource.volume;
     }
     private void Awake() {
         backButton.onClick.AddListener(OnSelectedBack);
@@ -41,8 +44,12 @@ public class UIOptions : MonoBehaviour
     }
     private void OnSlidedMusic(float volume){
 
+        MusicControll.Instance.audioSource.volume = volume;
+
     }
     private void OnSlidedSound(float volume){
+
+        AudioControll.Instance.audioSource.volume = volume;
 
     }
 }

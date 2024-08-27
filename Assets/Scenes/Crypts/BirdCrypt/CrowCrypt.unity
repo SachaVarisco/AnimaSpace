@@ -780,7 +780,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 5bf1b2dead5428348b1984b1fc1d63ad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -9061,20 +9061,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 820a0e393fae8e24bb3f75fc4d729a35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lines:
-  - "Sientes una fuerza extra\xF1a dentro de la estatua."
-  - "Est\xE1 sensaci\xF3n se te hace familiar..."
-  autoDialogue: 0
-  face: {fileID: 21300000, guid: 796215f097fe70944bc0fcd6aa31d94b, type: 3}
-  CountObjTalk: 0
-  nameColor: {r: 0, g: 0, b: 0, a: 0}
   characName: Crow
-  audioDiag: {fileID: 8300000, guid: e73fa3497956a9e4980f521352e7509b, type: 3}
   Combat: 1
-  Tutorial: 0
-  DoubleDiag: 0
-  key: 0
-  isHeal: 0
   transition: {fileID: 11400000, guid: 9710edcf009d00943af961dd2a7ca7d3, type: 2}
   loadDelay: 0
 --- !u!1 &1515541207
