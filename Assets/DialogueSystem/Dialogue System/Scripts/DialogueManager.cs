@@ -64,6 +64,10 @@ namespace HeneGames.DialogueSystem
 
         public void ShowInteractionUI(bool _value)
         {
+            if (interactionUI == null)
+            {
+                return;
+            }
             interactionUI.SetActive(_value);
         }
 

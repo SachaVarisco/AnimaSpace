@@ -8305,6 +8305,7 @@ MonoBehaviour:
   slot2: {fileID: 99830089}
   door1: {fileID: 1942309716}
   door2: {fileID: 1860138077}
+  puzzleComplete: {fileID: 8300000, guid: b0e756d1f18640641947929bb3f1ec3b, type: 3}
 --- !u!212 &836174070
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10224,134 +10225,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!1 &1205504240
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1205504242}
-  - component: {fileID: 1205504241}
-  m_Layer: 0
-  m_Name: Music
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!82 &1205504241
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1205504240}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b472775a0905f1e47a3d48cdf93a8b2e, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.2
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!4 &1205504242
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1205504240}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 960, y: 543.9764, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1227314199
 GameObject:
   m_ObjectHideFlags: 0
@@ -14856,6 +14729,7 @@ MonoBehaviour:
   slot2: {fileID: 1161080041}
   door1: {fileID: 1942309716}
   door2: {fileID: 1860138077}
+  puzzleComplete: {fileID: 8300000, guid: b0e756d1f18640641947929bb3f1ec3b, type: 3}
 --- !u!212 &1440926530
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -25849,6 +25723,7 @@ MonoBehaviour:
   slot2: {fileID: 1712824125}
   door1: {fileID: 1942309716}
   door2: {fileID: 1860138077}
+  puzzleComplete: {fileID: 8300000, guid: b0e756d1f18640641947929bb3f1ec3b, type: 3}
 --- !u!212 &1528106409
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -28711,6 +28586,7 @@ MonoBehaviour:
   optionsBt: {fileID: 96421652}
   exitButton: {fileID: 474966779}
   pauseScreen: {fileID: 1997584680}
+  optionsScreen: {fileID: 0}
   sureExitScreen: {fileID: 1049948069}
 --- !u!1 &1998461671
 GameObject:
@@ -29277,6 +29153,5 @@ SceneRoots:
   - {fileID: 2030230073}
   - {fileID: 1755311367}
   - {fileID: 1533911802}
-  - {fileID: 1205504242}
   - {fileID: 1516722377}
   - {fileID: 72949780}

@@ -19,7 +19,7 @@ public class SceneData : MonoBehaviour
     private bool IsFirst = true;
 
     [Header("Transitions")]
-    [SerializeField] private TransitionSettings transition;
+    [SerializeField] public TransitionSettings transition;
     [SerializeField] private float loadDelay;
 
 
@@ -133,6 +133,11 @@ public class SceneData : MonoBehaviour
 
                 break;
 
+            case "Puzzle1_Solved":
+
+                MusicControll.Instance.PlayCrypt();
+
+                break;
         }
 
     }
@@ -339,6 +344,7 @@ public class SceneData : MonoBehaviour
         Debug.Log("guarda");
         //SceneManager.LoadScene("Maxi");
         TransitionManager.Instance().Transition("Maxi", transition, loadDelay);
+        MusicControll.Instance.PlayBoss();
 
     }
 
@@ -407,6 +413,7 @@ public class SceneData : MonoBehaviour
 
     public void Winner()
     {
+        TransitionSettings newTransition = transition;
 
         DataPlayer.Instance.IsBack = true;
 
@@ -421,7 +428,7 @@ public class SceneData : MonoBehaviour
             case "Carmin":
 
                 //SceneManager.LoadScene("World");
-                TransitionManager.Instance().Transition("World", transition, loadDelay);
+                TransitionManager.Instance().Transition("World", newTransition, loadDelay);
 
                 break;
 

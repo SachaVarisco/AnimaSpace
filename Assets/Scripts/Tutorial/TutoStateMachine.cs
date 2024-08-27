@@ -2,11 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using EasyTransition;
 
 public class TutoStateMachine : MonoBehaviour
 {
     private int StateCount;
     private Animator Boss;
+
+    [Header("Transitions")]
+    [SerializeField] private TransitionSettings transition;
+    [SerializeField] private float loadDelay;
     // Start is called before the first frame update
     void Start()
     {
@@ -65,6 +70,7 @@ public class TutoStateMachine : MonoBehaviour
         Debug.Log("TutoComplete evento");
 
 
-        SceneManager.LoadScene("World");
+        //SceneManager.LoadScene("World");
+        TransitionManager.Instance().Transition("World", transition, loadDelay);
     }
 }

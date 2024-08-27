@@ -27,7 +27,7 @@ public class OrbController : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, pathObj, speed * Time.deltaTime);
 
             if (Vector2.Distance(transform.position, pathObj) < minDistance)
-            {   
+            {
                 if (pathCount < Spawns.Length)
                 {
                     pathCount++;
@@ -41,7 +41,8 @@ public class OrbController : MonoBehaviour
 
     private void SpawnOrb()
     {
-        if (Path){
+        if (Path)
+        {
             transform.position = Spawns[0].position;
         }
         else
@@ -66,8 +67,18 @@ public class OrbController : MonoBehaviour
         }
 
     }
-    private void OnDisable() {
+    private void OnDisable()
+    {
         pathCount = 0;
-        gameObject.transform.position = Spawns[pathCount].position;
+
+        if (Spawns[pathCount].position != null)
+        {
+            gameObject.transform.position = Spawns[pathCount].position;
+        }
+        else
+        {
+            return;
+        }
+
     }
 }

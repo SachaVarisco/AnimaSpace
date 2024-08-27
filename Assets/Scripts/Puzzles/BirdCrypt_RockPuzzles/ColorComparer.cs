@@ -20,6 +20,8 @@ public class ColorComparer : MonoBehaviour
     [SerializeField] private GameObject door1;
     [SerializeField] private GameObject door2;
 
+    [SerializeField] private AudioClip puzzleComplete;
+
 
     private void Awake()
     {
@@ -33,6 +35,8 @@ public class ColorComparer : MonoBehaviour
         {
             if (new Vector2(rock1.position.x, rock1.position.y) == new Vector2(slot1.position.x, slot1.position.y) && new Vector2(rock2.position.x, rock2.position.y) == new Vector2(slot2.position.x, slot2.position.y))
             {
+                AudioControll.Instance.PlaySound(puzzleComplete);
+
                 CanCount = false;
                 ColorCount++;
                 Debug.Log(ColorCount);
