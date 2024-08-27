@@ -19,6 +19,7 @@ public class EggControll : MonoBehaviour
     }
     private void OnEnable()
     {
+        canGrow=true;
         GetComponent<CircleCollider2D>().enabled = false;
         transform.localScale = new UnityEngine.Vector2(0.2f, 0.2f);
         rb2D.gravityScale = 1;
@@ -88,6 +89,7 @@ public class EggControll : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         canGrow = false;
+        transform.GetChild(0).transform.localScale = new Vector2(0.1f, 0.1f);
         transform.parent.gameObject.GetComponent<EggPool>().ReturnEgg(gameObject);
     }
 

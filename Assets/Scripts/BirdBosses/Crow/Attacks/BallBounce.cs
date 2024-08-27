@@ -16,7 +16,7 @@ public class BallBounce : MonoBehaviour
     }
     private void OnEnable() {
         transform.position = SpawnPos; 
-        rb2D.AddForce(new Vector2(9.8f * 180f, 9.8f * 180f));
+        rb2D.AddForce(new Vector2(9.8f * force, 9.8f * force));
     }
 
     private void Update()
@@ -27,7 +27,7 @@ public class BallBounce : MonoBehaviour
        
         var speed = lastVel.magnitude;
         if(other.gameObject.tag == "Player"){
-            other.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, force));
+            other.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 0));
             other.gameObject.GetComponent<PlayerLifeController>().Rebound(other.GetContact(0).normal);
         }
         var direction = Vector3.Reflect(lastVel.normalized, other.contacts[0].normal);
