@@ -14,6 +14,7 @@ public class ColorComparer : MonoBehaviour
     [SerializeField] private Transform slot1;
     [SerializeField] private Transform slot2;
     public static float ColorCount;
+    public float ColorComp; 
     private bool CanCount;
 
     [Header("Doors")]
@@ -39,7 +40,8 @@ public class ColorComparer : MonoBehaviour
 
                 CanCount = false;
                 ColorCount++;
-                Debug.Log(ColorCount);
+                ColorComp = ColorCount;
+                
                 SR.color = new Color(15f / 255f, 144f / 255f, 8f / 255f, 1f);
 
                 rock1.gameObject.GetComponent<RockMove>().enabled = false;
@@ -50,7 +52,7 @@ public class ColorComparer : MonoBehaviour
         if (ColorCount == 3)
         {
             ColorCount = 0;
-            
+
             //desactivar la puerta
             door1.SetActive(false);
             door2.SetActive(true);
