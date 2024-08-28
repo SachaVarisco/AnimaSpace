@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0c9b72312f36f8342bc5bb4b355388f9
+guid: 6b87ced4d3432ac4e8a4c7d0df3c7161
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -37,9 +37,9 @@ TextureImporter:
     filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 20
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MenuAssets_0
+      name: Boton Opciones_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 27
-        width: 163
-        height: 53
+        y: 0
+        width: 80
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 82a637ebbe6316140988022fad4a4fac
-      internalID: -1243460367
+      spriteID: 657a16b8a2413db45b4085fb2a0f886b
+      internalID: -674732993
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MenuAssets_1
+      name: Boton Opciones_1
       rect:
         serializedVersion: 2
-        x: 6
+        x: 81
         y: 0
-        width: 83
-        height: 20
+        width: 79
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cec9d0a8695185548855adb67b7457eb
-      internalID: 1573846101
+      spriteID: 6411cb091dd23874b9e2c774e05d2d16
+      internalID: 210828838
       vertices: []
       indices: 
       edges: []
@@ -162,8 +162,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      MenuAssets_0: -1243460367
-      MenuAssets_1: 1573846101
+      Boton Opciones_0: -674732993
+      Boton Opciones_1: 210828838
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
