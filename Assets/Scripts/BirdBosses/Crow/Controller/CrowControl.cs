@@ -17,13 +17,11 @@ public class CrowControl : MonoBehaviour
     [SerializeField] private GameObject Orb;
 
     [Header("Audio")]
-    private AudioSource audioSource;
     [SerializeField] AudioClip Attack;
     [SerializeField] AudioClip Damaged;
 
     private void Start()
     {
-        audioSource = GetComponent<AudioSource>();
         StateCount = 0;
         StartCoroutine("WaitInIdle");
     }
@@ -36,7 +34,7 @@ public class CrowControl : MonoBehaviour
         }
         ActualState = newState;
         ActualState.enabled = true;
-        audioSource.PlayOneShot(Attack);
+        AudioControll.Instance.PlaySound(Attack);
     }
 
     public void ChangeState()
@@ -62,7 +60,7 @@ public class CrowControl : MonoBehaviour
     public void Stunned()
     {
         ActivateState(StunnedState);
-        audioSource.PlayOneShot(Damaged);
+        AudioControll.Instance.PlaySound(Damaged);
         StartCoroutine("SpawnOrb");
     }
     public IEnumerator WaitInIdle()

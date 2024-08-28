@@ -26,12 +26,11 @@ public class CharacterMove : MonoBehaviour
 
     [Header("Player sounds")]
     [SerializeField] private AudioClip Jump;
-    //[SerializeField] private AudioClip WalkCombat;
+
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        audioSource = GetComponent<AudioSource>();
     }
     void Update()
     {
@@ -63,7 +62,7 @@ public class CharacterMove : MonoBehaviour
         }
         if (inGround && jump && !talking)
         {
-            audioSource.PlayOneShot(Jump);
+            AudioControll.Instance.PlaySound(Jump);
             inGround = false;
             rb2D.AddForce(new Vector2(0, force));
         }

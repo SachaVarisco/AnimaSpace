@@ -19,7 +19,7 @@ public class PlataformState : MonoBehaviour
     private void OnEnable()
     {
         StateIndicator.GetComponent<SpriteRenderer>().color = Color.red;
-        gameObject.GetComponent<Animator>().SetTrigger("Attack4");
+        gameObject.GetComponent<Animator>().Play("CaranchoAttack");
         //ActiveStateObjPlataform();
     }
     public void ActiveStateObjPlataform()

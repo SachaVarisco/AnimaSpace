@@ -478,7 +478,7 @@ GameObject:
   - component: {fileID: 73752360}
   - component: {fileID: 73752362}
   - component: {fileID: 73752361}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Advice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2315,7 +2315,7 @@ GameObject:
   - component: {fileID: 485313109}
   - component: {fileID: 485313108}
   - component: {fileID: 485313107}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Advice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3418,7 +3418,7 @@ GameObject:
   - component: {fileID: 660316000}
   - component: {fileID: 660316002}
   - component: {fileID: 660316001}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Advice (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8110,7 +8110,7 @@ GameObject:
   - component: {fileID: 1566159356}
   - component: {fileID: 1566159358}
   - component: {fileID: 1566159357}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Advice (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8218,7 +8218,7 @@ GameObject:
   - component: {fileID: 1570467917}
   - component: {fileID: 1570467916}
   - component: {fileID: 1570467914}
-  m_Layer: 10
+  m_Layer: 3
   m_Name: RoofAnts
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -9320,7 +9320,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1761522453}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: ToMove
   m_TagString: Untagged
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
@@ -9535,7 +9535,7 @@ GameObject:
   - component: {fileID: 1820541218}
   - component: {fileID: 1820541217}
   - component: {fileID: 1820541216}
-  m_Layer: 10
+  m_Layer: 3
   m_Name: RoofAnts (1)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -10137,7 +10137,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1957893924}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: ToMove
   m_TagString: Untagged
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}

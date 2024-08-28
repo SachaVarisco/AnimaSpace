@@ -6141,7 +6141,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1437576260207750851, guid: af839a91d47816945a326d1d0f8cd0a2, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5495920165149304282, guid: af839a91d47816945a326d1d0f8cd0a2, type: 3}
       propertyPath: Orb

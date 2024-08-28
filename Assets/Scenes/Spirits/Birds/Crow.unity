@@ -2981,8 +2981,6 @@ GameObject:
   - component: {fileID: 875268643}
   - component: {fileID: 875268648}
   - component: {fileID: 875268647}
-  - component: {fileID: 875268646}
-  - component: {fileID: 875268645}
   - component: {fileID: 875268644}
   - component: {fileID: 875268649}
   - component: {fileID: 875268652}
@@ -3020,7 +3018,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 875268642}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
@@ -3109,39 +3107,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &875268645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 875268642}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d5eeecd175ba07418dcc99e719dbe82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StateIndicator: {fileID: 1611497685}
---- !u!114 &875268646
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 875268642}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47438e464a9eadd4daf47a93f859d9e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stateArray:
-  - {fileID: 0}
-  - {fileID: 0}
-  StunnedState: {fileID: 875268645}
-  StateIndicator: {fileID: 1611497685}
-  Orb: {fileID: 1665316040}
-  Attack: {fileID: 8300000, guid: 67433efaae6c34b4ca13d0765984a572, type: 3}
-  Damaged: {fileID: 8300000, guid: 639d2cddbaf7c124ebdbcb19238a6081, type: 3}
 --- !u!95 &875268647
 Animator:
   serializedVersion: 5

@@ -49,6 +49,8 @@ public class ColorComparer : MonoBehaviour
 
         if (ColorCount == 3)
         {
+            ColorCount = 0;
+            
             //desactivar la puerta
             door1.SetActive(false);
             door2.SetActive(true);
