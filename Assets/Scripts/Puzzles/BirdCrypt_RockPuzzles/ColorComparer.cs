@@ -61,8 +61,9 @@ public class ColorComparer : MonoBehaviour
     }
     public void Reset()
     {
+        CanCount = true;
         ColorCount = 0;
-        SR.color = new Color(15f / 255f, 144f / 255f, 8f / 255f, 1f);
+        SR.color = new Color(144f / 255f, 22f / 255f, 13f / 255f, 1f);
         rock1.gameObject.GetComponent<RockMove>().enabled = true;
         rock2.gameObject.GetComponent<RockMove>().enabled = true;
     }
