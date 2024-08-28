@@ -20,24 +20,31 @@ public class RockMove : MonoBehaviour
     [Header("Raycast")]
     [SerializeField] private float distance;
     private RaycastHit2D rCHit2D;
+
+    [Header("Sounds")]
+    [SerializeField] private AudioClip moveSound;
     private void Update()
     {
         if (Input.GetButtonDown("Fire1"))
         {
             if (Up.IsTouching(player))
             {
+                AudioControll.Instance.PlaySound(moveSound);
                 RayBox(Down_.position, Vector2.down);
             }
             if (Down.IsTouching(player))
             {
+                AudioControll.Instance.PlaySound(moveSound);
                 RayBox(Up_.position, Vector2.up);
             }
             if (Right.IsTouching(player))
             {
+                AudioControll.Instance.PlaySound(moveSound);
                 RayBox(Left_.position, Vector2.left);
             }
             if (Left.IsTouching(player))
             {
+                AudioControll.Instance.PlaySound(moveSound);
                 RayBox(Right_.position, Vector2.right);
             }
         }

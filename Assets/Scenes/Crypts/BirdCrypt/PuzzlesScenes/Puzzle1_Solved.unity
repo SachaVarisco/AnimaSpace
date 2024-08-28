@@ -11704,6 +11704,7 @@ MonoBehaviour:
   slot2: {fileID: 1916562630}
   door1: {fileID: 0}
   door2: {fileID: 0}
+  puzzleComplete: {fileID: 8300000, guid: b0e756d1f18640641947929bb3f1ec3b, type: 3}
 --- !u!212 &444831266
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11807,6 +11808,7 @@ MonoBehaviour:
   slot2: {fileID: 1959588921}
   door1: {fileID: 0}
   door2: {fileID: 0}
+  puzzleComplete: {fileID: 8300000, guid: b0e756d1f18640641947929bb3f1ec3b, type: 3}
 --- !u!212 &459493500
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11910,6 +11912,7 @@ MonoBehaviour:
   slot2: {fileID: 579937152}
   door1: {fileID: 0}
   door2: {fileID: 0}
+  puzzleComplete: {fileID: 8300000, guid: b0e756d1f18640641947929bb3f1ec3b, type: 3}
 --- !u!212 &485767035
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12265,6 +12268,7 @@ MonoBehaviour:
   Left: {fileID: 0}
   player: {fileID: 1861048566}
   distance: 0.5
+  moveSound: {fileID: 8300000, guid: 5de0466d74e66d240983a7fc1c60d09c, type: 3}
 --- !u!212 &581798300
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15870,6 +15874,7 @@ MonoBehaviour:
   Left: {fileID: 0}
   player: {fileID: 1861048566}
   distance: 0.5
+  moveSound: {fileID: 8300000, guid: 5de0466d74e66d240983a7fc1c60d09c, type: 3}
 --- !u!212 &1519296889
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20531,6 +20536,7 @@ MonoBehaviour:
   Left: {fileID: 0}
   player: {fileID: 1861048566}
   distance: 0.5
+  moveSound: {fileID: 8300000, guid: 5de0466d74e66d240983a7fc1c60d09c, type: 3}
 --- !u!212 &1604910385
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20674,6 +20680,7 @@ MonoBehaviour:
   Left: {fileID: 0}
   player: {fileID: 1861048566}
   distance: 0.5
+  moveSound: {fileID: 8300000, guid: 5de0466d74e66d240983a7fc1c60d09c, type: 3}
 --- !u!212 &1628561570
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -21393,6 +21400,7 @@ MonoBehaviour:
   Left: {fileID: 0}
   player: {fileID: 1861048566}
   distance: 0.5
+  moveSound: {fileID: 8300000, guid: 5de0466d74e66d240983a7fc1c60d09c, type: 3}
 --- !u!212 &1766253017
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -25335,6 +25343,7 @@ MonoBehaviour:
   Left: {fileID: 0}
   player: {fileID: 1861048566}
   distance: 0.5
+  moveSound: {fileID: 8300000, guid: 5de0466d74e66d240983a7fc1c60d09c, type: 3}
 --- !u!212 &1984351704
 SpriteRenderer:
   m_ObjectHideFlags: 0

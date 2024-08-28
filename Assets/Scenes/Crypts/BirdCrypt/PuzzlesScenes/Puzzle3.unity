@@ -4787,6 +4787,7 @@ MonoBehaviour:
   Left: {fileID: 26673666}
   player: {fileID: 1861048566}
   distance: 0.5
+  moveSound: {fileID: 8300000, guid: 5de0466d74e66d240983a7fc1c60d09c, type: 3}
 --- !u!61 &304760935
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6269,6 +6270,7 @@ MonoBehaviour:
   Left: {fileID: 380194389}
   player: {fileID: 1861048566}
   distance: 0.5
+  moveSound: {fileID: 8300000, guid: 5de0466d74e66d240983a7fc1c60d09c, type: 3}
 --- !u!61 &719132864
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6745,7 +6747,7 @@ MonoBehaviour:
   slot2: {fileID: 99830089}
   door1: {fileID: 1942309716}
   door2: {fileID: 1860138077}
-  puzzleComplete: {fileID: 0}
+  puzzleComplete: {fileID: 8300000, guid: b0e756d1f18640641947929bb3f1ec3b, type: 3}
 --- !u!212 &836174070
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6969,6 +6971,7 @@ MonoBehaviour:
   Left: {fileID: 1356684589}
   player: {fileID: 1861048566}
   distance: 0.5
+  moveSound: {fileID: 8300000, guid: 5de0466d74e66d240983a7fc1c60d09c, type: 3}
 --- !u!61 &850274339
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7365,6 +7368,7 @@ MonoBehaviour:
   Left: {fileID: 1376623731}
   player: {fileID: 1861048566}
   distance: 0.5
+  moveSound: {fileID: 8300000, guid: 5de0466d74e66d240983a7fc1c60d09c, type: 3}
 --- !u!61 &944127323
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12519,7 +12523,7 @@ MonoBehaviour:
   slot2: {fileID: 1161080041}
   door1: {fileID: 1942309716}
   door2: {fileID: 1860138077}
-  puzzleComplete: {fileID: 0}
+  puzzleComplete: {fileID: 8300000, guid: b0e756d1f18640641947929bb3f1ec3b, type: 3}
 --- !u!212 &1440926530
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -23404,7 +23408,7 @@ MonoBehaviour:
   slot2: {fileID: 1712824125}
   door1: {fileID: 1942309716}
   door2: {fileID: 1860138077}
-  puzzleComplete: {fileID: 0}
+  puzzleComplete: {fileID: 8300000, guid: b0e756d1f18640641947929bb3f1ec3b, type: 3}
 --- !u!212 &1528106409
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -23833,6 +23837,7 @@ MonoBehaviour:
   Left: {fileID: 160077540}
   player: {fileID: 1861048566}
   distance: 0.5
+  moveSound: {fileID: 8300000, guid: 5de0466d74e66d240983a7fc1c60d09c, type: 3}
 --- !u!61 &1673739155
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -25533,6 +25538,7 @@ MonoBehaviour:
   Left: {fileID: 1904567968}
   player: {fileID: 1861048566}
   distance: 0.5
+  moveSound: {fileID: 8300000, guid: 5de0466d74e66d240983a7fc1c60d09c, type: 3}
 --- !u!61 &1989253231
 BoxCollider2D:
   m_ObjectHideFlags: 0

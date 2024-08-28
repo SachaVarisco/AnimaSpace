@@ -46,15 +46,15 @@ public class BarController : MonoBehaviour
             if (Bar.fillAmount <= 0 && SceneManager.GetActiveScene().name == "Carmin")
             {
                 endBattle = true;
-                CustomEvent EnemyBeat = new CustomEvent("EnemyBeat")
-                {
-                    { "orbCount", DataPlayer.Instance.orbCount},
-                    { "enemyName", "Ant" },
-                    { "enemyCount", 1f}
-                };
+                // CustomEvent EnemyBeat = new CustomEvent("EnemyBeat")
+                // {
+                //     { "orbCount", DataPlayer.Instance.orbCount},
+                //     { "enemyName", "Ant" },
+                //     { "enemyCount", 1f}
+                // };
 
-                AnalyticsService.Instance.RecordEvent(EnemyBeat);
-                AnalyticsService.Instance.Flush();
+                // AnalyticsService.Instance.RecordEvent(EnemyBeat);
+                // AnalyticsService.Instance.Flush();
 
                 //SceneData.Instance.Winner();
                 StartCoroutine("DeadAnimAnt");

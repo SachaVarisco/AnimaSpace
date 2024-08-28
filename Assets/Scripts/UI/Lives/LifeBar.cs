@@ -7,15 +7,18 @@ using UnityEngine.UI;
 public class LifeBar : MonoBehaviour
 {
     private Slider slider;
+    private bool endBattle;
 
     private void Start()
     {
         slider = GetComponent<Slider>();
         SetLife(4);
+        endBattle = false;
     }
     private void Update() {
-        if (slider.value <= 0)
+        if (slider.value <= 0 && !endBattle)
         {
+            endBattle = true;
             StartCoroutine(DeadAnim());
         }
     }
