@@ -24,9 +24,9 @@ public class BarController : MonoBehaviour
     private bool endBattle;
 
 
-    //[Header("Transitions")]
-    // [SerializeField] private TransitionSettings transition;
-    // [SerializeField] private float loadDelay;
+    [Header("Transitions")]
+    [SerializeField] private TransitionSettings transition;
+    [SerializeField] private float loadDelay;
     private void Start()
     {
         HandleValue = GetComponent<Scrollbar>();
@@ -130,7 +130,7 @@ public class BarController : MonoBehaviour
         Animator bossAnim = GameObject.FindGameObjectWithTag("Boss").GetComponent<Animator>();
         bossAnim.Play("Dead_CaranchoBoss");
         yield return new WaitForSeconds(1f);
-        //TransitionManager.Instance().Transition("Victory", transition, loadDelay);
+        TransitionManager.Instance().Transition("Lotor", transition, loadDelay);
         Debug.Log("EnemyBeat evento");
     }
     #endregion

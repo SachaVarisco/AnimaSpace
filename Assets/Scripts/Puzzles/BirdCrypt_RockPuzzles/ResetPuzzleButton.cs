@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ResetPuzzleButton : MonoBehaviour
@@ -25,12 +26,15 @@ public class ResetPuzzleButton : MonoBehaviour
 
     [Header("Comparer")]
     [SerializeField] private ColorComparer colorComp;
-
     [SerializeField] private ColorComparer colorComp1;
     [SerializeField] private ColorComparer colorComp2;
 
+    [Header("Bool")]
+    private bool canReset;
+
     private void Awake()
     {
+        canReset = true;
         InitRockBlue1 = RockBlue1.position;
         InitRockBlue2 = RockBlue2.position;
 
@@ -40,11 +44,18 @@ public class ResetPuzzleButton : MonoBehaviour
         InitRockRed1 = RockRed1.position;
         InitRockRed2 = RockRed2.position;
     }
+    private void Update()
+    {
+        if (colorComp.ColorComp < 3)
+        {
+            canReset = false;
+        }
+    }
 
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player") && colorComp.ColorComp < 3)
+        if (other.gameObject.CompareTag("Player") && canReset)
         {
             AudioControll.Instance.PlaySound(Reset);
             RockBlue1.position = InitRockBlue1;
@@ -58,7 +69,8 @@ public class ResetPuzzleButton : MonoBehaviour
             ResetComparers();
         }
     }
-    private void ResetComparers(){
+    private void ResetComparers()
+    {
         colorComp.Reset();
         colorComp1.Reset();
         colorComp2.Reset();
