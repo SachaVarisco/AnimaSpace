@@ -20,6 +20,14 @@ public class DialogueControl : MonoBehaviour
     [SerializeField] private TransitionSettings transition;
     [SerializeField] private float loadDelay;
 
+    private Animator Player;
+
+    private void Awake()
+    {
+
+        Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
+    }
+
 
     public void CombatChangeScene()
     {
@@ -33,6 +41,10 @@ public class DialogueControl : MonoBehaviour
                 break;
 
             case "Carmin":
+
+                loadDelay = 1.5f;
+                Player.Play("Zen_World");
+
 
                 Invoke("PlayMusicBoss", 1f);
 
@@ -50,6 +62,8 @@ public class DialogueControl : MonoBehaviour
                 break;
 
             case "BirdCrypt":
+
+
 
                 CustomEvent Crypt = new CustomEvent("Crypt")
                 {
@@ -84,6 +98,9 @@ public class DialogueControl : MonoBehaviour
 
             case "Crow":
 
+                loadDelay = 1.5f;
+
+                Player.Play("Zen_World");
                 Invoke("PlayMusicBoss", 1f);
 
                 // CustomEvent CombatBoss = new CustomEvent("CombatBoss")
@@ -101,6 +118,9 @@ public class DialogueControl : MonoBehaviour
 
             case "Carancho":
 
+                loadDelay = 1.5f;
+
+                Player.Play("Zen_World");
                 Invoke("PlayMusicBoss", 1f);
 
                 break;
@@ -110,6 +130,7 @@ public class DialogueControl : MonoBehaviour
         DataPlayer.Instance.SaveWorldPosition();
         //SceneManager.LoadScene(characName);
         TransitionManager.Instance().Transition(characName, transition, loadDelay);
+        loadDelay = 0f;
     }
 
     private void PlayMusicBoss()

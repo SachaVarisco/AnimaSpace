@@ -29,22 +29,18 @@ public class RockMove : MonoBehaviour
         {
             if (Up.IsTouching(player))
             {
-                AudioControll.Instance.PlaySound(moveSound);
                 RayBox(Down_.position, Vector2.down);
             }
             if (Down.IsTouching(player))
             {
-                AudioControll.Instance.PlaySound(moveSound);
                 RayBox(Up_.position, Vector2.up);
             }
             if (Right.IsTouching(player))
             {
-                AudioControll.Instance.PlaySound(moveSound);
                 RayBox(Left_.position, Vector2.left);
             }
             if (Left.IsTouching(player))
             {
-                AudioControll.Instance.PlaySound(moveSound);
                 RayBox(Right_.position, Vector2.right);
             }
         }
@@ -58,6 +54,7 @@ public class RockMove : MonoBehaviour
 
         if (rCHit2D.collider.gameObject.tag == "Box")
         {
+            AudioControll.Instance.PlaySound(moveSound);
             StartCoroutine(LerpPosition(rCHit2D.collider.gameObject.transform.position, 0.5f));
         }  
     }

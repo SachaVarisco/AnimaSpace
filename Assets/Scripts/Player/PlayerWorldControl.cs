@@ -20,7 +20,7 @@ public class PlayerWorldControl : MonoBehaviour
 
     [Header("Components")]
     private Rigidbody2D rb2D;
-    private Animator animator;
+    public Animator animator;
 
     [Header("Dialogue")]
     public bool talking;
