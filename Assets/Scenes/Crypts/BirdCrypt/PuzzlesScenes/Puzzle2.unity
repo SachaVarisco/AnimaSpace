@@ -461,6 +461,7 @@ Transform:
   - {fileID: 1768070777}
   - {fileID: 1576520295}
   - {fileID: 1376169280}
+  - {fileID: 1533911802}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &88158945
@@ -12112,6 +12113,8 @@ MonoBehaviour:
   RockRed2: {fileID: 850274336}
   Reset: {fileID: 8300000, guid: 5de0466d74e66d240983a7fc1c60d09c, type: 3}
   colorComp: {fileID: 836174069}
+  colorComp1: {fileID: 1528106408}
+  colorComp2: {fileID: 1440926529}
 --- !u!61 &1376169282
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -23370,7 +23373,7 @@ GameObject:
   - component: {fileID: 1528106409}
   - component: {fileID: 1528106408}
   m_Layer: 0
-  m_Name: Square (2)
+  m_Name: GreenComparer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23487,12 +23490,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1533911801}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.624434, y: -1.2858741, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.124434, y: -0.7858741, z: 0.026896736}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 72949780}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1540428114
 GameObject:
@@ -26349,6 +26352,5 @@ SceneRoots:
   - {fileID: 1540428115}
   - {fileID: 2030230073}
   - {fileID: 1755311367}
-  - {fileID: 1533911802}
   - {fileID: 1516722377}
   - {fileID: 72949780}

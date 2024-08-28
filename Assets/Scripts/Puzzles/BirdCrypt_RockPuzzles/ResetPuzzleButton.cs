@@ -26,6 +26,9 @@ public class ResetPuzzleButton : MonoBehaviour
     [Header("Comparer")]
     [SerializeField] private ColorComparer colorComp;
 
+    [SerializeField] private ColorComparer colorComp1;
+    [SerializeField] private ColorComparer colorComp2;
+
     private void Awake()
     {
         InitRockBlue1 = RockBlue1.position;
@@ -52,6 +55,12 @@ public class ResetPuzzleButton : MonoBehaviour
 
             RockRed1.position = InitRockRed1;
             RockRed2.position = InitRockRed2;
+            ResetComparers();
         }
+    }
+    private void ResetComparers(){
+        colorComp.Reset();
+        colorComp1.Reset();
+        colorComp2.Reset();
     }
 }

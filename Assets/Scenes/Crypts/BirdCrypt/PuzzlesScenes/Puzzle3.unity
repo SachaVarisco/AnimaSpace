@@ -1103,6 +1103,8 @@ MonoBehaviour:
   RockRed2: {fileID: 850274336}
   Reset: {fileID: 8300000, guid: 5de0466d74e66d240983a7fc1c60d09c, type: 3}
   colorComp: {fileID: 836174069}
+  colorComp1: {fileID: 1528106408}
+  colorComp2: {fileID: 1440926529}
 --- !u!61 &113371994
 BoxCollider2D:
   m_ObjectHideFlags: 0
