@@ -352,6 +352,8 @@ MonoBehaviour:
   OrbDamage: 0.3
   PlayerDamage: 0.05
   Tutorial: 1
+  transition: {fileID: 0}
+  loadDelay: 0
 --- !u!114 &81063450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -643,22 +645,20 @@ PrefabInstance:
       objectReference: {fileID: 918709521}
     - target: {fileID: 8557568673631317014, guid: a0dbeffc84669e24f994d387893a803d, type: 3}
       propertyPath: sentences.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8557568673631317014, guid: a0dbeffc84669e24f994d387893a803d, type: 3}
       propertyPath: sentences.Array.data[0].sentence
-      value: 'Debes moverte para esquivar los ataque que te lancen.
-
-'
+      value: "C\xF3mo es mi mundo, puedo crear ataques que te har\xE1n da\xF1o.\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 8557568673631317014, guid: a0dbeffc84669e24f994d387893a803d, type: 3}
       propertyPath: sentences.Array.data[1].sentence
-      value: "C\xF3mo est\xE1s en mi mundo, puedo crear ataques que te har\xE1n da\xF1o.\r\n"
+      value: "Debilitar\xE1n tu esp\xEDritu y har\xE1n que pierdas la pelea si te
+        dejas golpear demasiado.\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 8557568673631317014, guid: a0dbeffc84669e24f994d387893a803d, type: 3}
       propertyPath: sentences.Array.data[2].sentence
-      value: "Debilitar\xE1 tu esp\xEDritu y har\xE1n que pierdas la pelea si te
-        golpean mucho.\r\n"
+      value: "Preparate que te lanzar\xE9 uno muy b\xE1sico.\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 8557568673631317014, guid: a0dbeffc84669e24f994d387893a803d, type: 3}
       propertyPath: sentences.Array.data[3].sentence
@@ -1245,7 +1245,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8557568673631317014, guid: a0dbeffc84669e24f994d387893a803d, type: 3}
       propertyPath: sentences.Array.data[1].sentence
-      value: "Bueno, eso es f\xE1cil, al realizar ataques, mi esp\xEDritu se debilita.\r\n"
+      value: "Bueno, eso es f\xE1cil, al realizar ataques, me voy debilitando.\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 8557568673631317014, guid: a0dbeffc84669e24f994d387893a803d, type: 3}
       propertyPath: sentences.Array.data[2].sentence
@@ -1912,25 +1912,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8557568673631317014, guid: a0dbeffc84669e24f994d387893a803d, type: 3}
       propertyPath: sentences.Array.data[0].sentence
-      value: "Bueno, como deber\xEDas recordar, este es el mundo espiritual.\r\n"
+      value: "Bueno, como DEBER\xCDAS recordar, este es el mundo espiritual.\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 8557568673631317014, guid: a0dbeffc84669e24f994d387893a803d, type: 3}
       propertyPath: sentences.Array.data[1].sentence
-      value: "Recuerda que cuando desaf\xEDas a un esp\xEDritu, t\xFA vas a entrar
-        a su mundo.\r\n"
+      value: "Recuerda que cuando desaf\xEDas a un esp\xEDritu, entras en su mundo.\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 8557568673631317014, guid: a0dbeffc84669e24f994d387893a803d, type: 3}
       propertyPath: sentences.Array.data[2].sentence
-      value: "Este mundo es como una extensi\xF3n del alma de tu contrincante.\r\n"
+      value: "Este es como una extensi\xF3n del alma de tu contrincante.\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 8557568673631317014, guid: a0dbeffc84669e24f994d387893a803d, type: 3}
       propertyPath: sentences.Array.data[3].sentence
-      value: "Como t\xFA entras aqu\xED, vas a estar en desventaja.\r\n"
+      value: "Aqu\xED vas a estar en desventaja.\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 8557568673631317014, guid: a0dbeffc84669e24f994d387893a803d, type: 3}
       propertyPath: sentences.Array.data[4].sentence
-      value: "Aqu\xED eres una versi\xF3n inferior de ti mismo y tus acciones son
-        limitadas.\r\n"
+      value: "Eres una versi\xF3n inferior de ti mismo y tus acciones son limitadas.\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 8557568673631317014, guid: a0dbeffc84669e24f994d387893a803d, type: 3}
       propertyPath: sentences.Array.data[5].sentence
@@ -3443,16 +3441,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8557568673631317014, guid: a0dbeffc84669e24f994d387893a803d, type: 3}
       propertyPath: sentences.Array.data[2].sentence
-      value: "C\xF3mo est\xE1s en mi mundo, recibir\xE1s da\xF1o constante y la barra
-        se acercar\xE1 a tu cara.\r\n"
+      value: "Recibir\xE1s da\xF1o constante y la barra se acercar\xE1 a tu cara.\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 8557568673631317014, guid: a0dbeffc84669e24f994d387893a803d, type: 3}
       propertyPath: sentences.Array.data[3].sentence
-      value: "Si te golpea alguno de mis ataques recibir\xE1s a\xFAn m\xE1s da\xF1o.\r\n"
+      value: "Si te golpea alg\xFAn ataque recibir\xE1s a\xFAn m\xE1s da\xF1o.\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 8557568673631317014, guid: a0dbeffc84669e24f994d387893a803d, type: 3}
       propertyPath: sentences.Array.data[4].sentence
-      value: "Y si la barra llega a tocarte, perder\xE1s el combate.\r\n"
+      value: 'Y si la barra llega a tocarte, pierdes...
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 8557568673631317014, guid: a0dbeffc84669e24f994d387893a803d, type: 3}
       propertyPath: sentences.Array.data[5].sentence
@@ -3997,24 +3996,25 @@ PrefabInstance:
       objectReference: {fileID: 918709521}
     - target: {fileID: 8557568673631317014, guid: a0dbeffc84669e24f994d387893a803d, type: 3}
       propertyPath: sentences.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8557568673631317014, guid: a0dbeffc84669e24f994d387893a803d, type: 3}
       propertyPath: sentences.Array.data[0].sentence
-      value: "Oh, buen golpe. Bueno, eso es lo b\xE1sico.\r\n"
+      value: 'Oh, buen golpe.
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 8557568673631317014, guid: a0dbeffc84669e24f994d387893a803d, type: 3}
       propertyPath: sentences.Array.data[1].sentence
-      value: "Lo dem\xE1s ya depender\xE1 de ti.\r\n"
+      value: "Recuerda que cada esp\xEDritu es diferente.\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 8557568673631317014, guid: a0dbeffc84669e24f994d387893a803d, type: 3}
       propertyPath: sentences.Array.data[2].sentence
-      value: "C\xF3mo est\xE1s en mi mundo, recibir\xE1s da\xF1o constante y la barra
-        se acercar\xE1 a tu cara.\r\n"
+      value: "Y, por ende, la forma de combate puede variar. \r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 8557568673631317014, guid: a0dbeffc84669e24f994d387893a803d, type: 3}
       propertyPath: sentences.Array.data[3].sentence
-      value: "Si te golpea alguno de mis ataques recibir\xE1s a\xFAn m\xE1s da\xF1o.\r\n"
+      value: "Lo dem\xE1s ya depender\xE1 de ti.\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 8557568673631317014, guid: a0dbeffc84669e24f994d387893a803d, type: 3}
       propertyPath: sentences.Array.data[4].sentence
@@ -5042,7 +5042,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1840450418}
+    m_TransformParent: {fileID: 1705974108}
     m_Modifications:
     - target: {fileID: 558264694351432185, guid: af40fb6872787b143a02e1d2f606590d, type: 3}
       propertyPath: m_Pivot.x
@@ -5094,15 +5094,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 558264694351432185, guid: af40fb6872787b143a02e1d2f606590d, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 558264694351432185, guid: af40fb6872787b143a02e1d2f606590d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 558264694351432185, guid: af40fb6872787b143a02e1d2f606590d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 558264694351432185, guid: af40fb6872787b143a02e1d2f606590d, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -5299,6 +5299,108 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!1 &1705974104
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1705974108}
+  - component: {fileID: 1705974107}
+  - component: {fileID: 1705974106}
+  - component: {fileID: 1705974105}
+  m_Layer: 0
+  m_Name: CanvasPause
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1705974105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705974104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &1705974106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705974104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
+--- !u!223 &1705974107
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705974104}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 3
+  m_TargetDisplay: 0
+--- !u!224 &1705974108
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705974104}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1496454099}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!1 &1758643081
 GameObject:
   m_ObjectHideFlags: 0
@@ -5577,7 +5679,6 @@ RectTransform:
   m_Children:
   - {fileID: 237311608}
   - {fileID: 764580630}
-  - {fileID: 1496454099}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -5985,6 +6086,7 @@ SceneRoots:
   - {fileID: 1656513941}
   - {fileID: 757261812}
   - {fileID: 12307446}
+  - {fileID: 1705974108}
   - {fileID: 1840450418}
   - {fileID: 1253145764}
   - {fileID: 828738683}

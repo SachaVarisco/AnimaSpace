@@ -71,7 +71,7 @@ public class OrbController : MonoBehaviour
     {
         pathCount = 0;
 
-        if (Spawns[pathCount].position != null)
+        if (Spawns != null)
         {
             gameObject.transform.position = Spawns[pathCount].position;
         }

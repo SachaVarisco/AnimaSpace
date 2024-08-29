@@ -34,7 +34,7 @@ public class TutoStateMachine : MonoBehaviour
 
     public void Tutorial()
     {
-        Debug.Log("hola");
+         //Debug.Log("hola");
         StartCoroutine("PassTutorial");
     }
 
@@ -67,7 +67,7 @@ public class TutoStateMachine : MonoBehaviour
         // AnalyticsService.Instance.RecordEvent("TutoComplete");
         // AnalyticsService.Instance.Flush();
 
-        Debug.Log("TutoComplete evento");
+         //Debug.Log("TutoComplete evento");
 
 
         //SceneManager.LoadScene("World");

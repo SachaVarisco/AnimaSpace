@@ -63,7 +63,7 @@ public class PlayerWorldControl : MonoBehaviour
         {
             if (DataPlayer.Instance.IsBack == true)
             {
-                Debug.Log("carga");
+                 //Debug.Log("carga");
                 //transform.position = DataPlayer.Instance.SpawnReturn;
                 DataPlayer.Instance.LoadWorldPosition();
             }
@@ -116,7 +116,7 @@ public class PlayerWorldControl : MonoBehaviour
         if (Physics2D.OverlapCircle(transform.position, 0.2f, wildAppear) != null)
         {
 
-            if (Random.Range(1, 20) <= 1)
+            if (Random.Range(1, 400) <= 1)
             {
                 StartCoroutine("WildEncounters");
             }

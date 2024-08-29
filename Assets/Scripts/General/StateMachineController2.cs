@@ -23,7 +23,7 @@ public class StateMachine2 : MonoBehaviour
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        Debug.LogWarning("maquina de estado");
+         //Debug.LogWarning("maquina de estado");
         ActivateNextState();
     }
 
@@ -31,7 +31,7 @@ public class StateMachine2 : MonoBehaviour
     {
         if (stateInProgress)
         {
-            Debug.LogWarning("Estado en progreso. No se puede activar otro estado.");
+             //Debug.LogWarning("Estado en progreso. No se puede activar otro estado.");
             return;
         }
 
@@ -40,7 +40,7 @@ public class StateMachine2 : MonoBehaviour
         {
             if (state.enabled)
             {
-                Debug.LogWarning($"{state.GetType().Name} todavía está activo. Desactivándolo.");
+                 //Debug.LogWarning($"{state.GetType().Name} todavía está activo. Desactivándolo.");
                 state.enabled = false; // Desactiva cualquier otro estado que esté activo
             }
         }
@@ -48,7 +48,7 @@ public class StateMachine2 : MonoBehaviour
         // Desactiva el estado anterior si existe
         if (actualState != null)
         {
-            Debug.LogWarning($"Desactivando estado anterior: {actualState.GetType().Name}");
+             //Debug.LogWarning($"Desactivando estado anterior: {actualState.GetType().Name}");
             actualState.enabled = false;
         }
 
@@ -60,16 +60,16 @@ public class StateMachine2 : MonoBehaviour
         }
 
         actualState = stateArray[nextStateIndex];
-        Debug.LogWarning($"Activando nuevo estado: {actualState.GetType().Name}");
+         //Debug.LogWarning($"Activando nuevo estado: {actualState.GetType().Name}");
         actualState.enabled = true;
 
         stateInProgress = true;
-        Debug.LogWarning($"Estado en progreso: {actualState.GetType().Name}");
+         //Debug.LogWarning($"Estado en progreso: {actualState.GetType().Name}");
     }
 
     public void FinishState()
     {
-        Debug.LogWarning($"Terminando estado: {actualState.GetType().Name}");
+         //Debug.LogWarning($"Terminando estado: {actualState.GetType().Name}");
         stateInProgress = false;
     }
 
@@ -77,12 +77,12 @@ public class StateMachine2 : MonoBehaviour
     {
         if (actualState != null)
         {
-            Debug.LogWarning($"Pasando estado: Desactivando {actualState.GetType().Name}");
+             //Debug.LogWarning($"Pasando estado: Desactivando {actualState.GetType().Name}");
             actualState.enabled = false;
         }
 
         stateInProgress = false; // Aseguramos que se puede pasar al siguiente estado
         ActivateNextState();
-        Debug.LogWarning("Activa el siguiente estado");
+         //Debug.LogWarning("Activa el siguiente estado");
     }
 }

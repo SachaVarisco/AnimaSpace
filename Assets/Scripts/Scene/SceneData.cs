@@ -74,7 +74,7 @@ public class SceneData : MonoBehaviour
                     //     AnalyticsService.Instance.RecordEvent(InTown);
                     //     AnalyticsService.Instance.Flush();
 
-                    Debug.Log("InTown evento");
+                     //Debug.Log("InTown evento");
 
                     IsFirst = false;
                 }
@@ -194,7 +194,7 @@ public class SceneData : MonoBehaviour
         // AnalyticsService.Instance.Flush();
 
 
-        Debug.Log("EnemyBeat evento");
+         //Debug.Log("EnemyBeat evento");
         //escena que vuelve al mundo desp del ataque de la paloma
 
         DataPlayer.Instance.IsBack = true;
@@ -298,7 +298,7 @@ public class SceneData : MonoBehaviour
         //escena que vuelve al mundo desp del ataque de la paloma
         //SceneManager.LoadScene("Menu");
         DataPlayer.Instance.SaveWorldPosition();
-        Debug.Log("guarda");
+         //Debug.Log("guarda");
         //SceneManager.LoadScene("Maxi");
         TransitionManager.Instance().Transition("Maxi", transition, loadDelay);
         MusicControll.Instance.PlayBoss();
@@ -348,7 +348,7 @@ public class SceneData : MonoBehaviour
 
         //Lose = true;
 
-        Debug.Log(enemyName);
+        //Debug.Log(enemyName);
 
         // CustomEvent GameOver = new CustomEvent("GameOver")
         //         {

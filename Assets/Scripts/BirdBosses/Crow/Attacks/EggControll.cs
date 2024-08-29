@@ -74,7 +74,7 @@ public class EggControll : MonoBehaviour
         {
 
             other.gameObject.GetComponent<PlayerLifeController>().Rebound((transform.position - other.transform.position).normalized);
-            Debug.Log("Damage");
+            //Debug.Log("Damage");
         }
     }
     private void OnCollisionEnter2D(Collision2D other)

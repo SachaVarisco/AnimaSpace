@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: TotemCarancho
   m_EditorClassIdentifier: 
   characterPhoto: {fileID: 21300000, guid: 796215f097fe70944bc0fcd6aa31d94b, type: 3}
-  characterName: Marxal
+  characterName: Maxal
   characterNameColor: {r: 0.45098042, g: 0.43137258, b: 0.45882356, a: 1}

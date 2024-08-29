@@ -22,6 +22,7 @@ public class ColorComparer : MonoBehaviour
     [SerializeField] private GameObject door2;
 
     [SerializeField] private AudioClip puzzleComplete;
+    [SerializeField] private GameObject ResetButton;
 
 
     private void Awake()
@@ -52,6 +53,7 @@ public class ColorComparer : MonoBehaviour
 
         if (ColorCount == 3)
         {
+            ResetButton.GetComponent<BoxCollider2D>().enabled = false;
             ColorComp = 3;
             ColorCount = 0;
 

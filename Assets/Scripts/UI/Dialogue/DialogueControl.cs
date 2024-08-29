@@ -57,7 +57,7 @@ public class DialogueControl : MonoBehaviour
                 AnalyticsService.Instance.RecordEvent(CombatBoss);
                 AnalyticsService.Instance.Flush();
 
-                Debug.Log("CombatBoss evento");
+                 //Debug.Log("CombatBoss evento");
 
                 break;
 
@@ -92,7 +92,7 @@ public class DialogueControl : MonoBehaviour
                 AnalyticsService.Instance.Flush();
 
 
-                Debug.Log("Crypt evento");
+                 //Debug.Log("Crypt evento");
 
                 break;
 
@@ -112,7 +112,7 @@ public class DialogueControl : MonoBehaviour
                 // AnalyticsService.Instance.RecordEvent(CombatBoss);
                 // AnalyticsService.Instance.Flush();
 
-                Debug.Log("CombatBoss evento");
+                 //Debug.Log("CombatBoss evento");
 
                 break;
 
@@ -152,7 +152,7 @@ public class DialogueControl : MonoBehaviour
 
         // AnalyticsService.Instance.RecordEvent(HaveKey);
         // AnalyticsService.Instance.Flush();
-        Debug.Log("HaveKey evento");
+         //Debug.Log("HaveKey evento");
     }
 
     public void ChrisDialogue()

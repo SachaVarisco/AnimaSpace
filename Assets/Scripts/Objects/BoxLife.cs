@@ -21,7 +21,7 @@ public class BoxLife : MonoBehaviour
 
     public void Heal()
     {
-        Debug.Log("cura");
+         //Debug.Log("cura");
         DataPlayer.Instance.CryptHeal();
         //Destroy(gameObject);
     }

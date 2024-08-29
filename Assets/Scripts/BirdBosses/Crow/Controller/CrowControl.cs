@@ -39,20 +39,20 @@ public class CrowControl : MonoBehaviour
 
     public void ChangeState()
     {
-        Debug.Log("State "+ StateCount);
+        //Debug.Log("State "+ StateCount);
         if (StateCount == 2)
         {
             StateCount = 0;
-            Debug.Log("Stun");
+             //Debug.Log("Stun");
             Stunned();
         }else if (StateCount == 0)
         {
-            Debug.Log("Egg");
+             //Debug.Log("Egg");
             ActivateState(EggState);
         }
         else
         {
-            Debug.Log("Ball");
+             //Debug.Log("Ball");
             ActivateState(BallState);
         }
     }
