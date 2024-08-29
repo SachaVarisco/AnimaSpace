@@ -28,6 +28,7 @@ public class ColorComparer : MonoBehaviour
     {
         SR = GetComponent<SpriteRenderer>();
         CanCount = true;
+        ColorComp = 0;
 
     }
     private void Update()
@@ -51,6 +52,7 @@ public class ColorComparer : MonoBehaviour
 
         if (ColorCount == 3)
         {
+            ColorComp = 3;
             ColorCount = 0;
 
             //desactivar la puerta
@@ -63,6 +65,7 @@ public class ColorComparer : MonoBehaviour
     {
         CanCount = true;
         ColorCount = 0;
+        ColorComp = ColorCount;
         SR.color = new Color(144f / 255f, 22f / 255f, 13f / 255f, 1f);
         rock1.gameObject.GetComponent<RockMove>().enabled = true;
         rock2.gameObject.GetComponent<RockMove>().enabled = true;

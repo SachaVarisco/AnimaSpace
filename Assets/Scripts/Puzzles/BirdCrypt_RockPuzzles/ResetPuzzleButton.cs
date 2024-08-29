@@ -55,18 +55,22 @@ public class ResetPuzzleButton : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player") && canReset)
+        if (other.gameObject.CompareTag("Player"))
         {
-            AudioControll.Instance.PlaySound(Reset);
-            RockBlue1.position = InitRockBlue1;
-            RockBlue2.position = InitRockBlue2;
+            if (canReset)
+            {
+                AudioControll.Instance.PlaySound(Reset);
+                RockBlue1.position = InitRockBlue1;
+                RockBlue2.position = InitRockBlue2;
 
-            RockGreen1.position = InitRockGreen1;
-            RockGreen2.position = InitRockGreen2;
+                RockGreen1.position = InitRockGreen1;
+                RockGreen2.position = InitRockGreen2;
 
-            RockRed1.position = InitRockRed1;
-            RockRed2.position = InitRockRed2;
-            ResetComparers();
+                RockRed1.position = InitRockRed1;
+                RockRed2.position = InitRockRed2;
+                ResetComparers();
+            }
+
         }
     }
     private void ResetComparers()

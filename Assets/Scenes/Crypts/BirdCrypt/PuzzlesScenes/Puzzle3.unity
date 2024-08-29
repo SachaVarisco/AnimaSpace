@@ -1137,7 +1137,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0014067441, y: 0.03902696}
+  m_Offset: {x: 0.0014068149, y: 0.055828325}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1148,7 +1148,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.35387984, y: 0.34568354}
+  m_Size: {x: 0.23440355, y: 0.17020263}
   m_EdgeRadius: 0
 --- !u!212 &113371995
 SpriteRenderer:
@@ -12692,10 +12692,10 @@ MonoBehaviour:
   rock2: {fileID: 1673739152}
   slot1: {fileID: 1716983709}
   slot2: {fileID: 1161080041}
-  ColorComp: 0
+  ColorComp: -0.02
   door1: {fileID: 1942309716}
   door2: {fileID: 1860138077}
-  puzzleComplete: {fileID: 8300000, guid: b0e756d1f18640641947929bb3f1ec3b, type: 3}
+  puzzleComplete: {fileID: 8300000, guid: d0485f2b9701eb54aac9e8844c409a4e, type: 3}
 --- !u!212 &1440926530
 SpriteRenderer:
   m_ObjectHideFlags: 0
