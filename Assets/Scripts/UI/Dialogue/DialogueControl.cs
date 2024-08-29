@@ -42,7 +42,7 @@ public class DialogueControl : MonoBehaviour
 
             case "Carmin":
 
-                loadDelay = 1.5f;
+                loadDelay = 0.8f;
                 Player.Play("Zen_World");
 
 
@@ -98,7 +98,7 @@ public class DialogueControl : MonoBehaviour
 
             case "Crow":
 
-                loadDelay = 1.5f;
+                loadDelay = 0.8f;
 
                 Player.Play("Zen_World");
                 Invoke("PlayMusicBoss", 1f);
@@ -118,7 +118,7 @@ public class DialogueControl : MonoBehaviour
 
             case "Carancho":
 
-                loadDelay = 1.5f;
+                loadDelay = 0.8f;
 
                 Player.Play("Zen_World");
                 Invoke("PlayMusicBoss", 1f);

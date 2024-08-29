@@ -61,6 +61,7 @@ public class SceneData : MonoBehaviour
             case "World":
 
                 //MusicControll.Instance.StopMusic();
+
                 MusicControll.Instance.PlayWorld();
 
                 if (IsFirst)
@@ -88,6 +89,7 @@ public class SceneData : MonoBehaviour
 
                 if (win)
                 {
+                    Invoke("AnimationZenMode", 0.1f);
                     //LastDialogueMark = true;
                     Transform Mark = GameObject.FindGameObjectWithTag("Orb").transform;
                     Transform Ant = GameObject.FindGameObjectWithTag("Ant").transform;
@@ -102,6 +104,7 @@ public class SceneData : MonoBehaviour
 
                     Transform Spawn = GameObject.FindGameObjectWithTag("Spawn").transform;
                     Mark.position = new Vector2(Spawn.position.x, Spawn.position.y);
+                    //GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerWorldControl>().animator.Play("Zen_World");
                     win = false;
                 }
 
@@ -126,6 +129,21 @@ public class SceneData : MonoBehaviour
 
                 if (win)
                 {
+                    Invoke("AnimationZenMode", 0.1f);
+                    GameObject Totem = GameObject.FindGameObjectWithTag("Totem");
+                    Destroy(Totem);
+                    win = false;
+                }
+
+                break;
+
+            case "CaranchoCrypt":
+
+                MusicControll.Instance.PlayCrypt();
+
+                if (win)
+                {
+                    Invoke("AnimationZenMode", 0.1f);
                     GameObject Totem = GameObject.FindGameObjectWithTag("Totem");
                     Destroy(Totem);
                     win = false;
@@ -138,86 +156,25 @@ public class SceneData : MonoBehaviour
                 MusicControll.Instance.PlayCrypt();
 
                 break;
+
+            case "Lotor":
+
+                MusicControll.Instance.PlayLotor();
+                
+
+                break;
         }
 
     }
 
-    // public void EndTutorial()
-    // {
+    private void AnimationZenMode()
+    {
 
-    //     tutorialPassed = true;
-
-    //     //evento tutorial
-    //     // AnalyticsService.Instance.RecordEvent("TutoComplete");
-    //     // AnalyticsService.Instance.Flush();
-
-    //     Debug.Log("TutoComplete evento");
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerWorldControl>().StopMovement();
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerWorldControl>().animator.Play("Zen_World");
+    }
 
 
-    //     SceneManager.LoadScene("World");
-    // }
-
-    // public void MarkDialogue()
-    // {
-
-    //     // Transform Mark = GameObject.FindGameObjectWithTag("Orb").transform;
-    //     // Mark.GetChild(0).gameObject.SetActive(false);
-    //     // Mark.GetChild(2).gameObject.SetActive(true);
-
-    //     // Transform Spawn = GameObject.FindGameObjectWithTag("Spawn").transform;
-    //     // Mark.position = new Vector2(Spawn.position.x, Spawn.position.y);
-
-    //     // Transform Ant = GameObject.FindGameObjectWithTag("Ant").transform;
-    //     // Ant.GetChild(0).gameObject.SetActive(false);
-    // }
-
-    // public void Key(bool Key)
-    // {
-    //     if (!win)
-    //     {
-    //         GameObject.FindGameObjectWithTag("Orb").transform.GetChild(0).gameObject.SetActive(false);
-    //         GameObject.FindGameObjectWithTag("Orb").transform.GetChild(1).gameObject.SetActive(true);
-    //     }
-
-    //     if (LastDialogueMark)
-    //     {
-    //         GameObject.FindGameObjectWithTag("Orb").transform.GetChild(2).gameObject.SetActive(false);
-    //         GameObject.FindGameObjectWithTag("Orb").transform.GetChild(3).gameObject.SetActive(true);
-    //         win = false;
-    //         LastDialogueMark = false;
-    //     }
-
-    //     if (Key == true)
-    //     {
-    //         key = Key;
-    //         win = false;
-
-    //         CustomEvent HaveKey = new CustomEvent("HaveKey")
-    //             {
-    //                 { "keyID", "Grave Key"}
-    //             };
-
-    //         AnalyticsService.Instance.RecordEvent(HaveKey);
-    //         AnalyticsService.Instance.Flush();
-    //         Debug.Log("HaveKey evento");
-    //     }
-
-    // }
-
-    // public void Key()
-    // {
-
-    //     key = true;
-
-    //     // CustomEvent HaveKey = new CustomEvent("HaveKey")
-    //     //     {
-    //     //         { "keyID", "Grave Key"}
-    //     //     };
-
-    //     // AnalyticsService.Instance.RecordEvent(HaveKey);
-    //     // AnalyticsService.Instance.Flush();
-    //     Debug.Log("HaveKey evento");
-    // }
 
     public bool HaveKey()
     {
@@ -413,7 +370,7 @@ public class SceneData : MonoBehaviour
 
     public void Winner()
     {
-        TransitionSettings newTransition = transition;
+        //TransitionSettings newTransition = transition;
 
         DataPlayer.Instance.IsBack = true;
 
@@ -428,7 +385,9 @@ public class SceneData : MonoBehaviour
             case "Carmin":
 
                 //SceneManager.LoadScene("World");
-                TransitionManager.Instance().Transition("World", newTransition, loadDelay);
+                TransitionManager.Instance().Transition("World", transition, loadDelay);
+
+
 
                 break;
 
@@ -437,12 +396,14 @@ public class SceneData : MonoBehaviour
                 //SceneManager.LoadScene("CrowCrypt");
                 TransitionManager.Instance().Transition("CrowCrypt", transition, loadDelay);
 
+
                 break;
 
             case "Carancho":
 
                 //SceneManager.LoadScene("CaranchoCrypt");
                 TransitionManager.Instance().Transition("CaranchoCrypt", transition, loadDelay);
+
 
                 break;
         }

@@ -54,7 +54,7 @@ public class CharacterMove : MonoBehaviour
     }
     private void Move(bool jump)
     {
-        if (Input.GetAxis("Horizontal") != 0 && !talking)
+        if (Input.GetAxis("Horizontal") != 0 && !talking && Time.timeScale == 1f)
         {
             //audioSource.Play();
             transform.position += new Vector3(horizontalMove, 0);

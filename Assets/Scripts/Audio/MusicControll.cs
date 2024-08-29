@@ -11,6 +11,7 @@ public class MusicControll : MonoBehaviour
     [SerializeField] private AudioClip World;
     [SerializeField] private AudioClip Boss;
     [SerializeField] private AudioClip Crypt;
+    [SerializeField] private AudioClip Lotor;
     private void Awake()
     {
         if (MusicControll.Instance == null)
@@ -46,6 +47,15 @@ public class MusicControll : MonoBehaviour
     public void PlayCrypt()
     {
         audioSource.clip = Crypt;
+        audioSource.Play();
+        audioSource.loop = true;
+        //audioSource.volume = 0;
+
+    }
+
+    public void PlayLotor()
+    {
+        audioSource.clip = Lotor;
         audioSource.Play();
         audioSource.loop = true;
         //audioSource.volume = 0;

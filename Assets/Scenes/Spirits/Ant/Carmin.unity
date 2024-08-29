@@ -225,7 +225,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4513689504401785526, guid: 750806cd56bd3044aa0e2e11bd3c76f2, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9085575354867555683, guid: 750806cd56bd3044aa0e2e11bd3c76f2, type: 3}
       propertyPath: m_SortingOrder
@@ -676,7 +676,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &183152334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1115,7 +1115,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &280943426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2307,7 +2307,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1019608433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2324,6 +2324,7 @@ MonoBehaviour:
   World: {fileID: 8300000, guid: 5a29626d2eddbfd41bff8c67087494e3, type: 3}
   Boss: {fileID: 8300000, guid: 1b4d7bed650e87042a473353510b168c, type: 3}
   Crypt: {fileID: 8300000, guid: b472775a0905f1e47a3d48cdf93a8b2e, type: 3}
+  Lotor: {fileID: 0}
 --- !u!82 &1019608434
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2797,7 +2798,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1172149910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5750,9 +5751,11 @@ MonoBehaviour:
   Bar: {fileID: 2101849860}
   HandleValue: {fileID: 2101849859}
   ConstantDamage: 0.005
-  OrbDamage: 1
+  OrbDamage: 0.3
   PlayerDamage: 0.05
   Tutorial: 0
+  transition: {fileID: 11400000, guid: 9710edcf009d00943af961dd2a7ca7d3, type: 2}
+  loadDelay: 0
 --- !u!1 &2109350048
 GameObject:
   m_ObjectHideFlags: 0

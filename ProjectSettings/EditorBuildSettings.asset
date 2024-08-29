@@ -50,4 +50,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Default/Victory.unity
     guid: 940d0ab100cddf54a87dde0bd3253a7a
+  - enabled: 1
+    path: Assets/Scenes/Towns/Lotor.unity
+    guid: 392187912f7889f4cb41a69f08c38f4e
   m_configObjects: {}

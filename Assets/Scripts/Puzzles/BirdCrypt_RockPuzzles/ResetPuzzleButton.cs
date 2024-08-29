@@ -46,7 +46,7 @@ public class ResetPuzzleButton : MonoBehaviour
     }
     private void Update()
     {
-        if (colorComp.ColorComp < 3)
+        if (colorComp.ColorComp == 3)
         {
             canReset = false;
         }

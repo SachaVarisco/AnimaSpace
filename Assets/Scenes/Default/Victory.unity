@@ -575,7 +575,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 805298284, guid: 2e48de1c9e40e344d8fd6a0dc0b18453, type: 3}
+  m_Sprite: {fileID: -499699255, guid: 589a52f2ebe41144e915f1a04a9ac5cb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -639,7 +639,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 141228796}
         m_TargetAssemblyTypeName: ButtonControl, Assembly-CSharp
-        m_MethodName: Restart
+        m_MethodName: ContinueLotor
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

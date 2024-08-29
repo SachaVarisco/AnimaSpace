@@ -95,13 +95,13 @@ public class PlayerWorldControl : MonoBehaviour
 
     private void Move()
     {
-        if (Input.GetAxis("Horizontal") != 0 && !talking)
+        if (Input.GetAxis("Horizontal") != 0 && !talking && Time.timeScale == 1f)
         {
             //transform.position += new Vector3(horizontalMove, 0);
             animator.SetFloat("MoveX", horizontalMove);
 
         }
-        if (Input.GetAxis("Vertical") != 0 && !talking)
+        if (Input.GetAxis("Vertical") != 0 && !talking && Time.timeScale == 1f)
         {
             //transform.position += new Vector3(0, verticalMove);
             animator.SetFloat("MoveY", verticalMove);
@@ -116,7 +116,7 @@ public class PlayerWorldControl : MonoBehaviour
         if (Physics2D.OverlapCircle(transform.position, 0.2f, wildAppear) != null)
         {
 
-            if (Random.Range(1, 500) <= 1)
+            if (Random.Range(1, 20) <= 1)
             {
                 StartCoroutine("WildEncounters");
             }

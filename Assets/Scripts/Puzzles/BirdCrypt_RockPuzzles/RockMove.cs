@@ -25,7 +25,7 @@ public class RockMove : MonoBehaviour
     [SerializeField] private AudioClip moveSound;
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && Time.timeScale == 1f)
         {
             if (Up.IsTouching(player))
             {

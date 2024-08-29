@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterPhoto: {fileID: 597093660, guid: 923f1ee50e83d6b45a058bf07bcea9ae, type: 3}
   characterName: Marline
-  characterNameColor: {r: 0.25490198, g: 0.14901961, b: 0.21176472, a: 1}
+  characterNameColor: {r: 0.3301887, g: 0.25698647, b: 0.30036557, a: 1}

@@ -130,8 +130,10 @@ public class BarController : MonoBehaviour
         Animator bossAnim = GameObject.FindGameObjectWithTag("Boss").GetComponent<Animator>();
         bossAnim.Play("Dead_CaranchoBoss");
         yield return new WaitForSeconds(1f);
-        TransitionManager.Instance().Transition("Lotor", transition, loadDelay);
-        Debug.Log("EnemyBeat evento");
+        DataPlayer.Instance.Ready = true;
+        SceneData.Instance.Winner();
+        
+        
     }
     #endregion
 }

@@ -9094,6 +9094,8 @@ MonoBehaviour:
   OrbDamage: 0.3
   PlayerDamage: 0.05
   Tutorial: 0
+  transition: {fileID: 11400000, guid: 9710edcf009d00943af961dd2a7ca7d3, type: 2}
+  loadDelay: 0
 --- !u!114 &1744101533
 MonoBehaviour:
   m_ObjectHideFlags: 0

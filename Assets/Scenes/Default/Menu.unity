@@ -1192,7 +1192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 2
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -2892,6 +2892,7 @@ MonoBehaviour:
   World: {fileID: 8300000, guid: 5a29626d2eddbfd41bff8c67087494e3, type: 3}
   Boss: {fileID: 8300000, guid: 1b4d7bed650e87042a473353510b168c, type: 3}
   Crypt: {fileID: 8300000, guid: b472775a0905f1e47a3d48cdf93a8b2e, type: 3}
+  Lotor: {fileID: 8300000, guid: 89be69a347970db4b996ea61517e9913, type: 3}
 --- !u!1 &1378626245
 GameObject:
   m_ObjectHideFlags: 0

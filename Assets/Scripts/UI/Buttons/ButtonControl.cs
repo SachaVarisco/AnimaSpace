@@ -52,5 +52,11 @@ public class ButtonControl : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene("Menu");
+        
+    }
+
+    public void ContinueLotor(){
+
+        SceneManager.LoadScene("Lotor");
     }
 }

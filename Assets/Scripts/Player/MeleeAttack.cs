@@ -26,7 +26,7 @@ public class MeleeAttack : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1") && !GetComponent<CharacterMove>().talking)
+        if (Input.GetButtonDown("Fire1") && !GetComponent<CharacterMove>().talking && Time.timeScale == 1f)
         {
             Animator.SetTrigger("Attack");
             AudioControll.Instance.PlaySound(Hit);

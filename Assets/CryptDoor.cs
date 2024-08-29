@@ -27,9 +27,9 @@ public class CryptDoor : MonoBehaviour
     {
         if (DataPlayer.Instance.Ready == true)
         {
-            DataPlayer.Instance.Ready = false;
             gameObject.transform.parent.gameObject.transform.GetChild(1).gameObject.SetActive(true);
             gameObject.SetActive(false);
+            DataPlayer.Instance.Ready = false;
         }
     }
 
@@ -46,6 +46,7 @@ public class CryptDoor : MonoBehaviour
                     NextScene = "CrowCrypt";
                     break;
                 case "Puzzle3":
+                    GameObject.FindGameObjectWithTag("CanvaLifes").transform.GetChild(0).gameObject.SetActive(false);
                     NextScene = "CaranchoCrypt";
                     break;
                 case "BirdCrypt":
@@ -53,6 +54,9 @@ public class CryptDoor : MonoBehaviour
                     break;
                 case "CrowCrypt":
                     NextScene = "Puzzle3";
+                    break;
+                case "CaranchoCrypt":
+                    NextScene = "Victory";
                     break;
 
             }
