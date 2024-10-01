@@ -1260,7 +1260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8557568673631317014, guid: a0dbeffc84669e24f994d387893a803d, type: 3}
       propertyPath: sentences.Array.data[4].sentence
-      value: '(Usa "Z" para atacar)
+      value: '(Usa la tecla de "Espacio" para atacar)
 
 '
       objectReference: {fileID: 0}
@@ -1938,8 +1938,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8557568673631317014, guid: a0dbeffc84669e24f994d387893a803d, type: 3}
       propertyPath: sentences.Array.data[6].sentence
-      value: '(Usa la flecha "Izquierda" y "Derecha" para moverte y "Arriba" para
-        saltar).
+      value: '(Usa las teclas "A" y "D" para moverte y "W" para saltar).
 
 '
       objectReference: {fileID: 0}
