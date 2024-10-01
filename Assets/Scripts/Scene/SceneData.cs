@@ -25,6 +25,8 @@ public class SceneData : MonoBehaviour
 
     private void Awake()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         if (SceneData.Instance == null)
         {
             SceneData.Instance = this;
