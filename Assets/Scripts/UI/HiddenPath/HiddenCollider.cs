@@ -7,6 +7,7 @@ using UnityEngine.Tilemaps;
 public class HiddenCollider : MonoBehaviour
 {
     [SerializeField] private GameObject PanelHidden;
+    [SerializeField] private GameObject ColliderWalls;
     private int sortingOrderOnEnter = 0; 
     private int sortingOrderOnExit = -2;
 
@@ -23,6 +24,7 @@ public class HiddenCollider : MonoBehaviour
         {
             panelRenderer.sortingOrder = sortingOrderOnEnter;
             PanelHidden.SetActive(true);
+            ColliderWalls.SetActive(true);
         }
     }
 
@@ -32,6 +34,7 @@ public class HiddenCollider : MonoBehaviour
         {
             panelRenderer.sortingOrder = sortingOrderOnExit;
             PanelHidden.SetActive(false);
+            ColliderWalls.SetActive(false);
         }
     }
 
