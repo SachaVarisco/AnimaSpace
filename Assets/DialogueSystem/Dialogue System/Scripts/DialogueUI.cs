@@ -51,6 +51,7 @@ namespace HeneGames.DialogueSystem
 
         [Header("Next sentence input")]
         public KeyCode actionInput = KeyCode.Space;
+        public KeyCode actionInput2;
 
         private void Update()
         {
@@ -66,7 +67,7 @@ namespace HeneGames.DialogueSystem
         public virtual void InputUpdate()
         {
             //Next dialogue input
-            if (Input.GetKeyDown(actionInput) && Time.timeScale == 1f)
+            if ((Input.GetKeyDown(actionInput)|| Input.GetKeyDown(actionInput2)) && Time.timeScale == 1f)
             {
                 NextSentenceSoft();
             }
