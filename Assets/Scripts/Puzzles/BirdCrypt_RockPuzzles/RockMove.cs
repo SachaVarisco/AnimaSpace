@@ -27,6 +27,7 @@ public class RockMove : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1") && Time.timeScale == 1f)
         {
+            Debug.Log("Apretaste boton");
             if (Up.IsTouching(player))
             {
                 RayBox(Down_.position, Vector2.down);
@@ -48,7 +49,8 @@ public class RockMove : MonoBehaviour
     private void RayBox(Vector2 shooter, Vector2 direction)
     {
         rCHit2D = Physics2D.Raycast(shooter, direction, distance);
-        if(rCHit2D.collider == null){
+        Debug.Log(rCHit2D.collider.gameObject.name);
+        if(rCHit2D.collider == null){   
             return;
         }
 

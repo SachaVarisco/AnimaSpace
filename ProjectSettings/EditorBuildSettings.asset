@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Default/Menu.unity
     guid: 06c6f5e84b70d034b820709e4b33dcb0
   - enabled: 1
-    path: Assets/Scenes/Towns/World.unity
+    path: Assets/Scenes/Towns/Vulpes/World.unity
     guid: 7e0aded995472b347974ff3f8648f80c
   - enabled: 1
     path: Assets/Scenes/Tutorial/Eddy.unity
