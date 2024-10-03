@@ -56,7 +56,7 @@ public class UIMainMenu : MonoBehaviour
     private void OnSelectedPlay()
     {
 
-        TransitionManager.Instance().Transition("World", transition, loadDelay);
+        TransitionManager.Instance().Transition("House", transition, loadDelay);
 
     }
     private void OnSelectedCredits()

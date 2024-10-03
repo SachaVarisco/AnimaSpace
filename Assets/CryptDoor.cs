@@ -39,6 +39,9 @@ public class CryptDoor : MonoBehaviour
         {
             switch (SceneManager.GetActiveScene().name)
             {
+                case "House":
+                    NextScene = "World";
+                    break;
                 case "Puzzle1_Solved":
                     NextScene = "BirdCrypt";
                     break;
