@@ -18,6 +18,9 @@ TagManager:
   - Walls
   - Totem
   - Box
+  - Mark
+  - WoodsDry
+  - Bob
   layers:
   - Default
   - TransparentFX

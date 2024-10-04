@@ -22,6 +22,9 @@ public class SceneData : MonoBehaviour
     [SerializeField] public TransitionSettings transition;
     [SerializeField] private float loadDelay;
 
+    public bool BackToWorld;
+    public bool BushesDelete;
+
 
     private void Awake()
     {
@@ -76,7 +79,7 @@ public class SceneData : MonoBehaviour
                     //     AnalyticsService.Instance.RecordEvent(InTown);
                     //     AnalyticsService.Instance.Flush();
 
-                     //Debug.Log("InTown evento");
+                    //Debug.Log("InTown evento");
 
                     IsFirst = false;
                 }
@@ -93,12 +96,13 @@ public class SceneData : MonoBehaviour
                 {
                     Invoke("AnimationZenMode", 0.1f);
                     //LastDialogueMark = true;
-                    Transform Mark = GameObject.FindGameObjectWithTag("Orb").transform;
+                    Transform Mark = GameObject.FindGameObjectWithTag("Mark").transform;
                     Transform Ant = GameObject.FindGameObjectWithTag("Ant").transform;
 
 
                     //orb es el tag de las activaciones de los dialogos
                     Mark.GetChild(0).gameObject.SetActive(false);
+                    Mark.GetChild(5).gameObject.SetActive(false); //arbustos
                     Mark.GetChild(2).gameObject.SetActive(true);
 
                     Ant.GetChild(0).gameObject.SetActive(false);
@@ -109,6 +113,20 @@ public class SceneData : MonoBehaviour
                     //GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerWorldControl>().animator.Play("Zen_World");
                     win = false;
                 }
+
+                if (BackToWorld)
+                {
+                    GameObject.FindGameObjectWithTag("Bob").GetComponent<DialogueControl>().TilemapColliderFalse();
+                }
+
+                if (BushesDelete)
+                {
+                    Transform Mark = GameObject.FindGameObjectWithTag("Mark").transform;
+                    // Mark.GetChild(0).gameObject.SetActive(false);
+                    // Mark.GetChild(1).gameObject.SetActive(true);
+                    Mark.GetChild(5).gameObject.SetActive(false); //arbustos
+                }
+
 
                 break;
 
@@ -162,7 +180,7 @@ public class SceneData : MonoBehaviour
             case "Lotor":
 
                 MusicControll.Instance.PlayLotor();
-                
+
 
                 break;
         }
@@ -196,7 +214,7 @@ public class SceneData : MonoBehaviour
         // AnalyticsService.Instance.Flush();
 
 
-         //Debug.Log("EnemyBeat evento");
+        //Debug.Log("EnemyBeat evento");
         //escena que vuelve al mundo desp del ataque de la paloma
 
         DataPlayer.Instance.IsBack = true;
@@ -300,7 +318,7 @@ public class SceneData : MonoBehaviour
         //escena que vuelve al mundo desp del ataque de la paloma
         //SceneManager.LoadScene("Menu");
         DataPlayer.Instance.SaveWorldPosition();
-         //Debug.Log("guarda");
+        //Debug.Log("guarda");
         //SceneManager.LoadScene("Maxi");
         TransitionManager.Instance().Transition("Maxi", transition, loadDelay);
         MusicControll.Instance.PlayBoss();
@@ -320,6 +338,7 @@ public class SceneData : MonoBehaviour
                 enemyName = "Carmin";
                 levelIndex = 1;
                 DataPlayer.Instance.IsBack = true;
+                BushesDelete = true;
 
                 break;
 

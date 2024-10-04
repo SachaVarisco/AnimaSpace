@@ -17,6 +17,8 @@ public class ButtonControl : MonoBehaviour
         else
         {
             SceneManager.LoadScene("World");
+
+
         }
 
         if (DataPlayer.Instance.crowLost == true)

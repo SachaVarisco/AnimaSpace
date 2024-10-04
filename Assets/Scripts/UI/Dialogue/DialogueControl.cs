@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Unity.Services.Analytics;
 using EasyTransition;
+using UnityEngine.Tilemaps;
 
 public class DialogueControl : MonoBehaviour
 {
@@ -165,6 +166,12 @@ public class DialogueControl : MonoBehaviour
     {
 
         DataPlayer.Instance.floorWild = true;
+    }
+
+    public void TilemapColliderFalse(){
+
+        GameObject.FindGameObjectWithTag("WoodsDry").GetComponent<TilemapCollider2D>().enabled = false;
+        SceneData.Instance.BackToWorld = true;
     }
 
 }
