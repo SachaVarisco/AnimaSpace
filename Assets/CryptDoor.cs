@@ -10,13 +10,18 @@ public class CryptDoor : MonoBehaviour
     [SerializeField] private AudioClip doorSound;
     //private AudioSource audioSource;
     private string NextScene;
+    private GameObject player;
 
     [Header("Transitions")]
     [SerializeField] private TransitionSettings transition;
     [SerializeField] private float loadDelay;
+
+    private void Awake(){
+
+        player= GameObject.FindGameObjectWithTag("Player");
+    }
     void OnEnable()
     {
-
         if (gameObject.name == "Puerta-Cripta2")
         {
             AudioControll.Instance.PlaySound(doorSound);
@@ -37,6 +42,9 @@ public class CryptDoor : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            
+            player.GetComponent<PlayerWorldControl>().StopMovement();
+
             switch (SceneManager.GetActiveScene().name)
             {
                 case "House":
