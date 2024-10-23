@@ -281,8 +281,8 @@ TextureImporter:
       name: Tile-Arena-Path_8
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 256
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -302,8 +302,8 @@ TextureImporter:
       name: Tile-Arena-Path_9
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
+        x: 288
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -323,7 +323,7 @@ TextureImporter:
       name: Tile-Arena-Path_10
       rect:
         serializedVersion: 2
-        x: 64
+        x: 0
         y: 0
         width: 16
         height: 16
@@ -344,7 +344,7 @@ TextureImporter:
       name: Tile-Arena-Path_11
       rect:
         serializedVersion: 2
-        x: 96
+        x: 32
         y: 0
         width: 16
         height: 16
@@ -365,7 +365,7 @@ TextureImporter:
       name: Tile-Arena-Path_12
       rect:
         serializedVersion: 2
-        x: 128
+        x: 64
         y: 0
         width: 16
         height: 16
@@ -386,7 +386,7 @@ TextureImporter:
       name: Tile-Arena-Path_13
       rect:
         serializedVersion: 2
-        x: 160
+        x: 96
         y: 0
         width: 16
         height: 16
@@ -407,7 +407,7 @@ TextureImporter:
       name: Tile-Arena-Path_14
       rect:
         serializedVersion: 2
-        x: 192
+        x: 128
         y: 0
         width: 16
         height: 16
@@ -428,7 +428,7 @@ TextureImporter:
       name: Tile-Arena-Path_15
       rect:
         serializedVersion: 2
-        x: 224
+        x: 160
         y: 0
         width: 16
         height: 16
@@ -441,6 +441,90 @@ TextureImporter:
       bones: []
       spriteID: 69bdab2533cc42f4ca75d690c2598936
       internalID: 1261791757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tile-Arena-Path_16
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce675f84464ea294896858d5bffa73d4
+      internalID: -477522341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tile-Arena-Path_17
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca3095a4942b1f64e857bd749cd166af
+      internalID: -806636998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tile-Arena-Path_18
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c777d3935b536b849bba38fffce08ee2
+      internalID: 1341117987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tile-Arena-Path_19
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34041c5a85a7cbd4ca11fa720c94e24e
+      internalID: -821072045
       vertices: []
       indices: 
       edges: []
@@ -464,6 +548,10 @@ TextureImporter:
       Tile-Arena-Path_13: 1080752941
       Tile-Arena-Path_14: 213238776
       Tile-Arena-Path_15: 1261791757
+      Tile-Arena-Path_16: -477522341
+      Tile-Arena-Path_17: -806636998
+      Tile-Arena-Path_18: 1341117987
+      Tile-Arena-Path_19: -821072045
       Tile-Arena-Path_2: 1429040073
       Tile-Arena-Path_3: 1516995739
       Tile-Arena-Path_4: 1211268208
