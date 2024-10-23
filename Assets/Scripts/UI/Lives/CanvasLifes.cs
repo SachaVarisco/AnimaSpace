@@ -30,13 +30,15 @@ public class CanvasLifes : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "GameOver" || SceneManager.GetActiveScene().name == "Victory")
         {
-            Destroy(gameObject);
+            transform.GetChild(0).gameObject.SetActive(false);
+            transform.GetChild(1).gameObject.SetActive(false);
+
         }
 
-        int index = 1;
-        if (SceneManager.GetActiveScene().name == "Puzzle2" && index < transform.childCount)
+
+        if (SceneManager.GetActiveScene().name == "Puzzle2")
         {
-            Destroy(transform.GetChild(index).gameObject);
+            transform.GetChild(1).gameObject.SetActive(false);
         }
 
         // if (SceneManager.GetActiveScene().name == "CaranchoCrypt" && index == transform.childCount)

@@ -17,8 +17,8 @@ public class UIPause : MonoBehaviour
     [SerializeField] private GameObject optionsScreen;
     [SerializeField] private GameObject sureExitScreen;
 
-    [Header("MiniMap")]
-    [SerializeField] private GameObject miniMap;
+    //[Header("MiniMap")]
+    //[SerializeField] private GameObject miniMap;
     private void Awake()
     {
         ResumeBt = ResumeGO.GetComponent<Button>();
@@ -56,7 +56,7 @@ public class UIPause : MonoBehaviour
         optionsScreen.SetActive(false);
         sureExitScreen.SetActive(false);
 
-        miniMap.SetActive(true);
+        //miniMap.SetActive(true);
 
         EventSystem.current.SetSelectedGameObject(ResumeGO);
     }
@@ -68,7 +68,7 @@ public class UIPause : MonoBehaviour
     {
         Time.timeScale = 1;
         pauseScreen.SetActive(false);
-        miniMap.SetActive(false);
+        //miniMap.SetActive(false);
         EventSystem.current.SetSelectedGameObject(null);
     }
     private void OnSelectedOptions()

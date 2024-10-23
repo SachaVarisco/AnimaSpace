@@ -18,12 +18,14 @@ public class SceneData : MonoBehaviour
     //private bool LastDialogueMark;
     private bool IsFirst = true;
 
+    public bool BackToWorld;
+    public bool BushesDelete;
+
     [Header("Transitions")]
     [SerializeField] public TransitionSettings transition;
     [SerializeField] private float loadDelay;
 
-    public bool BackToWorld;
-    public bool BushesDelete;
+
 
 
     private void Awake()
@@ -60,6 +62,17 @@ public class SceneData : MonoBehaviour
 
                 key = false;
                 tutorialPassed = false;
+                win = false;
+                chrisDialogue = false;
+                BackToWorld = false;
+                BushesDelete = false;
+                DataPlayer.Instance.Reset();
+                DataPlayer.Instance.pigeonLost = false;
+                DataPlayer.Instance.crowLost = false;
+                DataPlayer.Instance.caranchoLost = false;
+                GameObject.FindGameObjectWithTag("CanvaLifes").transform.GetChild(0).gameObject.SetActive(false);
+                GameObject.FindGameObjectWithTag("CanvaLifes").transform.GetChild(1).gameObject.SetActive(false);
+
 
                 break;
 
@@ -132,6 +145,7 @@ public class SceneData : MonoBehaviour
 
             case "BirdCrypt":
 
+                GameObject.FindGameObjectWithTag("CanvaLifes").SetActive(true);
                 MusicControll.Instance.PlayCrypt();
 
                 if (chrisDialogue)

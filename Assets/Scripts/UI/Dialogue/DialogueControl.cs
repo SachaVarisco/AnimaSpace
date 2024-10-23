@@ -174,5 +174,11 @@ public class DialogueControl : MonoBehaviour
         SceneData.Instance.BackToWorld = true;
     }
 
+    public void UILivesActive(){
+
+        GameObject.FindGameObjectWithTag("CanvaLifes").transform.GetChild(0).gameObject.SetActive(true);
+        GameObject.FindGameObjectWithTag("CanvaLifes").transform.GetChild(1).gameObject.SetActive(true);
+    }
+
 }
 

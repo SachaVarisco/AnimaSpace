@@ -57,7 +57,7 @@ public class CryptDoor : MonoBehaviour
                     NextScene = "CrowCrypt";
                     break;
                 case "Puzzle3":
-                    GameObject.FindGameObjectWithTag("CanvaLifes").SetActive(false);
+                    GameObject.FindGameObjectWithTag("CanvaLifes").transform.GetChild(1).gameObject.SetActive(false);
                     NextScene = "CaranchoCrypt";
                     break;
                 case "BirdCrypt":
