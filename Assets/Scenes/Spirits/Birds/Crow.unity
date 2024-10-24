@@ -1511,7 +1511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfdab302de8560041a6d22e00ce624c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 160
+  force: 140
 --- !u!58 &441696251
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1616,7 +1616,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 5
   m_Sprite: {fileID: -331544403, guid: 132fcd594db831c4a8b764275b8701c2, type: 3}
-  m_Color: {r: 0.67224634, g: 0.9924528, b: 0.8695424, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3060,7 +3060,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 875268642}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
@@ -3441,7 +3441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfdab302de8560041a6d22e00ce624c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 160
+  force: 140
 --- !u!58 &1062301242
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3546,7 +3546,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 5
   m_Sprite: {fileID: -331544403, guid: 132fcd594db831c4a8b764275b8701c2, type: 3}
-  m_Color: {r: 0.67224634, g: 0.9924528, b: 0.8695424, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

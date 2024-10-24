@@ -197,6 +197,13 @@ public class SceneData : MonoBehaviour
 
 
                 break;
+
+            case "House":
+
+                MusicControll.Instance.PlayCinematicHouse();
+
+
+                break;
         }
 
     }

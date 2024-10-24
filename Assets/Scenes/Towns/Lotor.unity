@@ -11027,7 +11027,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &505377525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24076,6 +24076,8 @@ MonoBehaviour:
   key: 0
   win: 0
   chrisDialogue: 0
+  BackToWorld: 0
+  BushesDelete: 0
   transition: {fileID: 0}
   loadDelay: 0
 --- !u!4 &924602537
@@ -25470,7 +25472,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &1852604206
 AudioSource:
   m_ObjectHideFlags: 0

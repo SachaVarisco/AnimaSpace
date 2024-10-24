@@ -8,6 +8,8 @@ public class MusicControll : MonoBehaviour
     public AudioSource audioSource;
 
     [Header("Songs")]
+
+    [SerializeField] private AudioClip House;
     [SerializeField] private AudioClip World;
     [SerializeField] private AudioClip Boss;
     [SerializeField] private AudioClip Crypt;
@@ -66,6 +68,13 @@ public class MusicControll : MonoBehaviour
     {
         audioSource.Stop();
 
+    }
+
+    public void PlayCinematicHouse()
+    {
+        audioSource.clip = House;
+        audioSource.Play();
+        audioSource.loop = true;
     }
 
 }

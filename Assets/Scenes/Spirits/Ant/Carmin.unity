@@ -2857,10 +2857,10 @@ MonoBehaviour:
   key: 0
   win: 0
   chrisDialogue: 0
-  transition: {fileID: 11400000, guid: 9710edcf009d00943af961dd2a7ca7d3, type: 2}
-  loadDelay: 0
   BackToWorld: 0
   BushesDelete: 0
+  transition: {fileID: 11400000, guid: 9710edcf009d00943af961dd2a7ca7d3, type: 2}
+  loadDelay: 0
 --- !u!4 &1172149911
 Transform:
   m_ObjectHideFlags: 0
@@ -4389,11 +4389,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7747732720839601109, guid: 1a3fe254055bd7240a22260d175b23d6, type: 3}
       propertyPath: Loops
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7747732720839601109, guid: 1a3fe254055bd7240a22260d175b23d6, type: 3}
       propertyPath: LoopTime
-      value: 3.1
+      value: 3.6
       objectReference: {fileID: 0}
     - target: {fileID: 7747732720839601109, guid: 1a3fe254055bd7240a22260d175b23d6, type: 3}
       propertyPath: SamePosY
@@ -4909,11 +4909,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7747732720839601109, guid: 1a3fe254055bd7240a22260d175b23d6, type: 3}
       propertyPath: Loops
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7747732720839601109, guid: 1a3fe254055bd7240a22260d175b23d6, type: 3}
       propertyPath: LoopTime
-      value: 3
+      value: 3.5
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8799935984356611222, guid: 1a3fe254055bd7240a22260d175b23d6, type: 3}
