@@ -63,8 +63,11 @@ public class DataPlayer : MonoBehaviour
         {
 
             LiveCanva = GameObject.FindGameObjectWithTag("CanvaLifes").transform.GetChild(0).gameObject.GetComponent<LivesUI>();
+            
+            Debug.Log(ActualLife);
+
             LiveCanva.ChangeSouls(ActualLife);
-            //changeLife.Invoke(ActualLife);
+            changeLife.Invoke(ActualLife);
 
             pigeonLost = true;
         }
@@ -77,7 +80,7 @@ public class DataPlayer : MonoBehaviour
 
             GameObject.FindGameObjectWithTag("CanvaLifes").transform.GetChild(0).gameObject.SetActive(true);
 
-            //changeLife.Invoke(ActualLife);
+            changeLife.Invoke(ActualLife);
 
             crowLost = true;
         }
@@ -137,7 +140,7 @@ public class DataPlayer : MonoBehaviour
     public void LoadWorldPosition()
     {
          //Debug.Log("Load");
-        Player.transform.position = SpawnReturn;
+         Player.transform.position = SpawnReturn;
         IsBack = false;
     }
 

@@ -15,14 +15,16 @@ public class LivesUI : MonoBehaviour
 
 
     private void Start() {
-        //DataPlayer.Instance.changeLife.AddListener(ChangeSouls);
+        DataPlayer.Instance.changeLife.AddListener(ChangeSouls);
 
     }
     public void ChangeSouls(int ActualLife){
         if (!LivesList.Any())
         {
+            //Debug.Log(ActualLife);
             CreateSouls(ActualLife);
         }else{
+            //Debug.Log(ActualLife);
             ChangeLife(ActualLife);
         }
     }

@@ -464,7 +464,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &467983318
 AudioSource:
   m_ObjectHideFlags: 0
@@ -15332,7 +15332,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1239158714
 Transform:
   m_ObjectHideFlags: 0
@@ -15391,7 +15391,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1302079310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17982,7 +17982,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1809273806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17996,6 +17996,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1809273807}
+  House: {fileID: 0}
   World: {fileID: 8300000, guid: 5a29626d2eddbfd41bff8c67087494e3, type: 3}
   Boss: {fileID: 8300000, guid: 1b4d7bed650e87042a473353510b168c, type: 3}
   Crypt: {fileID: 8300000, guid: b472775a0905f1e47a3d48cdf93a8b2e, type: 3}
