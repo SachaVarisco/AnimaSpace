@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.Assertions.Must;
 
 public class CanvasLifes : MonoBehaviour
 {
@@ -33,6 +34,11 @@ public class CanvasLifes : MonoBehaviour
             transform.GetChild(0).gameObject.SetActive(false);
             transform.GetChild(1).gameObject.SetActive(false);
 
+        }
+
+        if (SceneManager.GetActiveScene().name == "CaranchoCrypt")
+        {
+            transform.GetChild(0).gameObject.SetActive(false);
         }
 
 

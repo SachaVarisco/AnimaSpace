@@ -483,6 +483,8 @@ MonoBehaviour:
   key: 0
   win: 0
   chrisDialogue: 0
+  BackToWorld: 0
+  BushesDelete: 0
   transition: {fileID: 11400000, guid: 9710edcf009d00943af961dd2a7ca7d3, type: 2}
   loadDelay: 0
 --- !u!4 &426434275
@@ -10537,7 +10539,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: d24987d09561dcb4e8a9c5a7f3027828, type: 2}
     - target: {fileID: 8557568673631317014, guid: a0dbeffc84669e24f994d387893a803d, type: 3}
       propertyPath: endDialogueEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8557568673631317014, guid: a0dbeffc84669e24f994d387893a803d, type: 3}
       propertyPath: startDialogueEvent.m_PersistentCalls.m_Calls.Array.size
@@ -10570,7 +10572,7 @@ PrefabInstance:
     - target: {fileID: 8557568673631317014, guid: a0dbeffc84669e24f994d387893a803d, type: 3}
       propertyPath: endDialogueEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1557528423}
     - target: {fileID: 8557568673631317014, guid: a0dbeffc84669e24f994d387893a803d, type: 3}
       propertyPath: endDialogueEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
@@ -10617,7 +10619,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8557568673631317014, guid: a0dbeffc84669e24f994d387893a803d, type: 3}
       propertyPath: endDialogueEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SetActive
+      value: set_enabled
       objectReference: {fileID: 0}
     - target: {fileID: 8557568673631317014, guid: a0dbeffc84669e24f994d387893a803d, type: 3}
       propertyPath: endDialogueEvent.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
@@ -10657,7 +10659,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8557568673631317014, guid: a0dbeffc84669e24f994d387893a803d, type: 3}
       propertyPath: endDialogueEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
+      value: UnityEngine.Behaviour, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8557568673631317014, guid: a0dbeffc84669e24f994d387893a803d, type: 3}
       propertyPath: endDialogueEvent.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
@@ -10673,7 +10675,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8557568673631317014, guid: a0dbeffc84669e24f994d387893a803d, type: 3}
       propertyPath: endDialogueEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8557568673631317014, guid: a0dbeffc84669e24f994d387893a803d, type: 3}
       propertyPath: endDialogueEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
@@ -10824,6 +10826,11 @@ Transform:
 --- !u!1 &1557528422 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6011988201399623206, guid: a0dbeffc84669e24f994d387893a803d, type: 3}
+  m_PrefabInstance: {fileID: 1557528420}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &1557528423 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 1573311338308011884, guid: a0dbeffc84669e24f994d387893a803d, type: 3}
   m_PrefabInstance: {fileID: 1557528420}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1577889504
@@ -36426,6 +36433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1826564706}
+  House: {fileID: 0}
   World: {fileID: 8300000, guid: 5a29626d2eddbfd41bff8c67087494e3, type: 3}
   Boss: {fileID: 8300000, guid: 1b4d7bed650e87042a473353510b168c, type: 3}
   Crypt: {fileID: 8300000, guid: b472775a0905f1e47a3d48cdf93a8b2e, type: 3}

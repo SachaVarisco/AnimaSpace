@@ -11,6 +11,7 @@ public class MusicControll : MonoBehaviour
 
     [SerializeField] private AudioClip House;
     [SerializeField] private AudioClip World;
+    [SerializeField] private AudioClip Beat;
     [SerializeField] private AudioClip Boss;
     [SerializeField] private AudioClip Crypt;
     [SerializeField] private AudioClip Lotor;
@@ -75,6 +76,14 @@ public class MusicControll : MonoBehaviour
         audioSource.clip = House;
         audioSource.Play();
         audioSource.loop = true;
+    }
+
+    public void PlayBeat()
+    {
+        audioSource.clip = Beat;
+        audioSource.Play();
+        audioSource.loop = true;
+
     }
 
 }

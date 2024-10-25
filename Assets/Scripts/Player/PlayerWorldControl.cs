@@ -116,7 +116,7 @@ public class PlayerWorldControl : MonoBehaviour
         if (Physics2D.OverlapCircle(transform.position, 0.2f, wildAppear) != null)
         {
 
-            if (Random.Range(1, 250) <= 1)
+            if (Random.Range(1, 325) <= 1)
             {
                 StartCoroutine("WildEncounters");
             }

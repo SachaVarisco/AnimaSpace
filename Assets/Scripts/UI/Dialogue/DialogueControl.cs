@@ -180,5 +180,15 @@ public class DialogueControl : MonoBehaviour
         GameObject.FindGameObjectWithTag("CanvaLifes").transform.GetChild(1).gameObject.SetActive(true);
     }
 
+    public void MusicBeatOn(){
+
+        MusicControll.Instance.PlayBeat();
+    }
+
+    public void MusicBeatOff(){
+
+        MusicControll.Instance.PlayWorld();
+    }
+
 }
 

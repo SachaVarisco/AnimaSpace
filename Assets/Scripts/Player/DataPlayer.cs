@@ -67,7 +67,7 @@ public class DataPlayer : MonoBehaviour
             Debug.Log(ActualLife);
 
             LiveCanva.ChangeSouls(ActualLife);
-            changeLife.Invoke(ActualLife);
+            //changeLife.Invoke(ActualLife);
 
             pigeonLost = true;
         }
@@ -80,7 +80,7 @@ public class DataPlayer : MonoBehaviour
 
             GameObject.FindGameObjectWithTag("CanvaLifes").transform.GetChild(0).gameObject.SetActive(true);
 
-            changeLife.Invoke(ActualLife);
+            //changeLife.Invoke(ActualLife);
 
             crowLost = true;
         }

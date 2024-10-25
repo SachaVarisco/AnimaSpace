@@ -18,7 +18,7 @@ public class SceneData : MonoBehaviour
     //private bool LastDialogueMark;
     private bool IsFirst = true;
 
-    public bool BackToWorld;
+    public bool BackToWorld; //Bob el constructor
     public bool BushesDelete;
 
     [Header("Transitions")]
@@ -129,7 +129,12 @@ public class SceneData : MonoBehaviour
 
                 if (BackToWorld)
                 {
-                    GameObject.FindGameObjectWithTag("Bob").GetComponent<DialogueControl>().TilemapColliderFalse();
+                    Transform Bob = GameObject.FindGameObjectWithTag("Bob").transform;
+                    Bob.GetComponent<DialogueControl>().TilemapColliderFalse();
+
+                    Bob.GetChild(0).gameObject.SetActive(false);
+                    Bob.GetChild(1).gameObject.SetActive(true);
+
                 }
 
                 if (BushesDelete)

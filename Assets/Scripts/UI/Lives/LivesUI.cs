@@ -14,9 +14,10 @@ public class LivesUI : MonoBehaviour
     [SerializeField] private Sprite SoulBad;
 
 
-    private void Start() {
-        DataPlayer.Instance.changeLife.AddListener(ChangeSouls);
+    private void OnEnable() {
+        //DataPlayer.Instance.changeLife.AddListener(ChangeSouls);
 
+        ActualLives = 2;
     }
     public void ChangeSouls(int ActualLife){
         if (!LivesList.Any())

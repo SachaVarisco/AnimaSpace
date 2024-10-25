@@ -3373,6 +3373,7 @@ MonoBehaviour:
   audioSource: {fileID: 1366588874}
   House: {fileID: 8300000, guid: fd51570e510b45546b9a5813b9e580b7, type: 3}
   World: {fileID: 8300000, guid: 5a29626d2eddbfd41bff8c67087494e3, type: 3}
+  Beat: {fileID: 8300000, guid: 86682ad91b6347040bcfc1fa41b30bf2, type: 3}
   Boss: {fileID: 8300000, guid: 1b4d7bed650e87042a473353510b168c, type: 3}
   Crypt: {fileID: 8300000, guid: b472775a0905f1e47a3d48cdf93a8b2e, type: 3}
   Lotor: {fileID: 8300000, guid: 89be69a347970db4b996ea61517e9913, type: 3}
