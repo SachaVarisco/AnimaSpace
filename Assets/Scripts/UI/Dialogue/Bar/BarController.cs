@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Unity.Services.Analytics;
-
+using EasyTransition;
 public class BarController : MonoBehaviour
 {
     [Header("Timer")]
@@ -21,45 +21,49 @@ public class BarController : MonoBehaviour
 
     [Header("Tutorial")]
     [SerializeField] private bool Tutorial;
+    private bool endBattle;
 
-    #region Conditions
-    private bool Die;
-    private bool Win;
-    #endregion
+
+    [Header("Transitions")]
+    [SerializeField] private TransitionSettings transition;
+    [SerializeField] private float loadDelay;
     private void Start()
     {
         HandleValue = GetComponent<Scrollbar>();
+        endBattle = false;
     }
 
     void FixedUpdate()
     {
         currentTime -= Time.deltaTime;
-        if (currentTime <= 0 && !Die && !Win)
+        if (currentTime <= 0 && !endBattle)
         {
             ConstantDown();
             currentTime = timePerDown;
         }
-        else
+        else if (!endBattle) 
         {
             if (Bar.fillAmount <= 0 && SceneManager.GetActiveScene().name == "Carmin")
             {
-                CustomEvent EnemyBeat = new CustomEvent("EnemyBeat")
-                {
-                    { "orbCount", DataPlayer.Instance.orbCount},
-                    { "enemyName", "Ant" },
-                    { "enemyCount", 1f}
-                };
+                endBattle = true;
+                // CustomEvent EnemyBeat = new CustomEvent("EnemyBeat")
+                // {
+                //     { "orbCount", DataPlayer.Instance.orbCount},
+                //     { "enemyName", "Ant" },
+                //     { "enemyCount", 1f}
+                // };
 
-                AnalyticsService.Instance.RecordEvent(EnemyBeat);
-                AnalyticsService.Instance.Flush();
+                // AnalyticsService.Instance.RecordEvent(EnemyBeat);
+                // AnalyticsService.Instance.Flush();
 
-                SceneData.Instance.Winner();
-                Debug.Log("EnemyBeat evento");
+                //SceneData.Instance.Winner();
+                StartCoroutine("DeadAnimAnt");
 
             }
 
             if (Bar.fillAmount <= 0 && SceneManager.GetActiveScene().name == "Carancho")
             {
+                endBattle = true;
                 // CustomEvent EnemyBeat = new CustomEvent("EnemyBeat")
                 // {
                 //     { "orbCount", DataPlayer.Instance.orbCount},
@@ -70,12 +74,14 @@ public class BarController : MonoBehaviour
                 // AnalyticsService.Instance.RecordEvent(EnemyBeat);
                 // AnalyticsService.Instance.Flush();
 
-                SceneManager.LoadScene("Victory");
-                Debug.Log("EnemyBeat evento");
+                //SceneManager.LoadScene("Victory");
+                StartCoroutine("DeadAnimCarancho");
+                
 
             }
             else if (Bar.fillAmount >= 1)
             {
+                endBattle = true;
                 SceneData.Instance.Loser();
             }
         }
@@ -108,4 +114,26 @@ public class BarController : MonoBehaviour
         Bar.fillAmount += PlayerDamage;
         HandleValue.value -= PlayerDamage;
     }
+
+
+    #region DeadAnim Ant
+    private IEnumerator DeadAnimAnt(){
+        Animator bossAnim = GameObject.FindGameObjectWithTag("Boss").GetComponent<Animator>();
+        bossAnim.Play("Dead_AntBoss");
+        yield return new WaitForSeconds(1f);
+        SceneData.Instance.Winner();
+    }
+    #endregion
+
+    #region DeadAnim Ant
+    private IEnumerator DeadAnimCarancho(){
+        Animator bossAnim = GameObject.FindGameObjectWithTag("Boss").GetComponent<Animator>();
+        bossAnim.Play("Dead_CaranchoBoss");
+        yield return new WaitForSeconds(1f);
+        DataPlayer.Instance.Ready = true;
+        SceneData.Instance.Winner();
+        
+        
+    }
+    #endregion
 }

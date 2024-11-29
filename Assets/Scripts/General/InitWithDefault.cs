@@ -6,7 +6,7 @@ public class InitWithDefault : MonoBehaviour
 {
     async void Awake()
     { 
-        Debug.Log("hace el init data");  
+         //Debug.Log("hace el init data");  
 		await UnityServices.InitializeAsync();
 
 		ConsentGiven();

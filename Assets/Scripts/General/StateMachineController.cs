@@ -17,13 +17,11 @@ public class StateMachine : MonoBehaviour
     [SerializeField] private GameObject Orb;
 
     [Header("Audio")]
-    private AudioSource audioSource;
     [SerializeField] AudioClip Attack;
     [SerializeField] AudioClip Damaged;
 
     private void Start()
     {
-        audioSource = GetComponent<AudioSource>();
         StateCount = 0;
         StartCoroutine("WaitInIdle");
     }
@@ -34,7 +32,7 @@ public class StateMachine : MonoBehaviour
         }
         ActualState = newState;
         ActualState.enabled = true;
-        audioSource.PlayOneShot(Attack);
+        AudioControll.Instance.PlaySound(Attack);
     }
 
     public void ActiveNextState(){
@@ -51,7 +49,6 @@ public class StateMachine : MonoBehaviour
         StateCount++;
         int index = Random.Range(0,stateArray.Length);
         if(StateCount <= 3){
-            //canPassState = false;
             if (ActualState == stateArray[index])
             {
                 index = Random.Range(0,stateArray.Length);
@@ -62,7 +59,7 @@ public class StateMachine : MonoBehaviour
         }else{ 
             StateCount = 0;
             ActivateState(StunnedState);
-            audioSource.PlayOneShot(Damaged);
+            AudioControll.Instance.PlaySound(Damaged);
             StartCoroutine("SpawnOrb");
         }
         

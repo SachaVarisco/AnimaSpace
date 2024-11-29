@@ -72,7 +72,8 @@ public class PlayerLifeController : MonoBehaviour
         DataPlayer.Instance.hitCount++;
         CanMove = false;
         audioSource.volume = 0.4f;
-        audioSource.PlayOneShot(Hurt);
+        AudioControll.Instance.PlaySound(Hurt);
+        
 
         animator.SetTrigger("Damaged");
         animator.SetFloat("MoveX", 0f);

@@ -10,7 +10,7 @@ public class BallState : MonoBehaviour
     private void OnEnable() {
         gameObject.GetComponent<Animator>().SetTrigger("Ball");
         GetComponent<CrowControl>().StateCount++;
-        ActiveStateBalls();
+        //ActiveStateBalls();
     }
     public void ActiveStateBalls(){
         StateObj.SetActive(true);

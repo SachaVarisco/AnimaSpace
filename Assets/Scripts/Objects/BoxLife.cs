@@ -4,14 +4,25 @@ using UnityEngine;
 
 public class BoxLife : MonoBehaviour
 {
-    private void Start() {
-        
+    [SerializeField] private GameObject DialogueHeal;
+    private void Start()
+    {
+
     }
-    public void Heal() {
-        if(DataPlayer.Instance.ActualLife < 3){
-            
-            DataPlayer.Instance.CryptHeal();
-            Destroy(gameObject);
+    public void ActiveDialogueHeal()
+    {
+        if (DataPlayer.Instance.ActualLife < 3)
+        {
+
+            DialogueHeal.SetActive(true);
+
         }
+    }
+
+    public void Heal()
+    {
+         //Debug.Log("cura");
+        DataPlayer.Instance.CryptHeal();
+        //Destroy(gameObject);
     }
 }

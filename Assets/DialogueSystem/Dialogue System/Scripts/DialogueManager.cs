@@ -21,7 +21,7 @@ namespace HeneGames.DialogueSystem
         [Header("References")]
         [SerializeField] private AudioSource audioSource;
         [SerializeField] private GameObject interactionUI;
- 
+
         [Header("Events")]
         public UnityEvent startDialogueEvent;
         public UnityEvent nextSentenceDialogueEvent;
@@ -33,6 +33,7 @@ namespace HeneGames.DialogueSystem
 
         private void Update()
         {
+    
             //Timer
             if (coolDownTimer > 0f)
             {
@@ -40,7 +41,7 @@ namespace HeneGames.DialogueSystem
             }
 
             //Start dialogue by input
-            if (Input.GetKeyDown(DialogueUI.instance.actionInput) && dialogueTrigger != null && !dialogueIsOn)
+            if ((Input.GetKeyDown(DialogueUI.instance.actionInput) || Input.GetKeyDown(DialogueUI.instance.actionInput2)) && dialogueTrigger != null && !dialogueIsOn)
             {
                 //Trigger event inside DialogueTrigger component
                 if (dialogueTrigger != null)
@@ -63,6 +64,10 @@ namespace HeneGames.DialogueSystem
 
         public void ShowInteractionUI(bool _value)
         {
+            if (interactionUI == null)
+            {
+                return;
+            }
             interactionUI.SetActive(_value);
         }
 
@@ -170,7 +175,9 @@ namespace HeneGames.DialogueSystem
                 ShowInteractionUI(false);
 
                 //Stop dialogue
-                StopDialogue();
+                //StopDialogue();
+                dialogueIsOn = false;
+                dialogueTrigger = null;
             }
         }
 
@@ -230,6 +237,7 @@ namespace HeneGames.DialogueSystem
             lastSentence = false;
 
             //Play dialogue sound
+
             PlaySound(sentences[currentSentence].sentenceSound);
 
             //Show next sentence in dialogue UI
@@ -273,7 +281,7 @@ namespace HeneGames.DialogueSystem
             audioSource.Stop();
 
             //Play sentence sound
-            audioSource.PlayOneShot(_audioClip);
+            AudioControll.Instance.PlaySound(_audioClip);
         }
 
         private void ShowCurrentSentence()

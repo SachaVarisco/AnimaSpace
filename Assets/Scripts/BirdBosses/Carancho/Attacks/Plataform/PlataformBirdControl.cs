@@ -18,11 +18,11 @@ public class PlataformBirdControl : MonoBehaviour
         {
             GameObject firstPlataformBird = transform.GetChild(0).gameObject;
             firstPlataformBird.SetActive(true);
-            Debug.Log("Activated first platform.");
+            //Debug.Log("Activated first platform.");
         }
         else
         {
-            Debug.Log("No platforms found to activate.");
+            //Debug.Log("No platforms found to activate.");
         }
     }
 
@@ -32,11 +32,11 @@ public class PlataformBirdControl : MonoBehaviour
         {
             GameObject plataformBird = transform.GetChild(currentPlataformBirdIndex).gameObject;
             plataformBird.SetActive(true);
-            Debug.Log("Activated platform: " + currentPlataformBirdIndex);
+            //Debug.Log("Activated platform: " + currentPlataformBirdIndex);
         }
         else
         {
-            Debug.Log("No more platforms to activate.");
+            //Debug.Log("No more platforms to activate.");
         }
     }
 
@@ -44,7 +44,7 @@ public class PlataformBirdControl : MonoBehaviour
     {
 
         currentPlataformBirdIndex++;
-        Debug.Log("Platform stepped on. Next platform index: " + currentPlataformBirdIndex);
+        //Debug.Log("Platform stepped on. Next platform index: " + currentPlataformBirdIndex);
 
         ActivateNextPlataformBird();
 
@@ -62,6 +62,6 @@ public class PlataformBirdControl : MonoBehaviour
 
         // Reinicia el índice
         currentPlataformBirdIndex = 0;
-        Debug.Log("Platforms reset.");
+        //Debug.Log("Platforms reset.");
     }
 }

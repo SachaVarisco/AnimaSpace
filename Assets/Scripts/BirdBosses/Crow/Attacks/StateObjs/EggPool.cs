@@ -20,7 +20,7 @@ public class EggPool : MonoBehaviour
         }else{
             //PassState
             transform.parent.gameObject.GetComponent<CrowControl>().StartCoroutine("WaitInIdle");
-            Debug.Log("PassState");
+            //Debug.Log("PassState");
         }
     }
     private void OnDisable() {

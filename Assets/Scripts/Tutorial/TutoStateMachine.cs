@@ -2,11 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using EasyTransition;
 
 public class TutoStateMachine : MonoBehaviour
 {
     private int StateCount;
     private Animator Boss;
+
+    [Header("Transitions")]
+    [SerializeField] private TransitionSettings transition;
+    [SerializeField] private float loadDelay;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,14 +34,14 @@ public class TutoStateMachine : MonoBehaviour
 
     public void Tutorial()
     {
-        Debug.Log("hola");
+         //Debug.Log("hola");
         StartCoroutine("PassTutorial");
     }
 
     // Update is called once per frame
     public void PassState()
     {
-        //transform.GetChild(StateCount).gameObject.SetActive(false);
+        transform.GetChild(StateCount).gameObject.SetActive(false);
         StateCount++;
         if (StateCount == 3)
         {
@@ -62,9 +67,10 @@ public class TutoStateMachine : MonoBehaviour
         // AnalyticsService.Instance.RecordEvent("TutoComplete");
         // AnalyticsService.Instance.Flush();
 
-        Debug.Log("TutoComplete evento");
+         //Debug.Log("TutoComplete evento");
 
 
-        SceneManager.LoadScene("World");
+        //SceneManager.LoadScene("World");
+        TransitionManager.Instance().Transition("World", transition, loadDelay);
     }
 }

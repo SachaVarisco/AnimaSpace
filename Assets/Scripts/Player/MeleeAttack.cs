@@ -26,11 +26,10 @@ public class MeleeAttack : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1") && !GetComponent<CharacterMove>().talking)
+        if (Input.GetButtonDown("Fire1") && !GetComponent<CharacterMove>().talking && Time.timeScale == 1f)
         {
             Animator.SetTrigger("Attack");
-            audioSource.volume = 0.5f;
-            audioSource.PlayOneShot(Hit);
+            AudioControll.Instance.PlaySound(Hit);
         }
     }
 
@@ -43,8 +42,7 @@ public class MeleeAttack : MonoBehaviour
             if (collision.CompareTag("Orb"))
             {
                 //DataPlayer.Instance.orbCount++;
-                audioSource.volume = 0.4f;
-                audioSource.PlayOneShot(Orb);
+                AudioControll.Instance.PlaySound(Orb);
                 if (Crow)
                 {
                     LifeBar Bar = GameObject.FindGameObjectWithTag("Canva").transform.GetChild(0).gameObject.GetComponent<LifeBar>();

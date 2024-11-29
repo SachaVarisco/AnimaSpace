@@ -21,28 +21,13 @@ public class RockMove : MonoBehaviour
     [SerializeField] private float distance;
     private RaycastHit2D rCHit2D;
 
-
-
-    [Header("Position")]
-    [SerializeField] private float dif;
-
-    [Header("Obstacles")]
-
-    [SerializeField] private Transform[] Obstacles;
-    private Vector2 pos;
-
-    private bool CanMove;
-
-    private void Awake()
-    {
-        CanMove = false;
-        pos = transform.position;
-    }
-
+    [Header("Sounds")]
+    [SerializeField] private AudioClip moveSound;
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && Time.timeScale == 1f)
         {
+            //Debug.Log("Apretaste boton");
             if (Up.IsTouching(player))
             {
                 RayBox(Down_.position, Vector2.down);
@@ -60,19 +45,28 @@ public class RockMove : MonoBehaviour
                 RayBox(Right_.position, Vector2.right);
             }
         }
-        if (CanMove)
-        {
-            transform.position = Vector2.Lerp(transform.position, rCHit2D.collider.gameObject.transform.position, 0.1f);
-        }
-        
     }
-
     private void RayBox(Vector2 shooter, Vector2 direction)
     {
         rCHit2D = Physics2D.Raycast(shooter, direction, distance);
+        //Debug.Log(rCHit2D.collider.gameObject.name);
+        if(rCHit2D.collider == null){   
+            return;
+        }
+
         if (rCHit2D.collider.gameObject.tag == "Box")
         {
-            CanMove = true;
+            AudioControll.Instance.PlaySound(moveSound);
+            StartCoroutine(LerpPosition(rCHit2D.collider.gameObject.transform.position, 0.5f));
+        }  
+    }
+    private IEnumerator LerpPosition(Vector2 target, float lerpDuration){
+        float timeElapsed = 0f;
+        while(timeElapsed < lerpDuration){
+            transform.position = Vector2.Lerp(transform.position, target, timeElapsed / lerpDuration);
+            timeElapsed += Time.deltaTime;
+            yield return null;
         }
+        transform.position = target;
     }
 }
