@@ -30,8 +30,7 @@ public class SceneData : MonoBehaviour
 
     private void Awake()
     {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        
         if (SceneData.Instance == null)
         {
             SceneData.Instance = this;
@@ -58,6 +57,8 @@ public class SceneData : MonoBehaviour
         {
             case "Menu":
 
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
                 MusicControll.Instance.PlayWorld();
 
                 key = false;
@@ -204,6 +205,8 @@ public class SceneData : MonoBehaviour
                 break;
 
             case "House":
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
 
                 MusicControll.Instance.PlayCinematicHouse();
 
