@@ -20,7 +20,7 @@ public class CrawnMovementNotifier : MonoBehaviour
 
         if (moveObjects == null)
         {
-            Debug.LogError("MoveObjects2 component is missing on the crawn object.");
+            //Debug.LogError("MoveObjects2 component is missing on the crawn object.");
         }
     }
 

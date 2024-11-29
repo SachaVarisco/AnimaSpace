@@ -5,33 +5,85 @@ using UnityEngine;
 public class MusicControll : MonoBehaviour
 {
     public static MusicControll Instance;
-    private AudioSource audioSource;
+    public AudioSource audioSource;
 
-    [Header ("Songs")]
+    [Header("Songs")]
+
+    [SerializeField] private AudioClip House;
     [SerializeField] private AudioClip World;
+    [SerializeField] private AudioClip Beat;
     [SerializeField] private AudioClip Boss;
+    [SerializeField] private AudioClip Crypt;
+    [SerializeField] private AudioClip Lotor;
     private void Awake()
     {
-       if (MusicControll.Instance == null)
+        if (MusicControll.Instance == null)
         {
             MusicControll.Instance = this;
             DontDestroyOnLoad(this.gameObject);
-        }  else
+        }
+        else
         {
             Destroy(gameObject);
-        } 
+        }
         audioSource = GetComponent<AudioSource>();
     }
 
-    public void PlayWorld(){
+    public void PlayWorld()
+    {
+        audioSource.clip = World;
+        audioSource.Play();
         audioSource.loop = true;
         //audioSource.volume = 0;
-        audioSource.Play();
+
     }
 
-    public void PlayBoss(){
+    public void PlayBoss()
+    {
+        audioSource.clip = Boss;
+        audioSource.Play();
         audioSource.loop = true;
         //audioSource.volume = 0;
-        audioSource.Play();
+
     }
+
+    public void PlayCrypt()
+    {
+        audioSource.clip = Crypt;
+        audioSource.Play();
+        audioSource.loop = true;
+        //audioSource.volume = 0;
+
+    }
+
+    public void PlayLotor()
+    {
+        audioSource.clip = Lotor;
+        audioSource.Play();
+        audioSource.loop = true;
+        //audioSource.volume = 0;
+
+    }
+
+    public void StopMusic()
+    {
+        audioSource.Stop();
+
+    }
+
+    public void PlayCinematicHouse()
+    {
+        audioSource.clip = House;
+        audioSource.Play();
+        audioSource.loop = true;
+    }
+
+    public void PlayBeat()
+    {
+        audioSource.clip = Beat;
+        audioSource.Play();
+        audioSource.loop = true;
+
+    }
+
 }

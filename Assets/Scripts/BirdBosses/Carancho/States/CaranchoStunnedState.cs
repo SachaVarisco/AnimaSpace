@@ -10,7 +10,7 @@ public class CaranchoStunnedState : MonoBehaviour
     private bool CanPass;
     #endregion
     private void OnEnable() {
-        gameObject.GetComponent<Animator>().SetTrigger("Stunned");
+        gameObject.GetComponent<Animator>().Play("CaranchoStunned");
         currentTime = timer;
     }
     private void FixedUpdate() {

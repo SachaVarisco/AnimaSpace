@@ -21,7 +21,7 @@ public class RockDoorControl : MonoBehaviour
                 AnalyticsService.Instance.Flush();
 
 
-                Debug.Log("UseKey evento");
+                 //Debug.Log("UseKey evento");
                 gameObject.SetActive(false);
             }
         }

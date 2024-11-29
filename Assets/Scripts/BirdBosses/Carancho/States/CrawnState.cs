@@ -19,8 +19,8 @@ public class CrawnState : MonoBehaviour
     private void OnEnable()
     {
         StateIndicator.GetComponent<SpriteRenderer>().color = Color.red;
-        gameObject.GetComponent<Animator>().SetTrigger("Attack3");
-        ActiveStateObjCrawn();
+        gameObject.GetComponent<Animator>().Play("CaranchoAttack3");
+        //ActiveStateObjCrawn();
     }
     public void ActiveStateObjCrawn()
     {

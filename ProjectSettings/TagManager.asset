@@ -17,6 +17,10 @@ TagManager:
   - Ant
   - Walls
   - Totem
+  - Box
+  - Mark
+  - WoodsDry
+  - Bob
   layers:
   - Default
   - TransparentFX
@@ -29,8 +33,8 @@ TagManager:
   - Ball
   - Player
   - FloorBird
-  - 
-  - 
+  - PuzzleLimits
+  - NotVisibleMiniMap
   - 
   - 
   - 
@@ -51,6 +55,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Hidden
+    uniqueID: 4074507769
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

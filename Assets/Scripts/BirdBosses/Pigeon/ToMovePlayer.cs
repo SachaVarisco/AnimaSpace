@@ -9,7 +9,7 @@ public class ToMovePlayer : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         if (player == null)
         {
-            Debug.LogError("Player object with tag 'Player' is missing in the scene.");
+             //Debug.LogError("Player object with tag 'Player' is missing in the scene.");
         }
     }
 

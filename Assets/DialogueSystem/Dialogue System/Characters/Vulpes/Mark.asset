@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f4a308dae7ffd048a8b0eb8d5ae4a02, type: 3}
   m_Name: Mark
   m_EditorClassIdentifier: 
-  characterPhoto: {fileID: 1426271248, guid: d774360b14017a14e9c9fa220fa60da8, type: 3}
+  characterPhoto: {fileID: 857224973, guid: 923f1ee50e83d6b45a058bf07bcea9ae, type: 3}
   characterName: Mark
-  characterNameColor: {r: 0.31764707, g: 0.19607845, b: 0.20784315, a: 1}
+  characterNameColor: {r: 0.27450982, g: 0.23529413, b: 0.14117648, a: 1}

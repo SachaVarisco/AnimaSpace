@@ -14,7 +14,7 @@ public class BirdMovementNotifier : MonoBehaviour
         moveObjects = GetComponent<MoveObjects2>();
         if (moveObjects == null)
         {
-            Debug.LogError("MoveObjects2 component is missing on the feather object.");
+             //Debug.LogError("MoveObjects2 component is missing on the feather object.");
         }
 
         //initialPosition = transform.position; // Guardar la posición inicial

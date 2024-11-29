@@ -8,7 +8,7 @@ public class BirdControl : MonoBehaviour
 
     private void OnEnable()
     {
-        Debug.Log("inicial " + currentBirdIndex);
+         //Debug.Log("inicial " + currentBirdIndex);
         currentBirdIndex = 0;
         StartCoroutine(ActivateBirdsOneByOne());
     }
@@ -17,7 +17,7 @@ public class BirdControl : MonoBehaviour
     {
         while (currentBirdIndex < transform.childCount)
         {
-            Debug.Log("intermedio " + currentBirdIndex);
+             //Debug.Log("intermedio " + currentBirdIndex);
 
             GameObject Bird = transform.GetChild(currentBirdIndex).gameObject;
             BirdMovementNotifier notifier = Bird.GetComponent<BirdMovementNotifier>();

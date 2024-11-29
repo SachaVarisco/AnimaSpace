@@ -19,8 +19,8 @@ public class TornadoState : MonoBehaviour
     private void OnEnable()
     {
         StateIndicator.GetComponent<SpriteRenderer>().color = Color.red;
-        gameObject.GetComponent<Animator>().SetTrigger("Attack2");
-        ActiveStateObjTornado();
+        gameObject.GetComponent<Animator>().Play("CaranchoAttack2");
+        //ActiveStateObjTornado();
     }
     public void ActiveStateObjTornado()
     {

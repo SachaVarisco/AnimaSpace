@@ -11,19 +11,19 @@ public class FeathersState : MonoBehaviour
     [SerializeField] private GameObject StateIndicator;
 
     private void OnEnable() {
-        Debug.LogWarning("FeathersState OnEnable");
+         //Debug.LogWarning("FeathersState OnEnable");
         StateIndicator.GetComponent<SpriteRenderer>().color = Color.yellow;
         gameObject.GetComponent<Animator>().SetTrigger("Attack2");
-        ActiveStateObjGoom();
+        //ActiveStateObjGoom();
     }
 
     public void ActiveStateObjGoom(){
-        Debug.LogWarning("Activando FeathersState Obj");
+         //Debug.LogWarning("Activando FeathersState Obj");
         StateObj.SetActive(true);
     }
 
     private void OnDisable() {
-        Debug.LogWarning("Desactivando FeathersState Obj");
+         //Debug.LogWarning("Desactivando FeathersState Obj");
         StateObj.SetActive(false);
     }
 }

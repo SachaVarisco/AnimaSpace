@@ -17,6 +17,8 @@ public class ButtonControl : MonoBehaviour
         else
         {
             SceneManager.LoadScene("World");
+
+
         }
 
         if (DataPlayer.Instance.crowLost == true)
@@ -52,5 +54,11 @@ public class ButtonControl : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene("Menu");
+        
+    }
+
+    public void ContinueLotor(){
+
+        SceneManager.LoadScene("Lotor");
     }
 }

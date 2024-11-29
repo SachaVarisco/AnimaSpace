@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.Assertions.Must;
 
 public class CanvasLifes : MonoBehaviour
 {
@@ -30,19 +31,22 @@ public class CanvasLifes : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "GameOver" || SceneManager.GetActiveScene().name == "Victory")
         {
-            Destroy(gameObject);
+            transform.GetChild(0).gameObject.SetActive(false);
+            transform.GetChild(1).gameObject.SetActive(false);
+
         }
 
-        int index = 1;
-        if (SceneManager.GetActiveScene().name == "CrowCrypt" && index < transform.childCount)
+        if (SceneManager.GetActiveScene().name == "CaranchoCrypt")
         {
-            Destroy(transform.GetChild(index).gameObject);
+            transform.GetChild(0).gameObject.SetActive(false);
         }
 
-        if (SceneManager.GetActiveScene().name == "CaranchoCrypt" && index == transform.childCount)
+
+        if (SceneManager.GetActiveScene().name == "Puzzle2")
         {
-            Destroy(transform.GetChild(0).gameObject);
+            transform.GetChild(1).gameObject.SetActive(false);
         }
+
 
         if (DataPlayer.Instance.PigeonCount > 3)
         {

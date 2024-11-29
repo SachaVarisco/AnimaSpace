@@ -15,10 +15,12 @@ public class PlayerWorldControl : MonoBehaviour
 
     [Header("Wild Appears")]
     [SerializeField] private LayerMask wildAppear;
+    [SerializeField] private GameObject wildAlert;
+    [SerializeField] private AudioClip wildEncounterSound;
 
     [Header("Components")]
     private Rigidbody2D rb2D;
-    private Animator animator;
+    public Animator animator;
 
     [Header("Dialogue")]
     public bool talking;
@@ -61,7 +63,7 @@ public class PlayerWorldControl : MonoBehaviour
         {
             if (DataPlayer.Instance.IsBack == true)
             {
-                Debug.Log("carga");
+                 //Debug.Log("carga");
                 //transform.position = DataPlayer.Instance.SpawnReturn;
                 DataPlayer.Instance.LoadWorldPosition();
             }
@@ -69,12 +71,14 @@ public class PlayerWorldControl : MonoBehaviour
 
     }
 
-    public void StopMovement(){
+    public void StopMovement()
+    {
 
         CanMove = false;
     }
 
-    public void ResumeMovement(){
+    public void ResumeMovement()
+    {
 
         CanMove = true;
     }
@@ -91,13 +95,13 @@ public class PlayerWorldControl : MonoBehaviour
 
     private void Move()
     {
-        if (Input.GetAxis("Horizontal") != 0 && !talking)
+        if (Input.GetAxis("Horizontal") != 0 && !talking && Time.timeScale == 1f)
         {
             //transform.position += new Vector3(horizontalMove, 0);
             animator.SetFloat("MoveX", horizontalMove);
 
         }
-        if (Input.GetAxis("Vertical") != 0 && !talking)
+        if (Input.GetAxis("Vertical") != 0 && !talking && Time.timeScale == 1f)
         {
             //transform.position += new Vector3(0, verticalMove);
             animator.SetFloat("MoveY", verticalMove);
@@ -112,14 +116,23 @@ public class PlayerWorldControl : MonoBehaviour
         if (Physics2D.OverlapCircle(transform.position, 0.2f, wildAppear) != null)
         {
 
-            if (Random.Range(1, 500) <= 1)
+            if (Random.Range(1, 325) <= 1)
             {
-
-                SceneData.Instance.Encounters();
-                //Debug.Log("Encounter");
+                StartCoroutine("WildEncounters");
             }
 
         }
+    }
+
+    private IEnumerator WildEncounters()
+    {
+        AudioControll.Instance.PlaySound(wildEncounterSound);       
+        StopMovement();
+        wildAlert.SetActive(true);
+        
+        yield return new WaitForSeconds(1f);
+        
+        SceneData.Instance.Encounters();
     }
 
 }

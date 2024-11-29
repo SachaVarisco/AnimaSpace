@@ -52,7 +52,7 @@ public class DataPlayer : MonoBehaviour
     }
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log("scene loaded");
+         //Debug.Log("scene loaded");
 
         if (scene.name == "BirdCrypt" || scene.name == "World" || scene.name == "CrowCrypt" || scene.name == "CaranchoCrypt")
         {
@@ -63,6 +63,9 @@ public class DataPlayer : MonoBehaviour
         {
 
             LiveCanva = GameObject.FindGameObjectWithTag("CanvaLifes").transform.GetChild(0).gameObject.GetComponent<LivesUI>();
+            
+            Debug.Log(ActualLife);
+
             LiveCanva.ChangeSouls(ActualLife);
             //changeLife.Invoke(ActualLife);
 
@@ -84,7 +87,6 @@ public class DataPlayer : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "CaranchoCrypt")
         {
-            GameObject.FindGameObjectWithTag("CanvaLifes").transform.GetChild(0).gameObject.SetActive(false);
 
             caranchoLost = true;
         }
@@ -126,17 +128,19 @@ public class DataPlayer : MonoBehaviour
         }
 
     }
+
+
     public void SaveWorldPosition()
     {
-        Debug.Log("Save");
+         //Debug.Log("Save");
         SpawnReturn = new Vector2(Player.transform.position.x, Player.transform.position.y);
 
     }
 
     public void LoadWorldPosition()
     {
-        Debug.Log("Load");
-        Player.transform.position = SpawnReturn;
+         //Debug.Log("Load");
+         Player.transform.position = SpawnReturn;
         IsBack = false;
     }
 
@@ -156,7 +160,7 @@ public class DataPlayer : MonoBehaviour
         //changeLife.Invoke(ActualLife);
         if (ActualLife <= 0)
         {
-            Debug.Log("Death");
+             //Debug.Log("Death");
         }
     }
 

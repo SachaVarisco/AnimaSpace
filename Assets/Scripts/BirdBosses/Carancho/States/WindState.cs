@@ -19,8 +19,8 @@ public class WindState : MonoBehaviour
     private void OnEnable()
     {
         StateIndicator.GetComponent<SpriteRenderer>().color = Color.red;
-        gameObject.GetComponent<Animator>().SetTrigger("Attack2");
-        ActiveStateObjWind();
+        gameObject.GetComponent<Animator>().Play("CaranchoAttack5");
+        //ActiveStateObjWind();
     }
     public void ActiveStateObjWind()
     {

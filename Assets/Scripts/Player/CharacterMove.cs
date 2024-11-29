@@ -10,7 +10,7 @@ public class CharacterMove : MonoBehaviour
     public bool talking;
     public float speed;
     private float horizontalMove;
-    
+
     [Header("Jump")]
     [SerializeField] private float force;
     [SerializeField] private LayerMask isGround;
@@ -21,17 +21,16 @@ public class CharacterMove : MonoBehaviour
 
     [Header("Components")]
     private Rigidbody2D rb2D;
-    private Animator animator; 
+    private Animator animator;
     private AudioSource audioSource;
 
-    [Header ("Player sounds")]
+    [Header("Player sounds")]
     [SerializeField] private AudioClip Jump;
-    //[SerializeField] private AudioClip WalkCombat;
+
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        audioSource = GetComponent<AudioSource>();
     }
     void Update()
     {
@@ -40,8 +39,9 @@ public class CharacterMove : MonoBehaviour
             jump = true;
         }
     }
-    private void FixedUpdate() {
-        horizontalMove = speed * Input.GetAxisRaw("Horizontal")  * Time.deltaTime;
+    private void FixedUpdate()
+    {
+        horizontalMove = speed * Input.GetAxisRaw("Horizontal") * Time.deltaTime;
         animator.SetFloat("MoveY", rb2D.velocity.y * Time.deltaTime);
         animator.SetBool("InGround", inGround);
         inGround = Physics2D.OverlapBox(groundControl.position, boxDimension, 0f, isGround);
@@ -50,21 +50,39 @@ public class CharacterMove : MonoBehaviour
         {
             Move(jump);
         }
-        jump = false; 
+        jump = false;
     }
-    private void Move(bool jump){
-        if (Input.GetAxis("Horizontal")!= 0 && !talking)
-        {  
+    private void Move(bool jump)
+    {
+        if (Input.GetAxis("Horizontal") != 0 && !talking && Time.timeScale == 1f)
+        {
             //audioSource.Play();
             transform.position += new Vector3(horizontalMove, 0);
-            animator.SetFloat("MoveX",Mathf.Abs(horizontalMove));
+            animator.SetFloat("MoveX", Mathf.Abs(horizontalMove));
         }
-        if(inGround && jump && !talking)
+        if (inGround && jump && !talking)
         {
-            audioSource.PlayOneShot(Jump);
+            AudioControll.Instance.PlaySound(Jump);
             inGround = false;
             rb2D.AddForce(new Vector2(0, force));
         }
+    }
+
+    public void StopMovement()
+    {
+
+        talking = true;
+
+        animator.SetFloat("MoveX", 0);
+        animator.SetFloat("MoveY", 0);
+
+    }
+
+    public void ResumeMovement()
+    {
+
+        talking = false;
+
     }
     void OnDrawGizmos()
     {
